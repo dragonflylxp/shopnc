@@ -1,0 +1,108 @@
+[2018-01-10 15:48:11] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:48:11] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:49:45] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:49:45] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:52:20] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:52:20] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:55:09] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:55:09] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:58:36] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:58:36] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:58:41] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:58:41] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:59:31] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:59:31] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 15:59:35] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 15:59:35] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:01:10] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:01:10] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:01:29] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:01:29] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:04:03] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:04:03] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:04:43] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:04:43] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:04:55] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:04:55] /kaice/shop/index.php?con=visual_editing&fun=homeFloor&act=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:14:12] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:14:12] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 16:30:00] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 16:30:00] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 21:55:52] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 21:55:52] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 22:02:32] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 22:02:32] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC
+[2018-01-10 22:02:57] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2018-01-10 22:02:57] /kaice/shop/index.php?con=visual_editing&fun=homeFloor ( con=visual_editing&fun=homefloor ) 
+ERR: Db Error: Table 'xinshop1.shop_category' doesn't exist
+SELECT cat_id , cat_name, cat_alias_name, cat_icon, style_icon FROM shop_category WHERE parent_id = '0'  AND is_show = 1 ORDER BY sort_order ASC, cat_id ASC

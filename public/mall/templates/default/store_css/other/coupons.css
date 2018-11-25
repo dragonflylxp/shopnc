@@ -1,0 +1,206 @@
+/*
+	@大商创优惠券页面style
+	@sunle-2016:06:21
+*/
+img{ float:none;vertical-align: middle;}
+.quan-main{ font-family: 'Microsoft YaHei';}
+
+
+#g-slider{ position: relative;overflow: hidden;padding-bottom: 10px;background: url(../../images/coupons/h-g-circle.png) repeat-x left bottom #fff;}
+#g-slider #g-scroll{ position: relative;height: 300px;overflow: hidden;margin: 0 auto;}
+#g-slider #g-scroll ul li{ position:relative; overflow:hidden; width:100%; text-align:center;}
+#g-slider #g-scroll ul li img{ display:block; border:0; float:none; margin:0 auto;}
+
+#g-slider #g-scroll .num-ctrl{ position: absolute;bottom: 5px;height: 22px;width: 100%;line-height: 20px;padding: 6px 0;text-align: center;z-index: 1;}
+#g-slider #g-scroll .num-ctrl li{ display: inline-block;vertical-align: middle;height: 10px;line-height: 66px;font-size: 0;width: 10px;text-align: center;color: #fff;margin-right: 10px;overflow: hidden;background: #fff;border-radius: 50%;-webkit-transition: all .2s ease 0;-moz-transition: all .2s ease 0;transition: all .2s ease 0;filter: alpha(opacity=70);-moz-opacity: .7;opacity: .7;}
+#g-slider #g-scroll .num-ctrl li.on{ background:#232323;}
+
+.gray-wrap{ margin-bottom: 30px;padding: 30px 0 0;background: url(../../images/coupons/h-circle.png) repeat-x left bottom #f7f7f7;}
+
+.seckill-icon,.task-icon,.tip-icon,.q-icon,.find-icon,.seckill-tab .am-icon,.seckill-tab .night-icon,.seckill-tab .pm-icon,.quan-sk-item .q-opbtns .qcode-btn b,.quan-task-item .task-state i,.quan-task-item .task-time b{ background:url(../../images/coupons/quan-icons.png) no-repeat;}
+.find-icon,.like-icon,.seckill-icon,.task-icon{ display: inline-block;width: 30px;height: 35px;margin-right: 5px;vertical-align: middle;overflow: hidden;}
+.task-icon{ background-position: -25px -281px;}
+.q-icon{ display: inline-block;width: 24px;height: 25px;margin-right: 5px;vertical-align: middle;overflow: hidden;}
+.jq-icon{ background-position: -34px -124px;}
+.find-icon{ background-position: -56px -278px;}
+
+.seckill-tab .am-icon,.seckill-tab .night-icon,.seckill-tab .pm-icon{ display: inline-block;width: 32px;height: 32px;margin-right: 5px;vertical-align: middle;overflow: hidden;}
+.seckill-icon{background-position: 0 -281px;}
+.seckill-tab .am-icon{ background-position: -47px -44px;}
+.seckill-tab .pm-icon{ background-position: 0 -43px;}
+.seckill-tab .night-icon{ background-position: -92px -43px;}
+.seckill-tab .curr .am-icon{ background-position: -47px -83px;}
+.seckill-tab .curr .pm-icon{ background-position: 0 -82px;}
+.seckill-tab .curr .night-icon{ background-position: -92px -82px;}
+
+.quan-seckill .mt{ position: relative;height: 38px;margin-bottom: 35px;}
+.quan-seckill h3{ position: relative;z-index: 2;float: left;height: 38px;line-height: 38px;font-size: 21px;color: #e4393c;font-weight: 400;background: #f7f7f7;}
+.quan-seckill .extra-r{ position: relative;z-index: 2;float: right;background: #f7f7f7;}
+
+.seckill-tab{ display:inline-block; display:block;}
+.seckill-tab li{ float: left;margin: 0 0 0 60px;color: #999;font-size: 18px;cursor: default;}
+.seckill-tab .curr{ color: #e4393c;}
+.seckill-tab span{ display: inline-block;vertical-align: middle;}
+.seckill-tab .txt{ margin: 0 10px 0 0;}
+.seckill-tab .num{ position: relative;height: 36px;line-height: 36px;padding: 0 5px;font-size: 24px;font-family: arial;font-weight: 700;border: 1px solid #e2e1e1;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;}
+.seckill-tab .colon{ color: #e2e1e1;}
+.seckill-tab .curr .num,.seckill-tab .curr .colon{ border-color: #ffa2a4;}
+.seckill-tab .num b{ display: block;position: absolute;z-index: 1;left: -1px;top: 16px;height: 4px;width: 100%;padding: 0 1px;background: #f7f7f7;}
+.seckill-tab .num em{ position: relative;z-index: 2;}
+
+.seckill-list:after,.task-list:after,.quan-list:after{ content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.seckill-list{ width:1230px;}
+.quan-sk-item{ display: inline-block;display: block;position: relative;height: 170px;width: 350px;padding-right: 130px;background: #fff;font-family: 'Microsoft YaHei';-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.quan-sk-item:hover{ -webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);-moz-box-shadow: 0 0 5px rgba(0,0,0,.1);box-shadow: 0 0 5px rgba(0,0,0,.1);}
+.seckill-list .quan-sk-item{ float: left;margin: 2px 28px 28px 2px;width: 424px;padding-right: 160px;}
+.quan-sk-item .sk-img{ float: left;width: 192px;padding: 20px 0;text-align: center;}
+.quan-sk-item .sk-img img{ -webkit-transition: all .3s ease;-moz-transition: all .3s ease;transition: all .3s ease;}
+.quan-sk-item .sk-img:hover img{ -webkit-transform: scale3d(0.98,.98,1);-moz-transform: scale3d(0.98,.98,1);transform: scale3d(0.98,.98,1);}
+.quan-sk-item .q-type{ float: left;width: 230px;padding: 27px 0 0;}
+.quan-sk-item .q-price{ display: inline-block;display: block;margin-bottom: 10px;color: #74d2d4; overflow:hidden;}
+.quan-sk-item .q-price em{ float: left;margin: 5px 0 0;font-family: verdana;font-size: 24px;}
+.quan-sk-item .q-price strong{ float: left;line-height: 50px;margin: 0 10px 0 5px;font-size: 60px;font-family: arial;_display: inline;}
+.quan-sk-item .q-price .txt{ float: left;line-height: 22px;margin-top: 25px;}
+.quan-sk-item .quota{ margin-right: 10px;color: #666;}
+.quan-sk-item .q-range{ line-height: 22px;color: #999;}
+.quan-sk-item .q-range .range-item p{ white-space: nowrap;text-overflow: ellipsis;overflow: hidden;width: 200px;cursor: default;}
+.quan-sk-item .q-opbtns{ position: absolute;bottom: 0;right: 0;width: 160px;height: 120px;padding: 30px 0 20px;background: #74d2d4;color: #fff;font-size: 14px;text-align: center;-webkit-border-radius: 0 5px 5px 0;-moz-border-radius: 0 5px 5px 0;border-radius: 0 5px 5px 0;}
+.quan-sk-item .q-opbtns .semi-circle{ display: block;position: absolute;z-index: 4;left: 0;top: 0;width: 3px;height: 170px;background: url(../../images/coupons/semi-circle.png) top center repeat-y;}
+.quan-sk-item .q-opbtns .q-btn{ position: relative;display: inline-block;width: 96px;height: 30px;line-height: 30px;border: 1px solid #fff;color: #fff;-webkit-border-radius: 16px;-moz-border-radius: 16px;border-radius: 16px;vertical-align: middle;font-size: 14px;font-family: 'Microsoft YaHei';overflow: hidden;}
+.quan-sk-item .q-opbtns .q-btn span.txt{ position: relative;z-index: 2;color: #fff;}
+.quan-sk-item .q-opbtns .q-btn b{ position: absolute;left: 0;top: 0;height: 100%;width: 0;background: #fff;-webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;}
+.quan-sk-item .q-opbtns .qcode-btn{ display: none;position: absolute;bottom: 0;right: 0;width: 29px;height: 29px;background: #c4feff;-webkit-border-radius: 5px 0;-moz-border-radius: 5px 0;border-radius: 5px 0;}
+.quan-sk-item .q-opbtns .qcode-btn b{ display: inline-block;width: 29px;height: 29px;background-position: 0 -384px;}
+.quan-sk-item .q-opbtns .q-btn:hover b{ width: 100%;}
+.quan-sk-item .q-opbtns .q-btn:hover span.txt { color: #197f81;}
+.quan-sk-item .qcode-box{ position: absolute;z-index: 3;right: 0;bottom: 0;width: 0;height: 0;background: #c4feff;text-align: center;overflow: hidden;-webkit-transition: all .3s;-moz-transition: all .3s;transition: all .3s;}
+.quan-sk-item .qcode-box .code-close{ display: block;position: absolute;z-index: 2;right: 10px;top: 10px;cursor: pointer;color: #74d2d4;font-family: verdana;font-size: 14px;font-weight: 700;}
+.quan-sk-item .btn-state,.quan-item .btn-state { background-image: url(../../images/coupons/quan-state.png);background-repeat: no-repeat;width: 69px;height: 69px;}
+.quan-sk-item .btn-geted, .quan-sk-item .btn-getend { width: 69px;height: 69px;margin: 0 auto 10px;line-height: 99em;overflow: hidden;}
+.quan-sk-item .btn-geted { background-position: 0 -316px;}
+.quan-sk-item .q-opbtns .q-btn-02 { border-color: #74d2d4;}
+.quan-sk-item .q-opbtns .q-btn-02 b { width: 100%;filter: alpha(opacity=80);-moz-opacity: .8;opacity: .8;}
+.quan-sk-item .q-opbtns .q-btn-02 span.txt{ color: #197f81;}
+.quan-sk-item .q-opbtns .q-btn-02:hover b{ filter: alpha(opacity=100);-moz-opacity: 1;opacity: 1;}
+.quan-gray-sk-item,.quan-gray-sk-item .q-price{ color:#c3c3c3;}
+.quan-gray-sk-item .q-opbtns{ background: #c3c3c3;}
+.quan-gray-sk-item .btn-getend{ background-position: -79px -79px;}
+.quan-gray-sk-item .q-opbtns .q-btn{ border: 0;}
+.quan-gray-sk-item .q-opbtns .q-btn span.txt,.quan-gray-sk-item .q-opbtns .q-btn:hover span.txt{ color: #fff;}
+.quan-gray-sk-item .q-opbtns .q-btn b,.quan-gray-sk-item .q-opbtns .q-btn:hover b{ width: 0;}
+.quan-gray-sk-item .q-opbtns .q-btn:hover{cursor: default;background: #c3c3c3;}
+
+.quan-d-sk-item .q-opbtns{ background: #74d2d4;}
+
+.quan-mod .mt{ position: relative;height: 38px;margin-bottom: 35px;}
+.quan-mod h3{ position: relative;z-index: 2;float: left;height: 38px;line-height: 38px;font-size: 21px;color: #e4393c;font-weight: 400;background: #fff;}
+.quan-mod .slogan{ float: left;position: relative;top: 13px;width: 145px;height: 20px;line-height: 99em;z-index: 2;font-size: 18px;color: #e4393c;_display: inline;overflow: hidden;background: url(../../images/coupons/slogan.png) #fff no-repeat;}
+.quan-mod .s1{ background-position: 0 0;}
+.quan-mod .s2{ background-position: 0 -30px;}
+.quan-mod .extra-r{ position: relative;z-index: 2;float: right;background: #fff;}
+.quan-mod .extra-r .more{ display: inline-block;height: 32px;line-height: 32px;padding: 0 20px;margin: 3px 0 0 10px;border: 1px solid #ccc;color: #222;-webkit-border-radius: 18px;-moz-border-radius: 18px;border-radius: 18px;}
+.quan-mod .extra-r .more:hover{ color: #e4393c;border-color: #e4393c;}
+.quan-mod .mt .line{ position: absolute;top: 20px;left: 0;width: 100%;height: 1px;background: #ffd3d4;overflow: hidden;}
+
+.task-list{ width:1230px;}
+.task-list .quan-task-item{ float: left;margin: 2px 21px 28px 4px; cursor:pointer;}
+.quan-task-item{ position: relative;height: 220px;width: 584px;padding: 30px 0;border: 1px solid #f1f1f1;font-family: 'Microsoft YaHei';overflow: visible;}
+.quan-task-item:hover{ border-color: #fff;-webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);-moz-box-shadow: 0 0 5px rgba(0,0,0,.1);box-shadow: 0 0 5px rgba(0,0,0,.1);}
+.quan-task-item .p-img{ float: left;width: 280px;text-align: center;}
+.quan-task-item .p-img img{ -webkit-transition: all .3s ease;-moz-transition: all .3s ease;transition: all .3s ease; width:240px; height:240px;}
+.quan-task-item .p-img:hover img{ -webkit-transform: scale3d(0.98,.98,1);-moz-transform: scale3d(0.98,.98,1);transform: scale3d(0.98,.98,1);}
+.quan-task-item .task-rcol{ float: left;width: 275px;}
+.quan-task-item .p-name{ height: 44px;line-height: 22px;font-size: 18px;overflow: hidden;}
+.quan-task-item .p-ad{ display: inline-block;position: relative;width: 77px;height: 20px;line-height: 20px;text-align: center;margin: 15px 0;color: #ef8889;background: url(../../images/coupons/quan-icons.png) 0 -221px;}
+.quan-task-item .p-price{ display: inline-block;display: block;color: #e4393c; overflow:hidden;}
+.quan-task-item .p-price em{ float: left;margin: 5px 0 0;font-family: verdana;font-size: 24px;}
+.quan-task-item .p-price strong{ float: left;line-height: 50px;margin: 0 10px 0 5px;font-size: 60px;font-family: arial;_display: inline;}
+.quan-task-item .p-price .quan-types{ float: left; margin-top:20px;}
+.quan-task-item .task-time{ color: #999; margin-top:40px; overflow:hidden; height:30px; padding:0 20px 0 15px; background-color:#eee; line-height:30px; float:left;}
+.quan-task-item .task-time b{ position: relative;top: -1px;display: inline-block;width: 18px;height: 18px;margin-right: 5px;background-position: 0 -193px;vertical-align: middle;}
+.quan-task-item .task-time .fl_b{ top:6px; float:left;}
+.quan-task-item .task-time .time{ display:inline-block;}
+.quan-task-item .task-time span{ margin:0 2px;}
+
+.quan-item{ position: relative;height: 170px;width: 312px;padding-right: 65px;border: 1px solid #f1f1f1;background: #fff;font-family: 'Microsoft YaHei';}
+.quan-item:hover{ -webkit-box-shadow: 0 0 5px rgba(0,0,0,.1);-moz-box-shadow: 0 0 5px rgba(0,0,0,.1);box-shadow: 0 0 5px rgba(0,0,0,.1);}
+.quan-list{ display: inline-block;display: block;width: 1230px;}
+.quan-list .quan-item{ float: left;margin: 2px 28px 28px 2px;}
+.quan-item .q-type{ padding: 25px 0 20px 25px;}
+.quan-item .q-price{ display: inline-block;display: block;margin-bottom: 10px;color: #74d2d4; overflow:hidden;}
+.quan-item .q-price em{ float: left;margin: 5px 0 0;font-family: verdana;font-size: 24px;}
+.quan-item .q-price strong{ float: left;line-height: 50px;margin: 0 10px 0 5px;font-size: 60px;font-family: arial;_display: inline;}
+.quan-item .q-price .txt{ float: left;line-height: 22px;}
+.quan-item .q-range{ line-height: 22px;color: #999;}
+.quan-item .q-range .range-item p{ white-space: nowrap;text-overflow: ellipsis;overflow: hidden;width: 200px;cursor: default;}
+.quan-item .q-opbtns{ position: absolute;top: 0;right: 0;width: 20px;height: 170px;height: 133px;padding: 37px 24px 0 36px;line-height: 24px;background: #74d2d4;color: #fff;font-size: 14px;}
+.quan-item .q-opbtns a{ display: block;width: 100%;height: 100%;color: #fff;}
+.quan-item .btn-geted,.quan-item .btn-getend{ position:absolute; width: 69px;height: 69px;line-height: 99em;overflow: hidden;bottom: 5px;right: 90px;}
+.quan-item .q-opbtns .semi-circle{ display: block;position: absolute;left: 0;top: 0;width: 3px;height: 170px;background: url(../../images/coupons/semi-circle.png) repeat-y;}
+.quan-item .btn-state{ position: absolute;}
+.quan-item .btn-overdued{ background-position: -184px -65px;}
+.quan-item .btn-overdue,.quan-item .btn-overdued,.quan-item .btn-wish {width: 55px;height: 55px;line-height: 99em;top: 0;left: 0;background-position: -184px 0;overflow: hidden;}
+
+.quan-d-item .q-opbtns a:hover{ color: #197f81;}
+.quan-d-item .btn-geted{ background-position: 0 -158px;}
+.quan-gray-item .q-opbtns{ background: #c3c3c3;}
+.quan-gray-item .q-price{ color: #c3c3c3;}
+.quan-gray-item .q-opbtns a{ color: #868686;}
+.quan-gray-item .q-opbtns a:hover{ color: #868686;cursor: default;}
+.quan-gray-item .btn-getend{ background-position: 0 -79px;}
+.quan-item .btn-overdued { background-position: -184px -65px;}
+
+.quan-cats{ display: inline-block;display: block;padding: 0 0 30px;text-align: center;}
+.quan-cats .item{ display: inline-block;width: 60px;padding: 0 50px;text-align: center;}
+.quan-cats .item h5{ font-size: 14px;color: #999;font-weight: 400;}
+.quan-cats .item .curr h5,.quan-cats .item a:hover h5{ color: #e4393c;font-weight: 700;}
+.quan-cats .item i{ background-image: url(../../images/coupons/quan-cats.png);background-repeat: no-repeat;}
+.quan-cats .item i{ display: block;width: 50px;height: 50px;margin: 0 auto 20px;}
+.quan-cats .item i.fore0 { background-position: 0 0;}
+.quan-cats .item i.fore1 { background-position: 0 -60px;}
+.quan-cats .item i.fore2 { background-position: 0 -120px;}
+.quan-cats .item i.fore3 { background-position: 0 -180px;}
+.quan-cats .item i.fore4 { background-position: 0 -240px;}
+.quan-cats .item i.fore5 { background-position: 0 -300px;}
+.quan-cats .item i.fore6 { background-position: 0 -360px;}
+.quan-cats .item i.fore7 { background-position: 0 -420px;}
+.quan-cats .item i.fore8 { background-position: 0 -460px;}
+.quan-cats .item i.fore9 { background-position: 0 -540px;}
+
+.quan-cats .item .curr i.fore0, .quan-cats .item a:hover i.fore0 { background-position: -60px 0;}
+.quan-cats .item .curr i.fore1, .quan-cats .item a:hover i.fore1 { background-position: -60px -60px;}
+.quan-cats .item .curr i.fore2, .quan-cats .item a:hover i.fore2 { background-position: -60px -120px;}
+.quan-cats .item .curr i.fore3, .quan-cats .item a:hover i.fore3 { background-position: -60px -180px;}
+.quan-cats .item .curr i.fore4, .quan-cats .item a:hover i.fore4 { background-position: -60px -240px;}
+.quan-cats .item .curr i.fore5, .quan-cats .item a:hover i.fore5 { background-position: -60px -300px;}
+.quan-cats .item .curr i.fore6, .quan-cats .item a:hover i.fore6 { background-position: -60px -360px;}
+.quan-cats .item .curr i.fore7, .quan-cats .item a:hover i.fore7 { background-position: -60px -420px;}
+.quan-cats .item .curr i.fore8, .quan-cats .item a:hover i.fore8 { background-position: -60px -480px;}
+.quan-cats .item .curr i.fore9, .quan-cats .item a:hover i.fore9 { background-position: -60px -540px;}
+
+.quan-filter { display: inline-block;display: block;line-height: 40px;border: 1px solid #f1f1f1;background: #fff;}
+.quan-filter:after { content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.quan-filter .f-service, .quan-filter .f-sort, .quan-filter .f-types { float: left;padding-right: 20px;border-left: 1px solid #f1f1f1;}
+.quan-filter .f-sort { border-left: none;}
+.quan-filter a { display: inline-block;height: 40px;line-height: 40px;margin-left: 20px;color: #333;}
+.quan-filter a.selted,.quan-filter a:hover { color: #e4393c;}
+.quan-filter a i { position: relative;top: -2px;display: inline-block;width: 12px;height: 12px;margin-right: 5px;border: 1px solid #f1f1f1;vertical-align: middle;}
+.quan-filter a.selted i { display: inline-block;background-image: url(../../images/coupons/quan-icons.png);background-repeat: no-repeat;}
+.quan-filter a.selted i,.quan-filter a:hover i { border-color: #e4393c;}
+.quan-filter a.selted i { background-position: -65px 0;}
+
+.canvas { width: 69px; height:69px;margin: 0 auto 10px; position:relative;}
+.canvas .canvas_wrap,.canvas .circle,.canvas .circle_item{ position: absolute;width: 60px;height: 60px;border-radius: 50%;}
+.canvas .canvas_wrap{ background-color: #50b1b3;}
+.canvas .circle{ box-sizing: border-box;border:2px solid #50b1b3;clip:rect(0,60px,60px,30px);}
+.canvas .clip-auto{ clip:rect(auto, auto, auto, auto);}
+.canvas .circle_item{ box-sizing: border-box;top:-2px;left:-2px;}
+.canvas .circle_left{ transform: rotate(72deg);border:2px solid #75f0f3;clip: rect(0,30px,60px,0);}
+.canvas .circle_right{ border:2px solid #75f0f3;clip: rect(0,60px,60px,30px);}
+.canvas .wth0{ width:0;}
+.canvas .canvas_num{ position: absolute;box-sizing: border-box;width: 56px;height: 56px;text-align: center;font-size: 12px;left: 2px;top: 2px;border-radius: 50%;background-color: #74d2d4;z-index: 1;}
+.canvas .canvas_num span{ display:block; margin-top:10px;}
+
+.cd-time span{ margin:0;}
+
+

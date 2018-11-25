@@ -1,0 +1,100 @@
+/*
+Template Name: DSC1.0
+Template URI: http://www.010xr.com/
+Description: 商创2.0升级版.
+Version: 1.0
+Author: ecmoban Team
+Author URI: http://www.010xr.com/
+Logo filename: logo.gif
+business_logo filename: business_logo.gif
+Template Type: type_0
+*/
+
+
+.ecsc-breadcrumb{ padding:10px 0; line-height:24px;}
+.ecsc-breadcrumb span{ float:left; font-size:12px;color:#666; display:inline-block; width:auto; max-width:300px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.ecsc-breadcrumb .arrow{ font-family: "宋体";line-height: 24px;color: #AAA;margin: 0 6px;}
+
+/*礼品卡*/
+.usBox{background:#f2f2f2;padding:15px;width:1180px;}
+.usBox_1{background:#fff;text-align:left;width:553px;height:208px;padding:43px 0 60px 134px}
+.usBox .img{ float:left; margin-left:10px;}
+.usBox .us_Submit{ border: 1px solid #ec5051;display: block;width: 100px;background: #ec5051;height: 35px;line-height: 20px;color: #fff;font-size: 16px;font-family: '\5fae\8f6f\96c5\9ed1';cursor: pointer; margin-top:10px;}
+.usTxt { width: auto;height: auto;padding: 40px 40px 0px 93px;background: url(../../images/ur_bg1.gif) no-repeat 0 60%;float: right;text-align: left;line-height: 23px;}
+
+.AreaL { float: left;width: 202px;border: 1px solid #dcdcdc;margin: -1px 0 0 -1px;}
+.AreaL .search_history h1{ padding: 0 18px 0 19px;height: 48px;line-height: 48px;font-size: 14px;color: #727171;font-weight:normal;font-family:"microsoft yahei";}
+.AreaR { float:right; width: 980px;}
+.gift_gard_list{ width:100%; overflow:hidden; margin-bottom:20px;}
+.gift_gard_list .title{ margin-bottom:10px; height:33px; line-height:33px; border-bottom:1px solid #e6e6e6; width:920px; margin:0 0 0 12px;}
+.gift_gard_list .title span{ color:#333; font-size:15px; padding-left:0px; float:left; font-weight:bold;}
+.gift_gard_list .title .fr{font-size:14px;}
+.gift_gard_list .title .fr i{ color:#e4393c; margin-right:20px;}
+.gift_gard_list .title .fr a{ font-weight:normal; color:#005ea7;}
+.gift_gard_list .title .fr a:hover{ text-decoration:underline;}
+.gift_list_form .relative-list{ width:100%; overflow:hidden; margin-left:8px; padding-bottom:15px; min-height:500px;}
+.gift_list_form .relative-list li{ float: left;width: 220px;overflow: hidden;border: 1px solid #ddd;margin: 15px 5px 0;}
+.gift_list_form .relative-list li:hover{border-color:#e4393c;}
+.gift_list_form .recommend-item-pic,.gift_list_form .recommend-item-pic a{width:220px;height:220px;}
+.gift_list_form .recommend-item-pic img {vertical-align: middle;}
+.gift_list_form .recommend-item-info {padding: 10px;line-height: 1;}
+.gift_list_form .recommend-item-info p { margin-top:5px;}
+.gift_list_form .recommend-item-info .price {color: #e4393c;font-size: 14px;vertical-align: text-bottom;}
+.gift_list_form .recommend-item-info .item-title {display: block;height: 22px; line-height:22px;white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;color:#333;}
+.gift_list_form .recommend-item-info .item-title:hover{color:#e4393c;}
+.gift_list_form .recommend-item-info .btn_th{background: #E4393C;vertical-align: middle;display: inline-block;font-family: inherit;word-break: keep-all;white-space: nowrap;font-weight: 400;text-align: center;line-height: 30px;font-size: 14px;cursor: pointer;padding: 0 15px;height: 30px;color: #fff;border: 0;border-radius: 2px;outline: 0;}
+.gift_list_form .recommend-item-info .btn_th:hover{}
+.gift_list_form .nolist{text-align:center;padding:200px 0;font-size:14px;}
+#tabtop-R3{position: relative;padding: 0 10px;height: 31px;line-height: 31px;background: #f3f3f3;}
+#tabtop-R3 .close{cursor: pointer;display: block;position: absolute;z-index: 100000;top: 10px;right: 10px;overflow: hidden;width: 13px;height: 13px;background: url(../../images/dialog.png) no-repeat;font-size: 0;text-indent: -99999px;}
+#tabtop-R3 .title{font-weight: normal;font-size: 14px;color: #666;font-family: "Microsoft YaHei";}
+.mod-main {padding: 10px;background-color: #fff;margin-bottom: 20px;}
+.mod-main .input_container {margin: 0 0 20px 0;overflow: hidden;position:relative;}
+.input_container label {float: left;width: 110px;text-align: right;margin-right: 10px;line-height: 30px;color: #666;}
+.input_container label .spark {vertical-align: baseline;display: inline-block;padding-right: 4px;color: #ed415b;}
+.usBox tr,.usBox td{ margin:10px 0px; padding:5px}
+.input_container input{padding: 5px;box-shadow: 0 1px 2px 0 #f0f0f0 inset;background: #fff;line-height: 1.5;height: 1.5em;border-radius: 2px;border: 1px solid #ccc;font-size: 12px;outline: 0;float: left;}
+.input_container select{ height:30px;margin-right: 10px;}
+.mod-main .act {margin-left: 120px;}
+.mod-main .formbutton{background: #E4393C;vertical-align: middle;display: inline-block;font-family: inherit;word-break: keep-all;white-space: nowrap;font-weight: 400;text-align: center;line-height: 32px;font-size: 14px;cursor: pointer;padding: 0 15px;height: 32px;color: #fff;border: 0;border-radius: 2px;outline: 0;}
+
+.comment-operate .nice.red,.comment-operate .reply.red{color:red;}
+
+.mode-list-arrow{ position:relative;}
+.mode-list-arrow em{ position:absolute;width:0; height:0; border-width:6px; border-color:transparent transparent #c8c8c8 transparent; border-style:dashed dashed solid dashed; overflow:hidden; top:-22px; left:30px;}
+.mode-list-arrow span{position:absolute;width:0; height:0; border-width:6px; border-color:transparent transparent #fff transparent; border-style:dashed dashed solid dashed; overflow:hidden; top:-21px; left:30px;}
+
+.radio-list li.mode-tab-log{ height:auto;}
+.logistics{ float:left; position:absolute; padding-top:10px; display:none; top:30px;}
+.logistics-content{ border:1px solid #dcdcdc; padding:10px; width:203px;background:#fff;}
+.logistics-content li{ float: left;height: 28px;line-height: 28px;cursor: pointer; width:100px; text-align:center; padding:0; margin:0; border:0;}
+.logistics-content li.item-selected{ padding:0; border:0; color:#ec5051;}
+
+.btn {
+    font-family: "microsoft yahei";
+    float: right;
+    font-size: 14px;
+    color: #fff;
+    background: #ec5151;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+.search_history ul{ width:178px; padding:12px;}
+.search_history ul li{ overflow:hidden; margin-bottom:20px;}
+.search_history ul li.last{ margin-bottom:10px;}
+.search_history .p-img{ width:178px; height:178px; display:block;}
+.search_history .p-name{ overflow:hidden; height:36px; margin-top:5px; margin-bottom:10px;}
+.search_history .p-name a{ display:block;}
+.search_history .p-price{ float:left; font-size:14px; color:#ec5051; padding-top:7px;}
+.search_history .btn{ background: #fff;color: #666;border: 1px solid #a0a0a0;}
+.search_history .btn:hover{ background: #fff;color: #ec5051;border: 1px solid #ec5051;}
+
+/*修改*/
+.usBox_1 .items{ overflow:hidden; margin-top:20px;}
+.usBox_1 .items .item{ overflow:hidden; margin-bottom:20px;}
+.usBox_1 .items .item .label{ min-width:80px; text-align:right; line-height:35px; line-height:35px; float:left; margin-right:10px;}
+.usBox_1 .items .item .value{ float:left;}
+.usBox_1 .items .item .text{ height:35px; width:212px; float:left;}
+.usBox_1 .items .item .captcha_input{ width:232px;}
+.usBox_1 .items .item .captcha_input .text{ width:100px; height:28px;}
+.usBox_1 .items .item .form_prompt{ float:left; line-height:37px;}

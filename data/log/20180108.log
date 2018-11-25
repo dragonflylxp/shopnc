@@ -1,0 +1,3 @@
+[2018-01-08 10:09:41] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'

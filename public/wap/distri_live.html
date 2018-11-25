@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+		<title>shopec商城触屏版</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				padding: 0;
+				margin: 0
+			}
+			
+			#tpl-wrap {
+				width: 100%;
+				left: 0;
+				top: 0;
+				right: 0;
+				height: 100%;
+				margin: 0 auto;
+				z-index: 999999
+			}
+			
+			[data-dpr] #tpl-wrap {
+				width: 10rem
+			}
+			
+			.tpl-v2 {
+				display: -webkit-box;
+				-webkit-box-pack: center
+			}
+			
+			.tpl-v2 #banner {
+				width: 320px;
+				height: 416px;
+				overflow: hidden;
+				position: relative;
+				vertical-align: middle
+			}
+			
+			.tpl-v2 #banner img {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				vertical-align: middle
+			}
+			
+			.tpl-v2 #banner a {
+				display: block;
+				left: 21px;
+				width: 280px;
+				height: 63px;
+				position: absolute;
+				border-radius: 4px
+			}
+			
+			.tpl-v2 #open {
+				top: 50px
+			}
+			
+			.tpl-v2 #download {
+				top: 150px
+			}
+			
+			.tpl-v2 #banner a.defbtn {
+				background-color: #ff9400;
+				color: #FFF;
+				font-size: 30px;
+				text-align: center;
+				line-height: 63px;
+				box-shadow: 0 2px 0 rgba(0, 0, 0, .2)
+			}
+			
+			.tpl-v2 #toast {
+				display: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				padding: 12px;
+				font-size: 16px;
+				text-align: center;
+				background-color: rgba(0, 0, 0, .5);
+				color: #FFF;
+				box-sizing: border-box
+			}
+			
+			[data-dpr="1"] .tpl-v2 #banner {
+				width: 10rem;
+				height: 13rem
+			}
+			
+			[data-dpr="1"] .tpl-v2 #banner a {
+				left: .65625rem;
+				width: 8.75rem;
+				height: 1.96875rem;
+				border-radius: 8px
+			}
+			
+			[data-dpr="1"] .tpl-v2 #open {
+				top: 7.8125rem
+			}
+			
+			[data-dpr="1"] .tpl-v2 #download {
+				top: 10.125rem
+			}
+			
+			[data-dpr="1"] .tpl-v2 #banner a.defbtn {
+				line-height: 1.96875rem
+			}
+			
+			[data-dpr="1"] .tpl-v2 #banner a.defbtn {
+				font-size: 30px
+			}
+			
+			[data-dpr="1"] .tpl-v2 #toast {
+				padding: .1875rem;
+				font-size: 16px
+			}
+			
+			[data-dpr="2"] .tpl-v2 #banner {
+				width: 10rem;
+				height: 13rem
+			}
+			
+			[data-dpr="2"] .tpl-v2 #banner a {
+				left: .65625rem;
+				width: 8.75rem;
+				height: 1.96875rem;
+				border-radius: 8px
+			}
+			
+			[data-dpr="2"] .tpl-v2 #open {
+				top: 7.8125rem
+			}
+			
+			[data-dpr="2"] .tpl-v2 #download {
+				top: 10.125rem
+			}
+			
+			[data-dpr="2"] .tpl-v2 #banner a.defbtn {
+				line-height: 1.96875rem
+			}
+			
+			[data-dpr="2"] .tpl-v2 #banner a.defbtn {
+				font-size: 60px
+			}
+			
+			[data-dpr="2"] .tpl-v2 #toast {
+				padding: .1875rem;
+				font-size: 32px
+			}
+			
+			[data-dpr="3"] .tpl-v2 #banner {
+				width: 10rem;
+				height: 13rem
+			}
+			
+			[data-dpr="3"] .tpl-v2 #banner a {
+				left: .65625rem;
+				width: 8.75rem;
+				height: 1.96875rem;
+				border-radius: 8px
+			}
+			
+			[data-dpr="3"] .tpl-v2 #open {
+				top: 7.8125rem
+			}
+			
+			[data-dpr="3"] .tpl-v2 #download {
+				top: 10.125rem
+			}
+			
+			[data-dpr="3"] .tpl-v2 #banner a.defbtn {
+				line-height: 1.96875rem
+			}
+			
+			[data-dpr="3"] .tpl-v2 #banner a.defbtn {
+				font-size: 90px
+			}
+			
+			[data-dpr="3"] .tpl-v2 #toast {
+				padding: .1875rem;
+				font-size: 48px
+			}
+			
+			.tpl-v3 {
+				position: absolute;
+				background-color: rgba(0, 0, 0, .3);
+				display: none;
+				-webkit-box-pack: center;
+				-webkit-box-align: center
+			}
+			
+			.tpl-v3 .box {
+				padding: 10px 20px;
+				background-color: #FFF;
+				border-radius: 4px
+			}
+			
+			.tpl-v3 .box p {
+				margin: 0;
+				padding: 10px;
+				text-align: center;
+				font-size: 14px;
+				line-height: 1.5em;
+				color: #333
+			}
+			
+			.tpl-v3 .box div {
+				padding: 10px;
+				text-align: center
+			}
+			
+			.tpl-v3 .down {
+				display: inline-block;
+				color: #FFF;
+				font-size: 14px;
+				margin-right: 10px;
+				background: #ff5000;
+				padding: 5px 10px;
+				border-radius: 4px
+			}
+			
+			.tpl-v3 .go {
+				display: inline-block;
+				color: #FFF;
+				font-size: 14px;
+				background: #5f646e;
+				padding: 5px 10px;
+				border-radius: 4px
+			}
+			
+			[data-dpr="1"] .tpl-v3 .box {
+				padding: 10px 20px;
+				border-radius: 4px
+			}
+			
+			[data-dpr="1"] .tpl-v3 p {
+				padding: 10px;
+				font-size: 14px;
+				line-height: 1.5em
+			}
+			
+			[data-dpr="1"] .tpl-v3 div {
+				padding: 10px
+			}
+			
+			[data-dpr="1"] .tpl-v3 .down {
+				font-size: 14px;
+				margin-right: 10px;
+				padding: 5px 10px;
+				border-radius: 4px
+			}
+			
+			[data-dpr="1"] .tpl-v3 .go {
+				font-size: 14px;
+				padding: 5px 10px;
+				border-radius: 4px
+			}
+			
+			[data-dpr="2"] .tpl-v3 .box {
+				padding: 20px 40px;
+				border-radius: 8px
+			}
+			
+			[data-dpr="2"] .tpl-v3 p {
+				padding: 20px;
+				font-size: 28px;
+				line-height: 1.5em
+			}
+			
+			[data-dpr="2"] .tpl-v3 div {
+				padding: 20px
+			}
+			
+			[data-dpr="2"] .tpl-v3 .down {
+				font-size: 28px;
+				margin-right: 20px;
+				padding: 10px 20px;
+				border-radius: 8px
+			}
+			
+			[data-dpr="2"] .tpl-v3 .go {
+				font-size: 28px;
+				padding: 10px 20px;
+				border-radius: 8px
+			}
+			
+			[data-dpr="3"] .tpl-v3 .box {
+				padding: 30px 60px;
+				border-radius: 12px
+			}
+			
+			[data-dpr="3"] .tpl-v3 p {
+				padding: 30px;
+				font-size: 42px;
+				line-height: 1.5em
+			}
+			
+			[data-dpr="3"] .tpl-v3 div {
+				padding: 30px
+			}
+			
+			[data-dpr="3"] .tpl-v3 .down {
+				font-size: 42px;
+				margin-right: 30px;
+				padding: 15px 30px;
+				border-radius: 12px
+			}
+			
+			[data-dpr="3"] .tpl-v3 .go {
+				font-size: 42px;
+				padding: 15px 30px;
+				border-radius: 12px
+			}
+		</style>
+		<title>test</title>
+		<script>
+			var LocString = String(window.document.location.href);
+
+			function getQueryStr(str) {
+				var rs = new RegExp("(^|)" + str + "=([^&]*)(&|$)", "gi").exec(LocString),
+					tmp;
+				if (tmp = rs) {
+					return tmp[2];
+				}
+				// parameter cannot be found
+				return "";
+			}
+		</script>
+	</head>
+
+	<body>
+		<img src="images/distri_share_img.png" style="width: 100%;" /> <br>
+		<div id="tpl-wrap" class="tpl-v2">
+			<div id="banner" class="defimg">
+				<a id="open" onclick="openApp()" class="defbtn">打开手机app</a>
+				<a id="download" onclick="downApp()" class="defbtn">下载手机app</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript">
+			var id = getQueryStr("id");
+			console.log(id)
+			var url = getQueryStr("url");
+			console.log(url)
+
+			var androidUrl = "znn://aa.bb:80/test?id=" + id + "&url=" + url;
+			var iosUrl = "shopecb2b2c://id=" + id + "&url=" + url;
+			$(function() {
+				var ua = navigator.userAgent.toLowerCase();	
+				if (/iphone|ipad|ipod/.test(ua)) {
+					location.href = iosUrl;
+				} else if (/android/.test(ua)) {
+					location.href = androidUrl;
+				}				 
+			});
+
+			function openApp() {				
+				var ua = navigator.userAgent.toLowerCase();	
+				if (/iphone|ipad|ipod/.test(ua)) {
+				  	location.href = iosUrl;
+				} else if (/android/.test(ua)) {
+				   	location.href = androidUrl;
+				}
+				setTimeout(function() {
+					alert("没有该应用，请下载")
+				}, 10);
+			}
+
+			function downApp() {
+				var ua = navigator.userAgent.toLowerCase();	
+				if (/iphone|ipad|ipod/.test(ua)) {
+				  	location.href = IOSSiteUrl;
+				} else if (/android/.test(ua)) {
+				   	location.href = AndroidSiteUrl;
+				}
+			}
+		</script>
+	</body>
+</html>

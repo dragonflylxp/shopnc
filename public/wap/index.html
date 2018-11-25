@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1"/>
+    <title>商城触屏版</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/reset_index.css">-->
+    <link rel="apple-touch-icon" href="images/touch-icon-iphone.png"/>
+</head>
+<body>
+<div class="nctouch-home-top fixed-Width">
+
+
+    <!--<header id="header" class="transparent" >
+        <div class="logo"></div>
+        <div class="header-wrap">
+            <a href="tmpl/search.html" class="header-inp"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span>
+            </a>
+        </div>
+        <div class="header-r"><a id="header-nav" href="./tmpl/member/chat_list.html"><i class="message"></i>
+
+            <p>消息</p>
+            <sup></sup></a></div>
+    </header>-->
+
+    <!--<div class="cohesive"></div>-->
+
+    <header id="header_new" class=" clear">
+        <div class="header-pr">
+
+            <div class="logo-qrcode">
+                <i></i>
+                <p>二维码</p>
+            </div>
+
+
+            <a href="tmpl/search.html" class="header-inp-new clears">
+                <i></i>
+                <span id="keyword">搜索商品</span>
+            </a>
+
+
+            <a id="header-nav-new" class="header-r-new" href="./tmpl/member/chat_list.html">
+                <i></i>
+                <p>消息</p>
+            </a>
+
+        </div>
+    </header>
+
+    <div class="adv_list" id="main-container1"></div>
+</div>
+<div class="nctouch-home-nav">
+    <!--<ul>
+        <li><a href="tmpl/product_first_categroy.html"><i></i>
+
+            <p>分类</p>
+        </a></li>
+        <li><a href="tmpl/cart_list.html"><span><i></i></span>
+
+            <p>购物车</p>
+        </a></li>
+        <li><a href="tmpl/member/member.html"><span><i></i></span>
+
+            <p>我的商城</p>
+        </a></li>
+        <li><a href="tmpl/member/signin.html"><span><i></i></span>
+
+            <p>每日签到</p>
+        </a></li>
+    </ul>-->
+
+    <!--分类导航 start  @author liming-->
+    <ul class="clears">
+        <li><a href="tmpl/product_first_categroy.html">
+            <i></i>
+            <p>分类</p>
+        </a></li>
+        <li><a href="tmpl/cart_list.html">
+            <i></i>
+            <p>购物车</p>
+        </a></li>
+        <li><a href="tmpl/member/member.html">
+            <i></i>
+            <p>我的商城</p>
+        </a></li>
+        <li><a href="tmpl/member/signin.html">
+            <i></i>
+            <p>每日签到</p>
+        </a></li>
+        <li><a href="tmpl/mall.html">
+            <i></i>
+            <p>店铺街</p>
+        </a></li>        
+    </ul>
+    <!--分类导航 end  @author liming-->
+
+</div>
+<div class="error-tips"></div>
+<div class="nctouch-home-layout" id="main-container2"></div>
+<div class="fix-block-r">
+    <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+<footer id="footer" class="fixed-Width"></footer>
+<script type="text/html" id="adv_list">
+    <div class="swipe-wrap">
+        <% for (var i in item) { %>
+        <div class="item">
+            <a href="<%= item[i].url %>">
+                <img src="<%= item[i].image %>" alt="">
+            </a>
+        </div>
+        <% } %>
+    </div>
+</script>
+<script type="text/html" id="home1">
+    <div class="nctouch-home-block">
+        <% if (title) { %>
+        <div class="tit-bar"><%= title %></div>
+        <% } %>
+        <div class="item-pic">
+            <a href="<%= url %>">
+                <img src="<%= image %>" alt="">
+            </a>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="home2">
+    <div class="nctouch-home-block">
+        <% if (title) { %>
+        <div class="tit-bar"><%= title %></div>
+        <% } %>
+        <ul class="item-pic-l1-r2">
+            <li>
+                <a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+            </li>
+            <li>
+                <a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+            </li>
+            <li>
+                <a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+            </li>
+        </ul>
+    </div>
+</script>
+<script type="text/html" id="home3">
+    <div class="nctouch-home-block">
+        <% if (title) { %>
+        <div class="tit-bar"><%= title %></div>
+        <% } %>
+        <ul class="item-pic-list">
+            <% for (var i in item) { %>
+            <li>
+                <a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt=""></a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</script>
+<script type="text/html" id="home4">
+    <div class="nctouch-home-block">
+        <% if (title) { %>
+        <div class="tit-bar"><%= title %></div>
+        <% } %>
+        <ul class="item-pic-l2-r1">
+            <li>
+                <a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+            </li>
+            <li>
+                <a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+            </li>
+            <li>
+                <a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+            </li>
+        </ul>
+    </div>
+</script>
+<script type="text/html" id="goods">
+    <div class="nctouch-home-block item-goods">
+        <% if (title) { %>
+        <div class="tit-bar"><%= title %></div>
+        <% } %>
+        <ul class="goods-list">
+            <% for (var i in item) { %>
+            <li>
+                <a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+
+                    <div class="goods-pic">
+                        <img src="<%= item[i].goods_image %>" alt="">
+                        <!--<div class="goods-price" style="height: 24px;width: 40%;background-color: #b0b0b0;opacity: 0.7;position: absolute;z-index:1;bottom: 4%;right: 4%;border-top-left-radius: 12px;border-bottom-right-radius: 12px"></div>-->
+                        <dd class="goods-price g_price">￥<em><%= item[i].goods_promotion_price %></em></dd>
+                    </div>
+                    <dl class="goods-info">
+                        <dt class="goods-name"><%= item[i].goods_name %></dt>
+                        <!--<dd class="goods-price" >￥<em><%= item[i].goods_promotion_price %></em></dd>-->
+                    </dl>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</script>
+<!-- 我的视频 wap端不显示 此处占位 -->
+<script type="text/html" id="video_list">
+    <% if(wap_display == 0) { %>
+    <% } %>
+</script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/comlog.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/tmpl/footer.js"></script>
+
+<script type="text/javascript" src="js/addtohomescreen.js"></script>
+<script>
+    addToHomescreen({
+        message: '如要把应用程式加至主屏幕,请点击%icon, 然后<strong>加至主屏幕</strong>'
+    });
+</script>
+</body>
+</html>

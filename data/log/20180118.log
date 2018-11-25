@@ -1,0 +1,36 @@
+[2018-01-18 01:28:37] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:29:26] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '12' ) AND ( goods.goods_state = '1' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '12' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:29:26] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:29:31] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '12' ) AND ( goods.goods_state = '1' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '12' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:29:31] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:29:46] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:30:06] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:30:56] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 01:30:57] /kaice/shop/index.php?con=visual_editing&fun=floor_cat_content ( con=visual_editing&fun=floor_cat_content ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1'' at line 1
+SELECT CONCAT(goods.goods_commonid,',',goods.color_id) nc_distinct,* FROM `shop_goods` goods WHERE ( goods_id = '1' ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY nc_distinct ORDER BY goods.goods_id asc LIMIT 1000  
+[2018-01-18 20:27:01] /kaice/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1516278420','242')
+[2018-01-18 20:29:11] /kaice/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1516278549','242')
+[2018-01-18 20:30:46] /kaice/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1516278645','242')

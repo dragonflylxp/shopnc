@@ -1,0 +1,2 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?>
+<iframe frameborder='0' height="670px" width="910px" scrolling="auto" src="index.php?con=store_goods_online&fun=edit_body_ajax&goods_id=<?php echo $_GET['goods_id']?>"></iframe>

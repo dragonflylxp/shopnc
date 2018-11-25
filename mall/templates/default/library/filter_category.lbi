@@ -1,0 +1,18 @@
+<div class="select-top">
+	<a href="javascript:;" class="categoryTop" data-cid="0" data-cname="" data-show='{$cat_type_show|default:0}' data-seller='{$user_id|default:0}'>重选</a>
+	{foreach from=$filter_category_navigation item=navigation}
+	&gt <a href="javascript:;" class="categoryOne" data-cid="{$navigation.cat_id}" data-cname="{$navigation.cat_name}" data-url='{$navigation.url}' data-show='{$cat_type_show|default:0}' data-seller='{$user_id|default:0}'>{$navigation.cat_name}</a>
+	{foreachelse}
+	&gt <span>请选择分类</span>
+	{/foreach}
+</div>
+<div class="select-list">
+	<ul>
+		{foreach from=$filter_category_list item=category}
+		<li data-cid="{$category.cat_id}" data-cname="{$category.cat_name}" {if $category.is_selected}class="blue"{/if} data-url='{$category.url}' data-show='{$cat_type_show|default:0}' data-seller='{$user_id|default:0}'>
+			<em>{if $filter_category_level eq 1}Ⅰ{elseif $filter_category_level eq 2}Ⅱ{elseif $filter_category_level eq 3}Ⅲ{else}Ⅰ{/if}</em>
+			{$category.cat_name}
+		</li>
+		{/foreach}
+	</ul>
+</div>

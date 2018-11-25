@@ -1,0 +1,18 @@
+[2017-12-31 15:54:07] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2017-12-31 15:55:41] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2017-12-31 15:56:05] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2017-12-31 15:57:31] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2017-12-31 16:06:25] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'
+[2017-12-31 16:09:45] /kaice/shop/index.php?con=visual_editing&fun=goods_info ( con=visual_editing&fun=goods_info ) 
+ERR: Db Error: Table 'xinshop1.shop_merchants_shop_information' doesn't exist
+SELECT user_shopMain_category FROM shop_merchants_shop_information WHERE user_id = '242'

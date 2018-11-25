@@ -1,0 +1,12 @@
+{if $child_category}
+<select onchange="get_select_category(this.value,{$cat_level|default:0},'{$select_jsId|default:cat_parent_id}',{$type|default:0}, 0)" cat-level="{$cat_level}" cat-type="select" class="select">	
+	{if $cat_level eq 1}
+	<option value="0" {if $cat_info.parent_id eq 0}selected="selected"{/if}>顶级分类</option>
+	{else}
+	<option value="0">请选择分类</option>
+	{/if}
+	{foreach from=$child_category item=child name=child}
+	<option value="{$child.cat_id}" {if $child.cat_id eq $child_cat_id}selected="selected"{/if}>{$child.cat_name}</option>
+	{/foreach}
+</select>
+{/if}

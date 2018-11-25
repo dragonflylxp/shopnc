@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>新闻详情</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/index-min.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_products_detail.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_products_article.css">
+<style>
+	@font-face {
+	font-family:'iconfont';src:url(../css/iconfont_14.eot);src:url(../css/iconfont_14.eot?#iefix) format('embedded-opentype'),url(../css/iconfont_14.woff) format('woff'),url(../css/iconfont_14.ttf) format('truetype'),url(../css/iconfont_14.svg#iconfont) format('svg')
+}
+.m_article .m_article_info .m_article_abstract {
+    font-size: .64rem;
+    margin-bottom: .2rem;
+    color: #908989;
+    /* line-height: .42rem; */
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-line-break: auto;
+    -webkit-box-orient: vertical;
+}
+</style>
+</head>
+<body>
+<header id="header" class="nctouch-product-header fixed ">
+	
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-title"><h1 id='htitle'></h1></div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../tmpl/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div id="product_detail_html" style="position: relative; z-index: 1;"></div>
+
+<script type="text/html" id="product_detail">
+<main class="mt20">
+        <!--文章内容-->
+        <article id="article-D1U9CLV40001875N">
+            <div class="head">
+                <h1 class="title"><%=article_detail.article_title%></h1>
+                <div class="info">
+                    <span class="time js-time"><%=article_detail.article_publish_time%></span>
+                    <span class="source js-source"><%=article_detail.article_publisher_name%></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wenzhang page js-page on"><%=article_detail.article_content%>
+                    </div>
+            </div>
+            
+        </article>
+        <!-- 相关商品-->
+        <div class="article-related-goods"> 
+          <!-- 相关商品 -->
+          <h3>相关商品</h3>
+           <%for (var i = 0;i<article_goods_list.length;i++){%>         
+           <dl>
+            <dt class="goods-name"><a target="_blank" href="<%=article_goods_list[i].url%>"> <%=article_goods_list[i].title%></a> </dt>
+            <dd class="goods-pic"><a target="_blank" href="<%=article_goods_list[i].url%>"><img src="<%=article_goods_list[i].image%>" title="<%=article_goods_list[i].title%>"> </a></dd>
+            <dd class="goods-price">价格：<em><%=article_goods_list[i].price%></em></dd>
+            <dd class="goods-handle"><a target="_blank" href="<%=article_goods_list[i].url%>">商品详情</a></dd>
+          </dl>
+          <%}%>
+                  </div>
+        <!-- 相关推荐 -->
+        <div class="relative_doc relativedoc-D1U9CLV40001875N" style="display: block;">
+   <%if(article_link_list.length > 0){%>     	
+    <h3>相关推荐</h3>
+    <div class="relative_list js-relativelist">
+<%for (var i = 0;i<article_link_list.length;i++){%>    	
+<section class="m_article list-item list-article  clearfix" id="D1O986VV04148ESJ">
+    <a target="_blank" href="product_article.html?article_id=<%=article_link_list[i].article_id%>">
+        <div class="m_article_img">
+                <img src="<%=article_link_list[i].image%>">
+        </div>
+        <div class="m_article_info">
+            <div class="m_article_title">
+                <span><%=article_link_list[i].article_title%></span>
+            </div>
+            <div class="m_article_abstract">
+                <span><%=article_link_list[i].article_abstract%></span>
+            </div>
+            <div class="m_article_desc clearfix">
+                <div class="m_article_desc_l">
+                    <span class="m_article_time"><%=article_link_list[i].article_publish_time%></span>
+                </div>
+                    <div class="m_article_desc_r">
+                        <div class="left_hands_desc">
+                            <span class="iconfont"></span><%=article_link_list[i].article_click%> &nbsp &nbsp &nbsp &nbsp
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </a>
+</section>
+<%}%>
+
+<% } %>
+</div>
+
+</div>
+        
+        
+    </main>
+
+
+</script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/prism-h5-min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/swipe.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/iscroll.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/tmpl/footer.js"></script> 
+<script type="text/javascript" src="../js/fly/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="../js/fly/zepto.fly.min.js"></script>
+<script type="text/javascript" src="../js/tmpl/product_artcle.js"></script>
+
+</body>
+</html>

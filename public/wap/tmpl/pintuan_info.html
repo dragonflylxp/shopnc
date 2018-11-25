@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>拼团详情</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_products_detail.css">
+</head>
+<body>
+<header id="header" class="posf">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <ul class="header-nav">
+      <li class="cur"><a href="javascript:void(0);" id="goodsBody">详情</a></li>
+    </ul>
+    <div class="header-r"><a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../tmpl/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../tmpl/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div style="position: relative; z-index: 1; top: 1.95rem;" id="product_detail_html">
+</div>
+    <div id="guide"><img src="../images/guide1.png"></div>
+    <div id="cover"></div>
+    <div class="puzzle-btn" id="btn_html">
+    </div>
+<script type="text/html" id="product_detail">
+    <div class="puzzle-info">
+		<div class="puzzle-img">
+			<a href="product_detail.html?goods_id=<%=goods_id%>&log_id=<%=log_id%>&buyer_id=<%=buyer_id%>"><img src="<%=goods_image_url%>"></a>
+		</div>
+		<div class="puzzle-name">
+			<h5><%=goods_name%></h5>
+			<% if (goods_price) { %>
+			<div class="puzzle-original">
+				<div class="puzzle-cost">￥<em><%=goods_price%></em><span class="cost-unit">元/件</span></div>
+				<span class="yuan-price">原价</span>
+			</div>
+			<% } %>
+			<div class="puzzle-original puzzle">
+				<div class="puzzle-cost">￥<em><%=pintuan_price%></em><span class="cost-unit">元/件</span></div>
+				<span class="yuan-price"><%=min_num%>人团</span>
+			</div>
+		</div>
+    </div>
+    <div class="puzzle-time">
+    <% if (pintuan_end_time) { %>
+    	<div class="puzzle-goto">
+    		<a class="goto-btn" href="product_detail.html?goods_id=<%=goods_id%>&log_id=<%=log_id%>&buyer_id=<%=buyer_id%>">去拼团</a>
+    	</div>
+		<p class="puzzle-number"><i></i>已开团，离成团还差<em><%=num%></em>人</p>
+		<p class="puzzle-Countdown" count_down="<%=pintuan_end_time%>">剩<em time_id="h">01</em>:<em time_id="m">01</em>:<em time_id="s">01</em>自动结束</p>
+	<% } else { %>
+	    <p class="puzzle-number"><i></i>活动已经结束</p>
+    <% } %>
+		<p class="puzzle-details"><span>快去邀请好友参团吧！</span><a class="goto-btn" href="pintuan_document.html">玩法详情</a></p>
+    </div>
+
+    <div class="puzzle-record">
+		<h5>开团记录</h5>
+		<ul>
+			<%for (var i = 0;i<log_list.length;i++){%>
+			<li>
+				<img class="record-img" src="<%=log_list[i].avatar%>">
+				<div class="record-text">
+					<p class="record"><%=log_list[i].buyer_name%></p>
+					<p><em><%=log_list[i].time_text%></em><%=log_list[i].type_text%></p>
+				</div>
+			</li>
+			<% } %>
+		</ul>
+		<h5></h5>
+		<h5></h5>
+    </div>
+</script> 
+<script type="text/html" id="puzzle-btn">
+    <% if (pintuan_end_time) { %>
+		<a class="invite-btn" href="javascript:;" onclick="_system._guide(true)">邀请好友参团</a>
+		<% if (order_id) { %>
+		<a class="order-btn" href="./member/order_detail.html?order_id=<%=order_id%>">查看订单详情</a>
+		<% } else { %>
+		<a class="order-btn" href="product_detail.html?goods_id=<%=goods_id%>&log_id=<%=log_id%>&buyer_id=<%=buyer_id%>">参团购买</a>
+		<% } %>
+    <% } %>
+</script> 
+    <script type="text/javascript">
+    var _system={
+        $:function(id){return document.getElementById(id);},
+   _client:function(){
+      return {w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight,bw:document.documentElement.clientWidth,bh:document.documentElement.clientHeight};
+   },
+   _scroll:function(){
+      return {x:document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft,y:document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop};
+   },
+   _cover:function(show){
+      if(show){
+     this.$("cover").style.display="block";
+     this.$("cover").style.width=(this._client().bw>this._client().w?this._client().bw:this._client().w)+"px";
+     this.$("cover").style.height=(this._client().bh>this._client().h?this._client().bh:this._client().h)+"px";
+  }else{
+     this.$("cover").style.display="none";
+  }
+   },
+   _guide:function(click){
+      this._cover(true);
+      this.$("guide").style.display="block";
+      this.$("guide").style.top=(_system._scroll().y+5)+"px";
+      window.onresize=function(){_system._cover(true);_system.$("guide").style.top=(_system._scroll().y+5)+"px";};
+  if(click){_system.$("cover").onclick=function(){
+         _system._cover();
+         _system.$("guide").style.display="none";
+ _system.$("cover").onclick=null;
+ window.onresize=null;
+  };}
+   },
+   _zero:function(n){
+      return n<0?0:n;
+   }
+}
+</script>
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/tmpl/pintuan_info.js"></script> 
+</body>
+</html>

@@ -1,0 +1,319 @@
+<link href="http://localhost/kaice/cms/templates/cms_special.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://localhost/kaice/data/resource/js/jcarousel/jquery.jcarousel.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://localhost/kaice/admin/resource/js/slidesjs/jquery.slides.min.js" charset="utf-8"></script>
+<link href="http://localhost/kaice/data/resource/js/jcarousel/skins/personal/skin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(document).ready(function() {
+    if($('#index1_1_1_content').children().length > 0) {
+        $('#index1_1_1_content').slidesjs({
+            play: {
+                active: true,
+                    interval: 5000,
+                    auto: true,
+                    pauseOnHover: false,
+                    restartDelay: 2500
+            },
+            callback: {
+                complete: function(number) {
+                    var $item = $(".slidesjs-pagination-item");
+                    $item.removeClass("current");
+                    $item.eq(number - 1).addClass("current");
+                }
+            },
+                width: 380,
+                height: 260
+        });
+        $(".slidesjs-pagination-item").eq(0).addClass("current");
+    }
+
+    //图片延迟加载
+    $(".lazyload_container").nc_lazyload_init();
+    $("img").nc_lazyload();
+
+    //计算自定义块高度
+    var frames = $('.cms-module-frame');
+    $.each(frames, function(index, frame) {
+        var boxs = $(frame).find('[nctype="cms_module_content"]');
+        var height = 0;
+        $.each(boxs, function(index2, box) {
+            var box_height = $(box).height();
+            if(box_height > height) {
+                height = box_height;
+            }
+        });
+        boxs.height(height);
+    });
+});
+</script>
+<div class="cms-index-module-index1 module-style-style7">
+  <div class="cms-index-module-index1-1"> 
+    <!-- 封面图 -->
+    <div class="index1-1-1-content">
+        <div class="index1-1-1-content-ul-wrap">
+            <ul id="index1_1_1_content" style="height:260px;" nctype="object_module_edit">
+                <li class="picture"><div class="cms-thumb"><a href="" target="_blank"><img data-image-name="05519651227959784.jpg" src="http://211.149.234.251/data/upload/cms/index/05519651227959784.jpg" alt="" class="t-img"></a></div></li>            </ul>
+        </div>
+            </div>
+    <!-- 圈子|专题 -->
+    <div class="cms-index-module-index1-1-2">
+        <div id="index1_1_2_content" class="index1-1-2-content" nctype="object_module_edit"> <li class="picture"><div class="cms-thumb"><a href="" target="_blank"><img data-image-name="05532060594838492.jpg" src="http://118.31.17.175/data/upload/cms/index/05532060594838492.jpg" alt="" class="t-img"></a></div></li> </div>
+              </div>
+  </div>
+  <!-- 文章　-->
+  <div class="cms-index-module-index1-2">
+    <div class="cms-index-module-index1-2-1">
+      <div class="title-bar">
+        <h3 id="index1_2_1_title" nctype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-big">
+        <ul id="index1_2_1_1_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-recommand">
+        <ul id="index1_2_1_2_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_2_title" nctype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_2_1_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_2_2_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_3_title" nctype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_3_1_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_3_2_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_4_title" nctype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_4_1_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_4_2_content" nctype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+      </div>
+  <!-- 商品分类　-->
+  <div class="cms-index-module-index1-3">
+    <div class="title-bar">
+      <h3 id="index1_3_title" nctype="object_module_edit"></h3>
+          </div>
+    <div class="content-box mall-class">
+      <div id="index1_3_content" nctype="object_module_edit">  </div>
+            <div class="goto-mall"><a href="http://localhost/kaice/shop" target="_blank">进入商城</a></div>
+   </div>
+   <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$(window).load(function() {
+//比例局中裁切显示图片
+	$(".cms-index-module-index1-1-1 .t-img").VMiddleImg({"width":380,"height":230});
+    $(".circle-theme-item .t-img").VMiddleImg({"width":160,"height":100});
+	$(".cms-index-module-index1-2 .t-img").VMiddleImg({"width":120,"height":96});
+
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var personal_count = Math.ceil($("#indexPersonal li").length / 4);
+    var control_html = '<div id="indexPersonalControl" nctype="cms_index_not_save">';
+    for(var i = 1; i <= personal_count; i++) {
+        control_html += '<a href="javascript:;" class="" data-count="'+ i +'"></a>';
+    }
+    control_html += "</div>";
+    $("#indexPersonal").after(control_html);
+    //个人秀滚动
+    $('#indexPersonal').jcarousel({
+        initCallback: mycarousel_initCallback,
+            itemLoadCallback: mycarousel_LoadCallback,
+            auto:5,
+            scroll:4,
+            wrap:'last',
+            buttonNextHTML: null,
+            buttonPrevHTML: null
+    });
+    function mycarousel_LoadCallback(carousel, state) {
+        $("#indexPersonalControl a").each(function() {
+            if($(this).attr("data-count") * 4 - 3 == carousel.first) {
+                $(this).attr("class", "current");
+            } else {
+                $(this).attr("class", "");
+            }
+        });
+    };
+    function mycarousel_initCallback(carousel) {
+        $('#indexPersonalControl a').live('click', function() {
+            carousel.scroll(jQuery.jcarousel.intval($(this).attr("data-count")) * 4 - 3);
+            return false;
+        });
+    };
+
+    //店铺
+    $("[nc_type='index_store']").each(function() {
+        var overall = $(this).find("li.overall");
+        var simple = $(this).find("li.simple");
+        overall.hide();
+        overall.first().show();
+        simple.first().hide();
+        simple.mouseover(function(){
+            simple.show();
+            overall.hide();
+            $(this).prev("li.overall").show();
+            $(this).hide();
+        });
+    });
+
+});
+</script>
+
+<div class="cms-index-module-micro">
+  <div id="micro_content" nctype="object_module_edit">   </div>
+    </div>
+<textarea class="lazyload_container" rows="10" cols="30" style="display:none;">
+
+<div class="cms-index-module-adv1">
+  <ul id="adv_content" nctype="object_module_edit">
+      </ul>
+  </div>
+</textarea>
+<textarea class="lazyload_container" rows="10" cols="30" style="display:none;">
+<div class="cms-index-module-article1 module-style-style7">
+  <div class="cms-index-module-article-title"> 
+    <!-- 标题 -->
+    <div class="cms-index-module-article-title-left">
+      <h2 id="article1_title" nctype="object_module_edit"></h2>
+          </div>
+    <!-- 标签 -->
+    <div class="cms-index-module-article-title-right">
+      <ul id="article1_tag" nctype="object_module_edit">
+              </ul>
+          </div>
+  </div>
+  <div class="clear"></div>
+  <div class="cms-index-module-article1-1"> 
+    <!-- 封面图 -->
+    <div class="article1-1-1-contnet">
+      <ul id="article1_image" nctype="object_module_edit">
+        <li class="picture"><div class="cms-thumb"><a href="" target="_blank"><img data-image-name="05691191690137130.jpg" src="http://localhost/kaice/data/upload/cms/index/05691191690137130.jpg" alt="" class="t-img"></a></div></li>      </ul>
+          </div>
+    <!-- 文章　-->
+    <div class="cms-index-module-article1-1-2">
+      <div class="title-bar">
+        <h3 id="article1_1_2_title" nctype="object_module_edit"></h3>
+              </div>
+      <div class="content-box">
+        <ul id="article1_1_2_content" nctype="object_module_edit">
+          <li><span nctype="article_view" class="cms-index-count_1">1</span>
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=5" target="_blank" class_name="今日头条" article_abstract="测试发布测试发布测试发布" article_click="57" article_publish_time="2017-10-31" article_image="http://localhost/kaice/data/upload/cms/article/45715/05627792052632117_list.jpg">
+                测试发布            </a>
+            
+        </span>
+        
+        
+        <span nctype="article_view" class="cms-index-click-count">57人关注</span></li><li><span nctype="article_view" class="cms-index-count_2">2</span>
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=7" target="_blank" class_name="今日头条" article_abstract="测试1新闻关联商品测试1新闻关联商品" article_click="3" article_publish_time="2017-11-23" article_image="http://localhost/kaice/data/upload/cms/article/45715/05647460157944066_list.jpg">
+                测试1新闻关联商品            </a>
+            
+        </span>
+        
+        
+        <span nctype="article_view" class="cms-index-click-count">3人关注</span></li>        </ul>
+              </div>
+    </div>
+  </div>
+  <!-- 文章　-->
+  <div class="cms-index-module-article1-2">
+    <div class="title-bar">
+      <h3 id="article1_2_title" nctype="object_module_edit"></h3>
+          </div>
+    <div class="content-box">
+      <ul id="article1_2_1_content" nctype="object_module_edit">
+        <li class="cms-index-article-focus">
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=7" target="_blank" class_name="今日头条" article_abstract="测试1新闻关联商品测试1新闻关联商品" article_click="3" article_publish_time="2017-11-23" article_image="http://localhost/kaice/data/upload/cms/article/45715/05647460157944066_list.jpg">
+                测试1新闻关联商品            </a>
+            
+        </span>
+        
+        
+        </li><li class="cms-index-article-normal"><span nctype="article_view" class="cms-index-article-class">今日头条</span>
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=5" target="_blank" class_name="今日头条" article_abstract="测试发布测试发布测试发布" article_click="57" article_publish_time="2017-10-31" article_image="http://localhost/kaice/data/upload/cms/article/45715/05627792052632117_list.jpg">
+                测试发布            </a>
+            
+        </span>
+        
+        
+        <span nctype="article_view" class="cms-index-article-date">31日</span></li>      </ul>
+          </div>
+    <div class="content-box">
+      <ul id="article1_2_2_content" nctype="object_module_edit">
+        <li class="cms-index-article-focus">
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=6" target="_blank" class_name="今日头条" article_abstract="百花湖冬天游湖开始啦！来吧来吧" article_click="7" article_publish_time="2017-11-04" article_image="http://localhost/kaice/data/upload/cms/article/45722/05631073150877656_list.jpg">
+                百花湖冬天游湖开始啦！            </a>
+            
+        </span>
+        
+        
+        </li><li class="cms-index-article-normal"><span nctype="article_view" class="cms-index-article-class">今日头条</span>
+        
+        <span class="title">
+            
+            <a nctype="article_item" href="http://localhost/kaice/cms/index.php?con=article&fun=article_detail&article_id=4" target="_blank" class_name="今日头条" article_abstract="测试文章测试文章测试文章测试文章" article_click="30" article_publish_time="2017-10-30" article_image="http://localhost/kaice/data/upload/cms/no_cover.png">
+                测试文章            </a>
+            
+        </span>
+        
+        
+        <span nctype="article_view" class="cms-index-article-date">30日</span></li>      </ul>
+          </div>
+  </div>
+  <!-- 商品　-->
+  <div class="cms-index-module-article1-3">
+    <div class="title-bar">
+      <h3 id="article1_3_title" nctype="object_module_edit"></h3>
+          </div>
+    <div class="content-box">
+      <ul id="article1_3_content" nctype="object_module_edit">
+              </ul>
+          </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</textarea>
+

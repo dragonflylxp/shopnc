@@ -1,0 +1,73 @@
+/*
+* 按钮样式
+*/
+.btn {
+    width: 40px;
+    height: 32px;
+    cursor: pointer;
+    color: white;
+}
+
+/*#allTobalance{
+    width:82px;
+    height:25px;
+    color:#434a54;
+    background:#e0d4ba;
+}*/
+
+#allTobalance {
+    width: 90px;
+    height: 32px;
+    border-radius: 5px;
+    Letter-spacing: 1px;
+    color: white;
+    background: #48CFAE;
+    border: 0px;
+}
+
+#allTobalance:hover {
+    background: #41bd9f;
+    cursor: pointer;
+}
+
+.btn {
+    border: 0px;
+    border-radius: 5px;
+    background-color: #4fc2e2;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background-color: #3dadcc;
+}
+
+.btn-2 {
+    width: 50px
+}
+
+.btn3{
+    background-color: #48CFAE;
+    color: white;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.btn3:hover{
+    background-color: #41bd9f;
+    cursor: pointer;
+}
+.btn-4{
+    background-color: #bdbdbd;
+    color: white;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+}

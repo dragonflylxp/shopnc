@@ -1,0 +1,189 @@
+[2017-12-28 15:54:00] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 15:54:03] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 15:56:07] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 16:20:32] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 16:42:02] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 16:48:01] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 16:49:56] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 18:18:32] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 18:18:32] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 18:18:32] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 18:36:09] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 18:36:09] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 18:36:09] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 20:12:40] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:12:40] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 20:12:40] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 20:13:14] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:13:14] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 20:13:14] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 20:13:48] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:13:48] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 20:13:48] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Table 'xinshop1.shop_pic_album' doesn't exist
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 20:43:28] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:43:28] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Unknown column 'store_time' in 'order clause'
+SELECT COUNT(*) FROM shop_pic_album WHERE 1 ORDER BY store_time DESC
+[2017-12-28 20:43:28] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: Unknown column 'store_time' in 'order clause'
+SELECT * FROM shop_pic_album WHERE 1 ORDER BY store_time DESC LIMIT 0,21
+[2017-12-28 20:47:10] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:52:52] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:53:03] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:57:17] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 20:59:31] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:00:58] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:01:17] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:01:28] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:14:16] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:15:49] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:16:36] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:18:22] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:20:20] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:21:13] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:23:14] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:32:55] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:35:55] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:38:49] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:39:07] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:39:44] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:40:47] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:44:42] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:45:17] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 21:46:38] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:48:27] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:48:57] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:49:29] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:50:06] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:52:33] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:58:59] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 22:59:28] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:05:31] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:09:55] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:14:26] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:14:44] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:22:45] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:25:10] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 
+[2017-12-28 23:25:59] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMshop_gallery_album WHERE 1 

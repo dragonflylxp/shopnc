@@ -1,0 +1,33 @@
+[2017-05-25 09:03:48] /mobile/index.php?con=index ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_mb_special_item' doesn't exist
+SELECT * FROM `shop_mb_special_item` mb_special_item WHERE ( special_id = '0' ) AND ( item_usable = '1' ) ORDER BY item_sort asc LIMIT 1000  
+[2017-05-25 09:03:48] /mobile/index.php?con=index ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_video_category' doesn't exist
+SELECT * FROM `shop_video_category` video_category WHERE ( is_recommend = '1' ) ORDER BY cate_parent_id asc,cate_sort asc,cate_id asc 
+[2017-05-25 09:08:34] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_setting' doesn't exist
+SELECT * FROM `shop_setting` as `setting`  WHERE name='default_area'
+[2017-05-25 09:08:34] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_store_map' doesn't exist
+SELECT * FROM `shop_store_map` store_map WHERE ( baidu_city LIKE '%北京市%' ) ORDER BY map_id desc LIMIT 1000  
+[2017-05-25 09:08:34] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_p_xianshi_goods' doesn't exist
+SELECT * FROM `shop_p_xianshi_goods` p_xianshi_goods WHERE ( state = '1' ) AND ( start_time < '1495674511' ) AND ( end_time > '1495674511' ) ORDER BY xianshi_recommend desc,xianshi_goods_id desc LIMIT 9  
+[2017-05-25 09:08:35] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_web' doesn't exist
+SELECT * FROM `shop_web` web WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2017-05-25 09:09:42] /shop/index.php?con=index&fun=viewed_info ( con=index&fun=viewed_info ) 
+ERR: Db Error: Table 'xinshop.shop_setting' doesn't exist
+SELECT * FROM `shop_setting` as `setting`  WHERE name='default_area'
+[2017-05-25 09:09:42] /shop/index.php?con=index&fun=viewed_info ( con=index&fun=viewed_info ) 
+ERR: Db Error: Table 'xinshop.shop_store_map' doesn't exist
+SELECT * FROM `shop_store_map` store_map WHERE ( baidu_city LIKE '%北京市%' ) ORDER BY map_id desc LIMIT 1000  
+[2017-05-25 09:11:40] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_store_map' doesn't exist
+SELECT * FROM `shop_store_map` store_map WHERE ( baidu_city LIKE '%北京市%' ) ORDER BY map_id desc LIMIT 1000  
+[2017-05-25 09:11:40] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_web' doesn't exist
+SELECT * FROM `shop_web` web WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2017-05-25 09:11:47] /shop/index.php?con=index&fun=viewed_info ( con=index&fun=viewed_info ) 
+ERR: Db Error: Table 'xinshop.shop_store_map' doesn't exist
+SELECT * FROM `shop_store_map` store_map WHERE ( baidu_city LIKE '%北京市%' ) ORDER BY map_id desc LIMIT 1000  

@@ -1,0 +1,17 @@
+<ul>
+        {foreach from=$cat_store_list item=cat}
+    <li>
+        <div class="jOneLevelarea user_temp_one">
+            <div class="jTwoLevel">
+                <span class="square_box"></span>
+                 <a href="{$cat.url}" target="_blank">{$cat.cat_name}</a>
+            </div>
+            <div class="s_b">
+                {foreach from=$cat.child_tree item=tree}
+                <a href="{$tree.url}" target="_blank">{$tree.name}</a>
+                {/foreach}
+            </div>
+        </div>
+    </li>
+    {/foreach}
+</ul>

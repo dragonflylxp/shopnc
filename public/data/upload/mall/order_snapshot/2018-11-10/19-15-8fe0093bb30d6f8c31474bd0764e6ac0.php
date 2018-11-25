@@ -1,0 +1,1 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?><div class="default"><img src="http://localhost/kaice/data/upload/shop/store/goods/242/242_05696226291823126_1280.jpg" alt="image" /><img src="http://localhost/kaice/data/upload/shop/store/goods/242/242_05599055036185083_1280.jpg" alt="image" /></div>

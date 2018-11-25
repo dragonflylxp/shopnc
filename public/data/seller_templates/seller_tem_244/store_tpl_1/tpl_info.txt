@@ -1,0 +1,8 @@
+------tpl_info------------
+tpl name：511613932设计商家店铺模板NO.1
+tpl url：
+description：橙色，大气，服装店铺模板
+version：v1.0
+author：511613932
+author url：
+------tpl_info------------

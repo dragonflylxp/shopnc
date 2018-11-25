@@ -1,0 +1,150 @@
+.ncap-form-default { padding: 0;}
+.item-publish { width: 999px;}
+.hint { font-size: 12px; line-height: 16px; color: #BBB; margin-top: 10px; }
+.add-on { line-height: 28px; background-color: #F6F7Fb; vertical-align: top; display: inline-block; text-align: center; width: 28px; height: 28px; border: solid #E6E9EE; border-width: 1px 1px 1px 0;}
+.add-on { *display: inline/*IE6,7*/; zoom:1;}
+.add-on i { font-size: 14px; color: #434A54; *margin-top: 8px/*IE7*/; margin-right: 0!important;}
+.ncsc-upload-btn { vertical-align: top; display: inline-block; *display: inline/*IE7*/; width: 80px; height: 30px; margin: 5px 5px 0 0; *zoom:1;}
+.ncsc-upload-btn a { display: block; position: relative; z-index: 1;}
+.ncsc-upload-btn span { width: 80px; height: 30px; position: absolute; left: 0; top: 0; z-index: 2; cursor: pointer;}
+.ncsc-upload-btn .input-file { width: 80px; height: 30px; padding: 0; margin: 0; border: none 0; opacity:0; filter: alpha(opacity=0); cursor: pointer; }
+.ncsc-upload-btn p { font-size: 12px; line-height: 20px; background-color: #F5F5F5; color: #999; text-align: center; color: #666; width: 78px; height: 20px; padding: 4px 0; border: solid 1px; border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC; position: absolute; left: 0; top: 0; z-index: 1;}
+.ncsc-upload-btn p i { vertical-align: middle; margin-right: 4px;}
+.ncsc-upload-btn a:hover p { background-color: #E6E6E6; color: #333; border-color: #CFCFCF #CFCFCF #B3B3B3 #CFCFCF;}a.ncbtn-mini,
+                                                                                                                    a.ncbtn { font: normal 12px/20px "microsoft yahei", arial; color: #FFF; background-color: #CCD0D9; text-align: center; vertical-align: middle; display: inline-block; *display: inline; height: 20px; padding: 5px 10px; border-radius: 3px; cursor: pointer; *zoom: 1;}
+a.ncbtn-mini { line-height: 16px; height: 16px; padding: 3px 7px; border-radius: 2px;}
+a.ncbtn { height: 20px; padding: 5px 10px; border-radius: 3px; }
+a:hover.ncbtn-mini,
+a:hover.ncbtn { text-decoration: none; color: #FFF; background-color: #AAB2BD;}
+a.ncbtn-mini i,
+a.ncbtn i { font-size: 14px !important; vertical-align: middle; margin: 0 4px 0 0 !important;}
+.ncsc-brand-select { width: 230px; position: relative; z-index: 1;}
+.ncsc-brand-select .selection { cursor: pointer;}
+.ncsc-brand-select-container { background: #FFF; display: none; width: 220px; border: solid 1px #CCC; position: absolute; z-index: 1; top: 29px; left: 0;}
+.ncsc-brand-select-container .brand-index { width: 210px; padding-bottom: 10px; margin: 6px auto; border-bottom: dotted 1px #CCC;}
+.ncsc-brand-select-container .letter {  }
+.ncsc-brand-select-container .letter ul { overflow: hidden;}
+.ncsc-brand-select-container .letter ul li { float: left; }
+.ncsc-brand-select-container .letter ul li a { line-height: 16px; color: #666; text-align: center; display: block; min-width: 16px; padding: 2px; margin: 0;}
+.ncsc-brand-select-container .letter ul li a:hover { text-decoration: none; color: #FFF; background: #27A9E3; }
+.ncsc-brand-select-container .search { line-height: normal; clear: both; margin-top: 6px;}
+.ncsc-brand-select-container .search .text { width: 160px; height: 20px; padding: 0 2px;}
+.ncsc-brand-select-container .search .ncsc-btn-mini { vertical-align: top; margin-left: 4px;}
+.ncsc-brand-select-container .brand-list { width: 220px; max-height: 220px; position: relative; z-index: 1; overflow: hidden;}
+.ncsc-brand-select-container .brand-list ul {}
+.ncsc-brand-select-container .brand-list ul li { line-height: 20px; padding: 5px 0; border-bottom: solid 1px #F5F5F5;}
+.ncsc-brand-select-container .brand-list ul li:hover { color: #333; background: #F7F7F7; cursor: pointer;}
+.ncsc-brand-select-container .brand-list ul li em { display: inline-block; *display: inline; text-align: center; width: 20px; margin-right: 6px; border-right: solid 1px #DDD; *zoom: 1;}
+.ncsc-brand-select-container .no-result { color: #999; text-align: center; padding: 20px 10px; }
+.ncsc-brand-select-container .no-result strong { color: #27A9E3;}
+.ncsc-form-goods { border: solid #E6E6E6; border-width: 1px 1px 0 1px; width: 957px;}
+.ncsc-form-goods h3 { font-size: 14px; font-weight: 600; line-height: 22px; color: #000; clear: both; background-color: #F5F5F5; padding: 5px 0 5px 12px; border-bottom: solid 1px #E7E7E7;}
+.ncsc-form-goods dl { font-size: 0; *word-spacing:-1px/*IE6、7*/; line-height: 20px; clear: both; padding: 0; margin: 0; border-bottom: solid 1px #E6E6E6; overflow: hidden;}
+
+.ncsc-form-goods dl:hover .hint { color: #666;}
+.ncsc-form-goods dl.bottom { border-bottom-width: 0px;}
+.ncsc-form-goods dl dt { font-size: 12px; line-height: 30px; color: #333; vertical-align: top; letter-spacing: normal; word-spacing: normal; text-align: right; display: inline-block; width: 13%; padding: 8px 1% 8px 0; margin: 0;}
+.ncsc-form-goods dl dt { *display: inline/*IE6,7*/;}
+.ncsc-form-goods dl dt i.required { font: 12px/16px Tahoma; color: #F30; vertical-align: middle; margin-right: 4px;}
+.ncsc-form-goods dl dd { font-size: 12px; line-height: 30px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; width: 84%; padding: 8px 0 8px 1%; border-left: solid 1px #E6E6E6;}
+.ncsc-form-goods dl dd { *display: inline/*IE6,7*/;}
+.ncsc-form-goods dl dd span.property { display: inline-block; white-space: nowrap; margin: 0 10px 10px 0;}
+
+
+
+/* 手机端商品介绍 */
+.ncsc-mobile-editor { overflow: hidden;}
+.ncsc-mobile-editor .pannel { width: 320px; height: 490px; float: left; border: solid 1px #DDD; position: relative;}
+.ncsc-mobile-editor .pannel .size-tip { line-height: 30px; background-color: #F7F7F7; height: 30px; padding: 0 15px; border-bottom: solid 1px #DDD;}
+.ncsc-mobile-editor .pannel .size-tip em { color: #F60;}
+.ncsc-mobile-editor .pannel .size-tip i { color: #CCC; margin: 0 10px;}
+.ncsc-mobile-editor .pannel .control-panel { -moz-user-select: none; max-height: 380px; overflow-x: hidden; overflow-y: auto;}
+.ncsc-mobile-editor .pannel .control-panel .module { background: #fff; width: 290px; margin: 10px 15px 0; position: relative; }
+.ncsc-mobile-editor .pannel .control-panel .module .image-div img { max-width: 290px;}
+.ncsc-mobile-editor .pannel .control-panel .module .text-div { line-height: 150%; word-wrap: break-word;}
+.ncsc-mobile-editor .pannel .control-panel .tools { display: none; position: absolute; z-index: 20; top: 10px; right: 10px;}
+.ncsc-mobile-editor .pannel .control-panel .tools a { line-height: 25px; color: #000; background: #fff; float: left; padding: 0 10px; margin-right: 1px; }
+.ncsc-mobile-editor .pannel .control-panel .cover { background-color: #000; display: none; width: 100%; height: 100%; left: 0; opacity: 0.5; position: absolute; top: 0;}
+.ncsc-mobile-editor .pannel .control-panel .current { min-height: 40px;}
+.ncsc-mobile-editor .pannel .control-panel .current .tools,
+.ncsc-mobile-editor .pannel .control-panel .current .cover { display: block;}
+
+.ncsc-mobile-editor .pannel .add-btn{ background: none repeat scroll 0 0 #ececec; height: 60px; margin: 10px 15px; overflow: hidden;}
+.ncsc-mobile-editor .pannel .add-btn ul { padding: 5px;}
+.ncsc-mobile-editor .pannel .add-btn li { text-align: center; width: 33.33%; height: 50px; float: left;}
+.ncsc-mobile-editor .pannel .add-btn li a { display: block; height: 50px; color: #999;}
+.ncsc-mobile-editor .pannel .add-btn li i { font-size: 24px; line-height: 30px; height: 30px}
+.ncsc-mobile-editor .pannel .add-btn li p { font-size: 14px; line-height: 20px; height: 20px;}
+.ncsc-mobile-editor .explain { float: left; width: 400px; margin-left: 32px;}
+.ncsc-mobile-editor .explain dl,
+.ncsc-mobile-editor .explain dt,
+.ncsc-mobile-editor .explain dd { color: #777; line-height: 24px; width: auto; height: auto; margin: 0; padding: 0; border: 0;}
+.ncsc-mobile-editor .explain dl { margin-bottom: 15px;}
+.ncsc-mobile-editor .explain dt { color: #555; font-weight: 600;}
+.ncsc-mobile-edit-area {}
+.ncsc-mea-text { width: 320px; border: solid 1px #FFF; position: relative; z-index: 1;}
+.ncsc-mea-text .text-tip { color: #333; line-height: 20px; height: 20px; padding: 5px 0;}
+.ncsc-mea-text .text-tip em { color: #F60; margin: 0 2px;}
+.ncsc-mea-text .textarea { width: 310px; height: 80px; resize: none;}
+.ncsc-mea-text .button { text-align: center; padding: 10px 0;}
+.ncsc-mea-text .text-close { font: 11px/16px Verdana; color: #FFF; background: #AAA; text-align: center; width: 16px; height: 16px; position: absolute; z-index: 1; top: 8px; right: 4px; }
+.ncsc-mea-text .text-close:hover { text-decoration: none; background-color: #F30;}
+.ncsc-mobile-editor .ncsc-mea-text { width: 300px; margin: 0 0 0 -15px; border: solid #27a9e3; border-width: 1px 0;}
+.ncsc-mobile-editor .ncsc-mea-text .text-tip { background: #F5F5F5; padding: 5px;}
+.ncsc-mobile-editor .ncsc-mea-text .textarea { width: 290px; border: none;}
+.ncsc-mobile-editor .ncsc-mea-text .textarea:focus { box-shadow: none;}
+.ncsc-mobile-editor .ncsc-mea-text .button { background: #F5F5F5;}
+.ncsc-mobile-edit-area .ncsc-mea-img {}
+.ncsc-mobile-edit-area .goods-gallery { border: solid 1px #EEE; margin-top: 5px;}
+
+.ncsc-mea-video { width: 320px; border: solid 1px #FFF; position: relative; z-index: 1;}
+
+
+/* 发布商品-上传主图 */
+.ncsc-goods-default-pic { overflow: hidden;}
+.ncsc-goods-default-pic .goodspic-upload { float: left;}
+.ncsc-goods-default-pic .goodspic-upload .upload-thumb { position: relative;background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 160px; height: 160px; overflow: hidden;}
+.ncsc-goods-default-pic .goodspic-upload .upload-thumb img { max-width: 160px; max-height: 160px; margin-top:expression(160-this.height/2); *margin-top:expression(80-this.height/2)/*IE6,7*/;}
+.ncsc-goods-default-pic .goodspic-upload .handle { height: 30px; margin: 10px 0;}
+.ncsc-goods-default-pic .faq { width: 300px; float: right;}
+
+.ncsc-form-goods-pic { min-height: 480px; overflow: hidden;}
+.ncsc-form-goods-pic .container { width: 708px; float: left;}
+.ncsc-form-goods-pic .sidebar { width: 228px; float: right;}
+.sticky #uploadHelp { width: 178px; position: fixed; z-index: 10; top: 75px;}
+.ncsc-form-goods-pic .ncsc-goodspic-list { margin-bottom: 20px; border: solid 1px #E6E6E6; overflow: hidden;}
+.ncsc-goodspic-list:hover { border-color: #AAA;}
+.ncsc-goodspic-list .title { background-color: #F5F5F5; height: 20px; padding: 5px 0 5px 12px; border-bottom: solid 1px #E6E6E6;}
+.ncsc-goodspic-list:hover .title { background-color: #CCC; border-color: #AAA;}
+.ncsc-goodspic-list .title h3 { font-size: 14px; font-weight: 600; line-height: 20px; color: #555; }
+.ncsc-goodspic-list:hover .title h3 { color: #000;}
+/* 发布与编辑商品-AJAX图片上传及控制删除 */
+
+.ncsc-goodspic-list .goods-pic-list { font-size: 0; *word-spacing:-1px/*IE6、7*/; margin-left: -1px;}
+.ncsc-goodspic-list .goods-pic-list li { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE6,7*/; width: 140px; height: 180px; border-left: solid 1px #E6E6E6; position: relative; z-index: 1; zoom: 1;}
+.ncsc-goodspic-list:hover .goods-pic-list li { border-color: #CCC;}
+.ncsc-goodspic-list .goods-pic-list li .upload-thumb { line-height: 0; background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 120px; height: 120px; border: solid 1px #F5F5F5; position: absolute; z-index: 1; top: 10px; left: 10px; overflow: hidden;}
+.ncsc-goodspic-list .goods-pic-list li .upload-thumb img { max-width: 120px; max-height: 120px; margin-top:expression(120-this.height/2); *margin-top:expression(60-this.height/2)/*IE6,7*/;}
+.ncsc-goodspic-list .goods-pic-list li .show-default { display: block; width: 120px; height: 30px; padding: 90px 0 0; border: solid 1px #F5F5F5; position: absolute; z-index: 2; top: 10px; left: 10px; cursor: pointer;}
+
+.ncsc-goodspic-list ul li .show-default:hover { border-color: #27A9E3;}
+.ncsc-goodspic-list ul li .show-default.selected,
+.ncsc-goodspic-list ul li .show-default.selected:hover { border-color: #28B779;}
+.ncsc-goodspic-list ul li .show-default p { color: #28B779; line-height: 20px; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E5FFFFFF', endColorstr='#E5FFFFFF');background:rgba(255,255,255,0.9); display: none; height: 20px; padding: 5px;}
+.ncsc-goodspic-list ul li .show-default:hover p { color: #27A9E3; display: block;}
+.ncsc-goodspic-list ul li .show-default.selected p { color: #28B779; display: block;}
+.ncsc-goodspic-list ul li .show-default p i { font-size: 14px; margin-right: 4px;}
+.ncsc-goodspic-list ul li a.del { font-family:Tahoma, Geneva, sans-serif; font-size: 9px; font-weight: lighter; background-color: #FFF; line-height: 14px; text-align: center; display: none; width: 14px; height: 14px; border-style: solid; border-width: 1px; border-radius: 8px; position: absolute; z-index: 3; top: -8px; right: -8px;}
+.ncsc-goodspic-list ul li .show-default:hover a.del { color: #27A9E3; display: block;}
+.ncsc-goodspic-list ul li .show-default.selected:hover a.del { color: #28B779;}
+.ncsc-goodspic-list ul li .show-default:hover a.del:hover { text-decoration: none;}
+
+.ncsc-goodspic-upload .show-sort { line-height: 20px; color: #999; width: 55px; height: 20px; padding: 4px 0 4px 4px; border-style: solid; border-color: #E6E6E6; border-width: 1px 0 1px 1px; position: absolute; z-index: 2; left: 10px; top: 140px;}
+.ncsc-goodspic-upload .show-sort .text { font-size: 12px; font-weight: bold; line-height: 20px; vertical-align: middle; width: 10px; height: 20px; padding: 0; border: none 0;}
+.ncsc-goodspic-upload .show-sort .text:focus { color: #28B779; text-decoration: underline; box-shadow: none;}
+.ncsc-goodspic-upload .ncsc-upload-btn { width: 60px; height: 30px; margin: 0; position: absolute; z-index: 1px; left: 70px; top: 140px;}
+.ncsc-goodspic-upload .ncsc-upload-btn span { width: 60px; height: 30px;}
+.ncsc-goodspic-upload .ncsc-upload-btn .input-file { width: 60px; height: 30px;}
+.ncsc-goodspic-upload .ncsc-upload-btn p { width: 58px; height: 20px;}
+.ncsc-select-album { background-color: #FFF; border-top: solid 1px #E6E6E6; padding: 10px;}
+.ncsc-goodspic-list:hover .ncsc-select-album { border-color: #CCC;}

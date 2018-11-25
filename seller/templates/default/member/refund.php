@@ -1,0 +1,204 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo MOBILE_TEMPLATES_URL;?>/css/nctouch_member.css">
+
+</head>
+
+<body>
+
+<header id="header">
+
+  <div class="header-wrap">
+
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+
+    <div class="header-title">
+
+      <h1>商品退款</h1>
+
+    </div>
+
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+
+  </div>
+
+  <?php include template('layout/toptip');?>
+
+
+
+</header>
+
+<div class="nctouch-main-layout mb20">
+
+  <div class="nctouch-order-list" id="order-info-container"></div>
+
+	<div class="special-tips">
+
+	<p>特别提示：退款凭证选择直接拍照或从手机相册上传图片时，请注意图片尺寸控制在1M以内，超出请压缩裁剪后再选择上传！</p>
+
+	</div>
+
+  <form>
+
+    <div class="nctouch-inp-con">
+
+      <ul class="form-box">
+
+        <li class="form-item">
+
+          <h4>退款原因</h4>
+
+          <div class="input-box">
+
+            <select id="refundReason" class="select" name="reason_id">
+
+            </select>
+
+            <i class="arrow-down"></i> </div>
+
+        </li>
+
+        <li class="form-item">
+
+          <h4>退款金额</h4>
+
+          <div class="input-box">
+
+            <input type="text" pattern="[0-9.]*" class="inp" name="refund_amount" placeholder="退款金额不能超过可退金额">
+
+            <span class="input-del"></span>
+
+            <span class="note"><em id="returnAble"></em><h6>最多可退金额</h6></span> </div>
+
+        </li>
+
+        <li class="form-item">
+
+          <h4>退款说明</h4>
+
+          <div class="input-box">
+
+            <input type="text" class="inp" name="buyer_message" placeholder="输入您要退款的说明文字">
+
+            <span class="input-del"></span> </div>
+
+        </li>
+
+        <li class="form-item upload-item">
+
+          <h4>退款凭证</h4>
+
+          <div class="input-box">
+
+            <div class="nctouch-upload"> <a href="javascript:void(0);"> <span>
+
+              <input type="file" hidefocus="true" size="1" class="input-file" name="refund_pic" id="">
+
+              </span>
+
+              <p><i class="icon-upload"></i></p>
+
+              </a>
+
+              <input type="hidden" name="refund_pic[0]" value="" />
+
+            </div>
+
+            <div class="nctouch-upload"> <a href="javascript:void(0);"> <span>
+
+              <input type="file" hidefocus="true" size="1" class="input-file" name="refund_pic" id="">
+
+              </span>
+
+              <p><i class="icon-upload"></i></p>
+
+              </a>
+
+              <input type="hidden" name="refund_pic[1]" value="" />
+
+            </div>
+
+            <div class="nctouch-upload"> <a href="javascript:void(0);"> <span>
+
+              <input type="file" hidefocus="true" size="1" class="input-file" name="refund_pic" id="">
+
+              </span>
+
+              <p><i class="icon-upload"></i></p>
+
+              </a>
+
+              <input type="hidden" name="refund_pic[2]" value="" />
+
+            </div>
+
+          </div>
+
+        </li>
+
+      </ul>
+
+      <div class="form-btn"><a href="javascript:;" class="btn-l">提交</a></div>
+
+    </div>
+
+  </form>
+
+</div>
+
+<script type="text/html" id="order-info-tmpl">
+
+	<div class="nctouch-order-item mt5">
+
+		<div class="nctouch-order-item-head">
+
+			<a href="<%=ApiUrl%>/index.php?con=store&store_id=<%=order.store_id%>" class="store"><i class="icon"></i><%=order.store_name%><i class="arrow-r"></i></a>
+
+		</div>
+
+		<div class="nctouch-order-item-con">
+
+			<div class="goods-block detail">
+
+				<a href="<%=ApiUrl%>/index.php?con=goods&fun=detail&goods_id=<%=goods.goods_id%>">
+
+				<div class="goods-pic">
+
+					<img src="<%=goods.goods_img_360%>">
+
+				</div>
+
+				<dl class="goods-info">
+
+					<dt class="goods-name"><%=goods.goods_name%></dt>
+
+					<dd class="goods-type"><%=goods.goods_spec%></dd>
+
+				</dl>
+
+				<div class="goods-subtotal">
+
+					<span class="goods-price">￥<em><%=goods.goods_price%></em></span>
+
+					<span class="goods-num">x<%=goods.goods_num%></span>
+
+				</div>
+
+			</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</script> 
+
+<script type="text/javascript" src="<?php echo MOBILE_TEMPLATES_URL;?>/js/zepto.min.js"></script> 
+
+<script type="text/javascript" src="<?php echo MOBILE_TEMPLATES_URL;?>/js/template.js"></script> 
+
+<script type="text/javascript" src="<?php echo MOBILE_TEMPLATES_URL;?>/js/common.js"></script> 
+
+<script type="text/javascript" src="<?php echo MOBILE_TEMPLATES_URL;?>/js/list/refund.js"></script>
+

@@ -1,0 +1,119 @@
+.left{float:left}
+.cut_line{height:1px;background:#ddd;position:relative;margin:30px 10px 10px}
+.cut_line span{position:absolute;left:50%;top:-10px;background:#f1f1f1;margin-left:-59px;padding:0 10px;font-size:.65rem}
+.pointsclub .pointsclub_jf,.pointsclub_avatar{padding:10px;background:#fff;font-size:.65rem}
+.pointsclub_avatar .avatar{width:80px;height:80px;border-radius:100%}
+.pointsclub_avatar .userinfo{margin-left:90px;height:80px}
+.pointsclub_avatar .userinfo .tit{font-size:.65rem;line-height:25px;height:25px;margin-bottom:15px}
+.pointsclub_avatar .userinfo .tit span{display:inline-block;padding:0 10px;color:#fff;font-size:.65rem;background:#ea4d60;border-radius:3px;line-height:25px;height:25px;margin-left:10px}
+.pointsclub_avatar .progress-bar{font-size:0;display:block}
+.pointsclub_avatar .progress-bar span{vertical-align:middle;letter-spacing:normal;word-spacing:normal;display:inline-block}
+.pointsclub_avatar .progress-bar span{background-color:#CCC;width:100%;height:10px;border-radius:5px}
+.pointsclub_avatar .progress-bar span i{background-color:#ea4d60;display:block;height:10px;border-radius:5px}
+.pointsclub_avatar .progress{color:#AAA;text-align:center;margin-top:5px}
+.pointsclub_avatar .progress em{font-weight:600;color:#D83500;margin:0 2px}
+.pointsclub_avatar .userinfo .stepinfo{font-size:12px;margin-top:5px}
+.pointsclub_jf a{display:inline-block;width:32%;text-align:center}
+.pointsclub_jf a:first-child{border-right:1px solid #ddd}
+.pointsclub_jf a:last-child{border-left:1px solid #ddd}
+.pointsclub .qd_info{padding:10px;height:20px;line-height:20px}
+.pointsclub .qd_info .icon_notice{margin-right:5px}
+.pointsclub .qd_btn{width:90%;background-color:#ea4d60}
+.pointsclub .cut_line{margin-bottom:20px}
+.pointsclub .cut_line span{margin-left:-33px}
+.pointsclub .panes>div{display:none}
+
+.vlist{padding-top:10px}
+.vlist li{padding:10px;background:#fff;border:1px solid #e3e3e3;border-left:0;border-right:0;margin-bottom:10px;position:relative}
+.vlist li a{display:block;position:relative}
+.vlist li .list_img{width:100px;height:100px;float:left}
+.vlist li .list_info{margin-left:110px;height:100px;overflow:hidden}
+.vlist li .list_info .tit{height:25px;overflow:hidden;text-overflow:ellipsis;line-height:25px;font-size:.65rem;white-space:normal}
+.vlist li .list_info .desc{height:36px;overflow:hidden;text-overflow:ellipsis;line-height:18px;word-break:break-all;word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:.55rem}
+.vlist li .list_info .price del{margin-left:5px;font-size:.55rem}
+.vlist li .list_info .price span.c999{color:#45a1de;font-size:.65rem;}
+.vlist li .list_info .price i.red2{color:#e95d4e;font-size:.55rem;margin-left:5px;}
+.vlist dl{background-color:#FFF;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.vlist dt{line-height:.9rem;display:block;height:1rem;padding:.5rem .7rem .5rem 0;margin-left:.5rem}
+.vlist dt a{display:block}
+.vlist dt h3{font-size:.7rem;line-height:1rem;color:#111;vertical-align:top;display:inline-block;height:1rem}
+.vlist dt h3 i{vertical-align:top;display:inline-block;width:1rem;height:1rem;margin-right:.1rem;background:url(../images/jftit.png);background-repeat:no-repeat;background-position:50% 50%;background-size:80%}
+.vlist dt.voucher h3 i{background:url(../images/djqtit.png);background-repeat:no-repeat;background-position:50% 50%;background-size:80%}
+.vlist dt h5{font-size:.6rem;color:#999;float:right;line-height:1rem}
+.vlist dt h5 i{display:inline-block;vertical-align:middle;width:.7rem;height:.7rem;background-image:url(../images/arrow_right_b.png);background-repeat:no-repeat;background-position:50% 50%;background-size:75%;opacity:.4}
+.coupon-excellent{padding:0 1% 10px;position:relative;background:#fff}
+.coupon-excellent:before{content:'';position:absolute;left:0;bottom:0;width:200%;height:0;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:left bottom;transform-origin:left bottom;border-bottom:1px solid #e0e0e0}
+.coupon-excellent .mt{overflow:hidden;padding:12px 0 10px}
+.coupon-excellent h4{float:left;font-size:.65rem;width:58%;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.coupon-excellent .ce-progress{float:right;font-size:.4rem;width:28%;border:1px solid #ffa2a2;border-radius:10px;overflow:hidden;padding:1px 10px;position:relative}
+.ce-progress-baidu{border-radius:10px!important}
+.coupon-excellent .ce-progress .ce-p-bg{width:60%;height:100%;position:absolute;border-radius:10px 0 0 10px;left:0;top:0;background:#ffa2a2}
+.coupon-excellent .ce-progress p{text-align:center;z-index:1;position:relative}
+.coupon-excellent .mc{background:#fff url(../images/c-bg.png) no-repeat;background-size:87px 86px;border:1px solid #f2f2f2;width:100%;border-top:none}
+.coupon-excellent .mc .ce-con{overflow:hidden;background:url(../images/blue.png) repeat-x;background-size:9px 10px;padding:18px 0 5px 0;width:100%;position:relative}
+.coupon-excellent .mc .ce-con-l{color:#47b0da;float:left;width:50%}
+.coupon-excellent .mc .ce-con-l span{font-size:.75rem;color: #FF8400;margin-left: 0.5rem}
+.coupon-excellent .mc .ce-con-l p{font-size:2.4rem;padding-left:8%;text-align:center}
+.coupon-excellent .mc .ce-con-l i{font-size:2rem;margin-right:7px}
+.coupon-excellent .mc .ce-con-r{width:50%;font-size:.75rem;line-height:1.8rem;text-align:center;vertical-align:middle;position:absolute;top:43%;right:0}
+.coupon-excellent .mc .ce-con-r .ce-con-txt01{padding-bottom:8px;background:url(../images/linebg.png) no-repeat center bottom;background-size:70% 2px;display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;height:34px;line-height:34px}
+.coupon-excellent .mc .ce-con-r .ce-con-txt02{padding-top:6px}
+.coupon-excellent .mc .ce-hr{width:94.6%;height:3px;margin:0 auto;background:url(../images.nopng.png) repeat-x;background-size:17px 3px}
+.coupon-excellent .mc .ce-time{padding:9px 3.3% 10px;text-align:right;font-size:.65rem}
+.coupon-receive .mc,.sold-out .mc{position:relative}
+.coupon-receive .mc .ce-con-l,.coupon-receive .mc .ce-con-r,.coupon-receive .mc .ce-time,.sold-out .mc .ce-con-l,.sold-out .mc .ce-con-r,.sold-out .mc .ce-time{color:#c1c2c2}
+.coupon-receive .mc .ce-con,.sold-out .mc .ce-con{background:url(../images/one1.png) repeat-x;background-size:9px 10px}
+.coupon-receive .mc .sold-out-signet,.coupon-receive .mc .sold-out-signet02,.sold-out .mc .sold-out-signet,.sold-out .mc .sold-out-signet02{width:75px;height:75px;background:url(i/sold-out.png) no-repeat;background-size:75px 75px;display:block;position:absolute;top:50%;right:7%;margin-top:-37px}
+.coupon-receive .mc .sold-out-signet02,.sold-out .mc .sold-out-signet02{width:54px;height:54px;background:url(i/sold-out.png) no-repeat;background-size:54px 54px}
+.coupon-receive .ce-progress .ce-p-bg,.sold-out .ce-progress .ce-p-bg{width:100%}
+.coupon-receive .mc .sold-out-signet{background:url(i/receive.png) no-repeat;background-size:75px 75px}
+.coupon-receive .mc .sold-out-signet02{background:url(i/receive.png) no-repeat;background-size:54px 54px}
+.coupon-jing .mc .ce-con-l{color:#ee7a77}
+.coupon-jing .mc .ce-con{background:url(../images/index.png) repeat-x;background-size:9px 10px}
+.coupon-deliver .mc .ce-con-l{color:#4bbe97}
+.coupon-deliver .mc .ce-con-l p{font-size:2.5rem;padding:10px 0 20px 0}
+.coupon-deliver-font .mc .ce-con-l p{font-size:2.5rem;padding:10px 0 20px 0}
+.coupon-deliver .mc .ce-con{background:url(../images/greenup.png) repeat-x;background-size:9px 10px}
+.coupon-choose ul{width:100%;display:-moz-box;display:-webkit-box;display:box;padding:13px 0;background:#fff;position:relative;margin-bottom:10px}
+.coupon-choose ul:before{content:'';position:absolute;left:0;bottom:0;width:200%;height:0;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:left bottom;transform-origin:left bottom;border-bottom:1px solid #e0e0e0}
+.coupon-choose ul li{box-flex:1;-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;text-align:center;border-right:1px solid #e0e0e0;font-size:14px;width:33.3%}
+.coupon-choose ul li i{width:8px;height:9px;vertical-align:top;display:inline-block;background:url(../images/upd.png) no-repeat;background-size:8px 9px;margin-top:1px;margin-left:4px}
+.coupon-choose ul li i.cc-high{background:url(../images/cjtud.png) no-repeat;background-size:8px 9px}
+.coupon-choose ul li i.cc-low{background:url(../images/cjtud.png) no-repeat;background-size:8px 9px}
+.coupon-choose ul li span{width:15px;height:8px;display:inline-block;background:url(../images/up.png) no-repeat;background-size:15px 8px;vertical-align:middle;margin-left:4px}
+.coupon-choose ul li:last-child{border-right:none}
+.coupon-choose ul li.cc-cur{color:#f15353}
+.coupon-choose ul li.cc-cur span{background:url(../images/cup.png) no-repeat;background-size:15px 8px;margin-top:-3px}
+.coupon-choose ul li.cc-cur3 span{background:url(../images/shang.png) no-repeat;background-size:15px 8px;margin-top:-3px}
+.coupon-choose ul li.cc-cur2 span{background:url(../images/up.png) no-repeat;background-size:15px 8px;margin-top:-3px}
+.coupon-choose-seat{width:100%;height:48px;display:none}
+.coupon-choose-fixed{position:fixed;top:0;left:0;width:100%;z-index:10}
+.coupon-item{padding:0 3.125%;margin-bottom:10px;overflow:hidden}
+.coupon-item .coupon-excellent{padding:0;width:48%}
+.coupon-item .coupon-excellent .mc{background:#fff}
+.coupon-item .coupon-excellent .mc .ce-con-l span{font-size:1.1rem}
+.coupon-item .coupon-excellent .mc .ce-con-l p{font-size:2.8rem;padding:4px 0 15px 0;margin-left:-3px}
+.coupon-item .coupon-excellent .mc .ce-con-l p span{font-size:1.2rem;padding:4px 0 15px 0;margin-left:-6px}
+.coupon-item .coupon-excellent .mc .ce-con-l i{font-size:1.4rem;margin-right:2px}
+.coupon-item .coupon-excellent .mc .ce-con-r{font-size:1rem;line-height:1.2rem;width:53%;margin-right:2px}
+.coupon-item .coupon-excellent .mc .ce-con-r .ce-con-txt01{padding-bottom:34px;display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;height:36px;line-height:17px}
+.coupon-item .coupon-excellent .mc .ce-con-r .ce-con-txt02{padding-top:4px}
+.no-coupon{width:34%;margin:45px auto;text-align:center;display:none}
+.no-coupon img{max-width:100%}
+.sold-out .mc .sold-out-signet, .sold-out .mc .sold-out-signet02, .coupon-receive .mc .sold-out-signet, .coupon-receive .mc .sold-out-signet02 {
+    width: 75px;
+    height: 75px;
+    background: url(../images/sold-out.png) no-repeat;
+    background-size: 75px 75px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 7%;
+}
+.no-coupon p{font-size:1.4rem;padding-top:30px}
+.popup,.popup02{width:100%;height:100%;position:fixed;top:0;left:0;background:#000;opacity:.7;display:none;z-index:5}
+.popup02{z-index:11}
+.tab-down{background:#fff;position:fixed;top:37px;left:0;width:100%;text-align:center;display:none;font-size:1.3rem;z-index:10}
+.tab-down ul li{padding:13px 0;position:relative}
+.tab-down ul li:before{content:'';position:absolute;left:0;bottom:0;width:200%;height:0;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:left bottom;transform-origin:left bottom;border-bottom:1px solid #e0e0e0}
+.tab-down ul li.tab-down-cur{color:#f15353}

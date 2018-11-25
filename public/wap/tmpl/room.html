@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>在线直播</title>
+<link rel="stylesheet" type="text/css" href="./../css/base.css">
+<link rel="stylesheet" type="text/css" href="./../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="./../css/room.css">
+</head>
+<body>
+<div class="player" id="player"></div>
+<div id="hudong">
+	<div class="zb_title">
+    	<div class="store" id="storelogo"></div>
+    	<label class="msgNow" id="label_1" type="1">全部</label>
+        <label class="" id="label_2" type="1">私聊</label>
+        <label class="" id="label_3" type="1">礼物</label>
+        <label class="" id="label_4" type="1">观众(<span id="online">0</span>)</label>
+    </div>
+    <div id="msg1"  class="chat lable">
+    <div class="gonggao"><i>公告:</i></div>
+	<div class="room" id="dialog"><div id="chatmsg"></div></div>
+    <div class="enter none" id="enter"></div>
+     <div class="send">
+        <form onSubmit="onSubmit(); return false;">
+            <select id="client_list">
+                <option value="all">所有人</option>
+            </select>
+            <div class="input">
+            <a id='face'></a>
+            <div class="face none"><ul class="facenavlisttop2" id="facelistData1">
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0很好');"><img src="http://118.31.17.175/shop/player/face/e5be88e5a5bd.gif" title="很好" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0好的');"><img src="http://118.31.17.175/shop/player/face/e5a5bde79a84.gif" title="好的" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0白眼');"><img src="http://118.31.17.175/shop/player/face/e799bde79cbc.gif" title="白眼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0拜托');"><img src="http://118.31.17.175/shop/player/face/e68b9ce68998.gif" title="拜托" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0扮鬼脸');"><img src="http://118.31.17.175/shop/player/face/e689aee9acbce884b8.gif" title="扮鬼脸" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抱抱');"><img src="http://118.31.17.175/shop/player/face/e68ab1e68ab1.gif" title="抱抱" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0鄙视');"><img src="http://118.31.17.175/shop/player/face/e98499e8a786.gif" title="鄙视" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0闭嘴');"><img src="http://118.31.17.175/shop/player/face/e997ade598b4.gif" title="闭嘴" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抽');"><img src="http://118.31.17.175/shop/player/face/e68abd.gif" title="抽" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0吹口哨');"><img src="http://118.31.17.175/shop/player/face/e590b9e58fa3e593a8.gif" title="吹口哨" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0呲牙');"><img src="http://118.31.17.175/shop/player/face/e591b2e78999.gif" title="呲牙" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0调皮');"><img src="http://118.31.17.175/shop/player/face/e8b083e79aae.gif" title="调皮" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0发怒');"><img src="http://118.31.17.175/shop/player/face/e58f91e68092.gif" title="发怒" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0飞吻');"><img src="http://118.31.17.175/shop/player/face/e9a39ee590bb.gif" title="飞吻" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0尴尬');"><img src="http://118.31.17.175/shop/player/face/e5b0b4e5b0ac.gif" title="尴尬" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0勾引');"><img src="http://118.31.17.175/shop/player/face/e58bbee5bc95.gif" title="勾引" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0鼓掌');"><img src="http://118.31.17.175/shop/player/face/e9bc93e68e8c.gif" title="鼓掌" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0红脸');"><img src="http://118.31.17.175/shop/player/face/e7baa2e884b8.gif" title="红脸" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0哼');"><img src="http://118.31.17.175/shop/player/face/e593bc.gif" title="哼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0坏笑');"><img src="http://118.31.17.175/shop/player/face/e59d8fe7ac91.gif" title="坏笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0惊讶');"><img src="http://118.31.17.175/shop/player/face/e6838ae8aeb6.gif" title="惊讶" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0囧');"><img src="http://118.31.17.175/shop/player/face/e59ba7.gif" title="囧" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0可怜');"><img src="http://118.31.17.175/shop/player/face/e58fafe6809c.gif" title="可怜" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂汗');"><img src="http://118.31.17.175/shop/player/face/e78b82e6b197.gif" title="狂汗" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂亲');"><img src="http://118.31.17.175/shop/player/face/e78b82e4bab2.gif" title="狂亲" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂笑');"><img src="http://118.31.17.175/shop/player/face/e78b82e7ac91.gif" title="狂笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0泪');"><img src="http://118.31.17.175/shop/player/face/e6b3aa.gif" title="泪" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0美女');"><img src="http://118.31.17.175/shop/player/face/e7be8ee5a5b3.gif" title="美女" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0媚眼');"><img src="http://118.31.17.175/shop/player/face/e5aa9ae79cbc.gif" title="媚眼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0迷茫');"><img src="http://118.31.17.175/shop/player/face/e8bfb7e88cab.gif" title="迷茫" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0钱');"><img src="http://118.31.17.175/shop/player/face/e992b1.gif" title="钱" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0亲亲');"><img src="http://118.31.17.175/shop/player/face/e4bab2e4bab2.gif" title="亲亲" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0色');"><img src="http://118.31.17.175/shop/player/face/e889b2.gif" title="色" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0伤不起');"><img src="http://118.31.17.175/shop/player/face/e4bca4e4b88de8b5b7.gif" title="伤不起" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0伤透了');"><img src="http://118.31.17.175/shop/player/face/e4bca4e9808fe4ba86.gif" title="伤透了" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0石化');"><img src="http://118.31.17.175/shop/player/face/e79fb3e58c96.gif" title="石化" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0帅哥');"><img src="http://118.31.17.175/shop/player/face/e5b885e593a5.gif" title="帅哥" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0挑逗');"><img src="http://118.31.17.175/shop/player/face/e68c91e98097.gif" title="挑逗" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0偷笑');"><img src="http://118.31.17.175/shop/player/face/e581b7e7ac91.gif" title="偷笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0吐血');"><img src="http://118.31.17.175/shop/player/face/e59090e8a180.gif" title="吐血" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0挖鼻');"><img src="http://118.31.17.175/shop/player/face/e68c96e9bcbb.gif" title="挖鼻" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0委屈');"><img src="http://118.31.17.175/shop/player/face/e5a794e5b188.gif" title="委屈" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0嘘');"><img src="http://118.31.17.175/shop/player/face/e59898.gif" title="嘘" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0耶');"><img src="http://118.31.17.175/shop/player/face/e880b6.gif" title="耶" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0阴险');"><img src="http://118.31.17.175/shop/player/face/e998b4e999a9.gif" title="阴险" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0晕');"><img src="http://118.31.17.175/shop/player/face/e69995.gif" title="晕" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0再见');"><img src="http://118.31.17.175/shop/player/face/e5868de8a781.gif" title="再见" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0咒骂');"><img src="http://118.31.17.175/shop/player/face/e59292e9aa82.gif" title="咒骂" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抓狂');"><img src="http://118.31.17.175/shop/player/face/e68a93e78b82.gif" title="抓狂" style="border:0 none;vertical-align:middle"></span></li>
+</ul></div>
+            <input type="text" class="textarea thumbnail" id="textarea"></input>
+            </div>
+            <input type="button" id="submit" class="btn btn-default" value="发表" />
+         </form>
+    </div> 
+    </div>
+    <div id="msg2"  class="chat lable none">
+    	<div class="sroom" id="sroom"></div>
+         <div class="send">
+        <form onSubmit="onSubmit(); return false;">
+            <select id="client_list">
+                <option value="all">所有人</option>
+            </select>
+            <div class="input">
+            <a id='face'></a>
+            <div class="face none"><ul class="facenavlisttop2" id="facelistData1">
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0很好');"><img src="http://118.31.17.175/shop/player/face/e5be88e5a5bd.gif" title="很好" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0好的');"><img src="http://118.31.17.175/shop/player/face/e5a5bde79a84.gif" title="好的" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0白眼');"><img src="http://118.31.17.175/shop/player/face/e799bde79cbc.gif" title="白眼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0拜托');"><img src="http://118.31.17.175/shop/player/face/e68b9ce68998.gif" title="拜托" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0扮鬼脸');"><img src="http://118.31.17.175/shop/player/face/e689aee9acbce884b8.gif" title="扮鬼脸" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抱抱');"><img src="http://118.31.17.175/shop/player/face/e68ab1e68ab1.gif" title="抱抱" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0鄙视');"><img src="http://118.31.17.175/shop/player/face/e98499e8a786.gif" title="鄙视" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0闭嘴');"><img src="http://118.31.17.175/shop/player/face/e997ade598b4.gif" title="闭嘴" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抽');"><img src="http://118.31.17.175/shop/player/face/e68abd.gif" title="抽" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0吹口哨');"><img src="http://118.31.17.175/shop/player/face/e590b9e58fa3e593a8.gif" title="吹口哨" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0呲牙');"><img src="http://118.31.17.175/shop/player/face/e591b2e78999.gif" title="呲牙" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0调皮');"><img src="http://118.31.17.175/shop/player/face/e8b083e79aae.gif" title="调皮" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0发怒');"><img src="http://118.31.17.175/shop/player/face/e58f91e68092.gif" title="发怒" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0飞吻');"><img src="http://118.31.17.175/shop/player/face/e9a39ee590bb.gif" title="飞吻" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0尴尬');"><img src="http://118.31.17.175/shop/player/face/e5b0b4e5b0ac.gif" title="尴尬" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0勾引');"><img src="http://118.31.17.175/shop/player/face/e58bbee5bc95.gif" title="勾引" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0鼓掌');"><img src="http://118.31.17.175/shop/player/face/e9bc93e68e8c.gif" title="鼓掌" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0红脸');"><img src="http://118.31.17.175/shop/player/face/e7baa2e884b8.gif" title="红脸" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0哼');"><img src="http://118.31.17.175/shop/player/face/e593bc.gif" title="哼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0坏笑');"><img src="http://118.31.17.175/shop/player/face/e59d8fe7ac91.gif" title="坏笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0惊讶');"><img src="http://118.31.17.175/shop/player/face/e6838ae8aeb6.gif" title="惊讶" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0囧');"><img src="http://118.31.17.175/shop/player/face/e59ba7.gif" title="囧" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0可怜');"><img src="http://118.31.17.175/shop/player/face/e58fafe6809c.gif" title="可怜" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂汗');"><img src="http://118.31.17.175/shop/player/face/e78b82e6b197.gif" title="狂汗" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂亲');"><img src="http://118.31.17.175/shop/player/face/e78b82e4bab2.gif" title="狂亲" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0狂笑');"><img src="http://118.31.17.175/shop/player/face/e78b82e7ac91.gif" title="狂笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0泪');"><img src="http://118.31.17.175/shop/player/face/e6b3aa.gif" title="泪" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0美女');"><img src="http://118.31.17.175/shop/player/face/e7be8ee5a5b3.gif" title="美女" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0媚眼');"><img src="http://118.31.17.175/shop/player/face/e5aa9ae79cbc.gif" title="媚眼" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0迷茫');"><img src="http://118.31.17.175/shop/player/face/e8bfb7e88cab.gif" title="迷茫" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0钱');"><img src="http://118.31.17.175/shop/player/face/e992b1.gif" title="钱" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0亲亲');"><img src="http://118.31.17.175/shop/player/face/e4bab2e4bab2.gif" title="亲亲" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0色');"><img src="http://118.31.17.175/shop/player/face/e889b2.gif" title="色" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0伤不起');"><img src="http://118.31.17.175/shop/player/face/e4bca4e4b88de8b5b7.gif" title="伤不起" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0伤透了');"><img src="http://118.31.17.175/shop/player/face/e4bca4e9808fe4ba86.gif" title="伤透了" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0石化');"><img src="http://118.31.17.175/shop/player/face/e79fb3e58c96.gif" title="石化" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0帅哥');"><img src="http://118.31.17.175/shop/player/face/e5b885e593a5.gif" title="帅哥" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0挑逗');"><img src="http://118.31.17.175/shop/player/face/e68c91e98097.gif" title="挑逗" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0偷笑');"><img src="http://118.31.17.175/shop/player/face/e581b7e7ac91.gif" title="偷笑" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0吐血');"><img src="http://118.31.17.175/shop/player/face/e59090e8a180.gif" title="吐血" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0挖鼻');"><img src="http://118.31.17.175/shop/player/face/e68c96e9bcbb.gif" title="挖鼻" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0委屈');"><img src="http://118.31.17.175/shop/player/face/e5a794e5b188.gif" title="委屈" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0嘘');"><img src="http://118.31.17.175/shop/player/face/e59898.gif" title="嘘" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0耶');"><img src="http://118.31.17.175/shop/player/face/e880b6.gif" title="耶" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0阴险');"><img src="http://118.31.17.175/shop/player/face/e998b4e999a9.gif" title="阴险" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0晕');"><img src="http://118.31.17.175/shop/player/face/e69995.gif" title="晕" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0再见');"><img src="http://118.31.17.175/shop/player/face/e5868de8a781.gif" title="再见" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0咒骂');"><img src="http://118.31.17.175/shop/player/face/e59292e9aa82.gif" title="咒骂" style="border:0 none;vertical-align:middle"></span></li>
+<li style="text-align:center;line-height:36px"><span style="cursor:pointer;" onclick="clickFace('0抓狂');"><img src="http://118.31.17.175/shop/player/face/e68a93e78b82.gif" title="抓狂" style="border:0 none;vertical-align:middle"></span></li>
+</ul></div>
+            <input type="text" class="textarea thumbnail" id="textarea"></input>
+            </div>
+            <input type="button" id="submit" class="btn btn-default" value="发表" />
+         </form>
+    </div>
+    </div>
+    <div id="msg3" class="rgift lable none">
+    	<div class="zb_gift">
+        	<div class="gift_nav">            
+           </div> 
+        </div>
+        <div class="info" id="giftaction">
+        	<label>数量:</label>
+           <select name="giftnum none" id="sendGiftNum"> 
+              <option value="1">1</option> 
+              <option value="11">11</option> 
+              <option value="50">50</option>
+              <option value="66">66</option>
+              <option value="99">99</option>
+              <option value="1314">1314</option>
+              </select>
+              <input type="hidden" name="giftid" id="giftid" val=""/>
+            <input value="1" id="receiverId" type="hidden">
+           <a href="javascript:void(0);" onclick="giftsend()" class="zs_btn">赠送</a>
+        </div>
+    </div>
+    <div id="msg4" class="game lable none">
+    	<div class="users" id="userlist">
+            <ul id="VA"></ul>
+            <ul id="V10"></ul>
+            <ul id="V9"></ul>
+            <ul id="V8"></ul>
+            <ul id="V7"></ul>
+            <ul id="V6"></ul>
+            <ul id="V5"></ul>
+            <ul id="V4"></ul>
+            <ul id="V3"></ul>
+            <ul id="V2"></ul>
+            <ul id="V1"></ul>
+            <ul id="V0"></ul>
+    	</div>
+    </div>
+   
+    <div class="user">
+    <div class="islogin none"><p class="userjifen" onclick="duihuan()">积分：<span id="userjifen"></span></p><p class="username"><a href="/tmpl/member/member.html"><span id="username"></span></a></p></div>
+    <div class="nologin" ><a class="plogin" href="./member/login.html">登录</a><a p class="preg" href="./member/register.html">注册</a></div>
+    </div>
+    <div id="duihuanjifen" class="duihuan none">
+<p class="title">兑换积分<span class="close"></span></p>
+<p class="userbank">账户余额：￥<span id="yuan">0.00</span>元</p>
+<p>兑换说明：1元=100积分</p>
+<p class="input">您要兑换<input type="text" name="lebi" id="lebi" value="100">积分</p>
+<p class="bottom"><a href="javascript:void(0);" id="sureduihuan" class="bduihuan">兑换</a><a href="http://118.31.17.175/member/index.php?act=predeposit&op=recharge_add" class="pay">在线充值</a></p>
+</div>
+</div>
+
+<!-- banner tpl -->
+<script type="text/html" id="player_tpl">
+<video controls="controls" src="<%=living.player.hls%>" id="vio"></video>
+<button id="clickme" onclick="hah()" style="display: none;"></button>
+</script>
+<script type="text/html" id="gtype_tpl">
+	<% for (var i in living.zbgtype) { var t = living.zbgtype[i]; %>
+	<label class="<% if (t.id == 1) { %> giftNow <% } else { %> <% } %>" id="labels_<%=t.id %>" type="<%=t.id %>" onclick="showlabel('<%=t.id %>')"><%=t.name %></label>
+	<% } %>
+</script>
+<script type="text/html" id="gifts_tpl">
+	<% var z=1; %>
+	<% for (var i in living.zbgifts) {var t = living.zbgifts[i]; %>
+	<div class="gift_list <% if (z == 1) { %><% } else { %>none<% } %>" id="gift_<%=z %>">
+	<a href="javascript:void(0);" class="ptShowPrewGift3 giftpopLeft" onclick="labeljian('<%=z %>');"></a>
+	<ul class="monday_gift " id="type_<%=z %>_0">
+		<% var s=1; %>
+		<% for (var n in t) {var m =t[n]; %>
+		<li class="ptChoseGift" tips="null" id="gift_n<%=m.id%>" gname="<%=m.name%>" price="<%=m.price%>" showtype="<%=m.price%>" tip="价值：<%=m.price%>积分" alt="<%=m.name%>" type="<%=i%>" onclick="giftselect('<%=m.id%>');">
+		   <img src="http://118.31.17.175/<%=m.img%>" style="vertical-align: middle;" alt="<%=m.name%>" height="40px" width="40px">
+		   <p class="name"><%=m.name%></p>
+		   <p class="price"><%=m.price%></p>
+		</li>
+		<% if (s == 14) { %></ul><ul class="monday_gift none" id="type_<%=z %>_1"><% } s++ } %>				
+	</ul>
+	<a href="javascript:void(0);" class="ptShowNextGift3 giftpopRight gifgrayRig" onclick="labeljia('<%=z %>','<%=s %>');"></a>
+	</div>
+	<% z++ } %>
+</script>
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/swipe.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../js/zepto.waypoints.js"></script>
+<script type="text/javascript" src="../js/ncscroll-load.js"></script>
+<script type="text/javascript" src="../js/tmpl/footer.js"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/swfobject.js"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/web_socket.js"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/tmpl/room.js"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/gift.js" id="giftjs"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/gift.js" id="face.js"></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/gift.js" async></script>
+<script type="text/javascript" src="http://118.31.17.175/shop/player/js/face.js" async></script>
+<script>
+//IE
+if(document.all) {
+	ent.getElementById("clickme").click();
+}
+// 其它浏览器
+else {
+	var e = document.createEvent("MouseEvents");
+	e.initEvent("click", true, true);
+	document.getElementById("clickme").dispatchEvent(e);
+	console.log('aa');
+}
+function hah(){
+
+	var a = document.getElementById('vio');
+	a.play();
+}
+</script>
+</body>
+
+</html>

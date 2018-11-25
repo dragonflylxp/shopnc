@@ -1,0 +1,231 @@
+[2017-12-26 10:02:47] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:02:47] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:04:56] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:04:56] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:36:06] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:36:06] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:38:35] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:38:35] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:39:12] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:39:12] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:39:33] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:39:33] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:44:48] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:44:48] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:45:20] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:45:20] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:46:38] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:46:38] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:48:26] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:48:26] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:48:28] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:48:28] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:49:28] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:49:28] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:50:12] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:50:12] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:50:24] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:50:24] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:09] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:09] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:25] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:25] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:59] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:51:59] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:52:17] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:52:17] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:53:14] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:53:14] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:53:44] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:53:44] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:56:52] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 10:56:52] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:49:22] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:49:22] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:50:56] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:50:56] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:54:36] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:54:36] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:56:37] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:56:37] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:58:27] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:58:27] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:59:42] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 11:59:42] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:00:43] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:00:43] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:05:20] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:05:20] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:06:44] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:06:44] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:07:34] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 12:07:34] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:03:00] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:03:00] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:04:03] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:04:03] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:11:55] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:11:55] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:12:15] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:12:15] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:14:18] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:14:18] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:15:24] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:15:24] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'content' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 14:31:26] /kaice/shop/index.php?con=visual_editing&fun=decoration_edit&decoration_id=2 ( con=visual_editing&fun=decoration_edit ) 
+ERR: Db Error: Table 'xinshop1.shop_templates_left' doesn't exist
+SELECT bg_color,img_file,if_show,bgrepeat,align,fileurl FROM `shop_templates_left` templates_left WHERE ( ru_id = '242' ) AND ( type = 'head' ) AND ( seller_templates = 'store_tpl_1' ) AND ( theme = '' ) LIMIT 1  
+[2017-12-26 23:55:56] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMgallery_album WHERE 1 
+[2017-12-26 23:57:15] /kaice/shop/index.php?con=visual_editing&fun=shop_banner ( con=visual_editing&fun=shop_banner ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE 1' at line 1
+SELECT album_id,album_mame FROMgallery_album WHERE 1 

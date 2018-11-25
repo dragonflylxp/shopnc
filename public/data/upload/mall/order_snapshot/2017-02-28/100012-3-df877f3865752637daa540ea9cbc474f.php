@@ -1,0 +1,1 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?><div class="default"><span style="color:#333333;font-family:arial;font-size:13px;line-height:20.0200004577637px;background-color:#FFFFFF;">软木照片墙</span></div>

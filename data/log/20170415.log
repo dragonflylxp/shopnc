@@ -1,0 +1,15 @@
+[2017-04-15 15:15:20] /ce/admin/modules/shop/index.php?act=member&op=member_add ( act=member&op=member_add ) 
+ERR: Db Error: Table 'xinshop.payment_sub_account' doesn't exist
+INSERT  INTO `payment_sub_account` (USER_ID,SUB_ACCOUNT_TYPE,AMOUNT,CASH_AMOUNT,UN_CASH_AMOUNT,SHARED_AMOUNT,FREEZE_CASH_AMOUNT,FREEZE_UN_CASH_AMOUNT,PROPERTY,STATE,CREATE_TIME,LAST_UPDATE_TIME,CHECK_CODE) VALUES ('45706','0001','0','0','0','0','0','0','0','00','2017-04-15 15:15:20','2017-04-15 15:15:20','2ce1e75e570e6a1f878ef01c8eca59a5')
+[2017-04-15 15:15:52] /ce/admin/modules/shop/index.php?act=member&op=member_add ( act=member&op=member_add ) 
+ERR: Db Error: Table 'xinshop.payment_sub_account' doesn't exist
+INSERT  INTO `payment_sub_account` (USER_ID,SUB_ACCOUNT_TYPE,AMOUNT,CASH_AMOUNT,UN_CASH_AMOUNT,SHARED_AMOUNT,FREEZE_CASH_AMOUNT,FREEZE_UN_CASH_AMOUNT,PROPERTY,STATE,CREATE_TIME,LAST_UPDATE_TIME,CHECK_CODE) VALUES ('45707','0001','0','0','0','0','0','0','0','00','2017-04-15 15:15:52','2017-04-15 15:15:52','86026a0f0d0c9ea97d80b646749c1907')
+[2017-04-15 15:22:48] /ce/admin/modules/shop/index.php?act=member&op=member_add ( act=member&op=member_add ) 
+ERR: Db Error: Table 'xinshop.payment_sub_account' doesn't exist
+INSERT  INTO `payment_sub_account` (USER_ID,SUB_ACCOUNT_TYPE,AMOUNT,CASH_AMOUNT,UN_CASH_AMOUNT,SHARED_AMOUNT,FREEZE_CASH_AMOUNT,FREEZE_UN_CASH_AMOUNT,PROPERTY,STATE,CREATE_TIME,LAST_UPDATE_TIME,CHECK_CODE) VALUES ('45712','0001','0','0','0','0','0','0','0','00','2017-04-15 15:22:48','2017-04-15 15:22:48','dde727d4d2ca4b4e5f1915143fd7723f')
+[2017-04-15 15:26:54] /ce/admin/modules/shop/index.php?act=member&op=member_add ( act=member&op=member_add ) 
+ERR: Db Error: Table 'xinshop.payment_sub_account' doesn't exist
+INSERT  INTO `payment_sub_account` (USER_ID,SUB_ACCOUNT_TYPE,AMOUNT,CASH_AMOUNT,UN_CASH_AMOUNT,SHARED_AMOUNT,FREEZE_CASH_AMOUNT,FREEZE_UN_CASH_AMOUNT,PROPERTY,STATE,CREATE_TIME,LAST_UPDATE_TIME,CHECK_CODE) VALUES ('45713','0001','0','0','0','0','0','0','0','00','2017-04-15 15:26:54','2017-04-15 15:26:54','2a6c821f9a6f80cefcc7888e05d0bc1c')
+[2017-04-15 15:32:11] /ce/admin/modules/shop/index.php?act=member&op=member_add ( act=member&op=member_add ) 
+ERR: Db Error: Table 'xinshop.payment_sub_account' doesn't exist
+INSERT  INTO `payment_sub_account` (USER_ID,SUB_ACCOUNT_TYPE,AMOUNT,CASH_AMOUNT,UN_CASH_AMOUNT,SHARED_AMOUNT,FREEZE_CASH_AMOUNT,FREEZE_UN_CASH_AMOUNT,PROPERTY,STATE,CREATE_TIME,LAST_UPDATE_TIME,CHECK_CODE) VALUES ('45714','0001','0','0','0','0','0','0','0','00','2017-04-15 15:32:11','2017-04-15 15:32:11','d626b1225e30462efa8b160d685ed8cc')

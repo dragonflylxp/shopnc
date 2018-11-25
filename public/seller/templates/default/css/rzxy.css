@@ -1,0 +1,58 @@
+  .nctouch-home-block {
+  width: 100%;
+  clear: both;
+}
+.nctouch-home-block .tit-bar {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  padding: 0 10px;
+  color: #2c3e50;
+  border-bottom: solid 1px #dadada;
+  -webkit-border-image: url(../images/border.gif) 2 0 round;
+  border-image: url(../images/border.gif) 2 0 round;
+  border-width: 0 0 1px 0;
+  background: #fff;
+  font-weight: bold;
+}
+.nctouch-home-block .tit-bar i{
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: #f44623;
+  border-radius: 4px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 2px;
+  margin-right: 5px;  
+}
+
+.nctouch-home-block .content {
+  display: block;
+}
+.input_box{background: #fff;}
+.input_box dl {min-height:40px;line-height:40px;padding:0 10px;overflow:hidden;font-size: 0.65rem;}
+.input_box dl dt { float:left;width:120px;color:#93a0ae;}
+.input_box dl dd { margin-left:120px;}
+.input_box dl dd input[type=text] { height:40px;width:100%;border:none;outline:none;font-size:16px;background:none;}
+.input_box dl dd select { max-width:70px;-webkit-padding-end: 10px;-webkit-padding-start: 0;}
+.evaluation-upload-block { font-size: 0;background: #fff;padding:5px 0;}
+.evaluation-upload-block .tit { display: inline-block; vertical-align: top; width: 1.5rem; height: 1.7rem; padding: 0.3rem 0.3rem 0 0; }
+.evaluation-upload-block .tit i { display: block; width: 100%; height: 0.9rem; background-image: url(../images/upload-pic.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 70%; opacity: 0.15;}
+.evaluation-upload-block .tit p { display: block; width: 100%; height: 0.9rem; text-align: center; color: #BBB; font-size: 0.55rem; line-height: 0.9rem;}
+.evaluation-upload-block .nctouch-upload { margin-right: 0.3rem;}
+.input_box table{font-size: 0.65rem;width: 100%}
+
+.input_box table th,.input_box table td{text-align: center;border-bottom: 1px solid #FBEED5;height: 1.45rem}
+.input_box table .tc{width: 50%;}
+.input_box i{width: 10px;display: inline-block;line-height: 20px;color: #e44d4d;}
+.paying_money_certif_exp{
+  background-color: #eee;
+width: 90%;
+height:1rem;
+padding: 0.5rem 2.5%;
+
+border: none;
+font-size: 0.6rem;
+line-height: 0.9rem;
+}

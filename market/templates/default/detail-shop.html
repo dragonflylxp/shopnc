@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Distribute</title>
+<meta name="keywords" content="Distribute" />
+<meta name="description" content="Distribute" />
+<meta name="author" content="shopec">
+<meta name="copyright" content="shopec Inc. All Rights Reserved">
+<style type="text/css">
+body {
+_behavior: url(http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/css/csshover.htc);
+}
+</style>
+<link href="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/css/base.css" rel="stylesheet" type="text/css">
+<link href="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/css/home_header.css" rel="stylesheet" type="text/css">
+<link href="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<!--[if IE 7]>
+  <link rel="stylesheet" href="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/font/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/html5shiv.js"></script>
+      <script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/respond.min.js"></script>
+<![endif]-->
+<script>
+var COOKIE_PRE = '261E_';var _CHARSET = 'utf-8';var SITEURL = 'http://localhost/shopec_b2b2c_distribute/www/shop';var SHOP_SITE_URL = 'http://localhost/shopec_b2b2c_distribute/www/shop';var MEMBER_SITE_URL = 'http://localhost/shopec_b2b2c_distribute/www/member';var RESOURCE_SITE_URL = 'http://localhost/shopec_b2b2c_distribute/www/data/resource';var SHOP_TEMPLATES_URL = 'SHOP_TEMPLATES_URL';var DISTRIBUTE_SITE_URL = 'http://localhost/shopec_b2b2c_distribute/www/distribute';var DISTRIBUTE_TEMPLATES_URL = 'http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default';
+</script>
+<script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/jquery.js"></script>
+<script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/common.js" charset="utf-8"></script>
+<script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/jquery-ui/jquery.ui.js"></script>
+<script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/jquery.validation.min.js"></script>
+<script src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
+<script type="text/javascript">
+var PRICE_FORMAT = '&yen;%s';
+$(function(){
+	//首页左侧分类菜单
+	$(".category ul.menu").find("li").each(
+		function() {
+			$(this).hover(
+				function() {
+				    var cat_id = $(this).attr("cat_id");
+					var menu = $(this).find("div[cat_menu_id='"+cat_id+"']");
+					menu.show();
+					$(this).addClass("hover");					
+					var menu_height = menu.height();
+					if (menu_height < 60) menu.height(80);
+					menu_height = menu.height();
+					var li_top = $(this).position().top;
+					$(menu).css("top",-li_top + 38);
+				},
+				function() {
+					$(this).removeClass("hover");
+				    var cat_id = $(this).attr("cat_id");
+					$(this).find("div[cat_menu_id='"+cat_id+"']").hide();
+				}
+			);
+		}
+	);
+	$(".head-user-menu dl").hover(function() {
+		$(this).addClass("hover");
+	},
+	function() {
+		$(this).removeClass("hover");
+	});
+	$('.head-user-menu .my-mall').mouseover(function(){// 最近浏览的商品
+		load_history_information();
+		$(this).unbind('mouseover');
+	});
+	$('.head-user-menu .my-cart').mouseover(function(){// 运行加载购物车
+		load_cart_information();
+		$(this).unbind('mouseover');
+	});
+	$('#button').click(function(){
+	    if ($('#keyword').val() == '') {
+		    if ($('#keyword').attr('data-value') == '') {
+			    return false
+			} else {
+				window.location.href="http://localhost/shopec_b2b2c_distribute/www/distribute/index.php?con=search&fun=index&keyword="+$('#keyword').attr('data-value');
+			    return false;
+			}
+	    }
+	});
+	$(".head-search-bar").hover(null,
+	function() {
+		$('#search-tip').hide();
+	});
+	$('#keyword').focus(function(){$('#search-tip').show()}).autocomplete({
+		//minLength:0,
+        source: function (request, response) {
+            $.getJSON('http://localhost/shopec_b2b2c_distribute/www/distribute/index.php?con=search&fun=auto_complete', request, function (data, status, xhr) {
+                $('#top_search_box > ul').unwrap();
+                response(data);
+                if (status == 'success') {
+                    $('#search-tip').hide();
+                    $('body > ul:last').wrap("<div id='top_search_box'></div>").css({'zIndex':'1000','width':'362px'});
+                }
+            });
+       },
+		select: function(ev,ui) {
+			$('#keyword').val(ui.item.label);
+			$('#top_search_form').submit();
+		}
+	});
+	$('#search-his-del').on('click',function(){$.cookie('261E_his_sh',null,{path:'/'});$('#search-his-list').empty();});
+});
+</script>
+</head>
+<body>
+<style type="text/css">
+.head-user-menu{ display:none !important}
+body {_behavior: url(http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/css/csshover.htc);}
+#main-nav .pagination{ display:none}
+#box { background: #FFF; width: 238px; height: 410px; margin: -390px 0 0 0; display: block; border: solid 4px #D93600; position: absolute; z-index: 999; opacity: .5 }
+.shopMenu { position: fixed; z-index: 1; right: 25%; top: 0; }
+.d_index{ margin-top:10px}
+</style>
+<!--弹出js-->
+<script type="text/javascript">
+    /*弹框JS内容*/
+    jQuery(document).ready(function($){
+        //打开窗口
+        $('.cd-popup-trigger0').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup').addClass('is-visible');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup').removeClass('is-visible');
+            }
+        });
+		
+		//打开窗口
+        $('.cd-popup-trigger1').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup1').addClass('is-visible1');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup1').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup1') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible1');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup1').removeClass('is-visible1');
+            }
+        });
+		
+		//打开窗口
+        $('.cd-popup-trigger2').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup2').addClass('is-visible2');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup2').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup2') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible2');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup2').removeClass('is-visible2');
+            }
+        });
+		
+		//打开窗口
+        $('.cd-popup-trigger3').on('click', function(event){
+            event.preventDefault();
+            $('.cd-popup3').addClass('is-visible3');
+            //$(".dialog-addquxiao").hide()
+        });
+        //关闭窗口
+        $('.cd-popup3').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup3') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible3');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup3').removeClass('is-visible3');
+            }
+        });
+    });
+</script>
+<script>
+function copyToClipboard(txt) {
+    if (window.clipboardData) {
+        window.clipboardData.clearData();
+        window.clipboardData.setData("Text",document.getElementById(txt).value);
+    } else if (navigator.userAgent.indexOf("Opera") != -1) {
+        //do nothing      
+    } else if (window.netscape) {
+        try {
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+        } catch (e) {
+            alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将 'signed.applets.codebase_principal_support'设置为'true'");
+        }
+        var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+        if (!clip)   return;
+        var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+        if (!trans) return;
+        trans.addDataFlavor('text/unicode');
+        var str = new Object();
+        var len = new Object();
+        var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+        var copytext = txt;
+        str.data = copytext;
+        trans.setTransferData("text/unicode", str, copytext.length * 2);
+        var clipid = Components.interfaces.nsIClipboard;
+        if (!clip)   return false;
+        clip.setData(trans, null, clipid.kGlobalClipboard);
+    }
+    alert("你已经成功复制本地址，请直接粘贴推荐给你的朋友!");
+}
+</script>
+<!--弹出js结束-->
+<div class="nch-container wrapper" >
+  <div class="right"> 
+    <!-- 分类下的推荐商品 -->
+    <div id="gc_goods_recommend_div"></div>
+	<div class="shop_con_list" id="main-nav-holder"> 
+     <!-- 商品列表循环  -->
+     <div>
+<link href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--添加的店铺信息部分-->
+<div class="d_index">
+	<div class="detail-shop-info">
+    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/shop-logo.jpg" class="fl"/>
+        <ul class="fl">
+        	<li>
+            	<span>公司名称：浙江印象实业股份有限公司</span>
+                <span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：浙江省杭州市下城区永华街81号</span>
+                <span>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：0571-85801222</span>
+            </li>
+            <li>
+            	<span>店铺名称：<b>秋水伊人</b></span>
+                <span>店铺主营：服饰鞋包</span>
+            </li>
+            <li>
+            	<span>宝贝与描述相符：&nbsp;<b>4.8</b>&nbsp;分</span>
+                <span>卖家的服务态度：&nbsp;<b>4.8</b>&nbsp;分</span>
+                <span>物流服务的质量：&nbsp;<b>4.8</b>&nbsp;分</span>
+            </li> 
+        </ul>
+        <a href="#" target="_blank" class="fr" title="联系IM客服"><i class="fl"></i><span class="fl">联系IM客服</span></a>
+        <div class="clear"></div>
+    </div>
+    <div class="detail-shop-data">
+    	<div class="fl">
+    	<h1>近30天佣金历史趋势</h1>
+        <div class="data-number">
+        	<span>30天推广量</span>
+            <span><b class="d_index_orange" id="myTargetElement-promote">12566</b>&nbsp;件</span>
+        </div>
+        <div class="data-number">
+        	<span>30天支付佣金</span>
+            <span><b id="myTargetElement-commission">263,640</b>&nbsp;元</span>
+        </div>
+        <script src="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/js/countUp.min.js"></script>
+        <script type="text/javascript">
+			var options = {
+			useEasing : true, 
+			useGrouping : true, 
+			separator : ',', 
+			decimal : '.', 
+			prefix : '', 
+			suffix : '' 
+			};
+			var demo_promote = new CountUp("myTargetElement-promote", 0, 12566, 0, 2, options);
+			var demo_commission = new CountUp("myTargetElement-commission", 0, 263640, 0, 2.5, options);
+			$(window).load(function(){
+				demo_promote.start();
+				demo_commission.start();
+				})
+		</script>
+        </div>
+        <div class="chat fr">
+        	<div class="chat-nav">
+            	<a href="javascript:void(0);" class="commission-btn" title="支付佣金"><i class="fa fa-cny" aria-hidden="true"></i>&nbsp;支付佣金</a>
+            	<a href="javascript:void(0);" class="promote-btn" title="推广量"><i class="fa fa-line-chart" aria-hidden="true"></i>&nbsp;推广量</a>
+            </div>
+        	<canvas class="commission" id="commission" width="930" height="230"></canvas>
+        	<canvas class="promote" id="promote" width="930" height="230"></canvas>
+        </div>
+        <script>
+			$(function(){
+				$(".promote-btn").click(function(){
+					$(".promote").fadeOut(400);
+					$(".commission").fadeIn(400);
+					})
+				$(".commission-btn").click(function(){
+					$(".commission").fadeOut(400);
+					$(".promote").fadeIn(400);
+					})
+				})	
+		</script>
+        <script src="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/js/Chart.min.js"></script>
+        <script src="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/js/index-Chart.js"></script>
+    </div>
+</div>
+<!--结束-->
+<div class="clear"></div>
+<div class="d_index">
+	<h1 class="p-goods"><img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_index_05.png" alt="" class="fl" height="19" width="19"><span class="fl">&nbsp;&nbsp;推广商品</span></h1>
+	<ul class="d_list">
+    	<li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>
+        <li>
+        	<a href="#">
+   	    	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" alt="" class="d_list_goods_img"/>
+            <div class="d_list_goods_name">
+            	<span>高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋</span>
+                <div><span class="fl">&yen;<b>179.00</b></span><span class="fr d_index_gray9">月销：<i class="d_index_gray6">167</i></span></div>
+                <div><span class="fl d_index_orange">比率：<b>6%</b></span><span class="fr d_index_gray9">佣金：<i class="d_index_gray6">&yen;10.74</i></span></div>
+            </div>
+            </a>
+            <div class="add-cart checkbox">
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger1"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;立即推广</a>
+              <a href="javascript:void(0);" nctype="" data-gid="" class="cd-popup-trigger2"><i class="fa fa-qrcode" aria-hidden="true"></i>&nbsp;获取二维码</a>
+            </div>
+        </li>      
+    </ul>
+</div>
+<div class="clear"></div>
+<div class="cd-popup1 cd-popup-box">
+	<div class="cd-popup-container1">
+        <div>
+        	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" class="fl"/>
+            <h4>
+            	高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋
+                <b>&yen;179.00</b>
+            </h4>
+        </div>
+        <div class="clear"></div>
+        <div class="share">
+            <div class="sharebord">
+                <div class="item">
+                    <input type="text" id="link1" value="http://www.moredoo.com/10002"><button onclick="copyToClipboard(&quot;link1&quot;)">复制链接</button>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="bdsharebuttonbox"> 
+        	<a href="javascript:void(0)">分享至：</a>
+            <a href="javascript:void(0)" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="javascript:void(0)" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+            <a href="javascript:void(0)" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+            <a href="javascript:void(0)" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+        </div>
+		<script>
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","qzone","weixin","tqq","sqq"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	    </script>
+        <a href="#0" class="cd-popup-close"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;关闭</a>
+    </div>
+</div>
+<div class="cd-popup2 cd-popup-box">
+   <div class="cd-popup-container2">
+       <img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/share-qrcode.jpg" class="share-qrcode"/>
+       <div>
+        	<img src="http://localhost/shopec_b2b2c_distribute/www/distribute/templates/default/images/d_list-01.jpg" class="fl"/>
+            <h4 class="w-55">
+            	高领口系带蝴蝶结收高腰大裙摆无袖打底背心复古格子气质连衣裙秋
+                <b>&yen;179.00</b>
+            </h4>
+        </div>
+        <div class="clear"></div>
+        <script type="text/javascript" src="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/js/jquery.qrcode.js" charset="utf-8"></script>
+        <script type="text/javascript" src="http://localhost/shopec_b2b2c_distribute/www/distribute/resource/js/qrcode.js" charset="utf-8"></script>
+        <div class="qrcodeTable">
+        <div id="qrcodeTable" class="fl"></div> 
+        <h4 class="fl w-45">打开微信扫描二维码后可将商品分享至微信好友及朋友圈</h4>
+        </div>
+		<script type="text/javascript">jQuery('#qrcodeTable').qrcode({render: "table",text: "http://www.baidu.com",width:"124",height:"124"});</script>
+        <a href="#0" class="cd-popup-close"><i class="fa fa-close" aria-hidden="true"></i>&nbsp;关闭</a>
+    </div>
+</div>
+<script type="text/javascript" src="http://localhost/shopec_b2b2c_distribute/www/data/resource/js/jquery.raty/jquery.raty.min.js"></script> 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.raty').raty({
+            path: "http://localhost/shopec_b2b2c_distribute/www/data/resource/js/jquery.raty/img",
+            readOnly: true,
+            width: 80,
+            score: function() {
+              return $(this).attr('data-score');
+            }
+        });
+      	//初始化对比按钮
+    	initCompare();
+    });
+</script>
+<div class="tc mt20 mb20">
+        <div class="pagination"> <ul><li><span>首页</span></li><li><span>上一页</span></li><li><span class="currentpage">1</span></li><li><span>下一页</span></li><li><span>末页</span></li></ul> </div>
+      </div>
+    </div>
+  </div>
+    <div class="clear"></div>
+</div>
+</div>
+</body>
+</html>

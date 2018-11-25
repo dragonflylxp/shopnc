@@ -1,0 +1,23 @@
+discount=====>0.00
+payment_type=====>1
+subject=====>实物订单_880531842403561115
+trade_no=====>2016110921001004520275616985
+buyer_email=====>s_ongyang@hotmail.com
+gmt_create=====>2016-11-09 11:57:49
+notify_type=====>trade_status_sync
+quantity=====>1
+out_trade_no=====>880531842403561115
+seller_id=====>2088521142145560
+notify_time=====>2016-11-09 11:57:50
+body=====>r
+trade_status=====>TRADE_SUCCESS
+is_total_fee_adjust=====>N
+total_fee=====>0.01
+gmt_payment=====>2016-11-09 11:57:50
+seller_email=====>xingxinyuan@chinagxjj.com
+price=====>0.01
+buyer_id=====>2088002587809522
+notify_id=====>97f9a98b7e1c86e0101b271ccf266dbk0i
+use_coupon=====>N
+sign_type=====>RSA
+sign=====>ofzEUZzse3Z9xA6nkqLu/9Eposv0Wnaz9Aq7kdcWC78yl1f9sX+ShlLGTWLXPQ8yfVwlP4UddXV0au+MU9zUxy809BZVj04tAu2YiHWhdWrazA3t3r1Ovki+2r4aIwJ/DnUllOsFIsqaAa6nrN4Vl76JbK5tGfxdYSbEXUUnYFc=

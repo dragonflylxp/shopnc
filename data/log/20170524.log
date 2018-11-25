@@ -1,0 +1,21 @@
+[2017-05-24 13:48:03] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1495604882','242')
+[2017-05-24 13:53:09] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1495605188','242')
+[2017-05-24 13:54:09] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1495605248','242')
+[2017-05-24 13:55:06] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','83',NULL,'0','1495605305','242')
+[2017-05-24 13:57:52] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('散落的花瓣视频','','83',NULL,'0','1495605471','242')
+[2017-05-24 13:58:53] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('散落的花瓣视频','','83',NULL,'0','1495605532','242')
+[2017-05-24 14:05:10] /ce/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('散落的花瓣视频','','83',NULL,'19410579','1495605909','242')

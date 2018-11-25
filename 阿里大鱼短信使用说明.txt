@@ -1,0 +1,92 @@
+其他文件覆盖 或者找标注 511613932 的复制到自己代码里面
+
+
+\data\config\config.ini.php  添加
+$config['sms']['smsNumber'] = 1;//1为阿里大鱼 2为亿美
+//阿里大鱼短信接口
+$config['dysms']['accessKeyId'] = 'LTAIEWPBWFgYBFgC';
+$config['dysms']['accessKeySecret'] = 'yIPOnYmzcIRj87MPieltdhJ22Y5kYn';
+//会员注册模板
+$config['dysms']['registered'] = '';
+//会员登录模板
+$config['dysms']['login'] = '';
+//会员重置密码模板
+$config['dysms']['reset'] = '';
+//会员兑换码模板
+$config['dysms']['code'] = '';
+//会员提货码模板
+$config['dysms']['pickup'] = '';
+//会员门店提货码模板
+$config['dysms']['chaincode'] = '';
+//会员提交账户安全验证
+$config['dysms']['verify'] = '';
+//会员绑定手机号
+$config['dysms']['binding'] = '';
+//短信签名
+$config['dysms']['signature'] = '';
+
+数据库导入
+
+ALTER TABLE `shop_store_msg_tpl`
+ADD COLUMN `sms_code`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '短信模板' AFTER `smt_mail_forced`;
+
+ALTER TABLE `shop_member_msg_tpl`
+ADD COLUMN `sms_code`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '短信模板' AFTER `mmt_mail_content`;
+
+admin后台设置 消息通知 - 编辑用户消息模板  -手机短信模板 - 短信模板 对应大鱼模板
+
+
+
+
+大鱼模板 设置
+
+您于${sendtime}绑定手机号，验证码是：${verifycode},请务必妥善保管。
+
+您于${sendtime}提交账户安全验证，验证码是：${verifycode},请务必妥善保管。
+
+您的商品${goodsname},虚拟兑换码是：${vrcode},请务必妥善保管。
+
+您已成功下单，订单号：${ordersn}，提货码：${chaincode}，请持以上信息及时到门店取货。
+
+您于${time}申请注册会员，动态码：${captcha}，十分钟内有效。
+
+您于${time}申请登录，动态码：${captcha}，十分钟内有效。
+
+您于${time}申请重置登录密码，动态码：${captcha}，十分钟内有效。
+
+您的订单已到达自提点，请上门取货！提货时请提供手机号/订单号/运单号及提货码：${pickupcode},请务必妥善保管。
+
+
+//会员短信通知模板
+您关注的商品 “${goodsname}” 已经到货。
+您关于商品 “${goodsname}” 的咨询，商家已经回复。
+您的平台客服咨询已经回复。
+您的订单已经进入支付尾款时间。订单编号 ${ordersn}。
+您的订单已经出库。订单编号 ${ordersn}。
+${ordersn}的款项已经收到，请留意出库通知。
+你的账户于 ${time} 账户资金有变化，描述：${desc}，可用金额变化： ${avamount}元，冻结金额变化：${freezeamount}元。
+你的账户于 ${time} 充值卡余额有变化，描述：${description}，可用充值卡余额变化： ${availableamount}元，冻结充值卡余额变化：${freezeamount}元。
+您的退款退货单有了变化。退款退货单编号：${refundsn}。
+您有红包已经使用，编号：${rpacketcode}。
+你的账户于 ${time} 账户资金有变化，描述：${desc}，可用金额变化： ${avamount}元，冻结金额变化：${freezeamount}元。
+您有代金券已经使用，代金券编号：${vouchercode}。
+您有一个代金券即将在${indate}过期，请记得使用。
+您有一组兑换码即将在${indate}过期，请记得使用。
+
+
+//商家短信通知模板
+您售出的商品被投诉，等待商家申诉。投诉单编号：${complainid}。
+您的商品库存不足，请及时补货。SPU：${commonid}，SKU：${skuid}。
+您的商品没有通过管理员审核，原因：“${remark}”。SPU：${commonid}。
+您的商品被违规下架，原因：“${remark}”。SPU：${commonid}。
+您有订单需要处理，订单编号：${ordersn}。
+您有一个${type}退款单需要处理，退款编号：${refundsn}。
+您的${type}退款单超期未处理，已自动同意买家退款申请。退款单编号：${refundsn}。
+您有一个${type}退货单需要处理。退货编号：${refundsn}。
+您的${type}退货单超期未处理，已自动同意买家退货申请（弃货）。退货单编号：${refundsn}。
+您的${type}退货单不处理收货超期未处理，已自动按弃货处理。退货单编号：${refundsn}。
+您有新的结算单等待确认，开始时间：${statetime}，结束时间：${endtime}，结算单号：${billno}。
+您的结算单平台已付款，请注意查收，结算单编号：${billno}。
+您有一条新的店铺消费记录，金额：${price}，操作人：${sellername}，备注：${remark}。
+你的店铺即将到期，请及时续期。
+

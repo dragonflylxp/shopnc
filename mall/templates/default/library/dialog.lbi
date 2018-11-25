@@ -1,0 +1,2588 @@
+{if $temp eq 'addCategory'}
+<div class="dialog_addCategory">
+	<dl>
+    	<dt>{$lang.category_name}：</dt>
+        <dd><input type="text" class="text text_2" name="addedCategoryName" id="addedCategoryName" value="" autocomplete="off" /></dd>
+    </dl>
+</div>
+{/if}
+
+{if $temp eq 'addBrand'}
+<div class="dialog_addBrand">
+	<dl>
+    	<dt>{$lang.brand_name}：</dt>
+        <dd><input type="text" class="text text_2" name="addBrandName" id="addBrandName" value="" autocomplete="off" /></dd>
+    </dl>
+</div>
+{/if}
+
+{if $temp eq 'addWarehouse'}
+<div class="addWarehouse">
+    <dl>
+        <dt>{$lang.warehouse_name}：</dt>
+        <dd>
+            <div class="imitate_select select_w140">
+                <div class="cite">{$lang.select_please}</div>
+                <ul>
+                	{foreach from=$warehouse_list item=warehouse name=nowarehouse}
+                    <li><a href="javascript:;" data-value="{$warehouse.region_id}" class="ftx-01">{$warehouse.region_name}</a></li>
+                    {/foreach}
+                </ul>
+                <input name="warehouse_name" type="hidden" value="" id="warehouse_name">
+            </div>
+        </dd>
+    </dl>    
+    <dl>
+        <dt>{$lang.warehouse_number}：</dt>
+        <dd><input name="warehouse_number" id="warehouse_number" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.warehouse_price}：</dt>
+        <dd><input name="warehouse_price" id="warehouse_price" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.warehouse_promote_price}：</dt>
+        <dd><input name="warehouse_promote_price" id="warehouse_promote_price" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    
+    <dl>
+        <dt>{$lang.lab_give_integral}</dt>
+        <dd>
+        	<input name="give_integral" id="warehouse_give_integral" value="0" type="text" size="10" class="text text_2" rev="give" autocomplete="off" />
+            {if $user_id}
+            &nbsp;<span class="color999" id="give_html">可设置<em id="give">0</em>消费积分</span>
+            {/if}
+        </dd>
+    </dl>
+    <dl>
+        <dt>{$lang.lab_rank_integral}</dt>
+        <dd>
+        	<input name="rank_integral" id="warehouse_rank_integral" value="0" type="text" size="10" class="text text_2" rev="rank" autocomplete="off" />
+            {if $user_id}
+            &nbsp;<span class="color999" id="rank_html">可设置<em id="rank">0</em>等级积分</span>
+            {/if}
+        </dd>
+    </dl>
+    <dl>
+        <dt>{$lang.lab_integral}</dt>
+        <dd>
+        	<input name="pay_integral" id="warehouse_pay_integral" value="0" type="text" size="10" class="text text_2" rev="pay" autocomplete="off" />
+            {if $user_id}
+            &nbsp;<span class="color999" id="pay_html">可设置积分购买<em id="pay">0</em>金额</span>
+            {/if}
+        </dd>
+    </dl>
+</div>
+<script type="text/javascript">
+{if $user_id}
+$(function(){
+	$('#warehouse_price, #warehouse_promote_price').blur(function(){
+		var warehouse_price = Number($("#warehouse_price").val());
+		var warehouse_promote_price = Number($("#warehouse_promote_price").val());
+		var shop_price;
+		
+		if(warehouse_price > warehouse_promote_price && warehouse_promote_price == 0){
+			shop_price = warehouse_price;
+		}else if(warehouse_price < warehouse_promote_price && warehouse_promote_price != 0){
+			shop_price = warehouse_price;
+		}else{
+			shop_price = warehouse_promote_price;
+		}
+		
+		var give_integral = Math.floor(shop_price * {$grade_rank.give_integral});
+
+		$("#give").html(give_integral);
+		
+		var rank_integral = Math.floor(shop_price * {$grade_rank.rank_integral});
+		$("#rank").html(rank_integral);
+		
+		var pay_integral = Math.floor(shop_price / 100 * {$integral_scale} * {$grade_rank.pay_integral});
+		$("#pay").html(pay_integral);
+		
+		$("#warehouse_give_integral").val('');
+		$("#warehouse_rank_integral").val('');
+		$("#warehouse_pay_integral").val('');
+	});
+	
+	$('#warehouse_give_integral, #warehouse_rank_integral, #warehouse_pay_integral').blur(function(){
+		var give = $('#give').html();
+		var rank = $('#rank').html();
+		var pay = $('#pay').html();
+		var val = $(this).val();
+		var rev = $(this).attr('rev');
+		var integral = $("#" + rev).html();
+		if(val > integral){
+			if(rev == 'give'){
+				alert("可设置" + integral + "消费积分");
+			}else if(rev == 'rank'){
+				alert("可设置" + integral + "等级积分");
+			}else{
+				alert("可设置积分购买" + integral + "金额");
+			}
+			$(this).val(integral);
+		}
+	});
+	
+});
+{/if}
+</script>
+{/if}
+{if $temp eq 'addBatchWarehouse'}
+<div class="warehouse_warpper" id="batchWarehouelist">
+	<div class="add_warehouse_list">
+		<div class="warehouse_item">
+			<span class="item">
+				<span class="tit">仓库名称</span>
+				
+                <div class="imitate_select select_w140">
+                    <div class="cite">{$lang.select_please}</div>
+                    <ul>
+                        {foreach from=$warehouse_list item=warehouse name=nowarehouse}
+                        <li><a href="javascript:;" data-value="{$warehouse.region_id}" class="ftx-01">{$warehouse.region_name}</a></li>
+                        {/foreach}
+                    </ul>
+                    <input name="warehouse_name" type="hidden" value="0" id="warehouse_name">
+                </div>						
+			</span>
+			<span class="item"><span class="tit">仓库库存</span><input type="text" value="0" name="warehouse_number" class="text w65" autocomplete="off" /></span>
+			<span class="item"><span class="tit">仓库价格</span><input type="text" value="0" name="warehouse_price" class="text w65" autocomplete="off" /></span>
+			<span class="item last"><span class="tit">仓库促销价格</span><input type="text" value="0" name="warehouse_promote_price" class="text w65" autocomplete="off" /></span>
+			<div class="hide">
+				<span class="item"><span class="tit">赠送消费积分数</span><input type="text" value="0" name="give_integral" class="text w65" autocomplete="off" /></span>
+				<span class="item"><span class="tit">赠送等级积分数</span><input type="text" value="0" name="rank_integral" class="text w65" autocomplete="off" /></span>
+				<span class="item"><span class="tit">积分购买金额</span><input type="text" value="0" name="pay_integral" class="text w65" autocomplete="off" /></span>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="addList"></a>
+	</div>
+</div>
+<!--添加仓库html end-->
+{/if}
+{if $temp eq 'addRegion'}
+<div class="addWarehouse">
+    <dl>
+        <dt>{$lang.warehouse_region_name}：</dt>
+        <dd>
+            <select name="warehouse_area_name" onchange="get_warehouse_area_name(this.value, this.id, {$goods_id}, {$user_id})" id="1" class="select" style=" margin:0 10px 0 0;">
+                <option value="0" selected>{$lang.select_please}</option>
+                {foreach from=$warehouse_list item=warehouse name=nowarehouse}
+                <option value="{$warehouse.region_id}">{$warehouse.region_name}</option>
+                {/foreach}
+            </select>
+            <font style="font-size:12px; float:left;" id="warehouse_area_list_1" name="warehouse_area_list"></font>
+        </dd>
+    </dl>    
+    <dl>
+        <dt>{$lang.region_number}：</dt>
+        <dd><input name="region_number" id="region_number" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.region_price}：</dt>
+        <dd><input name="region_price" id="region_price" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.region_promote_price}：</dt>
+        <dd><input name="region_promote_price" id="region_promote_price" value="0" type="text" size="10" class="text text_2" autocomplete="off" /></dd>
+    </dl>
+    
+    <dl>
+        <dt>{$lang.lab_give_integral}</dt>
+        <dd>
+        	<input name="give_integral" id="region_give_integral" value="0" type="text" size="10" class="text text_2" rev="give" autocomplete="off" />
+            {if $user_id}
+        	&nbsp;<span class="color999" id="give_html">可设置<em id="give">0</em>消费积分</span>
+            {/if}
+        </dd>
+    </dl>
+    <dl>
+        <dt>{$lang.lab_rank_integral}</dt>
+        <dd>
+        	<input name="rank_integral" id="region_rank_integral" value="0" type="text" size="10" class="text text_2" rev="rank" autocomplete="off" />
+        	{if $user_id}
+            &nbsp;<span class="color999" id="rank_html">可设置<em id="rank">0</em>等级积分</span>
+            {/if}
+        </dd>
+    </dl>
+    <dl>
+        <dt>{$lang.lab_integral}</dt>
+        <dd>
+        	<input name="pay_integral" id="region_pay_integral" value="0" type="text" size="10" class="text text_2" rev="pay" autocomplete="off" />
+        	{if $user_id}
+        	&nbsp;<span class="color999" id="pay_html">可设置积分购买<em id="pay">0</em>金额</span>
+            {/if}
+        </dd>
+    </dl>
+</div>
+
+<script type="text/javascript">
+{if $user_id}
+$(function(){
+	$('#region_price, #region_promote_price').blur(function(){
+		var region_price = Number($('#region_price').val());
+		var region_promote_price = Number($('#region_promote_price').val());
+		var shop_price;
+		
+		if(region_price > region_promote_price && region_promote_price == 0){
+			shop_price = region_price;
+		}else if(region_price < region_promote_price && region_promote_price != 0){
+			shop_price = region_price;
+		}else{
+			shop_price = region_promote_price;
+		}
+		
+		var give_integral = Math.floor(shop_price * {$grade_rank.give_integral});
+
+		$("#give").html(give_integral);
+		
+		var rank_integral = Math.floor(shop_price * {$grade_rank.rank_integral});
+		$("#rank").html(rank_integral);
+		
+		var pay_integral = Math.floor(shop_price / 100 * {$integral_scale} * {$grade_rank.pay_integral});
+		$("#pay").html(pay_integral);
+		
+		$("#warehouse_give_integral").val('');
+		$("#warehouse_rank_integral").val('');
+		$("#warehouse_pay_integral").val('');
+	});
+	
+	$('#region_give_integral, #region_rank_integral, #region_pay_integral').blur(function(){
+		var give = $('#give').html();
+		var rank = $('#rank').html();
+		var pay = $('#pay').html();
+		var val = $(this).val();
+		var rev = $(this).attr('rev');
+		var integral = $("#" + rev).html();
+		if(val > integral){
+			if(rev == 'give'){
+				alert("可设置" + integral + "消费积分");
+			}else if(rev == 'rank'){
+				alert("可设置" + integral + "等级积分");
+			}else{
+				alert("可设置积分购买" + integral + "金额");
+			}
+			$(this).val(integral);
+		}
+	});
+	
+});
+{/if}
+</script>
+{/if}
+{if $temp eq 'addBatchRegion'}
+<div class="warehouse_warpper" id="batchRegionlist">
+	<div class="add_warehouse_list">
+		<div class="warehouse_item" id="area_1">
+			<span class="item">
+				<span class="tit">地区名称</span>
+                <div class="imitate_select select_w140 warehouse_area_name" data-key="1" data-goodsid="{$goods_id}" data-userid="{$user_id}" id="warehouse_area_name_1">
+                    <div class="cite">{$lang.select_please}</div>
+                    <ul>
+                        {foreach from=$warehouse_list item=warehouse name=nowarehouse}
+                        <li><a href="javascript:;" data-value="{$warehouse.region_id}" class="ftx-01">{$warehouse.region_name}</a></li>
+                        {/foreach}
+                    </ul>
+                    <input name="warehouse_area_name" type="hidden" value="" id="warehouse_area_name_val_1">
+                </div>
+				<font style="font-size:12px;" id="warehouse_area_list_1" name="warehouse_area_list"></font>									
+			</span>
+			<span class="item"><span class="tit">地区库存</span><input type="text" value="0" name="region_number" class="text w65" autocomplete="off" /></span>
+			<span class="item"><span class="tit">地区价格</span><input type="text" value="0" name="region_price" class="text w65" autocomplete="off" /></span>
+			<span class="item"><span class="tit">地区促销价格</span><input type="text" value="0" name="region_promote_price" class="text w65" autocomplete="off" /></span>
+			<div class="hide">
+				<span class="item"><span class="tit">赠送消费积分数</span><input type="text" value="0" name="give_integral" class="text w65" autocomplete="off" /></span>
+				<span class="item"><span class="tit">赠送等级积分数</span><input type="text" value="0" name="rank_integral" class="text w65" autocomplete="off" /></span>
+				<span class="item last"><span class="tit">积分购买金额</span><input type="text" value="0" name="pay_integral" class="text w65" autocomplete="off" /></span>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="addList"></a>
+	</div>
+</div>
+<script type="text/javascript">
+/*$(function(){
+	$(document).on("click",".warehouse_area_name",function(){
+		var key = $(this).data("key");
+		var goods_id =$(this).data("goodsid");
+		var user_id =$(this).data("userid");
+		$.divselect("#warehouse_area_name_" + key,"#warehouse_area_name_val_" + key,function(obj){
+			var value = $(obj).data("value");
+			get_warehouse_area_name(value, key ,goods_id, user_id);
+		});
+	});
+})*/
+</script>
+{/if}
+{if $temp eq 'addImg'}
+<form  action="goods.php?act=addImg" id="fileForm" method="post"  enctype="multipart/form-data"  runat="server" >
+<div class="addImg" id="addImg">
+	<dl>
+        <dt>{$lang.img_count}：</dt>
+        <dd><input type="text" class="text_3 mr10"  name="img_desc[]" size="20" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.img_url}：</dt>
+        <dd><input type="file" name="img_url[]" id="img_url"  class="file mr10 mt5" autocomplete="off" /></dd>
+    </dl>
+    <dl>
+        <dt>{$lang.img_file}：</dt>
+        <dd><input type="text" size="40" value="{$lang.img_file}" style="color:#aaa;" autocomplete="off" onfocus="if (this.value == '{$lang.img_file}'){this.value='http://';this.style.color='#000';}" name="img_file[]"/></dd>
+    </dl>
+    <input type="hidden"   value="{$goods_id}" name="goods_id_img"/>
+</div>
+</form>
+{/if}
+{if $temp eq 'addBatchImg'}
+<form  action="goods.php?act=addBatchImg" id="addBatchImg_from" method="post"  enctype="multipart/form-data"  runat="server" >
+	<div class="img_item"  >
+		<span class="red">{$lang.remind}</span>
+	</div>
+	<div class="img_item">
+    <a href="javascript:;" onclick="addImg(this)" class="up"></a>
+    {$lang.img_count}：<input type="text" class="text_2 mr10" name="img_desc[]" size="20" autocomplete="off" />
+    {$lang.img_url}：<input type="file" name="img_url[]" id="Batch_img_url" class="mr10" autocomplete="off" />
+    <input type="text" size="40" value="{$lang.img_file}" style="color:#aaa;" autocomplete="off" onfocus="if (this.value == '{$lang.img_file}'){this.value='http://';this.style.color='#000';}" name="img_file[]"/>
+    <input type="hidden"   value="{$goods_id}" name="goods_id_img"/>
+    </div>
+
+</form>
+{/if}
+{if $temp eq 'privilege'}
+<div class="dialog_privilege" id="dialog_privilege">
+	<dl>
+    	<dt>{$lang.label_region}：</dt>
+        <dd>
+        	<select name="country" id="selCountries" onChange="region.changed(this, 1, 'selProvinces')" class="select">
+              {foreach from=$countries item=country name=fe_country}
+                <option value="{$country.region_id}" {if $smarty.foreach.fe_country.first}selected{/if}>{$country.region_name|escape:html}</option>
+              {/foreach}
+            </select>
+            <select name="province" id="selProvinces" onChange="region.changed(this, 2, 'selCities')" class="select mr10">
+              <option value="">{$lang.select_please}</option>
+            </select>
+            <select name="city" id="selCities" onChange="region.changed(this, 3, 'selDistricts')" class="select mr10">
+              <option value="">{$lang.select_please}</option>
+            </select>
+            <select name="district" id="selDistricts" class="select mr10">
+              <option value="">{$lang.select_please}</option>
+            </select>
+        </dd>
+    </dl>
+</div>
+<script type="text/javascript">
+	var selCountry = document.getElementById("selCountries");
+	if (selCountry.selectedIndex >= 0)
+	{
+		region.loadProvinces(selCountry.options[selCountry.selectedIndex].value);
+	}
+</script>
+{/if} 
+
+{if $temp eq 'load_url'}
+<!doctype html>
+<html>
+<head>{include file ='library/admin_html_head.lbi'}</head>
+<body>
+	<div class="loadSpin">
+		<i class="icon-spinner icon-spin"></i>
+    </div>
+</body>
+</html>
+{/if}
+{if $temp eq 'pic_album'}
+    <div class="pic_album">
+        <div class="items border-bottom0">
+            <div class="item album_Percent hide">
+                <div class="label">上传进度：</div>
+                <div class="label_value">
+                    <div class="text_div mr0 w120 pl0"><span class="Percent_pic" ></span></div><div class="Percent"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">选择相册：</div>
+                <div class="label_value">
+                    <div id="parent_cat" class="imitate_select select_w320">
+                      <div class="cite">{if $album_mame}{$album_mame}{else}{$lang.please_select}{/if}</div>
+                      <ul>
+                        {foreach from=$album_list item=item}
+                        <li><a href="javascript:;" data-value="{$item.album_id}"  class="ftx-01">{$item.album_mame}</a></li>
+                        {/foreach}
+                      </ul>
+                      <input name="album_id" type="hidden" id="album_number" value="{$album_id}" >
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">{$lang.img_url}：</div>
+                <div class="label_value">
+                    <div class="type-file-box">
+                        <input type="button" name="button" id="button" class="type-file-button type-file-button-radius" value="上传..." />
+                        <span class="red lh30 ml10">按住ctrl可同时批量选择多张图片上传</span>
+                    </div>
+                    <div class="form_prompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <script type="text/javascript">
+    var uploader_gallery = new plupload.Uploader({//创建实例的构造方法
+		runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+		browse_button: 'button', // 上传按钮
+		url: "gallery_album.php?is_ajax=1&act=upload_pic", //远程上传地址
+		filters: {
+			max_file_size: '2mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+			mime_types: [//允许文件上传类型
+				{title: "files", extensions: "jpg,png,gif"}
+			]
+		},
+		multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+		init: {
+			FilesAdded: function(up, files) { //文件上传前
+				window.Percent = 0; //初始化进度
+				var i = 0;
+				plupload.each(files, function(file) { //遍历文件
+					i ++;
+				});
+				
+				window.Percentage = 1/i;
+				$(".album_Percent").show();
+				album_submitBtn();
+			},
+			FileUploaded: function(up, file, info) { //文件上传成功的时候触发
+				window.Percent = window.Percent + Percentage*100;
+				$(".Percent_pic").css({"width": window.Percent + "%"});
+				$(".Percent").html(Math.round(window.Percent) + "%");
+			},
+			UploadComplete:function(up,file){//所有文件上传成功时触发
+				window.location.href="gallery_album.php?act=view&id={$album_id}"; 
+			},
+			Error: function(up, err) { //上传出错的时候触发
+				alert(err.message);
+			}
+		}
+	});
+	uploader_gallery.init();
+	function album_submitBtn(){
+		var album_id = $("#album_number").val();
+		var data = {
+			album_id: album_id
+		};
+		uploader_gallery.setOption("multipart_params", data);
+		uploader_gallery.start();
+	};
+        
+</script>
+{/if}
+{if $temp eq 'album_move'}
+    <div class="switch_info">
+        <div class="items">
+            <div class="item">
+                <div class="label">选择相册：</div>
+                <div class="label_value">
+                    <div id="parent_cat" class="imitate_select select_w145">
+                      <div class="cite">{if $album_mame}{$album_mame}{else}{$lang.please_select}{/if}</div>
+                      <ul>
+                            {foreach from=$album_list item=item}
+                            	{if $item.album_id neq $album_id}<li><a href="javascript:;" data-value="{$item.album_id}"  class="ftx-01">{$item.album_mame}</a></li>{/if}
+                            {/foreach}
+                      </ul>
+                      <input name="album_id" type="hidden" value="0"  id="remove_album_id">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(function(){
+    //select下拉默认值赋值
+	$('.imitate_select').each(function()
+	{
+		var sel_this = $(this)
+		var val = sel_this.children('input[type=hidden]').val();
+		sel_this.find('a').each(function(){
+			if($(this).attr('data-value') == val){
+				sel_this.children('.cite').html($(this).html());
+			}
+		})
+	});
+})
+</script>
+{/if}
+{if $temp eq 'goods_list'}
+    <div class="gallery_album" data-act="{if $action}{$action}{else}changedgoods{/if}" data-goods='1' data-inid="goods_list" data-url='{if $action}{$url}{else}get_ajax_content.php{/if}' data-where="cat_id={$filter.cat_id}&search_type={$filter.search_type}&sort_order={$filter.sort_order}&keyword={$filter.keyword}&type=1&PromotionType={$PromotionType}">
+        <ul class="ga-goods-ul" id="goods_list">
+            {foreach from=$goods_list item=goods name=gl}
+            <li class="{if $goods.is_selected eq 1}on{/if}">
+                <div class="img"><img src="{$goods.goods_thumb}"></div>
+                <div class="name">{$goods.goods_name}</div>
+                <div class="price">
+                    {if $PromotionType eq 'exchange'}
+                        {$goods.exchange_integral}
+                    {else}
+                        {if $goods.promote_price != ''}
+                            {$goods.promote_price}
+                        {else}
+                            {$goods.shop_price}
+                        {/if}
+                    {/if}
+                </div>
+                <div class="choose">
+                    <a href="javascript:void(0);" {if $goods.is_selected eq 1}class="on"{/if} onclick="selected_goods(this,'{$goods.goods_id}')"><i class="iconfont {if $goods.is_selected eq 1}icon-gou{else}icon-dsc-plus{/if}"></i>{if $goods.is_selected eq 1}已选择{else}选择{/if}</a>
+                    {if $PromotionType}
+                    <div class="checkbox_item"> 
+                        <input name="recommend" type="radio" class="ui-radio" value="{$goods.goods_id}" id="recommend{$goods.goods_id}"{if $goods.goods_id eq $recommend} checked="checked"{/if}>
+                        <label for="recommend{$goods.goods_id}" class="ui-radio-label-shou"><i class="iconfont icon-thumb"></i>主推</label>
+                    </div>
+                    {/if}
+                </div>
+            </li>
+            {foreachelse}
+            <li class="notic">该分类下没有商品</li>
+            {/foreach}
+        </ul>
+        <div class="clear"></div>
+        {include file="library/lib_page.lbi"}
+    </div>
+{/if}
+{if $temp eq 'replace'}
+{foreach from=$goods_list item=goods}
+    <li>
+        <div class="img"><a href="{$goods.url}"><img src="{$goods.original_img}"></a></div>
+        <div class="info">
+            <div class="name"><a href="{$goods.url}">{$goods.goods_name}</a></div>
+            <div class="price">
+                    {if $goods.promote_price neq ''}
+                        {$goods.promote_price}
+                    {else}
+                        {$goods.shop_price}
+                    {/if}
+            </div>
+            <div class="btn_hover"><a href="{$goods.url}">立即购买</a></div>
+        </div>
+    </li>
+{foreachelse}
+	{if $attr.itemsLayout eq "row3"}
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    {elseif $attr.itemsLayout eq "row4"}
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+	{else}
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    <li>
+        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+        <div class="info">
+            <div class="name"><a href="">商品名称</a></div>
+            <div class="price">￥65.00</div>
+            <div class="btn_hover"><a href="">立即购买</a></div>
+        </div>
+    </li>
+    {/if}
+{/foreach}
+{/if}
+{if $temp eq 'img_list'}
+{foreach from=$img_list item=img}
+	{if $mode eq 'lunbo'}
+    <li style="background-image:url({$img.pic_src}); background-position: center center;  background-repeat: no-repeat; background-color:{$img.bg_color};"><a href="{$img.link}" target="{$attr.target}"  style="height:{$attr.picHeight}px;"></a></li>
+    {else}
+    {if $is_li eq 1}<li style="height:{$attr.picHeight}px;">{/if}{if $img.link}<a href="{$img.link}" target="{$attr.target}">{if $mode eq 'advImg4'}<span class="btm"></span>{/if}{/if}<img src="{$img.pic_src}" width="{if $mode eq 'advImg2'}1200{else}{$width}{/if}" height="{$height}">{if $img.link}</a>{/if}{if $is_li eq 1}</li>{/if}
+    {/if}
+{foreachelse}
+	{if $mode eq 'advImg1'}
+		<li><img src="images/default/ad_01_pic.jpg"></li>
+    {elseif $mode eq 'advImg2'}
+    	<li><img src="images/default/ad_02_a_pic.jpg" width="595" height="595"></li>
+        <li><img src="images/default/ad_02_a_pic.jpg" width="595" height="595"></li>
+    {elseif $mode eq 'advImg3'}
+    	{if $attr.itemsLayout eq "left-right"}
+    	<li><a href="#"><img src="images/default/ad_02_c_pic.jpg"></a></li>
+        <li><a href="#"><img src="images/default/ad_02_d_pic.jpg"></a></li>
+        {else}
+        <li><a href="#"><img src="images/default/ad_02_d_pic.jpg"></a></li>
+        <li><a href="#"><img src="images/default/ad_02_c_pic.jpg"></a></li>
+        {/if}
+    {elseif $mode eq 'advImg4'}
+    	{if $attr.itemsLayout eq "row3"}
+    	<li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_03.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_03.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_03.jpg"></a></li>
+        {elseif $attr.itemsLayout eq "row4"}
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_04.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_04.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_04.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_04.jpg"></a></li>
+        {elseif $attr.itemsLayout eq "row5"}
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_02.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_02.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_02.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_02.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic_02.jpg"></a></li>
+        {else}
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+        {/if}
+    {elseif $mode eq 'lunbo'}
+    	<li><a href="#"><img src="images/default/shop_banner_pic.jpg"></a></li>
+    {/if}
+{/foreach}
+{/if}
+
+{if $temp eq 'navigator'}
+    {foreach from=$navigator item=navigator}
+    <li><a href="{$navigator.url}" style="text-align:{$attr.align}" target="{$attr.target}">{$navigator.name}</a></li>
+    {/foreach}
+{/if}
+
+
+{if $temp eq 'backupTemplates'}
+    <ul>
+        {foreach from=$available_templates item=template name=template}
+        <li {if $default_tem eq $template.code}class="curr"{/if} data-name="$template.code}">
+            <div class="tit">{$template.name}</div>
+            <div class="span">{$template.desc}</div>
+            <div class="img">
+                {if $template.screenshot}<img width="263" height="338" src="{$template.screenshot}" data-src-wide="{$template.template}" border="0" id="{$template.code}" class="pic"> {/if}                                       <div class="bg"></div>
+            </div>
+            <div class="info">
+                <p>
+                    <a href="{$template.template}" class="btnSeeImg">查看大图</a>
+                </p>
+                <p class="mt5">
+                    <a href="javascript:template_information('{$template.code}','{$ru_id}');">编辑模板信息</a>
+                    <a href="javascript:removeTemplate('{$template.code}','{$ru_id}')" class="ml10">删除模板</a>
+                </p>
+            </div>
+            <div class="box" onclick="javascript:setupTemplate('{$template.code}','0')">
+                <i class="icon icon-gou"></i>
+                <span>立即使用</span>
+            </div>
+            <i class="ing"></i>
+        </li>
+        {/foreach}
+    </ul>
+{/if}
+<!--{if $temp eq 'album_move'}
+<div class="addImg">
+	<dl>
+        <dt>选择相册：</dt>
+        <dd>
+            <select name="album_id" class="select">
+                <option value="">{$lang.select_please}</option>
+                {foreach from=$album_list item=item}
+                <option value="{$item.album_id}" {if $item.album_id eq $album_id}selected{/if}>{$item.album_mame}</option>
+                {/foreach}
+            </select>
+        </dd>
+    </dl>
+</div>
+{/if}-->
+
+{if $temp eq 'add_albun_pic'}
+<form  id="add_albun_pic" method="post"  enctype="multipart/form-data"  runat="server" >
+<div class="addImg">
+    <dl>
+        <dt><span class="require-field">*</span>相册名称：</dt>
+        <dd>
+            <input type="text" name='album_mame'  class="text" autocomplete="off" />
+        </dd>
+    </dl>
+    <!--<dl>
+        <dt>封面：</dt>
+        <dd>
+            <input type='file' name='album_cover' size='35' class="file" />
+        </dd>
+    </dl>
+    <dl>-->
+        <dt>描述 ：</dt>
+        <dd>
+            <textarea class="textarea" name="album_desc" id="role_describe" style="border:;height:20px;"></textarea>
+        </dd>
+    </dl>
+    <dl>
+        <dt>排序 ：</dt>
+        <dd>
+            <input type="text" name="sort_order" value="50" size="35" class="text" />
+        </dd>
+    </dl>
+    <!--<dl>
+        <dt>&nbsp;</dt>
+        <dd>
+            <input type="button" value="确定" class="button fl" onclick="albun_submit()"/>
+        </dd>
+    </dl>-->
+</div>
+</form>
+<script type="text/javascript">
+    
+</script>
+{/if}
+{if $temp eq 'getmap_html'}
+<div>
+    <div id="mapcontainer" class="mapcontainer"></div>
+    <div id="myPageTop" class="ml10 fl">
+        <dl class="button_info">
+            <dt>按关键字搜索：</dt>
+            <dd>
+                <input type="text" class="text text_2" placeholder="请输入关键字进行搜索" id="tipinput"><input type="button" value=" 搜索 " class="sc-btn btn30 sc-blueBg-btn ml10 auto-item" id="mapsubmit" >
+            </dd>
+        </dl>
+        <br />
+        <dl class="button_info">
+            <dt>经纬度：</dt>
+            <dd>
+                <input type="text" class="text text_2" readonly id="lnglat" name="lnglat">
+            </dd>
+        </dl>
+    </div>
+</div>
+{/if}
+
+{if $temp eq 'ajaxPiclist'}
+	{if $is_vis eq 1 || $is_vis eq 2}
+	<div class="gallery_album" data-act="get_albun_pic" data-vis="{$is_vis}" data-inid="pic_list" data-url='get_ajax_content.php' data-where="sort_name={$filter.sort_name}&album_id={$filter.album_id}&is_vis={$is_vis}&inid={$inid}">
+		<ul class="ga-images-ul" ectype="pic_replace" data-type="{if $is_vis eq 1}check{elseif $is_vis eq 2}radio{/if}">
+			{foreach from=$pic_list item=pic_album key=key}
+			<li data-url="{$pic_album.pic_file}" data-picid='{$pic_album.pic_id}'><div class="img-container"><img src="{$pic_album.pic_file}"></div><i class="checked"></i></li>
+			{foreachelse}
+			<li class="notic">暂无图片</li>
+			{/foreach}
+		</ul>
+        <div class="clear"></div>
+		{include file="library/lib_page.lbi"}
+	</div>
+	{else}
+	<div class="gallery_album" data-act="get_albun_pic" data-inid="pic_list" data-url='get_ajax_content.php' data-where="sort_name={$filter.sort_name}&album_id={$filter.album_id}">
+		<ul class="ga-images-ul">
+			{foreach from=$pic_list item=pic_list}
+			<li><a href="javascript:;" onclick="addpic('{$pic_list.pic_file}',this)"><img src="{$pic_list.pic_file}"><span class="pixel">{$pic_list.pic_spec}</span></a></li>
+			{foreachelse}
+			<li class="notic">暂无图片</li>
+			{/foreach}
+		</ul>
+		<div class="clear"></div>
+		{include file="library/lib_page.lbi"}
+	</div>
+	{/if}
+{/if}
+{if $temp eq 'ajaxnews'}
+	<div class="gallery_album" data-act="get_news" data-inid="news_list" data-url='visual_editing.php' data-where="album_id={$filter1.album_id}">
+		<ul class="ga-images-ul">
+			{foreach from=$pic_list1 item=pic_list}
+			<li><a href="javascript:;" data-url='{$pic_list.url_cms}' onclick="addpic('{$pic_list.pic_file}',this,'{$pic_list.url_cms}','{$pic_list.pic_title}','{$pic_list.article_id}','{$pic_list.class_id}','{$pic_list.label}')"><img src="{$pic_list.pic_file}"><span class="pixel">{$pic_list.pic_title}</span></a></li>
+			{foreachelse}
+			<li class="notic">暂无新闻</li>
+			{/foreach}
+		</ul>
+		<div class="clear"></div>
+		{include file="library/lib_page.lbi"}
+	</div>
+{/if}
+{if $temp eq 'r_ajaxnews'}
+	<div class="gallery_album" data-act="get_news" data-inid="news_list" data-url='visual_editing.php' data-where="album_id={$r_filter1.album_id}">
+		<ul class="ga-images-ul">
+			{foreach from=$r_pic_list1 item=r_pic_list}
+			<li><a href="javascript:;" data-url='{$r_pic_list.url_cms}' onclick="r_addpic('{$r_pic_list.pic_file}',this,'{$r_pic_list.url_cms}','{$r_pic_list.pic_title}','{$r_pic_list.article_id}','{$r_pic_list.class_id}','{$r_pic_list.label}')"><img src="{$r_pic_list.pic_file}"><span class="pixel">{$r_pic_list.pic_title}</span></a></li>
+			{foreachelse}
+			<li class="notic">暂无新闻</li>
+			{/foreach}
+		</ul>
+		<div class="clear"></div>
+		{include file="library/lib_page.lbi"}
+	</div>
+{/if}
+{if $temp eq 'z_ajaxnews'}
+	<div class="gallery_album" data-act="get_news" data-inid="news_list" data-url='visual_editing.php' data-where="album_id={$z_filter1.album_id}">
+		<ul class="ga-images-ul">
+			{foreach from=$z_pic_list1 item=z_pic_list}
+			<li><a href="javascript:;" data-url='{$z_pic_list.url_cms}' onclick="z_addpic('{$z_pic_list.pic_file}',this,'{$z_pic_list.url_cms}','{$z_pic_list.pic_title}','{$z_pic_list.article_id}','{$z_pic_list.class_id}','{$z_pic_list.label}')"><img src="{$z_pic_list.pic_file}"><span class="pixel">{$z_pic_list.pic_title}</span></a></li>
+			{foreachelse}
+			<li class="notic">暂无新闻</li>
+			{/foreach}
+		</ul>
+		<div class="clear"></div>
+		{include file="library/lib_page.lbi"}
+	</div>
+{/if}
+
+{if $temp eq 'ylinks'}
+<div class="ylinks" data-type="range" style="{if $header_dis_links eq 1}background-color: {$tm-picker-trigger-links};{/if}">
+    <div class="f_link">
+        <div class="f_link01">
+            <div class="f_link02">{$linkslift}：   
+            	{foreach from=$linkslist item=z_linkslist}
+            	<a href="{$z_linkslist.title}" target="_blank">{$z_linkslist.links_title}</a>
+                {/foreach}
+            </div>                                                
+        </div>
+    </div>	
+</div>	
+{/if}
+
+{if $temp eq 'cnews'}
+<div class="main_wrap mt40 clearfix newslist"  data-type="range">
+	<!--幻灯开始-->
+	<div class="fl tFocus clearfix" id="tFocus">
+		<div class="tFocus_btn">
+			<a href="javascript:void(0);" id="prev" class="prev"></a>
+			<a href="javascript:void(0);" id="next" class="next"></a>
+		</div>
+		<ul class="tFocus-pic zoom" id="tFocus-pic">
+			{if $attrlist}
+			{foreach from=$attrlist item=cms_list  key=cms_key}
+			{if $cms_key eq 1}
+			<li style="opacity: 1; z-index: 5;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="{$cms_list.link}" target="_blank" title="{$cms_list.title}">{$cms_list.title}</a>
+			</div>
+			<span class="slide_num"><em></em><b>{$cms_key}</b><i>{$attrcount}</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="{$cms_list.link}" target="_blank">{$cms_list.cms_label}</a>{$cms_list.article_abstract}
+			</p>
+			<a class="s_pic" target="_blank" title="{$cms_list.title}" href="{$cms_list.link}">
+			<img src="{$cms_list.pic_src}" width="580" height="267" alt="{$cms_list.title}"></a>
+			</li>
+            {else}
+			<li style="opacity: 0; z-index: 0;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="{$cms_list.link}" target="_blank" title="{$cms_list.title}">{$cms_list.title}</a>
+			</div>
+			<span class="slide_num"><em></em><b>{$cms_key}</b><i>{$attrcount}</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="{$cms_list.link}" target="_blank">{$cms_list.cms_label}</a>{$cms_list.article_abstract}
+			</p>
+			<a class="s_pic" target="_blank" title="{$cms_list.title}" href="{$cms_list.link}">
+			<img src="{$cms_list.pic_src}" width="580" height="267" alt="{$cms_list.title}"></a>
+			</li>          
+            {/if}
+            {/foreach}
+            {/if}
+            
+		</ul>
+		<div class="tFocusBtn nodisplay" id="tFocusBtn">
+			<a class="tFocus-leftbtn nodisplay" id="tFocus-leftbtn" href="javascript:void(0);">‹</a>
+			<div class="tFocus-btn clearfix" id="tFocus-btn">
+				<ul>
+					{foreach from=$attrlist item=cms_listc}
+					<li class=""></li>
+					{/foreach}
+					
+				</ul>
+			</div>
+			<a class="tFocus-rightbtn fr nodisplay" id="tFocus-rightbtn" href="javascript:void(0);">›</a>
+		</div>
+	</div>
+	<!--幻灯结束-->
+	<div class="fl col_mod_0 ml30 w280">
+		<div class="col_tit_wrap">
+			<h3 class="col_tit">
+      {$attrlift}
+			</h3>
+		</div>
+
+		<div class="col_con mt10">
+		{if $z_attrlist}
+		{foreach from=$z_attrlist item=z_cms_list  key=z_cms_key}
+		    {if $z_cms_key eq 1}
+			<div class="news_mod">			 	
+				<div class="news_tit">
+					<a class="tp_block tb_1" href="{$z_cms_list.link}" target="_blank">{$z_cms_list.cms_label}</a>
+					<a href="{$z_cms_list.link}" target="_blank" title="{$z_cms_list.title}">{$z_cms_list.title}</a>
+				</div>
+				<p class="news_dis">
+					{$z_cms_list.article_abstract}
+				</p>
+			</div>
+			{/if} 
+			{if $z_cms_key eq 2}
+			<div class="news_mod mt20">
+				<div class="news_tit">
+					<a class="tp_block tb_1" href="{$z_cms_list.link}" target="_blank">{$z_cms_list.cms_label}</a>
+					<a href="{$z_cms_list.link}" target="_blank" title="{$z_cms_list.title}">{$z_cms_list.title}</a>
+				</div>
+				<p class="news_dis">
+					{$z_cms_list.article_abstract}
+				</p>
+			</div>
+			{/if}
+		{/foreach}	
+				
+			
+			<ul class="t_n_list mt15">
+				{foreach from=$z_attrlist item=z_cms_slist  key=z_cms_skey}
+				{if $z_cms_skey gt 2}
+				<li><a href="{$z_cms_slist.link}" target="_blank" title="{$z_cms_slist.title}">{$z_cms_slist.title}</a></li>
+				{/if}
+			    {/foreach}
+			</ul>
+        {/if}
+		</div>
+	</div>
+	<!--这里调用栏目id1的数据-->
+	<div class="fr col_mod w280">
+		<div class="col_tit_wrap clearfix">
+			<h3 class="fl col_tit"><a href="/news/" target="_blank">{$attrfloor_title}</a></h3>
+		</div>
+		<div class="col_con">
+		{if $r_attrlist}
+		{foreach from=$r_attrlist item=r_cms_list  key=r_cms_key}		
+		    {if $r_cms_key eq 1}
+			<div class="n_p_mod_0 clearfix">
+				<a class="n_pic fl" href="{$r_cms_list.link}" target="_blank" title="{$r_cms_list.title}">
+				<img src="{$r_cms_list.pic_src}" width="125" height="94" alt="{$r_cms_list.title}"></a>
+				<a class="n_tit" href="{$r_cms_list.link}" target="_blank">{$r_cms_list.title}</a>
+			</div>
+			{/if}	
+		{/foreach}	
+			<ul class="news_list_dot mt25 clearfix">
+				{foreach from=$r_attrlist item=r_cms_slist  key=r_cms_skey}
+				{if $r_cms_skey gt 1}
+				<li>
+				<a href="{$r_cms_slist.link}" title="{$r_cms_slist.title}" target="_blank">{$r_cms_slist.title}</a>
+				</li>
+                {/if}
+                {/foreach}
+			</ul>
+		{/if}	
+		</div>
+	</div>
+	<!--调用栏目id1的数据结束-->
+</div>                  
+
+{/if}
+{if $temp eq 'navigator_home'}
+    <li><a href="index.php" class="curr">首页</a></li>
+    {foreach from=$navigator item=navigator}
+    <li><a href="{$navigator.url}" target="_blank">{$navigator.name}</a></li>
+    {/foreach}
+{/if}
+{if $temp eq 'brand_query'}
+<ul class="brand_list">
+    {foreach from=$recommend_brands item=brand key=key}
+    <li ectype='cliclkBrand' {if $brand.selected eq 1} class="selected"{/if} data-brand='{$brand.brand_id}' data-type="homeBrand"><a href="JavaScript:void(0);"><img src="{$brand.brand_logo}" title="{$brand.brand_name}"></a><b></b></li>
+    {foreachelse}
+    <li class="notic">您选择的此分类下暂无品牌</li>
+    {/foreach}
+</ul>
+<div class="clear"></div>
+{include file="library/lib_page.lbi"}
+{/if}
+{if $temp eq 'homeFloor'}
+<!-- 楼层一 -->
+<div class="floor-line-con floorOne {$spec_attr.typeColor}" data-idx="1" id="floor_{$spec_attr.floorMode}" ectype="floorItem">
+    <div class="floor-hd" ectype="floorTit">
+    	<i class="box_hd_arrow"></i>
+    	<i class="box_hd_dec"></i>
+        {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit">{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+            <ul>
+                <li class="first current">
+                    <span>新品推荐</span>
+                    <i class="arrowImg"></i>
+                </li>
+                {if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="6" data-id="{$cat.cat_id}">
+                    <span>{$cat.cat_name}</span>
+                    <i class="arrowImg"></i>
+                </li>
+                {/if}
+                {/foreach}
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <div class="floor-bd bd-mode-0{$spec_attr.floorMode}">
+        <div class="bd-left">
+            {if $spec_attr.floorMode eq 1 || $spec_attr.floorMode eq 2}
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                        {foreach from=$spec_attr.leftBanner item=list}
+                        {if $spec_attr.floorMode eq 1}
+                        <li><a href="{$list.leftBannerLink}"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/homeIndex_002.jpg{/if}"></a></li>
+                        {elseif $spec_attr.floorMode eq 2}
+                        <li><a href="{$list.leftBannerLink}"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}"></a></li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd"><ul></ul></div>
+            </div>
+            {/if}
+            
+            <div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list name=name}
+                {if $spec_attr.floorMode eq 3}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}"></a>
+                {else}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/homeIndex_004.jpg{/if}"></a>
+                {/if}
+                {/foreach}
+            </div>
+            
+            {if $spec_attr.floorMode eq 4}
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                        {foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd"><ul></ul></div>
+            </div>
+            {/if}
+        </div>
+        <div class="bd-right">
+            <div class="floor-tabs-content clearfix">
+                <div class="f-r-main f-r-m-adv">
+                    {foreach from=$spec_attr.rightAdv item=list name=name}
+                    <div class="f-r-m-item
+                    {if $spec_attr.floorMode eq 1}
+                    	{if $smarty.foreach.name.iteration eq 5} f-r-m-i-double{/if}
+                    {elseif $spec_attr.floorMode eq 2}
+                    	{if $smarty.foreach.name.iteration eq 1} f-r-m-i-double{/if}
+                    {elseif $spec_attr.floorMode eq 3}
+                    	{if $smarty.foreach.name.iteration eq 2} f-r-m-i-double{/if}
+                    {elseif $spec_attr.floorMode eq 4}
+                    	{if $smarty.foreach.name.iteration eq 4} f-r-m-i-double{/if}
+                    {/if}">
+                        <a href="{$list.rightAdvLink}" target="_blank">
+                            <div class="title">
+                                <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{/if}</h3>
+                                <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{/if}</span>
+                            </div>
+                            <img src="
+                            	{if $spec_attr.floorMode eq 1}
+                                	{if $smarty.foreach.name.iteration eq 5}
+                            			{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}
+                                    {else}
+                                        {if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_004.jpg{/if}
+                                    {/if}
+                                {elseif $spec_attr.floorMode eq 2}
+                                	{if $smarty.foreach.name.iteration eq 1}
+                            			{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}
+                                    {else}
+                                        {if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_004.jpg{/if}
+                                    {/if}
+                                {elseif $spec_attr.floorMode eq 3}
+                                	{if $smarty.foreach.name.iteration eq 2}
+                            			{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}
+                                    {else}
+                                        {if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_004.jpg{/if}
+                                    {/if}
+                                {elseif $spec_attr.floorMode eq 4}
+                                	{if $smarty.foreach.name.iteration eq 4}
+                            			{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_006.jpg{/if}
+                                    {else}
+                                        {if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_004.jpg{/if}
+                                    {/if}
+                                {/if}
+                            ">
+                        </a>
+                    </div>
+                    {/foreach}
+                </div>
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                    <ul class="p-list"></ul>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    {if $brand_list}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix">
+            {foreach from=$brand_list item=list}
+            <div class="item">
+                <a href="{$list.url}" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="{$list.brand_logo}" title="{$list.brand_name}"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    {else}
+        {if $spec_attr.cat_id eq 0}
+        <div class="floor-fd">
+            <div class="floor-fd-brand clearfix" ectype="defaultBrand">
+                <div class="item">
+                    <a href="#" target="_blank">
+                        <div class="link-l"></div>
+                        <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                        <div class="link"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/if}
+    {/if}
+</div>
+{/if}
+
+{if $temp eq 'homeFloorModule'}
+<!-- 楼层二 -->
+<div class="floor-line-con floorTwo {$spec_attr.typeColor}" data-idx="1" {if $spec_attr.hierarchy neq 2}id="floor_module_{$spec_attr.floorMode}"{/if} ectype="floorItem">
+    <div class="floor-hd" ectype="floorTit">
+    	<i class="box_hd_arrow"></i>
+    	<i class="box_hd_dec"></i>
+        {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit">{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+            <ul>
+                <li class="first current">
+                    <span>新品推荐</span>
+                    <i class="arrowImg"></i>
+                </li>
+                {if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" class="first" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="4" data-id="{$cat.cat_id}">
+                    <span>{$cat.cat_name}</span>
+                    <i class="arrowImg"></i>
+                </li>
+                {/if}
+                {/foreach}
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <div class="floor-bd">
+        <div class="bd-left">
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                        {foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/homeIndex_013.jpg{/if}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd"><ul></ul></div>
+            </div>
+        </div>
+        <div class="bd-right">
+            <div class="floor-tabs-content clearfix">
+                <div class="f-r-main f-r-m-adv">
+                    {foreach from=$spec_attr.rightAdv item=list name=name}
+                    {if $smarty.foreach.name.iteration lt $advNumber}
+                        <div class="f-r-m-item{if $spec_attr.floorMode eq 2}{if $smarty.foreach.name.iteration eq 3} f-r-m-i-double{/if}{elseif $spec_attr.floorMode eq 3}{if $smarty.foreach.name.iteration eq 1} f-r-m-i-double{/if}{elseif $spec_attr.floorMode eq 4} f-r-m-i-double{/if}">
+                            <a href="{$list.rightAdvLink}" target="_blank">
+                                <div class="title">
+                                    <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{/if}</h3>
+                                    <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{/if}</span>
+                                </div>
+                                <img src="{if $spec_attr.floorMode eq 1}
+                                	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_012.jpg{/if}
+                                {elseif $spec_attr.floorMode eq 2}
+                                    {if $smarty.foreach.name.iteration eq 3}
+                                    	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_014.jpg{/if}
+                                    {else}
+                                    	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_012.jpg{/if}
+                                    {/if}
+                                {elseif $spec_attr.floorMode eq 3}
+                                	{if $smarty.foreach.name.iteration eq 1}
+                                    	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_014.jpg{/if}
+                                    {else}
+                                    	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_012.jpg{/if}
+                                    {/if}
+                                {elseif $spec_attr.floorMode eq 4}
+                                	{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/homeIndex_014.jpg{/if}    
+                                {/if}">
+                            </a>
+                        </div>
+                    {/if}
+                    {/foreach}
+                </div>
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                    <ul class="p-list"></ul>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    {if $brand_list}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix">
+            {foreach from=$brand_list item=list}
+            <div class="item">
+                <a href="{$list.url}" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="{$list.brand_logo}" title="{$list.brand_name}"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    {else}
+        {if $spec_attr.cat_id eq 0}
+        <div class="floor-fd">
+            <div class="floor-fd-brand clearfix" ectype="defaultBrand">
+                <div class="item">
+                    <a href="#" target="_blank">
+                        <div class="link-l"></div>
+                        <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                        <div class="link"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/if}
+    {/if}
+</div>
+{/if}
+
+{if $temp eq 'homeFloorThree'}
+<!-- 楼层三 -->
+<div class="floor-line-con floorThree {$spec_attr.typeColor}" data-idx="1" id="floor_module_{$spec_attr.floorMode}" ectype="floorItem">
+	<div class="floor-hd" ectype="floorTit">
+		{if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit">{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+			<ul>
+				<li class="first current">新品推荐</li>
+				{if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="{if $spec_attr.floorMode eq 1}10{elseif $spec_attr.floorMode eq 2}6{else}8{/if}" data-id="{$cat.cat_id}" data-floorcat="1">{$cat.cat_name}</li>
+                {/if}
+                {/foreach}
+                {/if}
+			</ul>
+		</div>
+	</div>
+    
+    <div class="floor-bd FT-bd-more-0{if $spec_attr.floorMode eq 1}1{elseif $spec_attr.floorMode eq 2}2{elseif $spec_attr.floorMode eq 3}3{elseif $spec_attr.floorMode eq 4}4{/if}">
+    	{if $spec_attr.floorMode eq 1}
+        <div class="floor-tabs-content clearfix">
+            <div class="f-r-main f-r-m-adv">
+                <ul>
+                     {foreach from=$spec_attr.leftAdv item=list}
+                     <li><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual232x590.jpg{/if}"></a></li>
+                    {/foreach}
+                </ul>
+            </div>
+            {foreach from=$spec_attr.cateValue item=cat name=name}
+            <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}"></div>
+            {/foreach}
+        </div>
+        {else}
+    	<div class="bd-left">
+        	{if $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                    	{foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual232x590.jpg{/if}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd"><ul></ul></div>
+            </div>
+            {elseif $spec_attr.floorMode eq 4}
+            	<div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual232x290.jpg{/if}"></a>
+                {/foreach}
+                </div>
+            {/if}
+        </div>
+        <div class="bd-right">
+        	<div class="floor-tabs-content clearfix">
+        	<div class="f-r-main f-r-m-adv">
+            {if $spec_attr.floorMode eq 2}
+                {foreach from=$spec_attr.leftAdv item=list}
+                <div class="floor-left-adv"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual474x290.jpg{/if}"></a></div>
+                {/foreach}
+            {/if}
+            
+            {foreach from=$spec_attr.rightAdv item=list name=name}
+            <div class="f-r-m-item">
+                <a href="{$list.rightAdvLink}" target="_blank">
+                    <div class="title">
+                        <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{/if}</h3>
+                        <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{/if}</span>
+                    </div>
+                    <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual232x290.jpg{/if}">
+                </a>
+            </div>
+            {/foreach}
+            </div>
+            {foreach from=$spec_attr.cateValue item=cat name=name}
+            <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+            	{if $spec_attr.floorMode eq 2}
+                {foreach from=$spec_attr.leftAdv item=list}
+                <div class="floor-left-adv"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual474x290.jpg{/if}"></a></div>
+                {/foreach}
+                {/if}
+            </div>
+            {/foreach}
+            </div>
+        </div>    
+    	{/if}
+    </div>
+    {if $brand_list}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix">
+            {foreach from=$brand_list item=list}
+            <div class="item">
+                <a href="{$list.url}" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="{$list.brand_logo}" title="{$list.brand_name}"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    {else}
+        {if $spec_attr.cat_id eq 0}
+        <div class="floor-fd">
+            <div class="floor-fd-brand clearfix" ectype="defaultBrand">
+                <div class="item">
+                    <a href="#" target="_blank">
+                        <div class="link-l"></div>
+                        <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                        <div class="link"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/if}
+    {/if}
+</div>
+{/if}
+
+{if $temp eq 'homeFloorFour'}
+<!-- 楼层四 -->
+<div class="floor-line-con floorFour {$spec_attr.typeColor}" data-idx="1" id="floor_module_{$spec_attr.floorMode}" ectype="floorItem">
+    <div class="floor-hd" ectype="floorTit">
+        {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit">{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+            <ul>
+                <li class="first current" data-catGoods="{$spec_attr.top_goods}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="{if $spec_attr.floorMode eq 1}8{elseif $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}10{else}12{/if}" data-id="{$spec_attr.cat_id}" data-floorcat="{if $spec_attr.floorMode eq 1}2{else}0{/if}">新品推荐</li>
+                {if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="{if $spec_attr.floorMode eq 1}8{elseif $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}10{else}12{/if}" data-id="{$cat.cat_id}" data-floorcat="{if $spec_attr.floorMode eq 1}2{else}0{/if}">{$cat.cat_name}</li>
+                {/if}
+                {/foreach}
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <div class="floor-bd FF-bd-more-0{if $spec_attr.floorMode eq 1}1{elseif $spec_attr.floorMode eq 2}2{elseif $spec_attr.floorMode eq 3}3{elseif $spec_attr.floorMode eq 4}4{/if}">
+        {if $spec_attr.floorMode neq 4}
+        <div class="bd-left">
+        	{if $spec_attr.floorMode eq 1}
+            <div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list name=adc}
+                {if $smarty.foreach.adc.iteration eq 1}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x520.jpg{/if}"></a>
+                {/if}
+                {/foreach}
+            </div>
+            <ul class="p-list" ectype="pList">
+                {foreach from=$goods_list item=list name=goods}
+                {if $smarty.foreach.goods.index lt 4}
+                <li class="li opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                        <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                        <div class="p-price">
+                            <div class="shop-price">
+                                {if $list.promote_price neq ''}
+                                {$list.promote_price}
+                                {else}
+                                {$list.shop_price}
+                                {/if}
+                            </div>
+                        </div>    
+                    </div>
+                </li>
+                {/if}
+                {foreachelse}
+                <li class="li right-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">请选择您所需的商品</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li right-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">请选择您所需的商品</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li left-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">请选择您所需的商品</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li right-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">请选择您所需的商品</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                {/foreach}
+            </ul>
+            {elseif $spec_attr.floorMode eq 2}
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                    	{foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual200x520.jpg{/if}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd"><ul></ul></div>
+            </div>
+            {elseif $spec_attr.floorMode eq 3}
+            <div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list name=adc}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x260.jpg{/if}"></a>
+                {/foreach}
+            </div>
+            {/if}
+        </div>
+        {/if}
+        <div class="bd-right">
+            {if $spec_attr.floorMode eq 1}
+            <div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list name=adc}
+                {if $smarty.foreach.adc.iteration eq 2}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x520.jpg{/if}"></a>
+                {/if}
+                {/foreach}
+            </div>
+            <ul class="p-list" ectype="pList">
+                {foreach from=$goods_list item=list name=goods}
+                {if $smarty.foreach.goods.index gt $goods_num}
+                <li class="li opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                        <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                        <div class="p-price">
+                            <div class="shop-price">
+                                {if $list.promote_price neq ''}
+                                {$list.promote_price}
+                                {else}
+                                {$list.shop_price}
+                                {/if}
+                            </div>
+                        </div>    
+                    </div>
+                </li>
+                {/if}
+                {foreachelse}
+                <li class="li left-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li left-child opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                <li class="li opacity_img">
+                    <div class="product">
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                        <div class="p-price"><em>¥</em>370.50</div>
+                    </div>
+                </li>
+                {/foreach}
+            </ul>
+            {else}
+            <div class="floor-tabs-content clearfix">
+            	<div class="f-r-main f-r-m-adv" ectype="floor_cat_{$spec_attr.cat_id}">
+                    <ul class="p-list">
+                        {foreach from=$goods_list item=list name=goods}
+                        {if $smarty.foreach.goods.index gt $goods_num}
+                        <li class="{if $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}{if $smarty.foreach.goods.iteration % 5 eq 1}left-child {/if}{else}{if $smarty.foreach.goods.iteration % 6 eq 1}left-child {/if}{/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>    
+                            </div>
+                        </li>
+                        {/if}
+                        {foreachelse}
+                        <li class="left-child opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="{if $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}left-child {/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="{if $spec_attr.floorMode eq 4}left-child {/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {if $spec_attr.floorMode eq 4}
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                </div>
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                    <ul class="p-list"></ul>
+                </div>
+                {/foreach}
+            </div>
+            {/if}
+        </div>
+    </div>
+    {if $brand_list}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix">
+            {foreach from=$brand_list item=list}
+            <div class="item">
+                <a href="{$list.url}" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="{$list.brand_logo}" title="{$list.brand_name}"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    {else}
+        {if $spec_attr.cat_id eq 0}
+        <div class="floor-fd">
+            <div class="floor-fd-brand clearfix" ectype="defaultBrand">
+                <div class="item">
+                    <a href="#" target="_blank">
+                        <div class="link-l"></div>
+                        <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                        <div class="link"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/if}
+    {/if}
+</div>
+{/if}
+
+{if $temp eq 'homeFloorFive'}
+<!-- 楼层五 -->
+<div class="floor-line-con floorFive {$spec_attr.typeColor}" data-idx="1" id="floor_module_{$spec_attr.floorMode}" ectype="floorItem">
+    <div class="floor-hd" ectype="floorTit">
+        {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit"><i class="iconfont icon-ele"></i><em class="iconfont icon-spot"></em>{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+            <ul>
+                <li class="first current">新品推荐</li>
+                {if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="10" data-id="{$cat.cat_id}">{$cat.cat_name}</li>
+                {/if}
+                {/foreach}
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <div class="floor-bd FFI-bd-more-0{if $spec_attr.floorMode eq 1}1{elseif $spec_attr.floorMode eq 2}2{elseif $spec_attr.floorMode eq 3}3{elseif $spec_attr.floorMode eq 4}4{elseif $spec_attr.floorMode eq 5}5{/if}">
+        <div class="floor-tabs-content clearfix">
+            <div class="f-r-main f-r-m-adv">
+                <div class="bd-left">
+                    {if $spec_attr.floorMode eq 1}
+                        <div class="floor-left-slide">
+                            <div class="bd">
+                                <ul>
+                                    {foreach from=$spec_attr.leftBanner item=list}
+                                    <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual477x450.jpg{/if}"></a></li>
+                                   {/foreach}
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <ul></ul>
+                            </div>
+                        </div>
+                        <div class="floor-left-adv">
+                            <ul>
+                                {foreach from=$spec_attr.leftAdv item=list}
+                                <li><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x450.jpg{/if}"></a></li>
+                                {/foreach}
+                            </ul>
+                        </div>
+                    {else}
+                        {if $spec_attr.floorMode eq 3 || $spec_attr.floorMode eq 4 || $spec_attr.floorMode eq 5}
+                        <div class="floor-left-adv">
+                            {foreach from=$spec_attr.leftAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 1}
+                            <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x450.jpg{/if}"></a>
+                            {/if}
+                            {/foreach}
+                        </div>
+                        {/if}
+                    
+                        {if $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}
+                        <div class="floor-left-slide">
+                            <div class="bd">
+                                <ul>
+                                    {foreach from=$spec_attr.leftBanner item=list}
+                                    <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual477x450.jpg{/if}"></a></li>
+                                   {/foreach}
+                                </ul>
+                            </div>
+                            <div class="hd">
+                                <ul></ul>
+                            </div>
+                        </div>
+                        {/if}
+                        
+                        {if $spec_attr.floorMode eq 4 || $spec_attr.floorMode eq 5}
+                        <ul>
+                            <li class="f-bd-item">
+                                {foreach from=$spec_attr.leftAdv item=list name=adv}
+                                {if $smarty.foreach.adv.iteration eq 2}
+                                <div class="floor-adv"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x165.jpg{/if}"></a></div>
+                                {/if}
+                                {/foreach}
+                                
+                                {foreach from=$spec_attr.rightAdv item=list name=adv}
+                                {if $smarty.foreach.adv.iteration eq 1}
+                                <div class="fr-adv mt5">
+                                    <a href="{$list.rightAdvLink}" target="_blank">
+                                        <div class="title">
+                                            <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{else}主标题{/if}</h3>
+                                            <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{else}次标题{/if}</span>
+                                        </div>
+                                        <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual236x280.jpg{/if}">
+                                    </a>
+                                </div>
+                                {/if}
+                                {/foreach}
+                            </li>
+                            {if $spec_attr.floorMode eq 5}
+                            <li class="f-bd-item">
+                                {foreach from=$spec_attr.rightAdv item=list name=adv}
+                                {if $smarty.foreach.adv.iteration eq 2}
+                                <div class="fr-adv">
+                                    <a href="{$list.rightAdvLink}" target="_blank">
+                                        <div class="title">
+                                            <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{else}主标题{/if}</h3>
+                                            <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{else}次标题{/if}</span>
+                                        </div>
+                                        <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual236x280.jpg{/if}">
+                                    </a>
+                                </div>
+                                {/if}
+                                {/foreach}
+                                
+                                {foreach from=$spec_attr.leftAdv item=list name=adv}
+                                {if $smarty.foreach.adv.iteration eq 3}
+                                <div class="floor-adv mt5"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x165.jpg{/if}"></a></div>
+                                {/if}
+                                {/foreach}
+                            </li>
+                            {/if}
+                        </ul>
+                        {/if}
+                    {/if}
+                </div>
+            
+                {if $spec_attr.floorMode neq 1}
+                <div class="bd-right">
+                    {if $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 3}
+                    <ul>
+                        {if $spec_attr.floorMode eq 2}
+                        <li class="f-bd-item">
+                            {foreach from=$spec_attr.rightAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 1}
+                            <div class="fr-adv">
+                                <a href="{$list.rightAdvLink}" target="_blank">
+                                    <div class="title">
+                                        <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{else}主标题{/if}</h3>
+                                        <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{else}次标题{/if}</span>
+                                    </div>
+                                    <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual236x280.jpg{/if}">
+                                </a>
+                            </div>
+                            {/if}
+                            {/foreach}
+                            
+                            {foreach from=$spec_attr.leftAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 1}
+                            <div class="floor-adv mt5"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x165.jpg{/if}"></a></div>                    
+                            {/if}
+                            {/foreach}
+                        </li>
+                        {/if}
+                        <li class="f-bd-item">
+                            {foreach from=$spec_attr.leftAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 2}
+                            <div class="floor-adv"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x165.jpg{/if}"></a></div>
+                            {/if}
+                            {/foreach}
+                            
+                            {foreach from=$spec_attr.rightAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 2}
+                            <div class="fr-adv mt5">
+                                <a href="{$list.rightAdvLink}" target="_blank">
+                                    <div class="title">
+                                        <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{else}主标题{/if}</h3>
+                                        <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{else}次标题{/if}</span>
+                                    </div>
+                                    <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual236x280.jpg{/if}">
+                                </a>
+                            </div>
+                            {/if}
+                            {/foreach}
+                        </li>
+                        <li class="f-bd-item">
+                            {foreach from=$spec_attr.rightAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 1}
+                            <div class="fr-adv">
+                                <a href="{$list.rightAdvLink}" target="_blank">
+                                    <div class="title">
+                                        <h3>{if $list.rightAdvTitle}{$list.rightAdvTitle}{else}主标题{/if}</h3>
+                                        <span>{if $list.rightAdvSubtitle}{$list.rightAdvSubtitle}{else}次标题{/if}</span>
+                                    </div>
+                                    <img src="{if $list.rightAdv}{$list.rightAdv}{else}../data/gallery_album/visualDefault/visual236x280.jpg{/if}">
+                                </a>
+                            </div>
+                            {/if}
+                            {/foreach}
+                            
+                            {foreach from=$spec_attr.leftAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration eq 3}
+                            <div class="floor-adv mt5"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x165.jpg{/if}"></a></div>
+                            {/if}
+                            {/foreach}
+                        </li>
+                    </ul>
+                    {/if}
+                    
+                    {if $spec_attr.floorMode eq 4 || $spec_attr.floorMode eq 5}
+                    <div class="floor-left-slide">
+                        <div class="bd">
+                            <ul>
+                                {foreach from=$spec_attr.leftBanner item=list}
+                                <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual477x450.jpg{/if}"></a></li>
+                               {/foreach}
+                            </ul>
+                        </div>
+                        <div class="hd">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    {if $spec_attr.floorMode eq 4}
+                    <div class="floor-left-adv">
+                        {foreach from=$spec_attr.leftAdv item=list name=adv}
+                        {if $smarty.foreach.adv.iteration eq 3}
+                        <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual236x450.jpg{/if}"></a>
+                        {/if}
+                        {/foreach}
+                    </div>
+                    {/if}
+                    {/if}
+                </div>
+                {/if}
+            </div>
+            {foreach from=$spec_attr.cateValue item=cat name=name}
+            <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                <ul class="p-list"></ul>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    <div class="floor-fd">
+        <div class="floor-fd-slide">
+            <div class="bd">
+                <ul class="current" data-catGoods="{$spec_attr.top_goods}" ectype="identi_floorgoods" data-identi="1" data-flooreveval="0" data-visualhome="1" data-floornum="10" data-id="{$spec_attr.cat_id}" data-floorcat="2">
+                    {foreach from=$goods_list item=list name=goods}
+                    <li>
+                        <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                            <div class="p-price">
+                            	<div class="shop-price">
+                                    {if $list.promote_price neq ''}
+                                    {$list.promote_price}
+                                    {else}
+                                    {$list.shop_price}
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {foreachelse}
+                    <li>
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+                            <div class="p-price"><em>¥</em>370.50</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+                            <div class="p-price"><em>¥</em>370.50</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+                            <div class="p-price"><em>¥</em>370.50</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+                            <div class="p-price"><em>¥</em>370.50</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                        <div class="p-info">
+                            <div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+                            <div class="p-price"><em>¥</em>370.50</div>
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <a href="javascript:void(0);" class="ff-prev"></a>
+            <a href="javascript:void(0);" class="ff-next"></a>
+        </div>
+    </div>
+</div>
+{/if}
+
+{if $temp eq 'homeFloorSix'}
+<!-- 楼层六 -->    
+<div class="floor-line-con floorSix {$spec_attr.typeColor}" data-idx="1" id="floor_module_{$spec_attr.floorMode}" ectype="floorItem">
+    <div class="floor-hd" ectype="floorTit">
+        {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="hd-tit"><i class="icon"></i>{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</div>{/if}
+        <div class="hd-tags">
+            <ul>
+                <li class="first current"data-catGoods="{$spec_attr.top_goods}" {if $spec_attr.floorMode gt 2} ectype="floor_cat_content" {/if}data-flooreveval="0" data-visualhome="1" data-floornum="{if $spec_attr.floorMode eq 3}6{elseif $spec_attr.floorMode eq 4}8{else}0{/if}" data-id="{$spec_attr.cat_id}" data-floorcat="{if $spec_attr.floorMode eq 1}2{else}0{/if}">新品推荐</li>
+                {if $spec_attr.cateValue}
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                {if $cat.cat_name}
+                <li data-catGoods="{$cat.goods_id}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="10" data-id="{$cat.cat_id}">{$cat.cat_name}</li>
+                {/if}
+                {/foreach}
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <div class="floor-bd FS-bd-more-0{if $spec_attr.floorMode eq 1}1{elseif $spec_attr.floorMode eq 2}2{elseif $spec_attr.floorMode eq 3}3{elseif $spec_attr.floorMode eq 4}4{/if}">
+        <div class="bd-left">
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                        {foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual400x480.jpg{/if}"></a></li>
+                       {/foreach}
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul></ul>
+                </div>
+            </div>
+            {if $brand_list}
+            <div class="floor-brand">
+                <div class="fb-bd">
+                    <ul>
+                        {foreach from=$brand_list item=list}
+                        <li><a href="{$list.url}" target="_blank" title="{$list.brand_name}"><img src="{$list.brand_logo}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" class="fs_prev"><i class="iconfont icon-left"></i></a>
+                <a href="javascript:void(0);" class="fs_next"><i class="iconfont icon-right"></i></a>
+            </div>
+            {/if}
+        </div>
+        <div class="bd-right">
+        	{if $spec_attr.floorMode eq 1}
+            <div class="floor-tabs-content clearfix">
+            	<div class="f-r-main f-r-m-adv">
+                    <div class="floor-left-adv">
+                        <ul>
+                            <li class="f-bd-item child-double">
+                                {foreach from=$spec_attr.leftAdv item=list}
+                                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual400x240.jpg{/if}"></a>
+                                {/foreach}
+                            </li>
+                            
+                            {foreach from=$spec_attr.leftAdv item=list name=adv}
+                            {if $smarty.foreach.adv.iteration gt 2}
+                            <li class="f-bd-item"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x480.jpg{/if}"></a></li>
+                            {/if}
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                    <ul class="p-list"></ul>
+                </div>
+                {/foreach}
+            </div>
+            {elseif $spec_attr.floorMode eq 2}
+            <div class="floor-left-adv">
+            	<ul>
+                    <li class="f-bd-item child-double">
+                        {foreach from=$spec_attr.leftAdv item=list}
+                        <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual400x240.jpg{/if}"></a>
+                        {/foreach}
+                    </li>
+                </ul>
+            </div>   
+            {/if}
+            
+            {if $spec_attr.floorMode neq 1}
+            <div class="floor-tabs-content">
+                <div class="f-r-main f-r-curr" ectype="floor_cat_{$spec_attr.cat_id}">
+                    <ul class="p-list">
+                        {foreach from=$goods_list item=list name=goods}
+                        <li class="child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                            {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                </div>
+                            </div>
+                            <a href="{$list.url}" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        {foreachelse}
+                        <li class="child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        <li class="child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        {if $spec_attr.floorMode eq 3 || $spec_attr.floorMode eq 4}
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        {if $spec_attr.floorMode eq 4}
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        <li class="opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                            <a href="#" target="_blank" class="fr-btn">立即购买</a>
+                        </li>
+                        {/if}
+                        {/if}
+                        {/foreach}
+                    </ul>
+                </div>
+                
+                {foreach from=$spec_attr.cateValue item=cat name=name}
+                <div class="f-r-main" ectype="floor_cat_{$cat.cat_id}">
+                    <ul class="p-list"></ul>
+                </div>
+                {/foreach}
+            </div>
+            {/if}
+            {if $spec_attr.floorMode eq 3}
+            <div class="floor-left-adv">
+                <ul>
+                    {foreach from=$spec_attr.leftAdv item=list name=adv}
+                    <li class="f-bd-item"><a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x480.jpg{/if}"></a></li>
+                    {/foreach}
+                </ul>
+            </div>
+            {/if}
+        </div>
+    </div>
+</div>
+{/if}
+
+{if $temp eq 'homeFloorSeven'}
+<!-- 楼层七 -->
+<div class="floor-line-con floorSeven {$spec_attr.typeColor}" data-idx="1" id="floor_module_{$spec_attr.floorMode}" ectype="floorItem">
+    {if $spec_attr.floor_title || $spec_attr.cat_name}<div class="ftit"><h3>{if $spec_attr.floor_title}{$spec_attr.floor_title}{elseif $spec_attr.cat_name}{$spec_attr.cat_name}{else}主分类名称{/if}</h3></div>{/if}
+    <div class="floor-bd FSE-bd-more-0{if $spec_attr.floorMode eq 1}1{elseif $spec_attr.floorMode eq 2}2{elseif $spec_attr.floorMode eq 3}3{elseif $spec_attr.floorMode eq 4}4{elseif $spec_attr.floorMode eq 5}5{/if}">
+        <div class="bd-left">
+            <div class="floor-left-slide">
+                <div class="bd">
+                    <ul>
+                        {foreach from=$spec_attr.leftBanner item=list}
+                        <li><a href="{$list.leftBannerLink}" target="_blank"><img src="{if $list.leftBanner}{$list.leftBanner}{else}../data/gallery_album/visualDefault/visual400x440.jpg{/if}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="floor-nav">
+                <ul>
+                    <li class="current" data-catGoods="{$spec_attr.top_goods}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="10" data-id="{$spec_attr.cat_id}" data-floorcat="2">新品推荐<i></i></li>
+                    {if $spec_attr.cateValue}
+                    {foreach from=$spec_attr.cateValue item=cat name=name}
+                    {if $cat.cat_name}
+                    <li data-catGoods="{$cat.goods_id}" ectype="floor_cat_content" data-flooreveval="0" data-visualhome="1" data-floornum="10" data-id="{$cat.cat_id}" data-floorcat="2">{$cat.cat_name}<i></i></li>
+                    {/if}
+                    {/foreach}
+                    {/if}
+                </ul>
+            </div>
+        </div>
+        <div class="bd-right">
+        	{if $spec_attr.floorMode eq 1}
+            <div class="floor-left-adv">
+                {foreach from=$spec_attr.leftAdv item=list}
+                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x440.jpg{/if}"></a>
+                {/foreach}
+            </div>
+            {/if}
+            <div class="floor-tabs-content">
+            	{if $spec_attr.floorMode eq 1 || $spec_attr.floorMode eq 2 || $spec_attr.floorMode eq 5}
+                <div class="f-r-main f-r-curr">
+                    <ul class="p-list{if $spec_attr.floorMode eq 5} p-list-six{/if}" ectype="pList">
+                    	{if $spec_attr.floorMode eq 2}
+                        <li class="child-double opacity_img">
+                        	<div class="floor-left-adv">
+                            	{foreach from=$spec_attr.leftAdv item=list}
+                                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual400x220.jpg{/if}"></a>
+                                {/foreach}
+                            </div>
+                        </li>
+                        {/if}
+                        
+                        {foreach from=$goods_list item=list name=goods}
+                        <li class="li {if $spec_attr.floorMode eq 1 || $spec_attr.floorMode eq 5}{if $smarty.foreach.goods.iteration lt 4}child-curr {/if}{/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {foreachelse}
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                    {if $spec_attr.floorMode eq 5}
+                    <div class="floor-left-adv">
+                        {foreach from=$spec_attr.leftAdv item=list}
+                        <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x440.jpg{/if}"></a>
+                        {/foreach}
+                    </div>
+                    {/if}
+                </div>
+                {elseif $spec_attr.floorMode eq 3}
+                <div class="f-r-main f-r-curr">
+                	<ul class="p-list p-list-two" ectype="pList">
+                    	{foreach from=$goods_list item=list name=goods}
+                        {if $smarty.foreach.goods.iteration lt 3}
+                        <li class="li {if $smarty.foreach.goods.iteration eq 1}child-curr {/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {foreachelse}
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                    <div class="floor-left-adv">
+                        {foreach from=$spec_attr.leftAdv item=list}
+                        <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual200x440.jpg{/if}"></a>
+                        {/foreach}
+                    </div>
+                    <ul class="p-list p-list-four" ectype="pList">
+                    	{foreach from=$goods_list item=list name=goods}
+                        {if $smarty.foreach.goods.iteration > 2 && $smarty.foreach.goods.iteration < 7}
+                        <li class="li {if $smarty.foreach.goods.iteration lt 3}child-curr {/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {foreachelse}
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+                {elseif $spec_attr.floorMode eq 4}
+                <div class="f-r-main f-r-curr">
+                    <ul class="p-list" ectype="pList">
+                        {foreach from=$goods_list item=list name=goods}
+                        {if $smarty.foreach.goods.iteration < 6}
+                        <li class="li{if $smarty.foreach.goods.iteration lt 6} child-curr {/if}opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {foreachelse}
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/foreach}
+                        <li class="child-double opacity_img">
+                        	<div class="floor-left-adv">
+                            	{foreach from=$spec_attr.leftAdv item=list}
+                                <a href="{$list.leftAdvLink}" target="_blank"><img src="{if $list.leftAdv}{$list.leftAdv}{else}../data/gallery_album/visualDefault/visual400x220.jpg{/if}"></a>
+                                {/foreach}
+                            </div>
+                        </li>
+                        {foreach from=$goods_list item=list name=goods}
+                        {if $smarty.foreach.goods.iteration eq 6}
+                        <li class="li opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="{$list.url}" target="_blank"><img src="{$list.goods_thumb}"></a></div>
+                                <div class="p-name"><a href="{$list.url}" target="_blank">{$list.goods_name}</a></div>
+                                <div class="p-price">
+                                    <div class="shop-price">
+                                        {if $list.promote_price neq ''}
+                                        {$list.promote_price}
+                                        {else}
+                                        {$list.shop_price}
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/if}
+                        {foreachelse}
+                        <li class="li child-curr opacity_img">
+                            <div class="product">
+                                <div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+                                <div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+                                <div class="p-price"><em>¥</em>370.50</div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+    {if $brand_list}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix">
+            {foreach from=$brand_list item=list}
+            <div class="item">
+                <a href="{$list.url}" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="{$list.brand_logo}" title="{$list.brand_name}"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+    {else}
+    {if $spec_attr.cat_id eq 0}
+    <div class="floor-fd">
+        <div class="floor-fd-brand clearfix" ectype="defaultBrand">
+            <div class="item">
+                <a href="#" target="_blank">
+                    <div class="link-l"></div>
+                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                    <div class="link"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {/if}
+    {/if}
+</div>
+{/if}

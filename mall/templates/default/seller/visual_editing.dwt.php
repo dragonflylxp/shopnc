@@ -1,0 +1,3102 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>可视化店铺装修by：511613932</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo SHOP_TEMPLATES_URL?>/visual_css/general.css" />
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_js/spectrum-master/spectrum.css" rel="stylesheet">
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_css/layer.css" rel="stylesheet" />
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_css/dsc_visual.css" rel="stylesheet">
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_css/iconfont.css" rel="stylesheet">
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_css/purebox.css" rel="stylesheet">
+    <link href="<?php echo SHOP_TEMPLATES_URL?>/visual_js/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+    <?php if($output['topic_type'] == 'topic_type' ){?>	
+    	<link href="../data/topic/css/style.css" rel="stylesheet">
+    	<?php }elseif($output['pc_page']['tem']){?>
+    		<link href="../data/seller_templates/seller_tem_<?php echo $_SESSION['store_id']; ?>/<?php echo $output['pc_page']['tem']; ?>/css/style.css" rel="stylesheet">
+    <?php } ?>
+
+
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.json.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/transport_jquery.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/common.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.SuperSlide.2.1.1.js"></script>
+
+    
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/scripts.min.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/layer.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/spectrum-master/spectrum.js"></script>
+    
+    <!--[if lt IE 9]>
+	<script src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/css3-mediaqueries.js"></script>
+	<![endif]-->
+    <!--[if lte IE 8]>
+        <script type="Text/Javascript" language="JavaScript">
+            $(function(){
+                pb({
+                    id:'notIe',
+                    content:'<div class="noContent"><div class="noText"><p class="p1">您当前浏览器版本过低</p><p class="p1">不支持浏览</p><p class="p2">建议使用</p><p class="p3">谷歌、火狐、360极速、IE9以上版本</p></div></div>',
+                    drag:false,
+                    head:false,
+                    cl_cBtn:false,
+                    width:316,
+                    height:376,
+                    ok_title:"确定",
+                    onOk:function(){
+                        location.href = "../index.php";
+                    }
+                });
+                
+                $("#pb-mask").css('cssText','position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; opacity: 1; overflow: hidden; z-index: 2000; background-color:#fff;')
+            });
+        </script>
+    <![endif]-->
+    <!--<script type="text/javascript">
+    //这里把JS用到的所有语言都赋值到这里
+    {foreach from=$lang.js_languages key=key item=item}
+    var {$key} = "{$item}";
+    {/foreach}
+    </script>-->
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="dp_leftcolumn">
+            <ul class="tab-bar">
+                <li class="modules">
+                    <div class="wrap">
+                        <div class="left-line"></div>
+                        <i class="iconfont icon-template"></i>
+                        <span>模板</span>
+                        <b class="b-small"></b>
+                    </div>
+                </li>
+                <li class="page-head">
+                    <div class="wrap">
+                        <div class="left-line"></div>
+                        <i class="iconfont icon-visual-top"></i>
+                        <span>头部</span>
+                        <b class="b-small"></b>
+                    </div>
+                </li>
+                <li class="page-content">
+                    <div class="wrap">
+                        <div class="left-line"></div>
+                        <i class="iconfont icon-visual-con"></i>
+                        <span>中间</span>
+                        <b class="b-small"></b>
+                    </div>
+                </li>
+            </ul>
+            <ul class="toolbar">
+                <li class="li modules-slide">
+                    <b class="iconfont icon-cha close-icon" ectype="close"></b>
+                    <div class="inside">
+                        <p class="red">选择所需模块，并拖动至相应位置</p>                        
+                    </div>
+                    <div class="modules-box">
+                        <div class="modules-wrap modules-wrap-current">
+                            <div class="head" ectype="head"><span>基础模块</span><i class="iconfont icon-xia"></i></div>
+                            <div class="module-list clearfix">
+                                <div class="visual-item lyrow lunbotu" data-mode="lunbo" data-purebox="adv" data-li="1" data-length="5">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_01.png" /></span>
+                                            <span class="txt">图片轮播</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="shop_banner">
+                                            <div class="hd"><ul></ul></div>
+                                            <div class="bd">
+                                                <ul data-type="range">
+                                                    <li><a href="#"><img src="images/default/shop_banner_pic.jpg"></a></li>
+                                                </ul>
+                                            </div>
+                                            <a href="javascript:;" class="prev" style="display:none;"></a>
+                                            <a href="javascript:;" class="next" style="display:none;"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="visual-item lyrow w1200" data-mode="advImg1" data-purebox="adv" data-li="1" data-length="5" data-json="{}">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_02.png" /></span>
+                                            <span class="txt">广告区一</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="adv_module">
+                                            <div class="hd"><ul></ul></div>
+                                            <div class="bd">
+                                                <ul data-type="range">
+                                                    <li><a href=""><img src="images/default/ad_01_pic.jpg"></a></li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-item lyrow w1200" data-mode="advImg2" data-purebox="adv" data-length="2" data-li="1">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/2.png" width="1200" /></span>
+                                            <span class="txt">广告区二</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="advertising">
+                                            <ul data-type="range">
+                                                <li><a href="#"><img src="images/default/ad_02_a_pic.jpg" width="595" height="595"></a></li>
+                                                <li><a href="#"><img src="images/default/ad_02_a_pic.jpg" width="595" height="595"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="visual-item lyrow w1200" data-mode="advImg3" data-li="1" data-length="2" data-purebox="adv">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/3.png" /></span>
+                                            <span class="txt">广告区三</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="advertising">
+                                            <ul data-type="range">
+                                                <li><a href="#"><img src="images/default/ad_02_c_pic.jpg"></a></li>
+                                                <li><a href="#"><img src="images/default/ad_02_d_pic.jpg"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="visual-item lyrow w1200" data-mode="advImg4" data-purebox="adv" data-li="1">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/4.png" /></span>
+                                            <span class="txt">广告区四</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="advertising">
+                                            <ul class="row6" data-type="range">
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                                <li><a href="#"><span class="btm"></span><img src="images/default/ad_03_pic.jpg"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="visual-item lyrow w1200" data-mode="floor" data-purebox="goods">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">商品楼层</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor" data-type="range">
+                                            <div class="mt">
+                                                <div class="con">
+                                                    <h2>商品楼层名称</h2>
+                                                    <p>商品楼层简单介绍文字</p>
+                                                </div>
+                                            </div>
+                                            <div class="mc w1200">
+                                                <ul class="row4">
+                                                    <li>
+                                                        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+                                                        <div class="info">
+                                                            <div class="name"><a href="">商品名称</a></div>
+                                                            <div class="price">￥65.00</div>
+                                                            <div class="btn_hover"><a href="">立即购买</a></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+                                                        <div class="info">
+                                                            <div class="name"><a href="">商品名称</a></div>
+                                                            <div class="price">￥65.00</div>
+                                                            <div class="btn_hover"><a href="">立即购买</a></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+                                                        <div class="info">
+                                                            <div class="name"><a href="">商品名称</a></div>
+                                                            <div class="price">￥65.00</div>
+                                                            <div class="btn_hover"><a href="">立即购买</a></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="img"><a href="" title=""><img src="images/default/gd_pic_02.jpg"></a></div>
+                                                        <div class="info">
+                                                            <div class="name"><a href="">商品名称</a></div>
+                                                            <div class="price">￥65.00</div>
+                                                            <div class="btn_hover"><a href="">立即购买</a></div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <input name='goods_info' type='hidden' value=''/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--新闻资讯-->
+                                <div class="visual-item lyrow xinwenzixun w1200 " data-mode="cmsnew" data-purebox="cmsnew">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/news.png" /></span>
+                                            <span class="txt">新闻/活动</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+<div class="main_wrap mt40 clearfix cmsnew"  data-type="range">
+	<!--幻灯开始-->
+	<div class="fl tFocus clearfix" id="tFocus">
+		<div class="tFocus_btn">
+			<a href="javascript:void(0);" id="prev" class="prev"></a>
+			<a href="javascript:void(0);" id="next" class="next"></a>
+		</div>
+		<ul class="tFocus-pic zoom" id="tFocus-pic">
+			<li style="opacity: 1; z-index: 5;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="/web/20180112/12449.html" target="_blank" title="这可能是2018年最全面的的抢票攻略">这可能是2018年最全面的的抢票攻略</a>
+			</div>
+			<span class="slide_num"><em></em><b>1</b><i>5</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="/web/" target="_blank">互联网</a>每年的春运都是一个老大难问题，怎么能开开心心的买到回家的车票呢？这不得不提到两大法宝，一是提高配……
+			</p>
+			<a class="s_pic" target="_blank" title="这可能是2018年最全面的的抢票攻略" href="/web/20180112/12449.html">
+			<img src="../data/gallery_album/1-1P1121106320-L.png" width="580" height="267" alt="这可能是2018年最全面的的抢票攻略"></a>
+			</li>
+			<li style="z-index: 0; opacity: 0;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="/web/20180111/12425.html" target="_blank" title="为什么换一部新的全网通手机是省钱了呢？">为什么换一部新的全网通手机是省钱了呢</a>
+			</div>
+			<span class="slide_num"><em></em><b>2</b><i>5</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="/web/" target="_blank">互联网</a>流量贵，流量少，流量不够从哪儿找？ 随着4G网络的普及，随之而来的就是消费者关注的内容开始变得多样化……
+			</p>
+			<a class="s_pic" target="_blank" title="为什么换一部新的全网通手机是省钱了呢？" href="/web/20180111/12425.html">
+			<img src="../data/gallery_album/1-1P1111222250-L.jpg" width="580" height="267" alt="为什么换一部新的全网通手机是省钱了呢？"></a>
+			</li>
+			<li style="z-index: 0; opacity: 0;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="/web/20180110/12395.html" target="_blank" title="2018年定一个小目标 :没有几个亿，就先来几个GB">2018年定一个小目标 :没有几个亿，就先来</a>
+			</div>
+			<span class="slide_num"><em></em><b>3</b><i>5</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="/web/" target="_blank">互联网</a>2017年年初， 刚进公司 那会儿， 王十五说：哇塞，咱们公司 妹 子挺多的呀。 我 说： 是啊， 银行里 的 钞票……
+			</p>
+			<a class="s_pic" target="_blank" title="2018年定一个小目标 :没有几个亿，就先来几个GB" href="/web/20180110/12395.html">
+			<img src="../data/gallery_album/1-1P1101145200-L.jpg" width="580" height="267" alt="2018年定一个小目标 :没有几个亿，就先来几个GB"></a>
+			</li>
+			<li style="z-index: 0; opacity: 0;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="/web/20180109/12376.html" target="_blank" title="解锁2018年手机行业的四个走势">解锁2018年手机行业的四个走势</a>
+			</div>
+			<span class="slide_num"><em></em><b>4</b><i>5</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="/web/" target="_blank">互联网</a>2017正式告别，2018如期而至。回顾手机行业的这一年，随着市场竞争的进一步加剧，众多厂商在创新方面下足……
+			</p>
+			<a class="s_pic" target="_blank" title="解锁2018年手机行业的四个走势" href="/web/20180109/12376.html">
+			<img src="../data/gallery_album/1-1P1091F619358.jpg" width="580" height="267" alt="解锁2018年手机行业的四个走势"></a>
+			</li>
+			<li style="z-index: 0; opacity: 0;">
+			<div class="s_tit_wrap">
+				<a class="s_pic_tit" href="/web/20180105/12297.html" target="_blank" title="newifi新路由“黄金矿区”今日正式上线，打造第一区块链路由">newifi新路由“黄金矿区”今日正式上线，</a>
+			</div>
+			<span class="slide_num"><em></em><b>5</b><i>5</i></span>
+			<p class="s_info">
+				<a class="tp_block tb_4" href="/web/" target="_blank">互联网</a>2017年，共享经济这一创业热词成为资本市场关注的风向标，共享经济满足了市场需要和消费者需求的变化，合……
+			</p>
+			<a class="s_pic" target="_blank" title="newifi新路由“黄金矿区”今日正式上线，打造第一区块链路由" href="/web/20180105/12297.html">
+			<img src="../data/gallery_album/1-1P105110F5515.jpg" width="580" height="267" alt="newifi新路由“黄金矿区”今日正式上线，打造第一区块链路由"></a>
+			</li>
+		</ul>
+		<div class="tFocusBtn nodisplay" id="tFocusBtn">
+			<a class="tFocus-leftbtn nodisplay" id="tFocus-leftbtn" href="javascript:void(0);">‹</a>
+			<div class="tFocus-btn clearfix" id="tFocus-btn">
+				<ul>
+					<li class=""></li>
+					<li class=""></li>
+					<li class=""></li>
+					<li class=""></li>
+					<li class=""></li>
+				</ul>
+			</div>
+			<a class="tFocus-rightbtn fr nodisplay" id="tFocus-rightbtn" href="javascript:void(0);">›</a>
+		</div>
+	</div>
+	<!--幻灯结束-->
+	<div class="fl col_mod_0 ml30 w280">
+		<div class="col_tit_wrap">
+			<h3 class="col_tit">
+      今日头条
+			</h3>
+		</div>
+		<div class="col_con mt10">
+			<div class="news_mod">
+				<div class="news_tit">
+					<a class="tp_block tb_1" href="/web/" target="_blank">互联网</a>
+					<a href="/web/20180112/12454.html" target="_blank" title="2018CES京东与Bose签署战略合作协议 获新品首发权">2018CES京东与Bose签署战略合作协议 获新品</a>
+				</div>
+				<p class="news_dis">
+					CES作为全球最受关注的科技社会，吸引着全球的科技厂商齐聚拉斯维加斯，展示着各自旗下最新的科技产品。……
+				</p>
+			</div>
+			<div class="news_mod mt20">
+				<div class="news_tit">
+					<a class="tp_block tb_7" href="/web/" target="_blank">互联网</a>
+					<a href="/web/20180109/12371.html" target="_blank" title="京东电脑办公12月榜单公布：轻薄本销额同比增速80%">京东电脑办公12月榜单公布：轻薄本销额</a>
+				</div>
+				<p class="news_dis">
+					游戏台式机销量同比增速133%京东电脑办公诠释吃鸡第一实力 随着吃鸡游戏在国内的走热，一场以《绝地求生……
+				</p>
+			</div>
+			<ul class="t_n_list mt15">
+				<li><a href="/web/20180108/12352.html" target="_blank" title="京东无界零售全面来袭，满满黑科技讲述7FRESH的“新鲜事”">京东无界零售全面来袭，满满黑科技讲述</a></li>
+				<li><a href="/web/20171225/12097.html" target="_blank" title="联通打造“智慧沃家号”温暖营销打动用户">联通打造“智慧沃家号”温暖营销打动用</a></li>
+				<li><a href="/web/20171214/11885.html" target="_blank" title="智慧供应链+智慧物流 京东让零售效率全面提升">智慧供应链+智慧物流 京东让零售效率全</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--这里调用栏目id1的数据-->
+	<div class="fr col_mod w280">
+		<div class="col_tit_wrap clearfix">
+			<h3 class="fl col_tit"><a href="/news/" target="_blank">新闻/活动</a></h3>
+		</div>
+		<div class="col_con">
+			<div class="n_p_mod_0 clearfix">
+				<a class="n_pic fl" href="/news/2018/0112/12455.html" target="_blank" title="星巴克被诉缺斤短两？柠檬工坊提醒创业者投机取巧必得其反">
+				<img src="../data/gallery_album/4_01121513123441.jpg" width="125" height="94" alt="星巴克被诉缺斤短两？柠檬工坊提醒创业者投机取巧必得其反"></a>
+				<a class="n_tit" href="/news/2018/0112/12455.html" target="_blank">
+      		星巴克被诉缺斤短两？柠檬工坊提醒创业
+				</a>
+			</div>
+			<ul class="news_list_dot mt25 clearfix">
+				<li>
+				<a href="/news/2018/0112/12436.html" title="候选榜单重磅揭晓，优质供应商“公众投票”震撼来袭！" target="_blank">候选榜单重磅揭晓，优质供应商“公众投</a>
+				</li>
+				<li>
+				<a href="/news/2018/0110/12422.html" title="国产电影《女儿国》登上CES展？ 助力immers打造沉浸式观影IOD新品类" target="_blank">国产电影《女儿国》登上CES展？ 助力im</a>
+				</li>
+				<li>
+				<a href="/news/2018/0110/12419.html" title="深圳华强电子交易网络有限公司连续3次上榜“广东省电子商务企业100强”" target="_blank">深圳华强电子交易网络有限公司连续3次上</a>
+				</li>
+				<li>
+				<a href="/news/2018/0110/12415.html" title="优必选CES展尖端“黑科技”，双足机器人Walker首次亮相" target="_blank">优必选CES展尖端“黑科技”，双足机器人</a>
+				</li>
+				<li>
+				<a href="/news/2018/0110/12389.html" title="LUCI亮相CES 重磅发布IOD新品immers及全球第二代VR显示alyx" target="_blank">LUCI亮相CES 重磅发布IOD新品immers及全球第</a>
+				</li>
+				<li>
+				<a href="/news/2018/0109/12367.html" title="CES2018十大黑科技前瞻 LUCI先声夺人" target="_blank">CES2018十大黑科技前瞻 LUCI先声夺人</a>
+				</li>
+				<li>
+				<a href="/news/2018/0109/12366.html" title="CES2018VR前瞻，离市场更近的VR在哪里？" target="_blank">CES2018VR前瞻，离市场更近的VR在哪里？</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--调用栏目id1的数据结束-->
+</div>                  
+                                    </div>
+                                </div>    
+                                <!--友情链接-->
+                                <div class="youlinks visual-item lyrow " data-mode="ylinks" data-purebox="ylinks" style="min-height: 40px !important;">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/Link.png" /></span>
+                                            <span class="txt">底部/链接</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="ylinks" data-type="range">
+
+                                            <!--<div id="faq">
+                                                <div class="wrapper">
+                                                    <ul>
+                                                        <li>
+                                                            <dl class="s1">
+                                                                <dt>帮助中心</dt>
+                                                                <dd><i></i><a href="r_6" title="如何注册成为会员"> 如何注册成为会员 </a></dd>
+                                                                <dd><i></i><a href="r_39" title="积分细则"> 积分细则 </a></dd>
+                                                                <dd><i></i><a href="r_8" title="忘记密码"> 忘记密码 </a></dd>
+                                                                <dd><i></i><a href="r_9" title="我要买"> 我要买 </a></dd>
+                                                                <dd><i></i><a href="r_10" title="查看已购买商品"> 查看已购买商品 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <dl class="s2">
+                                                                <dt>店主之家</dt>
+                                                                <dd><i></i><a href="r_12" title="查看售出商品"> 查看售出商品 </a></dd>
+                                                                <dd><i></i><a href="r_13" title="如何发货"> 如何发货 </a></dd>
+                                                                <dd><i></i><a href="r_14" title="商城商品推荐"> 商城商品推荐 </a></dd>
+                                                                <dd><i></i><a href="r_15" title="如何申请开店"> 如何申请开店 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <dl class="s3">
+                                                            	<dt>支付方式</dt>
+                                                                <dd><i></i><a href="r_17" title="在线支付"> 在线支付 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <dl class="s4">
+                                                            	<dt>售后服务</dt>
+                                                                <dd><i></i><a href="r_26" title="联系卖家"> 联系卖家 </a></dd>
+                                                                <dd><i></i><a href="r_32" title="退换货流程"> 退换货流程 </a></dd>
+                                                                <dd><i></i><a href="r_33" title="返修/退换货"> 返修/退换货 </a></dd>
+                                                                <dd><i></i><a href="r_34" title="退款申请"> 退款申请 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <dl class="s5">
+                                                            	<dt>客服中心</dt>
+                                                                <dd><i></i><a href="r_21" title="修改收货地址"> 修改收货地址 </a></dd>
+                                                                <dd><i></i><a href="r_20" title="商品发布"> 商品发布 </a></dd>
+                                                                <dd><i></i><a href="r_19" title="会员修改个人资料"> 会员修改个人资料 </a></dd>
+                                                                <dd><i></i><a href="r_18" title="会员修改密码"> 会员修改密码 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                        <li>
+                                                            <dl class="s6">
+                                                            	<dt>关于我们</dt>
+                                                                <dd><i></i><a href="r_22" title="关于商城"> 关于商城 </a></dd>
+                                                                <dd><i></i><a href="r_23" title="联系我们"> 联系我们 </a></dd>
+                                                                <dd><i></i><a href="r_24" title="招聘英才"> 招聘英才 </a></dd>
+                                                                <dd><i></i><a href="" title="合作及洽谈"> 合作及洽谈 </a></dd>
+                                                            </dl>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>-->
+                                        	<div class="f_link">
+                                                <div class="f_link01">
+                                                    <div class="f_link02">友情链接：   <a href="http://www.baidu.com/" target="_blank">百度一下</a>     <a href="http://www.adashuo.com/" target="_blank">创业找项目</a>     <a href="http://www.sucai58.com/" target="_blank">建站素材</a>    </div>                                                
+                                                </div>
+                                            </div>
+                                            <!--<div id="footer" class="wrapper">
+                                                <p>
+                                                	<a href="http://localhost/kaice/shop">首页</a>
+                                                    | <a href="http://www.betooo.com/member/index.php?act=article&amp;article_id=24">招聘英才</a>
+                                                    | <a href="http://www.betooo.com/member/index.php?act=article&amp;article_id=25">合作及洽谈</a>
+                                                    | <a href="http://www.betooo.com/member/index.php?act=article&amp;article_id=23">联系我们</a>
+                                                    | <a href="http://www.betooo.com/member/index.php?act=article&amp;article_id=22">关于商城</a>
+                                                </p>赣ICP备14587664号<br>
+                                            </div>-->
+
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>                                
+                                                            
+                                <div class="visual-item lyrow" data-mode="custom" data-purebox="cust">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_04.png" /></span>
+                                            <span class="txt">自定义区</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="custom" data-type="range"><div class="default ui-draggable ui-box-display">自定义内容，可以用来展示店铺的特色区域。</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php if($output['theme_extension'] == 1){?>
+                      
+                        <div class="modules-wrap modules-wrap-current mt20">
+                            <div class="head" ectype="head"><span>楼层模块</span><i class="iconfont icon-xia"></i></div>
+                            <div class="module-list clearfix">
+								<!--楼层模板一-->
+                                <div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloor" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层一</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorOne floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="floor-hd" ectype="floorTit">
+                                                	<i class="box_hd_arrow"></i>
+    												<i class="box_hd_dec"></i>
+                                                	<div class="hd-tit">主分类名称</div>
+                                                    <div class="hd-tags">
+                                                    	<ul>
+                                                        	<li class="first current">
+                                                            	<span>新品推荐</span>
+                                                                <i class="arrowImg"></i>
+                                                            </li>
+                                                            <li ectype="floor_cat_content">
+                                                            	<span>次级分类</span>
+                                                                <i class="arrowImg"></i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-bd bd-mode-01">
+                                                	<div class="bd-left">
+                                                    	<div class="floor-left-slide">
+                                                        	<div class="bd">
+                                                            	<ul>
+                                                                	<li><a href="#"><img src="../data/gallery_album/visualDefault/homeIndex_002.jpg" width="232" height="570"></a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="hd"><ul></ul></div>
+                                                        </div>
+                                                        <div class="floor-left-adv">
+                                                        	<a href="http://" class="mb10" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_004.jpg" width="232" height="280"></a>
+                                                            <a href="http://" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_004.jpg" width="232" height="280"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bd-right">
+                                                    	<div class="floor-tabs-content clearfix">
+                                                        	<div class="f-r-main f-r-m-adv">
+                                                            	<div class="f-r-m-item">
+                                                                	<a href="http://" target="_blank">
+                                                                        <div class="title">
+                                                                            <h3>主标题</h3>
+                                                                            <span>次标题</span>
+                                                                        </div>
+                                                                        <img src="../data/gallery_album/visualDefault/homeIndex_004.jpg">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="f-r-m-item">
+                                                                	<a href="http://" target="_blank">
+                                                                        <div class="title">
+                                                                            <h3>主标题</h3>
+                                                                            <span>次标题</span>
+                                                                        </div>
+                                                                        <img src="../data/gallery_album/visualDefault/homeIndex_004.jpg">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="f-r-m-item">
+                                                                	<a href="http://" target="_blank">
+                                                                        <div class="title">
+                                                                            <h3>主标题</h3>
+                                                                            <span>次标题</span>
+                                                                        </div>
+                                                                        <img src="../data/gallery_album/visualDefault/homeIndex_004.jpg">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="f-r-m-item">
+                                                                	<a href="http://" target="_blank">
+                                                                        <div class="title">
+                                                                            <h3>主标题</h3>
+                                                                            <span>次标题</span>
+                                                                        </div>
+                                                                        <img src="../data/gallery_album/visualDefault/homeIndex_004.jpg">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="f-r-m-item f-r-m-i-double">
+                                                                	<a href="http://" target="_blank">
+                                                                        <div class="title">
+                                                                            <h3>主标题</h3>
+                                                                            <span>次标题</span>
+                                                                        </div>
+                                                                        <img src="../data/gallery_album/visualDefault/homeIndex_006.jpg">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-fd">
+                                                    <div class="floor-fd-brand clearfix">
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+								<!--楼层模板二-->
+                                <div class="visual-item lyrow w1200 not-draggable homeFloor" data-mode="homeFloorModule" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层二</span>
+                                        </div>
+                                    </div>
+                                    <div class="module floormodule mr8" ectype="module">
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                        <div class="view" data-hierarchy='1'>
+                                            <div class="floor-content" data-type="range">
+                                                <div class="floor-line-con floorTwo floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                                    <div class="floor-hd" ectype="floorTit">
+                                                    	<i class="box_hd_arrow"></i>
+    													<i class="box_hd_dec"></i>
+                                                        <div class="hd-tit">主分类名称</div>
+                                                        <div class="hd-tags">
+                                                            <ul>
+                                                                <li class="first current">
+                                                                    <span>新品推荐</span>
+                                                                    <i class="arrowImg"></i>
+                                                                </li>
+                                                                <li ectype="floor_cat_content">
+                                                                    <span>次级分类</span>
+                                                                    <i class="arrowImg"></i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="floor-bd">
+                                                        <div class="bd-left">
+                                                            <div class="floor-left-slide">
+                                                                <div class="bd">
+                                                                    <ul>
+                                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_013.jpg"></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="hd"><ul></ul></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bd-right">
+                                                            <div class="floor-tabs-content clearfix">
+                                                                <div class="f-r-main f-r-m-adv">
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="f-r-main">
+                                                                    <ul class="p-list">
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="floor-fd">
+                                                        <div class="floor-fd-brand clearfix">
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="module floormodule" ectype="module">
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                        <div class="view" data-hierarchy='2'>
+                                            <div class="floor-content" data-type="range">
+                                                <div class="floor-line-con floorTwo floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                                    <div class="floor-hd" ectype="floorTit">
+                                                        <div class="hd-tit">主分类名称</div>
+                                                        <div class="hd-tags">
+                                                            <ul>
+                                                                <li class="first current">
+                                                                    <span>新品推荐</span>
+                                                                    <i class="arrowImg"></i>
+                                                                </li>
+                                                                <li ectype="floor_cat_content">
+                                                                    <span>次级分类</span>
+                                                                    <i class="arrowImg"></i>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="floor-bd">
+                                                        <div class="bd-left">
+                                                            <div class="floor-left-slide">
+                                                                <div class="bd">
+                                                                    <ul>
+                                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_013.jpg"></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bd-right">
+                                                            <div class="floor-tabs-content clearfix">
+                                                                <div class="f-r-main f-r-m-adv">
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="f-r-m-item">
+                                                                        <a href="#" target="_blank">
+                                                                            <div class="title">
+                                                                                <h3>男童装</h3>
+                                                                                <span>新款上市</span>
+                                                                            </div>
+                                                                            <img src="../data/gallery_album/visualDefault/homeIndex_012.jpg">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="f-r-main">
+                                                                    <ul class="p-list">
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="opacity_img">
+                                                                            <a href="#" target="_blank">
+                                                                                <div class="p-img"><img src="../data/gallery_album/visualDefault/zhanwei.png"></div>
+                                                                                <div class="p-name">微琪思新款2016无袖牛仔连衣裙修身中短裙显瘦休闲背心裙</div>
+                                                                                <div class="p-price"><em>¥</em>370.50</div>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="floor-fd">
+                                                        <div class="floor-fd-brand clearfix">
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                    <div class="link"></div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="item">
+                                                                <a href="#" target="_blank">
+                                                                    <div class="link-l"></div>
+                                                                    <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+								<!--楼层模板三-->
+								<div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloorThree" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层三</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorThree floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="floor-hd" ectype="floorTit">
+                                                	<div class="hd-tit">主分类名称</div>
+                                                    <div class="hd-tags">
+                                                    	<ul>
+                                                        	<li class="first current">新品推荐</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-bd FT-bd-more-01">
+                                                    <ul>
+                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual232x590.jpg"></a></li>
+                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual232x590.jpg"></a></li>
+                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual232x590.jpg"></a></li>
+                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual232x590.jpg"></a></li>
+                                                        <li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual232x590.jpg"></a></li>
+                                                    </ul>
+                                                </div>
+												<div class="floor-fd">
+                                                    <div class="floor-fd-brand clearfix">
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <a href="#" target="_blank">
+                                                                <div class="link-l"></div>
+                                                                <div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div>
+                                                                <div class="link"></div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								
+								<!--楼层模板四-->
+								<div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloorFour" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层四</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorFour floor-color-type-3" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="floor-hd" ectype="floorTit">
+                                                	<div class="hd-tit">主分类名称</div>
+                                                    <div class="hd-tags">
+                                                    	<ul>
+                                                        	<li class="first current">新品推荐</li>
+															<li>连衣裙</li>
+															<li>毛衣外套</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-bd FF-bd-more-01">
+													<div class="bd-left">
+														<div class="floor-left-adv">
+															<a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual200x520.jpg"></a>
+														</div>
+														<div class="p-list">
+															<ul>
+																<li class="left-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="right-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="left-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="right-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="bd-right">
+														<div class="floor-left-adv">
+															<a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual200x520.jpg"></a>
+														</div>
+														<div class="p-list">
+															<ul>
+																<li class="left-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="left-child opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li class="opacity_img">
+																	<div class="product">
+																		<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																		<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+								<!--楼层模板五-->
+								<div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloorFive" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层五</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorFive floor-color-type-5" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="floor-hd" ectype="floorTit">
+                                                	<div class="hd-tit"><i class="iconfont icon-ele"></i><em class="iconfont icon-spot"></em>主分类名称</div>
+                                                    <div class="hd-tags">
+                                                    	<ul>
+                                                        	<li class="first current">新品推荐</li>
+															<li>连衣裙</li>
+															<li>毛衣外套</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-bd FFI-bd-more-01">
+													<div class="bd-left">
+														<div class="floor-left-slide">
+															<div class="bd">
+																<ul>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual477x450.jpg"></a></li>
+																</ul>
+															</div>
+															<div class="hd">
+																<ul></ul>
+															</div>
+														</div>
+														<div class="floor-left-adv">
+															<ul>
+																<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual236x450.jpg"></a></li>
+																<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual236x450.jpg"></a></li>
+																<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual236x450.jpg"></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="floor-fd">
+													<div class="floor-fd-slide">
+														<div class="bd">
+															<ul>
+																<li>
+																	<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																	<div class="p-info">
+																		<div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																	<div class="p-info">
+																		<div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																	<div class="p-info">
+																		<div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																	<div class="p-info">
+																		<div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+																<li>
+																	<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																	<div class="p-info">
+																		<div class="p-name"><a href="#" target="_blank">唐人基 灌汤鱼丸180g*4袋 福州鱼丸 贡丸冷冻肉丸海鲜</a></div>
+																		<div class="p-price"><em>¥</em>370.50</div>
+																	</div>
+																</li>
+															</ul>
+														</div>
+														<a href="javascript:void(0);" class="ff-prev"></a>
+														<a href="javascript:void(0);" class="ff-next"></a>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							
+								<!--楼层模板六-->
+								<div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloorSix" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层六</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorSix floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="floor-hd" ectype="floorTit">
+                                                	<div class="hd-tit"><i class="icon"></i>主分类名称</div>
+                                                    <div class="hd-tags">
+                                                    	<ul>
+                                                        	<li class="first current">新品推荐</li>
+															<li>连衣裙</li>
+															<li>毛衣外套</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="floor-bd FS-bd-more-01">
+													<div class="bd-left">
+														<div class="floor-left-slide">
+															<div class="bd">
+																<ul>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual400x480.jpg"></a></li>
+																</ul>
+															</div>
+															<div class="hd">
+																<ul></ul>
+															</div>
+														</div>
+														<div class="floor-brand">
+															<div class="fb-bd">
+																<ul>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg"></a></li>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg"></a></li>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg"></a></li>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg"></a></li>
+																</ul>
+															</div>
+															<a href="javascript:void(0);" class="prev"><i class="iconfont icon-left"></i></a>
+															<a href="javascript:void(0);" class="next"><i class="iconfont icon-right"></i></a>
+														</div>
+													</div>
+													<div class="bd-right">
+														<div class="floor-left-adv">
+															<ul>
+																<li class="f-bd-item child-double">
+																	<a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual400x240.jpg"></a>
+																	<a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual400x240.jpg"></a>
+																</li>
+																<li class="f-bd-item"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual200x480.jpg"></a></li>
+																<li class="f-bd-item"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual200x480.jpg"></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								
+								<!--楼层模板七-->
+								<div class="visual-item lyrow w1200 homeFloor" data-mode="homeFloorSeven" data-purebox="homeFloor" data-li="1" ectype="visualItme">
+                                    <div class="drag" data-html="not">
+                                        <div class="navLeft">
+                                            <span class="pic"><img src="images/visual/navLeft_03.png" /></span>
+                                            <span class="txt">楼层七</span>
+                                        </div>
+                                        <div class="setup_box">
+                                            <div class="barbg"></div>
+                                            <a href="javascript:void(0);" class="move-up iconfont icon-up1"></a>
+                                            <a href="javascript:void(0);" class="move-down iconfont icon-down1"></a>
+                                            <a href="javascript:void(0);" class="move-edit" ectype='model_edit'><i class="iconfont icon-edit1"></i>编辑</a>
+                                            <a href="javascript:void(0);" class="move-remove"><i class="iconfont icon-remove-alt"></i>删除</a>
+                                        </div>
+                                    </div>
+                                    <div class="view">
+                                        <div class="floor-content" data-type="range">
+                                            <div class="floor-line-con floorSeven floor-color-type-1" data-title="主分类名称" data-idx="1" id="floor_1" ectype="floorItem">
+                                            	<div class="ftit"><h3>逛了又逛</h3></div>
+                                                <div class="floor-bd FSE-bd-more-01">
+													<div class="bd-left">
+														<div class="floor-left-slide">
+															<div class="bd">
+																<ul>
+																	<li><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual400x440.jpg"></a></li>
+																</ul>
+															</div>
+															<div class="hd">
+																<ul></ul>
+															</div>
+														</div>
+														<div class="floor-nav">
+															<ul>
+																<li class="curr">新品推荐<i></i></li>
+																<li>休闲食品<i></i></li>
+																<li>油粮调味<i></i></li>
+																<li>肉类<i></i></li>
+																<li>休闲食品<i></i></li>
+															</ul>
+														</div>
+													</div>
+													<div class="bd-right">
+														<div class="floor-left-adv">
+															<a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/visual200x440.jpg"></a>
+														</div>
+														<div class="floor-tabs-content">
+															<div class="f-r-main f-r-curr">
+																<ul class="p-list">
+																	<li class="child-curr opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																	<li class="child-curr opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																	<li class="child-curr opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																	<li class="opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																	<li class="opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																	<li class="opacity_img">
+																		<div class="product">
+																			<div class="p-img"><a href="#" target="_blank"><img src="../data/gallery_album/visualDefault/zhanwei.png"></a></div>
+																			<div class="p-name"><a href="#" target="_blank">亿健家用彩屏多功能折叠</a></div>
+																			<div class="p-price"><em>¥</em>370.50</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </li>
+                <li class="li page-head-slide" data-style="head">
+                    <b class="iconfont icon-cha"></b>
+                    <div class="page-head-bg-content">
+                        <div class="page-head-bg-content-wrap">
+                            <div class="page-head-bg">
+                                <label class="tit">头部背景色：</label>
+                                <input type="hidden" class="tm-picker-trigger" value="<?php echo $output['head']['bg_color'] ?>"  />
+                                <input type="checkbox" class="ui-checkbox" name="header_dis" value="0" id="header_dis"  <?php if($output['head']['if_show'] == 1) {?> <?php echo 'checked';?> <?php } ?> />
+                                <label for="header_dis" class="ui-label">显示</label>
+                            </div>
+                            <div class="page-head-bgimg clearfix">
+                                <form  action="" id="bgfileForm" method="post"  enctype="multipart/form-data"  runat="server" >
+                                    <div><label class="tit">头部背景图：</label></div> 
+                                    <div class="bgimg" ><input name="fileimg" type="hidden" value=""/><img id="showbgfile" src="<?php if($output['head']['img_file']){?> <?php echo $output['head']['img_file'];?> <?php }else{?> <?php echo 'images/bgimg.gif';?> <?php } ?>" alt=""></div>
+                                    <div class="action">
+                                        <div class="action-btn">
+                                            <a href="javascript:void(0);" class="ks-uploader-button">
+                                                <span class="btn-text">更换图片</span>
+                                                <div class="file-input-wrapper"><input type="file" name="hdfile" value="更换图片" class="file-input"></div>
+                                            </a>
+                                            <a href="javascript:void(0);" class="delete"></a>
+                                        </div>
+                                        <div class="content">
+                                            <div>文件格式：GIF,JPG,PNG</div>
+                                            <div>文件大小：200k以内</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="bg-show clearfix" <?php if($output['head']['img_file'] == ''){ echo 'style="display:none;"'; }?> > 
+                                <div>背景显示：</div>
+                                <div class="bg-show-nr"> 
+                                    <a href="javascript:void(0);" <?php if($output['head']['bgrepeat'] == 'repeat'){ echo 'class="current"'; }?>  data-bg-show="repeat">平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['bgrepeat'] == 'repeat-y'){ echo 'class="current"'; }?>  data-bg-show="repeat-y">纵向平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['bgrepeat'] == 'repeat-x'){ echo 'class="current"'; }?>  data-bg-show="repeat-x">横向平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['bgrepeat'] == 'no-repeat'){ echo 'class="current"'; }?> data-bg-show="no-repeat">不平铺</a>
+                                </div>
+                            </div>
+                            <div class="bg-align clearfix" <?php if($output['head']['img_file'] == ''){ echo 'style="display:none;"'; }?>>
+                                <div>背景对齐：</div> 
+                                <div class="bg-align-nr">  
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'left'){ echo 'class="current"'; }?> data-bg-align="left">左对齐</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'center'){ echo 'class="current"'; }?> data-bg-align="center">居中</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'right'){ echo 'class="current"'; }?> data-bg-align="right">右对齐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li page-content-slide" data-style="content">
+                    <b class="iconfont icon-cha"></b>
+                    <div class="page-head-bg-content">
+                        <div class="page-head-bg-content-wrap">
+                            <div class="page-head-bg">
+                                <label class="tit">中间背景色：</label>
+                                <input type="hidden" class="tm-picker-trigger" value="<?php echo $output['content']['bg_color'] ?>" /> 
+                                <input type="checkbox" class="ui-checkbox" name="content_dis" value="0" id="content_dis" <?php if($output['content']['if_show'] == 1) {?> <?php echo 'checked';?> <?php } ?>/>   
+                                <label for="content_dis" class="ui-label">显示</label>
+                            </div>
+                            <div class="page-head-bgimg clearfix">
+                                <form  action="" id="bgfileForm" method="post"  enctype="multipart/form-data"  runat="server" >
+                                    <div><label class="tit">中间背景图：</label></div> 
+                                    <div class="bgimg"><input name="fileimg" type="hidden" value="<?php if($output['content']['img_file']){?> <?php echo $output['content']['img_file'];?> <?php }else{?> <?php echo 'images/bgimg.gif';?> <?php } ?>"/><img id="confilefile" src="<?php if($output['content']['img_file']){?> <?php echo $output['content']['img_file'];?> <?php }else{?> <?php echo 'images/bgimg.gif';?> <?php } ?>" alt=""></div>
+                                    <div class="action">
+                                        <div class="action-btn">
+                                            <a href="javascript:void(0);" class="ks-uploader-button">
+                                                <span class="btn-text">更换图片</span>
+                                                <div class="file-input-wrapper"><input type="file" name="confile" value="更换图片" class="file-input"></div>
+                                            </a>
+                                            <a href="javascript:void(0);" class="delete"></a>
+                                        </div>
+                                        <div class="content">
+                                            <div>文件格式：GIF,JPG,PNG</div>
+                                            <div>文件大小：200k以内</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="bg-show clearfix" <?php if($output['content']['img_file'] == ''){ echo 'style="display:none;"'; }?>>
+                                <div>背景显示：</div>  
+                                <div class="bg-show-nr">
+                                    <a href="javascript:void(0);" <?php if($output['content']['bgrepeat'] == 'repeat'){ echo 'class="current"'; }?> data-bg-show="repeat">平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['content']['bgrepeat'] == 'repeat-y'){ echo 'class="current"'; }?> data-bg-show="repeat-y">纵向平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['content']['bgrepeat'] == 'repeat-x'){ echo 'class="current"'; }?> data-bg-show="repeat-x">横向平铺</a>
+                                    <a href="javascript:void(0);" <?php if($output['content']['bgrepeat'] == 'no-repeat'){ echo 'class="current"'; }?> data-bg-show="no-repeat">不平铺</a>
+                                </div>
+                            </div>
+                            <div class="bg-align clearfix" <?php if($output['content']['img_file'] == ''){ echo 'style="display:none;"'; }?>>
+                                <div>背景对齐：</div>
+                                <div class="bg-align-nr">  
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'left'){ echo 'class="current"'; }?> data-bg-align="left">左对齐</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'center'){ echo 'class="current"'; }?> data-bg-align="center">居中</a>
+                                    <a href="javascript:void(0);" <?php if($output['head']['align'] == 'right'){ echo 'class="current"'; }?> data-bg-align="right">右对齐</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="db_main">
+            <div class="design-nav-wrap">
+                <div class="btns">
+                    <a href="javascript:void(0);" class="btn btn_blue" ectype="releaseTemp">确定发布</a> 
+                    <a href="javascript:void(0);" class="btn" <?php if($output['is_temp'] == 0){ echo 'style="display:none;"'; }?> ectype="back" >还原</a>
+                    
+                    
+                    <?php if($output['topic_type'] == 'topic_type'){?>
+                    <a href="javascript:void(0);" class="btn" ectype="preview" >预览</a>
+                    <?php }else{ ?>
+                    <!--<a href="visual_editing.php?act=templates" class="btn btn2">选择模板</a>-->
+                    <a href="javascript:void(0);" class="btn" ectype="preview" >预览</a>
+                    <!--<a href="index.php" class="btn" target="_blank" >店铺后台</a>
+                    <a href="javascript:void(0);" class="btn btn_blue" data-toggle="modal" ectype="downloadModal">设为默认</a>-->
+                    <?php } ?>
+                </div>
+            </div>   
+            <div class="pc-page store_tpl_1<?php if($output['theme_extension'] !== 1) {?> <?php echo 'dsc-ecmoban';?> <?php } ?>">            
+                <?php if($output['pc_page']['out']){?> 
+                    <?php echo $output['pc_page']['out'];?>
+                <?php }else{?>
+                	  <?php require_once template('pc_page');?>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    
+    <input type="hidden" name="suffix" value="<?php echo $output['pc_page']['tem'] ?>" data-section="<?php echo $output['vis_section']?>"/>
+    <div id="preview-layout"></div>
+    <div id="head-layout"></div>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/spectrum-master/spectrum.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.purebox.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.form.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.nyroModal.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/jquery.picTip.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL?>/visual_js/lib_ecmobanFunc.js"></script>
+
+	<script type="text/javascript">
+		$(".hd_main").addClass("store_hd_main");
+		var topic_type = "<?php echo $output['topic_type'] ?>";//"{$topic_type}";
+        var ru_id = "<?php echo $output['ru_id'] ?>";//"{$ru_id}";
+        $(document).on("click", "a[ectype='model_edit']", function () {
+            var _this = $(this),
+				lyrow = _this.parents('.lyrow'),
+				mode = lyrow.data("mode"),
+				img = lyrow.find('*[data-type="range"] img'),
+				purebox = lyrow.data("purebox"),
+                diff = lyrow.data("diff"),
+				lift = lyrow.find('*[data-type="range"]').attr('data-lift');
+				
+			if(!lift){
+				lift = '';
+			}
+			
+            if (purebox == "adv") {
+                var pic_number = lyrow.data('length');
+				var spec_attr = lyrow.find('.spec').data('spec');
+                spec_attr = JSON.stringify(spec_attr);
+                var uul = 'index.php?con=visual_editing&fun=shop_banner';                
+                $.ajax({type: 'POST',url: uul,data: {act:'shop_banner',spec_attr:spec_attr,pic_number:pic_number,mode:mode,diff:diff},success: query_banner,dataType: 'json'});		                
+                //Ajax.call('index.php?con=visual_editing&fun=shop_banner', "act=shop_banner&spec_attr=" + spec_attr  + "&pic_number=" + pic_number + "&mode=" + mode + "&diff=" + diff, query_banner, 'POST', 'JSON');
+            } else if (purebox == "goods") {
+                var spec_attr = lyrow.find('.spec').data('spec');
+                spec_attr = JSON.stringify(spec_attr);
+                Ajax.call('index.php?con=visual_editing&fun=goods_info', "&mode=" + mode + "&diff=" + diff + "&spec_attr=" + encodeURIComponent(spec_attr) , query_goods, 'POST', 'JSON');
+            } else if (purebox == "cust") {
+                var custom_content = encodeURIComponent(lyrow.find('[data-type="range"]').html());
+                Ajax.call('index.php?con=visual_editing&fun=custom', 'act=custom' + '&mode=' + mode + '&custom_content=' + custom_content + "&diff=" + diff, customResponse, 'POST', 'JSON');
+            } else if (purebox == "header") {
+                var suffix = $("input[name='suffix']").val();
+                var spec_attr = lyrow.find('.spec').data('spec');
+                spec_attr = JSON.stringify(spec_attr);
+                Ajax.call('index.php?con=visual_editing&fun=header', 'act=header' + '&mode=' + mode + "&spec_attr=" + encodeURIComponent(spec_attr) + "&suffix="+suffix, headerResponse, 'POST', 'JSON');
+            } else if (purebox == "nav") {
+                var spec_attr = lyrow.find('.spec').data('spec');
+                spec_attr = JSON.stringify(spec_attr);
+                Ajax.call('index.php?con=visual_editing&fun=navigator', 'act=navigator' + '&mode=' + mode + '&spec_attr=' + encodeURIComponent(spec_attr) + "&topic_type=" + topic_type, navigatorResponse, 'POST', 'JSON');
+            }else if(purebox == 'homeFloor'){
+				//楼层模块编辑
+                var hierarchy = '',
+					spec_attr = '';
+					
+                if(mode == 'homeFloorModule'){
+                    hierarchy = _this.parents("*[ectype='module']").find(".view").data('hierarchy');
+                    spec_attr = _this.parents("*[ectype='module']").find(".spec").data('spec');
+                }else{
+                    spec_attr = lyrow.find('.spec').data('spec');
+                }
+                
+				spec_attr = JSON.stringify(spec_attr);
+                var uul = 'index.php?con=visual_editing&fun=homeFloor';                
+                $.ajax({type: 'POST',url: uul,data: {act:'homeFloor',spec_attr:spec_attr,mode:mode,diff:diff,lift:lift,hierarchy:hierarchy},success: dialogResponse,dataType: 'json'});		
+                //Ajax.call('index.php?con=visual_editing&fun=homeFloor', 'act=homeFloor' + "&mode=" + mode + '&spec_attr=' + spec_attr + "&diff=" + diff + "&lift=" + lift + "&hierarchy=" + hierarchy, dialogResponse, 'POST', 'JSON');
+            
+            }else if(purebox == 'cmsnew'){
+            	var hierarchy = '';
+                var suffix = $("input[name='suffix']").val();
+                var spec_attr = lyrow.find('.spec').data('spec');
+                
+                spec_attr = JSON.stringify(spec_attr);
+                var uul = 'index.php?con=visual_editing&fun=cmsnew';                
+                $.ajax({type: 'POST',url: uul,data: {act:'cmsnew',spec_attr:spec_attr,mode:mode,diff:diff,lift:lift,hierarchy:hierarchy},success: cmsnewResponse,dataType: 'json'});
+                
+                //ylinksAjax.call('index.php?con=visual_editing&fun=cmsnew', 'act=cmsnew' + "&mode=" + mode + "&spec_attr=" + spec_attr +  "&diff=" + diff + "&lift=" + lift + "&hierarchy=" + hierarchy, cmsnewResponse, 'POST', 'JSON');
+            }else if(purebox == 'ylinks'){
+            	var hierarchy = '';
+                var suffix = $("input[name='suffix']").val();
+                var spec_attr = lyrow.find('.spec').data('spec');
+                
+                spec_attr = JSON.stringify(spec_attr);
+                var uul = 'index.php?con=visual_editing&fun=ylinks';                
+                $.ajax({type: 'POST',url: uul,data: {act:'ylinks',spec_attr:spec_attr,mode:mode,diff:diff,lift:lift,hierarchy:hierarchy},success: ylinksResponse,dataType: 'json'});
+                
+                //ylinksAjax.call('index.php?con=visual_editing&fun=cmsnew', 'act=cmsnew' + "&mode=" + mode + "&spec_attr=" + spec_attr +  "&diff=" + diff + "&lift=" + lift + "&hierarchy=" + hierarchy, cmsnewResponse, 'POST', 'JSON');
+            }
+        });
+    function ylinksResponse(result){
+        var content = result.content;
+        pb({
+            id: "dialog_" + result.mode,
+            title: "内容编辑",
+            width: 950,
+            content: content,
+            ok_title: "确定",
+            drag: true,
+            foot: true,
+            cl_cBtn: false,
+            onOk: function () {
+                var parents = $("#dialog_"+ result.mode);
+                var required = parents.find("*[ectype='required']");
+
+                if(validation(required) == true){
+                    if(result.mode == 'homeFloor' ||　result.mode == 'homeFloorModule' ||　result.mode == 'homeFloorThree' ||　result.mode == 'homeFloorFour' || result.mode == 'homeFloorFive' || result.mode == 'homeFloorSix' || result.mode == 'homeFloorSeven' || result.mode == 'homeFloorSeven'){
+                        $("[ectype='floormodeItem']").each(function(){
+                            if(!$(this).find("input[name='floorMode']").is(':checked')) {
+                                $(this).find("[ectype='floorModehide']").remove();
+                            }
+                        })
+                    }
+                    ylinksInsert(result.mode,result.diff,result.hierarchy);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        });
+         	
+    }  
+		function ylinksInsert(mode,diff,hierarchy){
+            actionUrl = "index.php?con=visual_editing&fun=ylinksInsert&act=" + mode;
+		
+            $("#"+mode+"Insert").ajaxSubmit({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: actionUrl,
+                    data: { "action": "TemporaryImage" },
+                    success: function (data) {
+						if(data.error == 1){
+							alert(data.massege);
+						}else{
+							var t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]');
+							
+							t.attr("id",mode + "_" + diff);
+							
+							if(mode == 'h-sepmodule'){
+								var t = t.find("*[data-hierarchy='" + hierarchy + "']");
+							}
+							if(mode == 'homeFloorModule'){
+								t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find("*[data-hierarchy='" + hierarchy + "']").find("[data-type='range']");
+							}
+							t.html(data.content);
+							t.find(".spec").remove();
+							t.append("<div class='spec' data-spec='"+$.toJSON(data.spec_attr)+"' data-title='"+data.masterTitle+"'></div>");
+							if(data.lift){
+								$(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]').attr("data-lift",data.lift);
+							}
+						}
+						f_defaultBrand();
+						visual();
+                    },
+                    async: true  
+             });
+		}            
+    function cmsnewResponse(result){
+        var content = result.content;
+        pb({
+            id: "dialog_" + result.mode,
+            title: "内容编辑",
+            width: 950,
+            content: content,
+            ok_title: "确定",
+            drag: true,
+            foot: true,
+            cl_cBtn: false,
+            onOk: function () {
+                var parents = $("#dialog_"+ result.mode);
+                var required = parents.find("*[ectype='required']");
+
+                if(validation(required) == true){
+                    if(result.mode == 'homeFloor' ||　result.mode == 'homeFloorModule' ||　result.mode == 'homeFloorThree' ||　result.mode == 'homeFloorFour' || result.mode == 'homeFloorFive' || result.mode == 'homeFloorSix' || result.mode == 'homeFloorSeven' || result.mode == 'homeFloorSeven'){
+                        $("[ectype='floormodeItem']").each(function(){
+                            if(!$(this).find("input[name='floorMode']").is(':checked')) {
+                                $(this).find("[ectype='floorModehide']").remove();
+                            }
+                        })
+                    }
+                    cmsnewInsert(result.mode,result.diff,result.hierarchy);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        });
+         	
+    }
+		function cmsnewInsert(mode,diff,hierarchy){
+            actionUrl = "index.php?con=visual_editing&fun=cmsnewInsert&act=" + mode;
+		
+            $("#"+mode+"Insert").ajaxSubmit({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: actionUrl,
+                    data: { "action": "TemporaryImage" },
+                    success: function (data) {
+						if(data.error == 1){
+							alert(data.massege);
+						}else{
+							var t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]');
+							
+							t.attr("id",mode + "_" + diff);
+							
+							if(mode == 'h-sepmodule'){
+								var t = t.find("*[data-hierarchy='" + hierarchy + "']");
+							}
+							if(mode == 'homeFloorModule'){
+								t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find("*[data-hierarchy='" + hierarchy + "']").find("[data-type='range']");
+							}
+							t.html(data.content);
+							t.find(".spec").remove();
+							t.append("<div class='spec' data-spec='"+$.toJSON(data.spec_attr)+"' data-title='"+data.masterTitle+"'></div>");
+							if(data.lift){
+								$(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]').attr("data-lift",data.lift);
+							}
+						}
+						f_defaultBrand();
+						visual();
+                    },
+                    async: true  
+             });
+		}        
+    function dialogResponse(result){
+            var content = result.content;
+            pb({
+                id: "dialog_" + result.mode,
+                title: "内容编辑",
+                width: 950,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                        var parents = $("#dialog_"+ result.mode);
+                        var required = parents.find("*[ectype='required']");
+
+                        if(validation(required) == true){
+                            if(result.mode == 'homeFloor' ||　result.mode == 'homeFloorModule' ||　result.mode == 'homeFloorThree' ||　result.mode == 'homeFloorFour' || result.mode == 'homeFloorFive' || result.mode == 'homeFloorSix' || result.mode == 'homeFloorSeven' || result.mode == 'homeFloorSeven'){
+                                $("[ectype='floormodeItem']").each(function(){
+                                    if(!$(this).find("input[name='floorMode']").is(':checked')) {
+                                        $(this).find("[ectype='floorModehide']").remove();
+                                    }
+                                })
+                            }
+                                homeAdvInsert(result.mode,result.diff,result.hierarchy);
+                                return true;
+                        }else{
+                                return false;
+                        }
+                }
+            });
+        }
+		
+		function homeAdvInsert(mode,diff,hierarchy){
+            var actionUrl = '',
+				act = '';
+            if(mode == 'homeFloor' ||　mode == 'homeFloorModule' ||　mode == 'homeFloorThree' ||　mode == 'homeFloorFour' || mode == 'homeFloorFive' || mode == 'homeFloorSix' || mode == 'homeFloorSeven' || mode == 'homeFloorSeven'){
+                act = 'homeFloor';
+            }else if(mode == 'h-brand'){
+                act = "homeBrand";
+            }else if(mode == 'h-promo' || mode == 'h-sepmodule'){
+                act = "honePromo";
+            }else{
+				act = "homeAdvInsert";
+			}
+			
+            actionUrl = "index.php?con=visual_editing&fun="+ act +"1&act=" + act;
+			
+            $("#"+mode+"Insert").ajaxSubmit({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: actionUrl,
+                    data: { "action": "TemporaryImage" },
+                    success: function (data) {
+						if(data.error == 1){
+							alert(data.massege);
+						}else{
+							var t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]');
+							
+							t.attr("id",mode + "_" + diff);
+							
+							if(mode == 'h-sepmodule'){
+								var t = t.find("*[data-hierarchy='" + hierarchy + "']");
+							}
+							if(mode == 'homeFloorModule'){
+								t = $(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find("*[data-hierarchy='" + hierarchy + "']").find("[data-type='range']");
+							}
+							t.html(data.content);
+							t.find(".spec").remove();
+							t.append("<div class='spec' data-spec='"+$.toJSON(data.spec_attr)+"' data-title='"+data.masterTitle+"'></div>");
+							if(data.lift){
+								$(".demo *[data-mode=" + mode + "][data-diff=" + diff + "]").find('[data-type="range"]').attr("data-lift",data.lift);
+							}
+						}
+						f_defaultBrand();
+						visual();
+                    },
+                    async: true  
+             });
+		}
+        //头部弹窗
+        function headerResponse(result) {
+            var content = result.content;
+            pb({
+                id: "header_dialog",
+                title: "头部编辑器",
+                width: 945,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                    header_back(result.mode)
+                }
+            });
+        }
+    
+        function header_back(mode) {
+            var obj = $("#header_dialog");
+            var header_type =  obj.find("input[name='header_type']:checked").val();
+            var headerbg_img = obj.find("input[name='fileimg']").val();
+            
+
+            var picHeight = obj.find("input[name='picHeight']").val();
+            var custom_content = obj.find("input[name='custom_content']").val();
+            var _this = $("*[data-mode=" + mode + "]").find('[data-type="range"]');
+            var spec_attr = new Object();
+            spec_attr.header_type = header_type;
+            spec_attr.headerbg_img = headerbg_img;
+            spec_attr.picHeight = picHeight;
+            spec_attr.custom_content = custom_content;
+
+            if(header_type == 'defalt_type'){
+               _this.html("<div class='spec' data-spec='"+$.toJSON(spec_attr)+"'><img src='"+headerbg_img+"' /></div>");
+            }else{
+                _this.html("<div class='spec' data-spec='"+$.toJSON(spec_attr)+"'>"+custom_content+"</div>");
+            }
+            visual();
+        }
+       
+        //导航弹窗
+        function navigatorResponse(result) {
+            var content = result.content;
+            pb({
+                id: "navigator_dialog",
+                title: "导航编辑器",
+                width: 850,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                    if(topic_type == 'topic_type'){
+                        topic_nav_back(result.mode);
+                    }else{
+                        navigator_back(result.mode)
+                    }
+                }
+            });
+        }
+        function topic_nav_back(mode){
+             var actionUrl = "get_ajax_content.php?act=navInsert";  
+            $("#navInsert").ajaxSubmit({
+                type: "POST",
+                dataType: "JSON",
+                url: actionUrl,
+                data: { "action": "TemporaryImage" },
+                success: function (result) {
+                    $("*[data-mode=" + mode + "]").find('[data-type="range"]').html(result.content);
+                    $("*[data-mode=" + mode + "]").find('[data-type="range"]').find(".spec").remove();
+                    $("*[data-mode=" + mode + "]").find('[data-type="range"]').append("<div class='spec' data-spec='"+$.toJSON(result.spec_attr)+"'></div>");
+                    visual();
+                },
+                async: true  
+            })
+        }
+        function navigator_back(mode) {
+            var spec_attr = new Object();
+            var obj = $("#navigator_dialog"),
+            navColor = '',
+            target = '',
+            align = '';
+          
+            navColor = obj.find(".navColor").val();
+            target = obj.find("input[name='target']:checked").val();
+            align = obj.find("select[name='align']").val();
+            spec_attr.navColor = navColor;
+            spec_attr.target = target;
+            spec_attr.align = align;
+            
+            Ajax.call('index.php?con=visual_editing&fun=navigator1', "act=navigator&spec_attr=" + encodeURIComponent($.toJSON(spec_attr))  + "&mode=" + mode, addnavigatorResponse, 'POST', 'JSON');
+        }
+        function addnavigatorResponse(result){
+            $("*[data-mode=" + result.mode + "]").find('[data-type="range"]').html(result.content);
+            $("*[data-mode=" + result.mode + "]").find('[data-type="range"]').find(".spec").remove();
+            $("*[data-mode=" + result.mode + "]").find('[data-type="range"]').append("<div class='spec' data-spec='"+result.spec_attr+"'></div>");
+            $("*[data-mode=" + result.mode + "]").parents(".nav_bg").css({"background-color":result.navColor});
+            visual();
+        }
+       
+        //广告弹出窗口
+        function query_banner(result) {
+            var content = result.content;
+            pb({
+                id: "banner_dialog",
+                title: "图片编辑器",
+                width: 870,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                    addshop_banner("#banner_dialog",result.mode,result.diff);
+                }
+            });
+        }
+        function addshop_banner(obj,mode,diff) {
+            var spec_attr = new Object();
+            var obj = $(obj);
+            var pic_src = [];
+            var link = [];
+            var sort = [];
+            var bg_color = [];
+			
+			var picHeight = obj.find("input[name='picHeight']");
+			var slideType = obj.find("input[name='slide_type']");
+			var itemsLayout = obj.find("input[name='itemsLayout']");
+			var target = obj.find("input[name='target']");
+			
+            if (picHeight.val()){
+                spec_attr.picHeight = picHeight.val();
+            }
+            if (slideType.length > 0){
+                spec_attr.slide_type =  obj.find("input[name='slide_type']:checked").val();
+            }
+            if (itemsLayout.val()){
+                spec_attr.itemsLayout = itemsLayout.val();
+            }
+            if (target.val()) {
+                spec_attr.target = obj.find("input[name='target']:checked").val();
+            }
+			
+            //图片路径
+            obj.find("input[name='pic_src[]']").each(function () {
+                var psrc = $(this).val();
+                pic_src.push(psrc);
+            });
+            //图片链接
+            obj.find("input[name='link[]']").each(function () {
+                var plink = $(this).val();
+                link.push(plink);
+            });
+            //排序
+            obj.find("input[name='sort[]']").each(function () {
+                var psort = $(this).val();
+                sort.push(psort);
+            });
+            //排序
+            obj.find("input[name='bg_color[]']").each(function () {
+                var pbg_color = $(this).val();
+                bg_color.push(pbg_color);
+            });
+            if($("*[data-mode=" + mode + "]").data('li')){
+                spec_attr.is_li = $("*[data-mode=" + mode + "]").data('li');
+            }else{
+                spec_attr.is_li = 0;
+            }
+            spec_attr.bg_color = bg_color;
+            spec_attr.pic_src = pic_src;
+            spec_attr.link = encodeURIComponent(link);
+            spec_attr.sort = sort;
+            
+            Ajax.call('index.php?con=visual_editing&fun=addmodule', "act=addmodule&diff=" + diff  + "&mode=" + mode + "&spec_attr=" +  $.toJSON(spec_attr), addmoduleResponse, 'POST', 'JSON');
+        }
+    
+        function addmoduleResponse(data) {
+			var obj = $(".demo *[data-mode=" + data.mode + "][data-diff="+data.diff+"]");
+			if(data.mode == "advImg4"){
+				obj.find('[data-type="range"]').removeClass().addClass(data.itemsLayout);
+			}else if(data.mode == "lunbo" || data.mode == "advImg1"){
+				obj.find('*[data-type="range"]').attr("data-slide",data.slide_type);
+			}else if(data.mode == "advImg3"){
+				obj.find('[data-type="range"]').removeClass().addClass(data.itemsLayout);
+			}else if(data.mode == "advImg2"){
+				obj.find('[data-type="range"]').removeClass().addClass("advImgtwo");
+			}
+            obj.find('[data-type="range"]').html(data.content);
+            obj.find(".spec").remove();
+            obj.find('[data-type="range"]').after("<div class='spec' data-spec='"+data.spec_attr+"'>");
+            sider();
+            visual();
+        }
+        //广告弹出窗口end
+    
+        //商品弹出窗口
+        function query_goods(result) {
+            var content = result.content;
+            pb({
+                id: "goods_dialog",
+                title: "商品编辑器",
+                width: 950,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                    replace_goods(result.mode,result.diff)
+                }
+            });
+        }
+    
+        function replace_goods(mode,diff) {
+            var spec_attr = new Object();
+            spec_attr.cat_desc = $('input[name="cat_desc"]').val();
+            spec_attr.goods_ids = $('input[name="goods_ids"]').val();
+            spec_attr.cat_name = $('input[name="cat_name"]').val();
+            spec_attr.align = $('select[name="align"]').val();
+            spec_attr.is_title = $("input[name='is_title']:checked").val();
+            spec_attr.itemsLayout = $("input[name='itemsLayout']").val();
+            Ajax.call('index.php?con=visual_editing&fun=changedgoods&is_ajax=1', "temp=replace&spec_attr=" + $.toJSON(spec_attr) + "&diff=" + diff + "&mode=" + mode, replaceResponse, 'POST', 'JSON');
+        }
+    
+        function replaceResponse(data) {
+			var obj = $("*[data-mode=" + data.mode + "][data-diff="+data.diff+"]");
+            
+			//设置商品楼层是否显示标题
+			if(data.is_title == 1){
+				obj.find(".mt").remove();
+				obj.find(".mc").before("<div class='mt'><div class='con'><h2>" + data.cat_name + "</h2><p>" + data.cat_desc + "</p></div></div>");
+			}else{
+				obj.find(".mt").remove();
+			}
+			
+            //替换楼层内容
+            obj.find('[data-type="range"] ul').removeClass().addClass(data.itemsLayout);	
+			obj.find('[data-type="range"] ul').html(data.content);
+			obj.find('input[name="goods_info"]').val(data.goods_ids);
+            obj.find('.mc').find(".spec").remove();
+			obj.find('.mc').append("<div class='spec' data-spec='"+data.spec_attr+"'></div>");
+                        obj.attr("data-goodsId",data.goods_ids);
+            visual();
+        }
+        //商品弹出窗口end
+    
+        //自定义弹窗
+        function customResponse(result) {
+            var content = result.content;
+            pb({
+                id: "custom_dialog",
+                title: "自定义编辑器",
+                width: 850,
+                content: content,
+                ok_title: "确定",
+                drag: true,
+                foot: true,
+                cl_cBtn: false,
+                onOk: function () {
+                    custom_back(result.mode,result.diff)
+                }
+            });
+        }
+    
+        function custom_back(mode,diff) {
+            var custom_content = $("input[name='custom_content']").val();
+            $("*[data-mode=" + mode + "][data-diff="+diff+"]").find('[data-type="range"]').html(custom_content);
+            visual();
+        }
+        //自定义弹窗end
+    
+        //页面加载
+        $(window).ready(function (e) {
+            var height = $(window).height();
+            var width = $(window).width();
+            $(".page-head-bg-content-wrap").css({"height": height-30});
+            $(".demo").css({"min-height":height});
+            $(".pc-page").css({"height": height-61});
+            
+            $(".main-wrapper").addClass("wpst-toolbar-show");
+            $(".tab-bar").find("li").eq(0).addClass("current");
+            $(".toolbar").find("li").eq(0).addClass("current");
+            
+            if($(".main-wrapper").hasClass("wpst-toolbar-show")){
+                $(".pc-page").css({"width":width-310});
+            }else{
+                $(".pc-page").css({"width":width-80});
+            }
+            
+            //左侧侧边栏
+            db_leftcolumn = function () {
+                var li = $(".tab-bar").find("li"),
+                    ul = li.parent(".tab-bar"),
+                    wrapper = li.parents(".main-wrapper"),
+                    toolbar = ul.siblings(".toolbar");
+        
+                li.on("click", function () {
+                    var index = $(this).index();
+        
+                    if ($(this).hasClass("current")) {
+                        $(this).removeClass("current");
+                        wrapper.removeClass("wpst-toolbar-show");
+                        $(".pc-page").css({"width":width-80});
+                    }else{
+                        $(this).addClass("current").siblings().removeClass("current");
+                        toolbar.find(".li").eq(index).addClass("current").siblings().removeClass("current");
+                        wrapper.addClass("wpst-toolbar-show");
+                        $(".pc-page").css({"width":width-310});
+                    }
+                });
+            }
+            db_leftcolumn();
+        
+            //右侧点击
+            $(document).on("click", ".tab li", function () {
+                var index = $(this).index();
+                $(this).addClass("current").siblings().removeClass("current");
+                $(".modal-body").find(".body_info").eq(index).show().siblings().hide();
+            });
+        
+            $(document).on("click", ".itemsLayout", function () {
+                $(this).find(".itemsLayoutShot").addClass("dtselected");
+                $(this).siblings().find(".itemsLayoutShot").removeClass("dtselected");
+                $("input[name='itemsLayout']").val($(this).data("line"));
+            });
+        
+            //关闭右侧导航
+            $(document).on("click", ".close-icon", function () { //
+                $(this).parents(".li").removeClass("current");
+                $(this).parents(".main-wrapper").removeClass("wpst-toolbar-show");
+                $(this).parents(".main-wrapper").find(".tab-bar li").removeClass("current");
+                $(".pc-page").css({"width":width-80});
+            });
+            //关闭右侧导航
+            $(document).on("click", ".icon-cha", function () { //icon-cha
+                $(this).parents(".li").removeClass("current");
+                $(this).parents(".main-wrapper").removeClass("wpst-toolbar-show");
+                $(this).parents(".main-wrapper").find(".tab-bar li").removeClass("current");
+                $(".pc-page").css({"width":width-80});
+            });            
+            
+            
+            
+        });
+    
+        $(window).resize(function (e) {
+            var height = $(window).height();
+            var width = $(window).width();
+            $(".page-head-bg-content-wrap").css({"height": height - 30});
+            $(".demo").css("min-height", height);
+            $(".pc-page").css("height", height - 61);
+            
+            if($(".main-wrapper").hasClass("wpst-toolbar-show")){
+                $(".pc-page").css({"width":width-310});
+            }else{
+                $(".pc-page").css({"width":width-80});
+            }
+        });
+    
+        //商品名称颜色设置
+        $(".page-head-bg .tm-picker-trigger").spectrum({
+            showInitial: true,
+            showPalette: true,
+            showSelectionPalette: true,
+            showInput: true,
+            color: "#fff",
+            showSelectionPalette: true,
+            maxPaletteSize: 10,
+            preferredFormat: "hex",
+            palette: [
+                ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+                "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+                ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+                "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+                ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+                "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+                "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+                "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+                "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+                "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+                "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+                "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+                "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+                "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+            ]
+        });
+	
+        //右侧导航 头部添加背景颜色
+        $("input[name='header_dis']").click(function(){
+			var style = $(this).parents(".li").data("style");
+            var bgDiv = $(this).parents(".page-head-bg");
+            var bgColor = bgDiv.find(".tm-picker-trigger").val();
+    
+            if($(this).prop("checked") == true){
+                $(".pc-page").find(".hd_bg").css({"background-color":bgColor});
+            }else{
+                $(".pc-page").find(".hd_bg").css({"background-color":"transparent"});
+            }
+			generate(style);
+        });
+		
+        //右侧导航 头部添加背景图
+		var suffix = $("input[name='suffix']").val();
+        $.upload_file("input[name='hdfile']","index.php?con=visual_editing&fun=header_bg&act=header_bg&type=headerbg&name=hdfile&suffix="+suffix+"&topic_type="+topic_type,"#showbgfile",function fn(obj,img){
+            var parent = obj.parents(".page-head-bgimg");
+            var repeat = parent.siblings(".bg-show").find(".current").data("bg-show");
+            var position = parent.siblings(".bg-align").find(".current").data("bg-align");
+            parent.siblings(".bg-show,.bg-align").show();
+            $(".pc-page").find(".hd_bg").css({"background-image":"url("+img+")","background-repeat":repeat,"background-position":position});
+            visual();
+        });
+        
+        //右侧导航 中间添加背景图
+        $("input[name='content_dis']").click(function(){
+			var style = $(this).parents(".li").data("style");
+            var bgDiv = $(this).parents(".page-head-bg");
+            var bgColor = bgDiv.find(".tm-picker-trigger").val();
+    
+            if($(this).prop("checked") == true){
+                $(".demo").css({"background-color":bgColor});
+            }else{
+                $(".demo").css({"background-color":"transparent"});
+            }
+			generate(style);
+        });
+        
+        //右侧导航 中间添加背景图
+        $.upload_file("input[name='confile']","index.php?con=visual_editing&fun=header_bg&act=header_bg&type=contentbg&name=confile&suffix="+suffix+"&topic_type="+topic_type,"#confilefile",function fn(obj,img){
+            var parent = obj.parents(".page-head-bgimg");
+            var repeat = parent.siblings(".bg-show").find(".current").data("bg-show");
+            var position = parent.siblings(".bg-align").find(".current").data("bg-align");
+            parent.siblings(".bg-show,.bg-align").show();
+            
+            $(".demo").css({"background-image":"url("+img+")","background-repeat":repeat,"background-position":position});
+            visual();
+        });
+        
+        //右侧导航 删除头部或者中间背景图
+        $(document).on("click",".action-btn .delete",function(){
+            var suffix = $("input[name='suffix']").val();
+            var form =$(this).parents("form"); 
+            var fileimg = form.find("input[name='fileimg']").val();
+            form.find("input[name='fileimg']").val("");
+
+            form.find(".bgimg img").attr("src","images/bgimg.gif");
+            form.parent(".page-head-bgimg").siblings(".bg-show,.bg-align").hide();
+            
+            $(".pc-page").find(".hd_bg").css({"background-image":"none"});
+            $(".demo").css({"background-image":"none"});
+            var type = form.parents('li').data("style");
+            Ajax.call('index.php?con=visual_editing&fun=remove_img', "act=remove_img&fileimg=" + fileimg + "&suffix="+suffix + "&type=" + type, '', 'POST', 'JSON');
+            visual();
+        });
+        
+        //右侧导航 头部/中间 背景平铺
+        $(document).on("click", ".bg-show-nr a", function () {
+            var style = $(this).parents(".li").data("style");
+            var repeat = $(this).data("bg-show");
+			
+            $(this).addClass("current").siblings().removeClass("current");
+            
+            if(style == "head"){
+                $(".pc-page").find(".hd_bg").css({"background-repeat":repeat});
+            }else{
+                $(".demo").css({"background-repeat":repeat});
+            }
+			generate(style);
+        });
+        $(document).on("click", ".bg-align-nr a", function () {
+            var style = $(this).parents(".li").data("style");
+            var position = $(this).data("bg-align");
+            $(this).addClass("current").siblings().removeClass("current");
+            if(style == "head"){
+                $(".pc-page").find(".hd_bg").css({"background-position":position});
+            }else{
+                $(".demo").css({"background-position":position});
+            }
+			generate(style);
+        });
+        
+        //店铺自定义导航编辑
+        $(document).on("change","#catagory_type",function(){
+            var val = $(this).val();
+            var fald = false;
+            if(val == 1){
+                $(this).siblings("#sys_catagory").hide();
+                $(this).siblings("input[name='custom_catagory']").show();
+                fald = true;
+            }else if(val == 2){
+                $(this).siblings("input[name='custom_catagory']").hide();
+                $(this).siblings("#sys_catagory").show();
+                fald = true;
+            }else{
+                $(this).siblings("input[name='custom_catagory']").hide();
+                $(this).siblings("#sys_catagory").hide();
+                fald = false;
+            }
+            
+            if(fald == true){
+                $(this).siblings(".btn").removeClass("btn_disabled");
+            }else{
+                $(this).siblings(".btn").addClass("btn_disabled");
+            }
+        });
+        
+        $(document).on("click","*[ectype='addCatagory'] *[ectype='store_btn']",function(){
+            var tbody = $(this).parents(".body_info").find("tbody");
+            
+            if(!$(this).hasClass("btn_disabled")){
+                var catagory_type = $("#catagory_type").val();
+                var link ='';
+                var nav_name = '';
+                
+                if(tbody.find(".notic").length>0){
+                    tbody.find(".notic").remove();
+                }
+                if(catagory_type == '1'){
+                    nav_name = $("input[name='custom_catagory']").val();
+                }else if(catagory_type == '2'){
+                    var cat = $("#sys_catagory").val();
+                    cat = cat.split("|");
+                    nav_name = cat[2];
+                    link = cat[3];
+                }
+                Ajax.call('index.php?con=visual_editing&fun=add_nav&is_ajax=1&act=add_nav', "link=" +encodeURIComponent(link) + "&nav_name=" + nav_name  , function(data){
+                    if(data.error == 0){
+                        alert(data.content);
+                    }else{
+                        tbody.append(data.content)
+                    }
+                }, 'POST', 'JSON');
+                
+            }else{
+                alert("请选择添加分类类型");
+            }
+        });
+        
+        $(document).on("click",".pic_del",function(){
+            var tbody = $(this).parents("tbody");
+            var table = tbody.parent("table").data("table");
+            
+            $(this).parents("tr").remove();
+            
+            if(tbody.find("tr").length < 1){
+                if(table == "navtable"){
+                    tbody.append('<tr class="notic"><td colspan="5">当前没有自定义商品分类，点击下面添加新分类添加</td></tr>')
+                }else{
+                    tbody.append('<tr class="notic"><td colspan="5">点击下列图片空间图片可添加图片或点击上传图片按钮上传新图片</td></tr>')
+                }
+            }
+        });
+        
+        function sider(){
+            $(".shop_banner,.adv_module").slide({titCell:".hd ul",mainCell:".bd ul",trigger:"click",delayTime:0});
+        }
+            
+		/*预览*/
+		$(document).on("click", "a[ectype='preview']", function () {
+
+				window.open('../mall/index.php?con=show_store&fun=index&store_id='+ru_id+"&preview=1");
+
+		});
+            
+        /*生成缓存文件*/
+        function visual(){
+            var suffix = $("input[name='suffix']").val();
+            var content = $('.pc-page').html();
+            var content_html = "";
+            var where = '';
+            var nav_html = '';
+            //全部内容页html
+            var preview = $("#preview-layout");
+            
+			preview.html("");
+			
+			preview.append(content);
+			
+			preview.find("*[data-html='not']").remove();
+			preview.find(".lyrow").removeClass("lyrow");
+			preview.find(".ui-draggable").removeClass("ui-draggable");
+			preview.find(".ui-box-display").removeClass("ui-box-display");
+			preview.find(".lunbotu").removeClass("lunbotu");
+
+			if(topic_type == 'topic_type'){
+				preview.find(".demo").removeClass("ui-sortable").addClass("content");
+				preview.find(".spec").attr("data-spec",'');
+				content_html = preview.find('.demo').html();
+				preview.find(".categorys").remove();
+				preview.find(".setup_box").remove();
+				nav_html = preview.find('[ectype="nav"]').html();
+				where = "&nav_html="+encodeURIComponent(nav_html);
+			}else{
+				preview.find(".demo").removeClass().addClass("content");
+				preview.find(".spec").attr("data-spec",'');
+				preview.find(".setup_box").remove();
+				content_html = preview.html();
+			}
+			
+			//头部html
+			var head_content = $('.hd_main').html()
+			var headlayout = $("#head-layout");
+			var head_html = '';
+			headlayout.html("");
+			
+			headlayout.append(head_content);
+			
+			headlayout.find("*[data-html='not']").remove();
+			headlayout.find(".lyrow").removeClass("lyrow");
+			headlayout.find(".ui-draggable").removeClass("ui-draggable");
+			headlayout.find(".ui-box-display").removeClass("ui-box-display");
+			headlayout.find(".lunbotu").removeClass("lunbotu");
+			headlayout.find(".demo").removeClass().addClass("content");
+			
+			head_html = headlayout.html();
+			Ajax.call('index.php?con=visual_editing&fun=file_put_visual', "act=file_put_visual&content=" + encodeURIComponent(content)+"&content_html="+encodeURIComponent(content_html)+"&head_html="+encodeURIComponent(head_html)+"&suffix="+suffix+"&topic_type="+topic_type + where, file_put_visualResponse, 'POST', 'JSON');
+        }
+		
+        function file_put_visualResponse(result){
+            if(result.error == 0){
+                $("[ectype='back']").show();
+                $("input[name='suffix']").val(result.suffix);
+            }else{
+                alert("改模板不存在，请重试");
+            }
+        }
+        
+        /*发布*/
+        $(document).on("click", "a[ectype='downloadModal']", function () {
+            var suffix = $("input[name='suffix']").val();
+            Ajax.call('visual_editing.php', "act=release&suffix=" + suffix, downloadModalResponse, 'POST', 'JSON');
+        })
+        function downloadModalResponse(data){
+            if(data.error == 1){
+                location.href = 'visual_editing.php?act=first';
+            }else{
+                alert(data.content);
+            }
+        }
+		
+        /*更新左侧缓存文件*/
+        function generate(type){
+                        var suffix = $("input[name='suffix']").val();
+			var bgDiv = $("[data-style="+type+"]");
+			var checkbox = bgDiv.find(".ui-checkbox");
+			var bgColor = "",bgshow = "",bgalign = "";
+			var bgimg = bgDiv.find("input[name='fileimg']");
+			var is_show = 0;
+			if(checkbox.prop("checked") == true){
+				bgColor = bgDiv.find(".tm-picker-trigger").val();
+                                is_show = 1;
+			}
+			
+			if(bgimg != ""){
+				bgshow = bgDiv.find(".bg-show-nr a.current").data("bg-show");
+				bgalign = bgDiv.find(".bg-align-nr a.current").data("bg-align");
+			}
+            Ajax.call('index.php?con=visual_editing&fun=generate', "act=generate&suffix=" + suffix + "&bg_color=" +bgColor + "&is_show=" +is_show + "&type=" + type + "&bgshow=" + bgshow + "&bgalign=" + bgalign, generateResponse, 'POST', 'JSON');
+        }
+		
+        function generateResponse(data){
+            if(data.error == 1){
+                visual();
+            }else{
+                alert(data.content);
+            }
+        }
+		
+        $(document).on('click','*[ectype="releaseTemp"]',function(){
+			if(confirm("确定发布？")){
+				var suffix = $("input[name='suffix']").val();
+				Ajax.call('index.php?con=visual_editing&fun=downloadModal', "&suffix=" +  suffix + "&topic_type=" + topic_type, function(data){
+					alert("发布成功");
+                	$("[ectype='back']").hide();
+				}, 'POST', 'JSON');
+			}
+		});
+		
+		//还原编辑前的模板
+		$(document).on('click','*[ectype="back"]',function(){
+			if(confirm("还原只能还原到你最后一次确认发布后的版本，还原后当前未保存的数据将丢失，不可找回，确定还原吗？")){
+				var suffix = $("input[name='suffix']").val();
+				Ajax.call('index.php?con=visual_editing&fun=backmodal', "&suffix=" +  suffix + "&topic_type=" + topic_type, function(data){
+						location=location 
+				}, 'POST', 'JSON');
+			}
+		});
+		
+		//专题分类导航添加
+		$(document).on("click","*[ectype='addCatagory'] *[ectype='topic_btn']",function(){
+			var tbody = $(this).parents(".body_info").find("tbody");
+			var nav_name = '';
+	
+			if(tbody.find(".notic").length>0){
+				tbody.find(".notic").remove();
+			}
+			nav_name = $("input[name='custom_catagory']").val();
+			var html = '';
+			if(nav_name){
+				html += '<tr><td><input type="text" value="' +nav_name+ '" name="navname[]"></td>';
+				html += '<td><input type="text" value="" name="navurl[]"></td>';
+				html += '<td class="center"><input type="text" class="small" value="" name="navvieworder[]"></td>';
+				html += '<td class="center"><a href="javascript:void(0);" onclick="remove_topicnav(this)" class="pic_del del">删除</a></td></tr>';
+				tbody.append(html)
+			}else{
+				alert("分类名称不能为空");
+			}
+		});
+		
+		//判断弹框高度，如果有多个弹框同时出现需要传obj定位，一个弹出则不需要
+		function pbct(obj){
+			var height = 0;
+			if(obj){
+				var obj = $(obj);
+				pbct = obj.find(".pb-ct");
+			}else{
+				var pbct = $(".pb-ct");
+			}
+			
+			height = pbct.height();
+			if(height>499){
+				pbct.css({"overflow":"hidden"})
+				
+				$(".pb-ct").perfectScrollbar("destroy");
+				$(".pb-ct").perfectScrollbar();
+			}
+		}
+
+		function resetHref(){
+			$("*[ectype='see']").each(function(){
+					var href = $(this).attr("href");
+					$(this).attr("href",href + "?&" + +Math.random());
+			});
+			$("*[ectype='pic']").each(function(){
+					var src = $(this).attr("src");
+					$(this).attr("src",src + "?&" + +Math.random());
+			});
+		}
+        
+		//弹出框显示设置验证
+		function validation(required){
+			var val = "";
+			var msg = "";
+			var flog = true;
+			required.each(function(){
+				val = $(this).val();
+				msg = $(this).data("msg");
+				if(val == ""){
+					layer.confirm(msg, {
+						btn: ['确定','取消'],
+					});
+					flog = false;
+					return false;
+				}else{
+					flog = true;
+				}
+			});
+			return flog;
+		}
+		
+		$(document).on("change","*[ectype='PromotionType']",function(){
+			$("input[name='goods_ids']").val('');
+			$("input[name='recommend']:checked").prop("checked", false);;
+			ajaxchangedgoods(1);
+		});
+        
+		//楼层品牌未选择 自动生成default图片
+		function f_defaultBrand(){
+			var _this = $("*[ectype='defaultBrand']");
+			var j = 0;
+			_this.find(".item").each(function(){
+				j ++;
+			})
+			var html = '<div class="item"><a href="#" target="_blank"><div class="link-l"></div><div class="img"><img src="../data/gallery_album/visualDefault/homeIndex_010.jpg" title="esprit"></div><div class="link"></div></a></div>';
+			var i = 0;
+			for (i = 0; i < 9; i++) {
+				_this.append(html);
+			}
+		}
+        
+		/*楼层2级分类select选择处理 start*/
+		$(document).on("click","*[ectype='iselectErji'] *[ectype='tit']",function(){
+			var _this = $(this);
+			var parent = _this.parents("*[ectype='iselectErji']");
+			
+			$("*[ectype='iselectErji'] ul").hide();
+			
+			parent.find("ul").show();
+			parent.find("ul").perfectScrollbar("destroy");
+			parent.find("ul").perfectScrollbar();
+		});
+		
+		$(document).on("click","*[ectype='iselectErji'] li a",function(){
+			var _this = $(this);
+			var value = _this.data("value");
+			var text  = _this.html();
+			var parent = _this.parents("*[ectype='iselectErji']");
+			var fale = true;
+			
+			if(!_this.parent("li").hasClass("current")){
+				$("*[ectype='iselectErji']").each(function(index, element) {
+					var val = $(element).find("*[ectype='cateValue']").val();
+					if(value == val){
+						alert("分类已存在，请重新选择分类！");
+						parent.find("*[ectype='tit']").html("请选择..");
+						parent.find("*[ectype='cateValue']").val("");
+						
+						
+						_this.parent("li").removeClass("current");
+						parent.find("li").eq(0).addClass("current");
+						
+						//清除此分类设置的商品
+						parent.siblings("*[ectype='setupGoods']").find("input[type='hidden']").val("");
+						
+						fale = false;
+					}
+					return fale;
+				});
+			}
+			
+			if(fale == true){
+			
+				_this.parent("li").addClass("current").siblings().removeClass("current");
+				parent.find("*[ectype='tit']").html(text);
+				parent.find("input[type=hidden]").val(value);
+				
+				//清除此分类设置的商品
+				parent.siblings("*[ectype='setupGoods']").find("input[type='hidden']").val("");
+			}
+			
+			parent.find("ul").hide();
+		});
+		/*楼层2级分类select选择处理end*/
+        
+		//商品分类选择
+		$.category();
+        
+		//颜色选择
+		$(document).on("click","*[ectype='colorItem']",function(){
+			var t = $(this),
+			val = t.find("input[type='hidden']").val();
+			
+			$("input[name='typeColor']").val(val);
+			t.addClass("selected").siblings().removeClass("selected");
+		});
+		
+        //品牌选择
+		$(document).on("click","*[ectype='cliclkBrand']",function(){
+			var _this = $(this),
+				brand_ids = $("input[name='brand_ids']").val(),
+				arr = '',
+				brandId = _this.data("brand"),
+				type = _this.data("type"),
+				num = 0;
+				
+			arr = brand_ids.split(',');
+				
+			if(_this.hasClass("selected")){
+				_this.removeClass("selected");
+				for(var i =0;i<arr.length;i++){
+					if(arr[i] == brandId){
+						arr.splice(i,1);
+					}
+				}
+			}else{
+				if(type == "homeBrand"){
+					num = 17;
+				}else{
+					var number = _this.parents("[ectype='brand_list']").data("bandnumber");
+					if(number){
+						num = number;
+					}else{
+						num = 10;
+					}
+				}
+				if(arr.length < num){
+					if(brand_ids){
+						arr = brand_ids + ','+brandId;
+					}else{
+						arr = brandId;
+					}
+					_this.addClass("selected");
+				}else{
+					alert("品牌选择不能超过"+num+"个");
+				}
+			}
+			$("input[name='brand_ids']").val(arr);
+		});
+		
+        //设置商品
+		$(document).on("click","*[ectype='setupGoods']",function(){
+			var _this = $(this),
+				spec_attr = new Object(),
+				top = _this.data('top');
+				
+			if(top == 1){
+				var good_number = _this.data("goodsnumber"),
+				cat_id = $("input[name='Floorcat_id']").val(),
+				cat_goods = $("input[name='top_goods']").val();
+			}else{
+				var good_number = _this.parents(".control_value").data("goodsnumber"),
+				cat_id = _this.parents("[ectype='item']").find("input[name='cateValue[]']").val(),
+				cat_goods = _this.parents("[ectype='item']").find("input[name='cat_goods[]']").val();
+			}
+			
+			spec_attr.goods_ids = cat_goods;
+			
+			Ajax.call('index.php?con=visual_editing&fun=goods_info', "act=goods_info" + "&goods_type=1&cat_id=" + cat_id + "&spec_attr="+$.toJSON(spec_attr) + "&good_number=" + good_number , function(data){
+				var content = data.content;
+				pb({
+					id:"set_up_goods",
+					title: "设置商品",
+					width: 950,
+					content: content,
+					ok_title: "确定",
+					cl_title: "取消",
+					drag: true,
+					foot: true,
+					cl_cBtn: true,
+					onOk: function(){
+						var goods_ids = $("#set_up_goods").find("input[name='goods_ids']").val();
+						
+						if(top == 1){
+							$("input[name='top_goods']").val(goods_ids)
+						}else{
+							_this.find("input[name='cat_goods[]']").val(goods_ids);
+						}
+					}
+				});
+			}, 'POST', 'JSON');
+		});	
+        
+		//新增分类
+		$(document).on("click","*[ectype='addCate']",function(){
+			var t = $(this),
+				i = 0,
+				number = t.parents(".control_value").data("catnumber"),
+				parent = t.parents("[ectype='item']"),
+				clone = parent.clone(),
+				remove = "<a href='javascript:void(0);' class='hdle' ectype='removeCate'>删除分类</a>";
+				
+				
+			t.parents(".control_value").find("[ectype='item']").each(function(){
+				i++;
+			});
+			
+			if(number <= i){
+				alert("此模块二级分类只能添加" + number + "个");
+			}else{
+				//处理克隆过后的内容
+				clone.find("[ectype='addCate']").remove();
+				clone.find("[ectype='tit']").html("请选择");
+				clone.find("[name='cateValue']").val("");
+				clone.find("[ectype='setupGoods']").hide();
+				clone.find("[ectype='setupGoods']").after(remove);
+				parent.after(clone);	
+			}
+		});
+		//删除已新增的分类
+		$(document).on("click","*[ectype='removeCate']",function(){
+			var t = $(this),
+				parent = t.parents("[ectype='item']");
+				
+			parent.remove();
+		});
+		//判读是否选择分类，显示设置分类
+		$(document).on("click","*[ectype='iselectErji'] li a",function(){
+			var t = $(this),
+				val = t.data("value"),
+				input = t.find("*[name='cateValue']"),
+				parent = t.parents("[ectype='item']");
+				
+			if(input && val > 0){
+				parent.find("*[ectype='setupGoods']").show();
+			}else{
+				parent.find("*[ectype='setupGoods']").hide();
+			}
+		});
+        //图库选择图片
+		$(document).on("click","*[ectype='uploadImage']",function(){
+			var t = $(this),
+				title = t.data("title"),
+				content = '',
+				pic_number = t.data('number'),
+                                showlink = t.data("showlink"),
+				pic_src = [],
+				link = [],
+				sort = [],
+				title = [],
+				subtitle = [];
+				titleup = t.data('titleup'),
+				spec_attr = new Object(),
+				uploadImage = 2;
+				
+			if(pic_number == 1 && showlink != 1){
+				uploadImage = 1;
+			}
+			
+			var _this = t.parents("[ectype='imgControl']").find("[ectype='imgValue']");
+            var mode_this = $("input[name='floorMode']:checked").parents("*[ectype='floormodeItem']").find("*[ectype='floorModehide']");
+			var inputName = _this.data('name');
+			//图片路径
+			mode_this.find("input[name='" + inputName + "[]']").each(function () {
+				var psrc = $(this).val();
+				pic_src.push(psrc);
+			});
+			//图片链接
+			mode_this.find("input[name='" + inputName + "Link[]']").each(function () {
+				var plink = $(this).val();
+				link.push(plink);
+			});
+			//排序
+			mode_this.find("input[name='" + inputName + "Sort[]']").each(function () {
+				var psort = $(this).val();
+				sort.push(psort);
+			});
+			//主标题
+			mode_this.find("input[name='" + inputName + "Title[]']").each(function () {
+				var ptitle = $(this).val();
+				title.push(ptitle);
+			});
+			//副标题
+			mode_this.find("input[name='" + inputName + "Subtitle[]']").each(function () {
+				var pSubtitle = $(this).val();
+				subtitle.push(pSubtitle);
+			});
+			spec_attr.sort = sort;
+			spec_attr.pic_src = pic_src;
+			spec_attr.title = title;
+			spec_attr.subtitle = subtitle;
+			spec_attr.link = encodeURIComponent(link);
+			
+			Ajax.call('index.php?con=visual_editing&fun=shop_banner', "act=shop_banner" + "&pic_number=" + pic_number + "&uploadImage="+uploadImage + "&spec_attr="+$.toJSON(spec_attr) + "&titleup=" + titleup, function(result){
+				content = result.content;
+				pb({
+					id:"uploadImage",
+					title:'图库选择器',
+					width: 950,
+					content: content,
+					ok_title: "确定",
+					cl_title: "取消",
+					drag: true,
+					foot: true,
+					cl_cBtn: true,
+					onOk: function(){
+						var back = '';
+						var input = '';
+						var html ='';
+						$("#uploadImage").find("input[name='pic_src[]']").each(function () {
+							var psrc = $(this).val();
+							if(psrc){
+								input += "<input name='" + inputName + "[]' type='hidden' value='" + psrc + "'>";
+								var url = '<img src='+ psrc +'>';
+								html += '<a href="'+ psrc +'" class="nyroModal" target="_blank"><i class="iconfont icon-image" onmouseover="toolTip('+"'"+url+"'"+')" onmouseout="toolTip()"></i></a>';
+							}
+						});
+						$("#uploadImage").find("input[name='link[]']").each(function () {
+							var link = $(this).val();
+							input += "<input name='" + inputName + "Link[]' type='hidden' value='" + link + "'>";
+						});
+						$("#uploadImage").find("input[name='sort[]']").each(function () {
+							var sort = $(this).val();
+							input += "<input name='" + inputName + "Sort[]' type='hidden' value='" + sort + "'>";
+						});
+						$("#uploadImage").find("input[name='title[]']").each(function () {
+							var title = $(this).val();
+							input += "<input name='" + inputName + "Title[]' type='hidden' value='" + title + "'>";
+						});
+						$("#uploadImage").find("input[name='subtitle[]']").each(function () {
+							var subtitle = $(this).val();
+							input += "<input name='" + inputName + "Subtitle[]' type='hidden' value='" + subtitle + "'>";
+						});
+						
+						mode_this.find("[ectype='" + inputName + "']").find("input[type='hidden']").remove();
+                        mode_this.find("[ectype='" + inputName + "']").find("[ectype='advimg']").find(".nyroModal").remove();
+						
+						_this.find(".nyroModal").remove();
+						
+						mode_this.find("[ectype='" + inputName + "']").find("[ectype='advimg']").append(html);
+						mode_this.find("[ectype='" + inputName + "']").append(input); 
+						
+						_this.append(html); 
+					}  
+				});
+				pbct("#uploadImage");
+			}, 'POST', 'JSON');
+		});
+    </script>
+</body>
+</html>

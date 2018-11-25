@@ -1,0 +1,63 @@
+/*
+Template Name: DSC1.0
+Template URI: http://www.010xr.com/
+Description: 商创2.0升级版.
+Version: 1.0
+Author: ecmoban Team
+Author URI: http://www.010xr.com/
+Logo filename: logo.gif
+Template Type: type_0
+*/
+
+
+/*批发*/
+.ecsc-breadcrumb{ padding:20px 0; line-height:24px;}
+.ecsc-breadcrumb span{ float:left; font-size:12px;color:#666; display:inline-block; width:auto; max-width:300px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.ecsc-breadcrumb .arrow{ font-family: "宋体";line-height: 24px;color: #AAA;margin: 0 6px;}
+
+
+/*.wholesale-search form{ float:right; height:30px; line-height:30px;}
+.wholesale-search .select{ float:left; height:23px; border:1px solid #c9c9c9; margin-right:15px; *border:0;}
+.wholesale-search #search_category{ height:23px; line-height:23px; float:left; border:0; *margin-top:3px;}
+.wholesale-search #search_keywords{ padding:2px 0 2px 5px; height:19px; line-height:23px; width:175px; border:1px solid #c9c9c9; float:left; outline:0;}
+.wholesale-search .go{ float:left; border:0; width:50px; text-align:center; height:25px; line-height:25px; background-color:#b5b5b5; color:#fff; cursor:pointer; outline:0;}
+*/
+.wholesale_goods{ width:100%; margin-top:10px;}
+.wholesale_goods .table .td{ border: 1px solid #dcdcdc;margin: -1px -1px 0 0;}
+.wholesale_goods .table .th{ background:#f42424; color:#fff; height:38px; line-height:38px; font-weight:normal; font-size:14px;font-family: "microsoft yahei"; border-right:1px solid #dcdcdc;}
+.wholesale_goods .table .fore1{ width:400px;}
+.wholesale_goods .table .fore2{ width:250px;}
+.wholesale_goods .table .fore3{ width:250px;}
+.wholesale_goods .table .fore4{ width:140px;}
+.wholesale_goods .table .fore5{ width:140px; text-align:center;}
+.wholesale_goods .table .p-product{ height:55px; padding:25px;}
+.wholesale_goods .table .p-img{ width:55px; height:55px; float:left;}
+.wholesale_goods .table .p-name{ float:left; width:220px; margin-left:10px; line-height:19px;height: 55px;overflow: hidden;}
+.wholesale_goods .table .price{ width:200px; margin:0 auto;}
+.wholesale_goods .table .tit,.wholesale_goods .table .con{ width:100%; overflow:hidden;}
+.wholesale_goods .table .tit-l,.wholesale_goods .table .tit-r{ width:99px; height:23px; line-height:23px; text-align:center; border:1px solid #dcdcdc; float:left; border-right:0;}
+.wholesale_goods .table .tit-r{ width:98px;border:1px solid #dcdcdc;}
+.wholesale_goods .table .con-num,.wholesale_goods .table .con-val{ width:99px; height:23px; line-height:23px; float:left;text-align:center; border:1px solid #dcdcdc; float:left; border-right:0; margin-top:-1px;}
+.wholesale_goods .table .con-val{ width:98px; border-right:1px solid #dcdcdc;}
+.wholesale_goods .quantity-form{ position: relative;overflow: hidden;height: 22px;width: 100px;margin-left: 24px;}
+.wholesale_goods .quantity-form .number{ overflow:hidden;}
+.wholesale_goods .quantity-form .decrement,.wholesale_goods .quantity-form .increment{border: 1px solid #cacbcb;border-right: 0;height: 18px;line-height: 18px;padding: 1px 0;width: 25px;text-align: center;color: #666;margin: 0;background: #fff;cursor: pointer; float:left;}
+.wholesale_goods .quantity-form .itxt { position: absolute;left: 25px;top: 0;border: 1px solid #cacbcb;width: 45px;height: 18px;line-height: 18px;text-align: center;padding: 1px;margin: 0;font-size: 12px;font-family: verdana;color: #333;-webkit-appearance: none;outline: 0; text-align:center;}
+.wholesale_goods .quantity-form .increment{ float:right; border: 1px solid #cacbcb;border-left: 0;color: #666;}
+.wholesale_goods .operate-btn{display: inline-block; width:100px;height: 30px;line-height: 25px;border-radius: 5px;color: #fff;background: #f68a00;padding: 0 26px; border:none; cursor:pointer;}
+
+.wholesale_cart_title{ font-size:18px; color:#333; margin:10px 0 20px;}
+.wholesale_cart .table .fore1{ width:350px;}
+.wholesale_cart .table .fore2{ width:260px;}
+.wholesale_cart .table .fore3{ width:150px;}
+.wholesale_cart .table .fore4{ width:150px;}
+.wholesale_cart .table .fore5{ width:140px;}
+.wholesale_cart .table .fore6{ width:130px;}
+.wholesale_cart .table td{ text-align:center;}
+.wholesale_cart .table td.fore1{ line-height:20px; padding:5px 0 5px 20px; text-align:left;}
+.wholesale_cart .table td.fore1 a{ height:36px; overflow:hidden;}
+.wholesale_desc{ float:right; overflow:hidden; margin:20px 0; width:800px;}
+.wholesale_desc .label{ width:290px; float:left;}
+.wholesale_desc textarea{ float:right; width:500px; resize:none; border:1px solid #d2d2d2;}
+.wholesale_desc input{ float:right; font-size: 16px;height: 35px;line-height: 35px;border-radius: 5px;background: #f42424;position: relative;color:#fff;padding:0 15px;font-family: "Microsoft YaHei";border:0;cursor:pointer;margin-top:10px; outline:0;}
+/*批发end*/

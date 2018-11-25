@@ -1,0 +1,78 @@
+[2017-12-02 09:42:59] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_groupbuy' doesn't exist
+SELECT * FROM `shop_groupbuy` groupbuy WHERE ( state = '20' ) AND ( start_time < '1512178979' ) AND ( end_time > '1512178979' ) ORDER BY recommended desc LIMIT 4  
+[2017-12-02 09:42:59] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_p_xianshi_goods' doesn't exist
+SELECT * FROM `shop_p_xianshi_goods` p_xianshi_goods WHERE ( state = '1' ) AND ( start_time < '1512178979' ) AND ( end_time > '1512178979' ) ORDER BY xianshi_recommend desc,xianshi_goods_id desc LIMIT 9  
+[2017-12-02 09:42:59] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_web' doesn't exist
+SELECT * FROM `shop_web` web WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_orders' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_orders` orders WHERE ( payment_code = 'offbank' ) AND ( payment_time = '0' ) AND ( trade_no <> '' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_pd_cash' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_pd_cash` pd_cash WHERE ( pdc_payment_state = '0' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_store_reopen' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_store_reopen` store_reopen WHERE ( re_state = '1' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_goods_common' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_goods_common` goods_common WHERE ( goods_verify = '10' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_orders' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_orders` orders WHERE ( payment_code = 'offbank' ) AND ( payment_time = '0' ) AND ( trade_no <> '' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_pd_cash' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_pd_cash` pd_cash WHERE ( pdc_payment_state = '0' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_store_reopen' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_store_reopen` store_reopen WHERE ( re_state = '1' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_goods_common' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_goods_common` goods_common WHERE ( goods_verify = '10' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_refund_return' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_refund_return` refund_return WHERE ( refund_type = '1' ) AND ( refund_state = '2' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_refund_return' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_refund_return` refund_return WHERE ( refund_type = '2' ) AND ( refund_state = '2' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_vr_refund' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_vr_refund` vr_refund WHERE ( admin_state = '1' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_groupbuy' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_groupbuy` groupbuy WHERE ( state = '10' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_points_order' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_points_order` points_order WHERE ( point_orderstate = '20' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_order_bill` order_bill WHERE ( ob_state = '2' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_order_bill' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_order_bill` order_bill WHERE ( ob_state = '3' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_circle' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_circle` circle WHERE ( circle_status = '2' ) LIMIT 1  
+[2017-12-02 09:43:32] /admin/index.php?con=common&fun=ajax_pending_matters ( con=common&fun=ajax_pending_matters ) 
+ERR: Db Error: Table 'xinshop.shop_member' doesn't exist
+SELECT COUNT(*) AS nc_count FROM `shop_member` member WHERE ( distri_state = '1' ) LIMIT 1  
+[2017-12-02 11:10:51] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_groupbuy' doesn't exist
+SELECT * FROM `shop_groupbuy` groupbuy WHERE ( state = '20' ) AND ( start_time < '1512184250' ) AND ( end_time > '1512184250' ) ORDER BY recommended desc LIMIT 4  
+[2017-12-02 11:10:51] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_p_xianshi_goods' doesn't exist
+SELECT * FROM `shop_p_xianshi_goods` p_xianshi_goods WHERE ( state = '1' ) AND ( start_time < '1512184250' ) AND ( end_time > '1512184250' ) ORDER BY xianshi_recommend desc,xianshi_goods_id desc LIMIT 9  
+[2017-12-02 11:10:51] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_web' doesn't exist
+SELECT * FROM `shop_web` web WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  
+[2017-12-02 11:10:54] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_groupbuy' doesn't exist
+SELECT * FROM `shop_groupbuy` groupbuy WHERE ( state = '20' ) AND ( start_time < '1512184254' ) AND ( end_time > '1512184254' ) ORDER BY recommended desc LIMIT 4  
+[2017-12-02 11:10:54] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_p_xianshi_goods' doesn't exist
+SELECT * FROM `shop_p_xianshi_goods` p_xianshi_goods WHERE ( state = '1' ) AND ( start_time < '1512184254' ) AND ( end_time > '1512184254' ) ORDER BY xianshi_recommend desc,xianshi_goods_id desc LIMIT 9  
+[2017-12-02 11:10:54] /shop/ ( con=index&fun=index ) 
+ERR: Db Error: Table 'xinshop.shop_web' doesn't exist
+SELECT * FROM `shop_web` web WHERE ( web_show = '1' ) AND ( web_page LIKE 'index%' ) ORDER BY web_sort LIMIT 1000  

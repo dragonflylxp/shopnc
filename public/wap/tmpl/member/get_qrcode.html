@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>我的专属二维码</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_products_list.css">
+    <style type="text/css">
+        .header-tab a {
+            padding: 0 0.6rem;
+        }
+        .favorites-store-list li .store-info dd span {
+            margin-left: 0.6rem;
+        }
+.dist-header{width:60px;}
+.cart-concern-btm-fixed {
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+.four-column .concern-cart {
+    width: 100%;
+}
+.concern-cart, .action-list {
+    float: left;
+}
+.concern-cart {
+    background-color: #0094de;
+}
+.concern-cart a, .action-list a {
+    display: inline-block;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+}
+.concern-cart a, .action-list a {
+    width: 100%;
+}
+.concern-cart a {
+    color: #d4d4d4;
+    font-size: 20px;
+}
+
+    </style>
+</head>
+<body>
+<header id="header" class="fixed">
+    <div class="header-wrap">
+        <div class="header-l"> <a href="member.html"> <i class="back"></i> </a> </div>
+        <div class="header-r dist-header"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+    </div>
+    <div class="nctouch-nav-layout">
+        <div class="nctouch-nav-menu"> <span class="arrow"></span>
+            <ul>
+                <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+                <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+                <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="nctouch-main-layout">
+    <ul class="favorites-store-list" id="favorites_list">
+        <li>
+            <div class="fleft">
+                <img src="" id="qrcode" style="width:100%;"/>
+                <div id="qrcode_img_msg"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="fix-block-r">
+    <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+
+<footer id="footer" class="bottom"></footer>
+
+<!--<div class="cart-concern-btm-fixed four-column" id="cart1" style="display: table;">
+            <div class="concern-cart">
+                
+                <a id="toCart" class="cart-car-icn">
+
+                    
+                </a>
+            </div>
+            
+        </div>-->
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript" src="../../js/zepto.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/simple-plugin.js"></script>
+<script type="text/javascript" src="../../js/ncscroll-load.js"></script>
+<script type="text/javascript" src="../../js/tmpl/qrcode.js"></script>
+<script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+</html>

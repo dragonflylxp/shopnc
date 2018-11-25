@@ -1,0 +1,3 @@
+[2018-02-05 17:16:57] http://118.31.17.175/shop/index.php?con=search&fun=index&keyword=%E5%9D%9A%E6%9E%9C ( con=search&fun=index ) 
+ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
+SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%坚果%') OR (goods.goods_jingle LIKE '%坚果%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  

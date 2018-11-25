@@ -1,0 +1,6 @@
+[2018-05-29 17:14:57] /myadmin/modules/mobile/index.php?con=mb_special&fun=qrcode_save ( con=mb_special&fun=qrcode_save ) 
+ERR: Db Error: Column 'type' cannot be null
+INSERT  INTO `shop_qrcode_tmpl` (title,type) VALUES ('手机端海报',NULL)
+[2018-05-29 17:15:05] /myadmin/modules/mobile/index.php?con=mb_special&fun=qrcode_save ( con=mb_special&fun=qrcode_save ) 
+ERR: Db Error: Column 'type' cannot be null
+INSERT  INTO `shop_qrcode_tmpl` (title,type) VALUES ('手机端海报',NULL)

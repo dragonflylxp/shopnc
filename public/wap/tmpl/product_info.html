@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title id = "name">商品详情</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/index-min.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_products_detail.css">
+</head>
+<body>
+<header id="header" class="posf">
+  <div class="header-wrap">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <ul class="header-nav">
+      <li><a href="javascript:void(0);" id="goodsDetail">商品</a></li>
+      <li class="cur"><a href="javascript:void(0);" id="goodsBody">详情</a></li>
+      <li><a href="javascript:void(0);" id="goodsEvaluation">评价</a></li>
+    </ul>
+    <div class="header-r"><a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="nctouch-nav-layout">
+    <div class="nctouch-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a id="store-id" href=""><i class="home"></i>店铺首页</a></li>
+        <li><a href="../index.html"><i class="search"></i>生活平台</a></li>
+        <li><a href="../tmpl/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="nctouch-main-layout" id="fixed-tab-pannel">
+  <div class="fixed-tab-pannel"></div>
+  <div id="product_detail_html" style="position: relative; z-index: 1;"></div>
+  <div id="product_detail_spec_html" class="nctouch-bottom-mask"></div>
+</div>
+<footer id="footer"></footer>
+<script type="text/html" id="product_detail">
+	<% if (goods_info.pintuan_promotion == '1') { %>
+	<div class="goods-detail-foot">
+	<div class="<%if(!goods_hair_info.if_store || goods_info.goods_storage == 0){%>no-buy<%}%>">
+    <div class="puzzle-button">
+		<a class="<%if(goods_hair_info.if_store){%>animation-up<%}%> invite-btn" href="javascript:void(0);">￥<em><%=goods_info.pintuan_goods_price%>&nbsp;单买</em></a>
+		<a class="<%if(goods_hair_info.if_store){%>animation-up<%}%> order-btn" href="javascript:void(0);">￥<em><%=goods_info.pintuan_price%>&nbsp;<span class="cart_pintuan_promotion">开团</span></em></a>
+    </div>
+	</div>
+	</div>
+	<% } else { %>
+	<div class="goods-detail-foot">
+		<div class="otreh-handle">
+			<a href="javascript:void(0);" class="kefu"><i></i><p>客服</p></a>
+			<a href="../tmpl/cart_list.html" class="cart"><i></i><p>购物车</p><span id="cart_count"></span></a>
+		</div>
+	<div class="buy-handle <%if(!goods_hair_info.if_store || goods_info.goods_storage == 0){%>no-buy<%}%>">
+		<% if (goods_info.cart == '1') { %>
+		<a href="javascript:void(0);" class="<%if(goods_hair_info.if_store){%>animation-up<%}%> add-cart">加入购物车</a>
+		<% } %>
+		<a href="javascript:void(0);" class="<%if(goods_hair_info.if_store){%>animation-up<%}%> buy-now">立即购买</a>
+	</div>
+	<% } %>
+</div>	
+</script> 	
+<script type="text/html" id="product_detail_sepc">
+<div class="nctouch-bottom-mask-bg"></div>
+<div class="nctouch-bottom-mask-block">
+	<div class="nctouch-bottom-mask-tip"><i></i>点击此处返回</div>
+	<div class="nctouch-bottom-mask-top goods-options-info">
+		<div class="goods-pic">
+		<img src="<%=goods_image[0]%>"/>
+	</div>
+	<dl>
+		<dt><%=goods_info.goods_name%></dt>
+		<% if (goods_info.pintuan_promotion == '1') { %>
+		<dd class="goods-price">
+					￥<em><%=goods_info.pintuan_goods_price%></em>
+			<span class="goods-storage">库存：<%=goods_info.goods_storage%>件</span>
+		</dd>
+		<% } else { %>
+		<dd class="goods-price">
+		<% if (goods_info.promotion_type) {
+			var promo;
+			switch (goods_info.promotion_type) {
+			case 'groupbuy': promo = '团购'; break;
+			case 'xianshi': promo = '限时折扣'; break;
+			case 'sole': promo = '手机专享'; break;}
+		%>
+			￥<em><%=goods_info.promotion_price%></em>
+			<span class="activity">
+			<% if (promo) { %>
+				<%= promo %>
+				<% } %>
+			</span>
+			<% } else { %>
+					￥<em><%=goods_info.goods_price%></em>
+				<% } %>
+			<span class="goods-storage">库存：<%=goods_info.goods_storage%>件</span>
+		</dd>
+		<% } %>
+	</dl>
+	<a href="javascript:void(0);" class="nctouch-bottom-mask-close"><i></i></a>
+</div>
+<div class="nctouch-bottom-mask-rolling" id="product_roll">
+	<div class="goods-options-stock">
+		<% if(goods_map_spec.length>0){%>
+		<% for(var i =0;i<goods_map_spec.length;i++){%>
+		<dl class="spec">
+			<dt spec_id="<%=goods_map_spec[i].id%>">
+				<%=goods_map_spec[i].goods_spec_name%>：
+			</dt>
+			<dd>
+				<%for(var j = 0;j<goods_map_spec[i].goods_spec_value.length;j++){%>
+					<a href="javascript:void(0);" <%if (goods_info.goods_spec[goods_map_spec[i].goods_spec_value[j].specs_value_id]){%> class="current" <%}%>specs_value_id = "<%=goods_map_spec[i].goods_spec_value[j].specs_value_id%>">
+						<%=goods_map_spec[i].goods_spec_value[j].specs_value_name%>
+					</a>
+				<%}%>
+			</dd>
+		</dl>
+		<%}%>
+		<%}%>
+		<% if (goods_info.is_virtual == '1') { %>
+		<dl class="spec-promotion">
+			<dt>提货方式：</dt>
+			<dd><a href="javascript:void(0);" class="current">电子兑换券</a></dd>
+		</dl>
+		<dl class="spec-promotion">
+			<dt>有效期：</dt>
+			<dd><a href="javascript:void(0);" class="current">即日起 到 <%= goods_info.virtual_indate_str %></a>
+				<% if (goods_info.buyLimitation && goods_info.buyLimitation > 0) { %>
+				（每人次限购 <%= goods_info.buyLimitation %> 件）
+				<% } %>
+				</dd>
+		</dl>
+	<% } else { %>
+		<% if (goods_info.is_presell == '1') { %>
+		<dl class="spec-promotion">
+			<dt>预售：</dt>
+			<dd><a href="javascript:void(0);" class="current"><%= goods_info.presell_deliverdate_str %> 日发货</a></dd>
+		</dl>
+		<% } %>
+		<% if (goods_info.is_fcode == '1') { %>
+		<dl class="spec-promotion">
+			<dt>购买类型：</dt>
+			<dd><a href="javascript:void(0);" class="current">F码优先购买</a>（每个F码优先购买一件商品）</dd>
+		</dl>
+		<% } %>
+		<% } %>
+	</div>
+</div>
+<div class="goods-option-value">购买数量
+	<div class="value-box">
+		<span class="minus">
+			<a href="javascript:void(0);">&nbsp;</a>
+		</span>
+		<span>
+			<input type="text" pattern="[0-9]*" class="buy-num" id="buynum" value="1"/>
+		</span>
+		<span class="add">
+			<a href="javascript:void(0);">&nbsp;</a>
+		</span>
+	</div>
+</div>
+<% if (goods_info.pintuan_promotion == '1') { %>
+	<div class="goods-option-foot">
+    <div class="puzzle-button pintuan_promotion <%if(!goods_hair_info.if_store || goods_info.goods_storage == 0){%>no-buy<%}%>">
+		<a class="invite-btn" href="javascript:;">￥<em><%=goods_info.pintuan_goods_price%>&nbsp;单买</em></a>
+		<a class="order-btn" href="javascript:;">￥<em><%=goods_info.pintuan_price%>&nbsp;<span class="cart_pintuan_promotion">开团</span></em></a>
+    </div>
+	</div>
+<% } else { %>
+<div class="goods-option-foot">
+	<div class="otreh-handle">
+		<a href="javascript:void(0);" class="kefu">
+			<i></i>
+			<p>客服</p>
+		</a> 
+		<a href="../tmpl/cart_list.html" class="cart">
+			<i></i>
+			<p>购物车</p>
+			<span id="cart_count1"></span>
+		</a>
+	</div>
+	<div class="buy-handle <%if(!goods_hair_info.if_store || goods_info.goods_storage == 0){%>no-buy<%}%>">
+		<% if (goods_info.cart == '1') { %>
+		<a href="javascript:void(0);" class="add-cart" id="add-cart">加入购物车</a>
+		<% } %>
+		<a href="javascript:void(0);" class="buy-now" id="buy-now">立即购买</a>
+	</div>
+</div>
+<% } %>
+</script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/prism-h5-min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/iscroll.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/fly/requestAnimationFrame.js"></script>
+<script type="text/javascript" src="../js/fly/zepto.fly.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/swipe.js"></script> 
+
+<script type="text/javascript" src="../js/tmpl/product_info.js"></script> 
+
+</body>
+</html>

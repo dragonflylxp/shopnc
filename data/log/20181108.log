@@ -1,0 +1,66 @@
+[2018-11-08 17:22:56] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_id' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES (NULL,NULL,'8e65fa18117799298ae0dfa4ce7415d9','1541668976',NULL)
+[2018-11-08 17:24:52] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_id' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES (NULL,NULL,'3a09fc857611926202aad44935acfea6','1541669092',NULL)
+[2018-11-08 17:27:17] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_email' cannot be null
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','d41d8cd98f00b204e9800998ecf8427e',NULL,'1541669237','1541669237','1541669237','192.168.100.63','192.168.100.63',NULL,'CWJ39E',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:28:12] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_email' cannot be null
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','d41d8cd98f00b204e9800998ecf8427e',NULL,'1541669292','1541669292','1541669292','192.168.100.63','192.168.100.63',NULL,'H0VTQW',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:28:38] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_email' cannot be null
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','d41d8cd98f00b204e9800998ecf8427e',NULL,'1541669318','1541669318','1541669318','192.168.100.63','192.168.100.63',NULL,'NI0LUW',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:30:01] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_email' cannot be null
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','d41d8cd98f00b204e9800998ecf8427e',NULL,'1541669401','1541669401','1541669401','192.168.100.63','192.168.100.63',NULL,'NI0MVE',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:31:33] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'member_email' cannot be null
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','edac2b0d791cd88e9a173bb134da7ca2',NULL,'1541669493','1541669493','1541669493','192.168.100.63','192.168.100.63',NULL,'JATWB4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:32:08] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45739','inr2hc0tppbeijvid4mlv8sup7','f9d7cadc4f934587d9c0058defc05878','1541669528',NULL)
+[2018-11-08 17:34:23] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Duplicate entry 'inr2hc0tppbeijvid4mlv8sup7' for key 'member_name'
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','edac2b0d791cd88e9a173bb134da7ca2','inr2hc0tppbeijvid4mlv8sup7','1541669663','1541669663','1541669663','192.168.100.63','192.168.100.63',NULL,'30GKCI',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:34:29] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Duplicate entry 'inr2hc0tppbeijvid4mlv8sup7' for key 'member_name'
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','edac2b0d791cd88e9a173bb134da7ca2','inr2hc0tppbeijvid4mlv8sup7','1541669668','1541669668','1541669668','192.168.100.63','192.168.100.63',NULL,'UNG3H7',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:35:17] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45742','inr2hc0tppbeijvid4mlv8sup7','e9b6b69172f1270ab37cead649fba6ef','1541669717',NULL)
+[2018-11-08 17:35:21] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Duplicate entry 'inr2hc0tppbeijvid4mlv8sup7' for key 'member_name'
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','edac2b0d791cd88e9a173bb134da7ca2','inr2hc0tppbeijvid4mlv8sup7','1541669721','1541669721','1541669721','192.168.100.63','192.168.100.63',NULL,'8NC7OT',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:36:31] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','1758c2992dcbe75bfb6e6de523e6c2c1','1541669791',NULL)
+[2018-11-08 17:37:04] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Duplicate entry 'inr2hc0tppbeijvid4mlv8sup7' for key 'member_name'
+INSERT  INTO `shop_member` (member_id,member_name,member_passwd,member_email,member_merchantid,member_time,member_login_time,member_old_login_time,member_login_ip,member_old_login_ip,r_code,code,member_truename,member_qq,member_sex,member_avatar,member_qqopenid,member_qqinfo,member_sinaopenid,member_sinainfo) VALUES (NULL,'inr2hc0tppbeijvid4mlv8sup7','edac2b0d791cd88e9a173bb134da7ca2','inr2hc0tppbeijvid4mlv8sup7','inr2hc0tppbeijvid4mlv8sup7','1541669824','1541669824','1541669824','192.168.100.63','192.168.100.63',NULL,'6IA1T5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+[2018-11-08 17:48:35] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','69d6561479d8e560d0b3cb833e9ab7b4','1541670515',NULL)
+[2018-11-08 17:50:10] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','4e91341e16ea21c227543af9bf784b82','1541670610',NULL)
+[2018-11-08 17:50:28] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','3e4ede43e999dfdd3dfcf5ee229f1d84','1541670628',NULL)
+[2018-11-08 17:57:35] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','921a9b59a8fc7449b79dae8d6743754e','1541671055',NULL)
+[2018-11-08 17:59:14] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45746','5lu1k86eg2s1k0t4io40k8i4m0','357f75d5952fcba87aeea1154233b24c','1541671154',NULL)
+[2018-11-08 18:00:54] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','c5fda2690e4ddee1fddaa64c9998ed19','1541671254',NULL)
+[2018-11-08 18:06:33] /mob/index.php?con=login&fun=comlogin ( con=login&fun=comlogin ) 
+ERR: Db Error: Column 'client_type' cannot be null
+INSERT  INTO `shop_mb_user_token` (member_id,member_name,token,login_time,client_type) VALUES ('45744','inr2hc0tppbeijvid4mlv8sup7','e43f0d57bbf71f085bd99cd4617f87ca','1541671593',NULL)
+[2018-11-08 19:53:04] /mall/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
+ERR: Db Error: Column 'video_cover' cannot be null
+INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','','84',NULL,'0','1541677984','244')

@@ -1,0 +1,276 @@
+$(function(){
+	$(document).ready(function() {
+		var arrLunbotu = [];
+		
+		$(".demo, .demo .column").sortable({
+			connectWith: ".column",
+			opacity: .35,
+			handle: ".drag"
+		});
+		
+		//左侧模块拖动到右侧
+		$(".module-list .lyrow").draggable({ connectToSortable:".demo", helper:"clone", handle:".drag",
+			drag:function(e,t){
+				t.helper.width(63);
+			},
+			stop:function(e,t){
+				var zhi = $(this).hasClass('lunbotu');
+                var brandList = $(this).hasClass('brandList');
+				var mode = $(this).data("mode");
+				
+				$(".demo *[data-mode=" + mode + "]").each(function(index, element) {
+					$(this).attr("data-diff",index);
+					if(!zhi){
+						$(this).find("*[data-type='range']").attr("id",mode + "_" + index);
+					}
+				});
+				if(zhi || brandList){
+					if(zhi){
+						var lunbotu = $(".demo").find('.lunbotu');
+					}else if(brandList){
+						var lunbotu = $(".demo").find('.brandList');
+					}
+					
+					arrLunbotu.push(t.position.top);
+					if(arrLunbotu.length == 1){
+						if(arrLunbotu[0] > arrLunbotu[1]){
+							lunbotu.eq(0).remove();
+						}else{
+							lunbotu.eq(1).remove();
+						}
+						arrLunbotu.pop();
+					}
+					if(lunbotu.length > 1){
+						layer.msg('此模块只能添加一次',{time:500,offset:["50%","50%"]});
+					}else{
+						if(t.position.left>300){
+							layer.msg('添加成功',{time:500,offset:["50%","50%"]});
+							disabled();
+						}
+					}
+				}else{
+					if(t.position.left>300){
+						layer.msg('添加成功',{time:500,offset:["50%","50%"]});
+						disabled();
+					}
+				}
+			}
+		});
+		
+		//模块上移
+		$(document).on("click",".move-up",function(){
+			var _this = $(this);
+			var _div = _this.parents(".visual-item");
+			var prev_div = _div.prev();
+			
+			var clone = _div.clone();
+			if(!_this.hasClass("disabled")){
+				_div.remove();
+				prev_div.before(clone);
+				visual();
+				disabled();
+			}
+		});
+		
+		//模块下移
+		$(document).on("click",".move-down",function(){
+			var _this = $(this);
+			var _div = _this.parents(".visual-item");
+			var next_div = _div.next();
+			
+			var clone = _div.clone();
+			if(!_this.hasClass("disabled")){
+				_div.remove();
+				next_div.after(clone);
+				visual();
+				disabled();
+			}
+		});
+		
+		//判断模块是顶部模块或底部模块
+		function disabled(){
+			var demo = $(".demo");
+			demo.find(".visual-item .move-up").removeClass("disabled");
+			demo.find(".visual-item:first .move-up").addClass("disabled");
+			
+			demo.find(".visual-item .move-down").removeClass("disabled");
+			demo.find(".visual-item:last .move-down").addClass("disabled");
+		}
+		
+		//删除模块
+		function removeElm() {
+			$(".demo").delegate(".move-remove", "click", function(e) {
+				that = $(this);
+				layer.confirm('您确定要删除这个模块吗？', {
+					btn: ['确定','取消'],
+				}, function(){
+					time: 500,
+					layer.msg('删除成功',{time:500,offset:["50%","50%"]}),
+					e.preventDefault();
+					that.parents(".visual-item").remove();
+					disabled();
+					visual();
+					if (!$(".demo .lyrow").length > 0) {
+						clearDemo();
+					}
+				});
+			})
+		}
+		removeElm();
+		
+		//判断模块是否存在
+		function clearDemo() {
+			if( $(".demo").html() == "" ){
+				layer.msg('当前没有任何模板哦',{time:500,offset:["50%","50%"]})
+			}else{
+				layer.confirm('您确定要清空所有模块吗？', {
+					btn: ['确定','取消'],
+				}, function(){
+					time: 500,
+					layer.msg('清空成功',{time:500,offset:["50%","50%"]}),
+					$(".demo").empty();
+				});
+			}
+		}
+	});
+	
+	$(document).click(function(e){
+		//仿select
+		if(e.target.className !='cite' && !$(e.target).parents("div").is(".imitate_select")){
+			$('.imitate_select ul').hide();
+		}
+		
+		//分类
+		if(e.target.id !='category_name' && !$(e.target).parents("div").is(".select-container")){
+			$('.categorySelect .select-container').hide();
+		}
+	});
+	
+	
+	//模块展开收起
+	$("*[ectype='head']").on("click",function(){
+		var modulesWrap = $(this).parent();
+		
+		if(modulesWrap.hasClass("modules-wrap-current")){
+			modulesWrap.removeClass("modules-wrap-current");
+		}else{
+			modulesWrap.addClass("modules-wrap-current");
+		}
+	});
+});
+
+//上传方法
+jQuery.upload_file = function(file,url,showImg,fn){
+	$(file).change(function(){
+		var _this = $(this);
+		var actionUrl = url;
+		var form = _this.parents("form");
+		var hiddenInput = form.find("input[name='fileimg']");
+		form.ajaxSubmit({
+			type: "POST",
+			dataType: "json",
+			url: actionUrl,
+			data: { "action": "TemporaryImage" },
+			success: function (data) {
+				if (data.error == "1") {
+				   alert(data.prompt);
+				}else if(data.error == "2") {
+					if(showImg != ""){		
+						$(showImg).attr('src',data.content); 
+					}
+					hiddenInput.val(data.content);
+					if(fn){
+						fn(_this,data.content);
+					} 
+				}
+			},
+			async: true
+		});
+	});
+};
+
+/*分类搜索的下拉列表*/
+jQuery.category = function(){
+	$(document).on("click",'.selection input[name="category_name"]',function(){
+		$(this).parents(".selection").next('.select-container').show();
+	});
+	
+	$(document).on('click', '.select-list li', function(){
+		var obj = $(this);
+		var cat_id = obj.data('cid');
+		var cat_name = obj.data('cname');
+		var cat_type_show = obj.data('show');
+		var user_id = obj.data('seller');
+		var table = obj.data('table');
+		var url = obj.data('url');
+		if(!table){
+                    table = 'category';
+                }
+		/* 自定义导航 start */
+		if(document.getElementById('item_name')){
+			$("#item_name").val(cat_name);
+		}
+		
+		if(document.getElementById('item_url')){
+			$("#item_url").val(url);
+		}
+		
+		if(document.getElementById('item_catId')){
+			$("#item_catId").val(cat_id);
+		}
+		/* 自定义导航 end */
+		
+		$.jqueryAjax('get_ajax_content.php', 'act=filter_category&cat_id='+cat_id+"&cat_type_show=" + cat_type_show + "&user_id=" + user_id + "&table=" + table, function(data){
+			if(data.content){
+				obj.parents(".categorySelect").find("input[data-filter=cat_name]").val(data.cat_nav); //修改cat_name
+				obj.parents(".select-container").html(data.content);
+				$(".select-list").perfectScrollbar("destroy");
+				$(".select-list").perfectScrollbar();
+			}
+		});
+		obj.parents(".categorySelect").find("input[data-filter=cat_id]").val(cat_id); //修改cat_id
+		
+		var cat_level = obj.parents(".categorySelect").find(".select-top a").length; //获取分类级别
+		if(cat_level >= 3){
+			$('.categorySelect .select-container').hide();		
+		}
+	});
+	//点击a标签返回所选分类 by wu
+	$(document).on('click', '.select-top a', function(){
+		
+		var obj = $(this);
+		var cat_id = obj.data('cid');
+		var cat_name = obj.data('cname');
+		var cat_type_show = obj.data('show');
+		var user_id = obj.data('seller');
+		var table = obj.data('table');
+		var url = obj.data('url');
+		if(!table){
+                    table = 'category';
+                }
+		/* 自定义导航 start */
+		if(document.getElementById('item_name')){
+			$("#item_name").val(cat_name);
+		}
+		
+		if(document.getElementById('item_url')){
+			$("#item_url").val(url);
+		}
+		
+		if(document.getElementById('item_catId')){
+			$("#item_catId").val(cat_id);
+		}
+		/* 自定义导航 end */
+
+		$.jqueryAjax('get_ajax_content.php', 'act=filter_category&cat_id='+cat_id+"&cat_type_show=" + cat_type_show + "&user_id=" + user_id + "&table=" + table, function(data){
+			if(data.content){
+				obj.parents(".categorySelect").find("input[data-filter=cat_name]").val(data.cat_nav); //修改cat_name
+				obj.parents(".select-container").html(data.content);
+				$(".select-list").perfectScrollbar("destroy");
+				$(".select-list").perfectScrollbar();
+			}
+		});
+		obj.parents(".categorySelect").find("input[data-filter=cat_id]").val(cat_id); //修改cat_id
+	});	
+	/*分类搜索的下拉列表end*/
+}
