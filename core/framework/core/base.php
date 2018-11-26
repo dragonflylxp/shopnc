@@ -190,7 +190,6 @@ class Core
                 $_GET['con'] = 'show_store';
             }
         }
-
         if (!empty($path)) {
             $actFile = realpath($path . '/control/' . $_GET['con'] . '.php');
 			
