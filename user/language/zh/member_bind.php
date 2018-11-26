@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 /**
  * QQ互聯功能語言包

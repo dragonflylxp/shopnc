@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 
 $lang['cms_site_name'] = '門戶首頁';

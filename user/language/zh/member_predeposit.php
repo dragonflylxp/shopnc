@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 /**
  * 預存款功能公用

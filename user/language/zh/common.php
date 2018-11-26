@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 $lang['error']				= '在處理您的請求時出現了問題:<br />';
 $lang['homepage']			= '首頁';

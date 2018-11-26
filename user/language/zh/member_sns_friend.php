@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 /**
  * SNS好友功能

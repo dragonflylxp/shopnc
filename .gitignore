@@ -4,4 +4,4 @@ session
 log
 .htaccess
 .project
-
+*.swp

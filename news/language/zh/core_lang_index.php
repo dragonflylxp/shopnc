@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $lang['cant_find_temporary_files'] = '找不到臨時檔，請確認臨時檔夾是否存在可寫';
 $lang['upload_file_size_none'] = '禁止上傳空文件';
 $lang['upload_file_size_cant_over'] = '上傳檔大小不能超過';

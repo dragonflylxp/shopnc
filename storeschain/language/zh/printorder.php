@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 $lang['member_printorder_ordererror']		= '訂單資訊錯誤';
 

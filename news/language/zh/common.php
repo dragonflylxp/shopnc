@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 
 $lang['nc_common_pselect']	=  '請選擇...';

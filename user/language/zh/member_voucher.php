@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 defined('Inshopec') or exit('Access Invalid!');
 $lang['voucher_unavailable']    = '代金券功能尚未開啟';
 $lang['voucher_applystate_new']    = '待審核';

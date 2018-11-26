@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * OSS(Open Storage Services) PHP SDK v1.1.6
  */
