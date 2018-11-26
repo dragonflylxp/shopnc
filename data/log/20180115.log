@@ -1,9 +1,0 @@
-[2018-01-15 02:30:55] /kaice/shop/index.php?&con=visual_editing&fun=get_news&is_ajax=1 ( con=visual_editing&fun=get_news ) 
-ERR: Db Error: Unknown column 'article_id' in 'where clause'
-SELECT * FROM `shop_cms_article_class` cms_article_class WHERE ( article_id = '1' ) LIMIT 1  
-[2018-01-15 02:31:22] /kaice/shop/index.php?&con=visual_editing&fun=get_news&is_ajax=1 ( con=visual_editing&fun=get_news ) 
-ERR: Db Error: Unknown column 'article_id' in 'where clause'
-SELECT * FROM `shop_cms_article_class` cms_article_class WHERE ( article_id = '1' ) LIMIT 1  
-[2018-01-15 02:31:31] /kaice/shop/index.php?&con=visual_editing&fun=get_news&is_ajax=1 ( con=visual_editing&fun=get_news ) 
-ERR: Db Error: Unknown column 'article_class_id' in 'where clause'
-SELECT * FROM `shop_cms_article_class` cms_article_class WHERE ( article_class_id = '1' ) LIMIT 1  

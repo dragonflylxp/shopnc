@@ -1,3 +1,0 @@
-[2017-11-04 09:56:10] /kaice/shop/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
-ERR: Db Error: Column 'video_class_id' cannot be null
-INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','',NULL,NULL,'0','1509760570','245')

@@ -1,9 +1,0 @@
-[2018-02-10 06:28:39] http://118.31.17.175/shop/index.php?con=search&fun=index&keyword=%E7%89%9B%E8%82%89%E5%B9%B2 ( con=search&fun=index ) 
-ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
-SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%牛肉干%') OR (goods.goods_jingle LIKE '%牛肉干%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-02-10 08:03:52] http://118.31.17.175/shop/index.php?con=search&fun=index&keyword=%E7%83%9F%E8%8A%B1 ( con=search&fun=index ) 
-ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
-SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%烟花%') OR (goods.goods_jingle LIKE '%烟花%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-02-10 18:03:44] http://118.31.17.175/shop/index.php?con=search&fun=index&keyword=%E5%A5%B3%E8%A3%85 ( con=search&fun=index ) 
-ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
-SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%女装%') OR (goods.goods_jingle LIKE '%女装%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  

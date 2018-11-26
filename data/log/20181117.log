@@ -1,9 +1,0 @@
-[2018-11-17 14:33:12] /mob/index.php?con=member_buy&fun=buy_step2 ( con=member_buy&fun=buy_step2 ) 
-ERR: Db Error: Column 'zhjf_points' cannot be null
-INSERT  INTO `shop_order_pay` (pay_sn,buyer_id,ltjf_points,ltjf_amount,ydjf_points,ydjf_amount,zhjf_points,zhjf_amount) VALUES ('980595780392107772','45772','100','100','1000','1000',NULL,NULL)
-[2018-11-17 14:33:15] /mob/index.php?con=member_buy&fun=buy_step2 ( con=member_buy&fun=buy_step2 ) 
-ERR: Db Error: Column 'zhjf_points' cannot be null
-INSERT  INTO `shop_order_pay` (pay_sn,buyer_id,ltjf_points,ltjf_amount,ydjf_points,ydjf_amount,zhjf_points,zhjf_amount) VALUES ('160595780395451772','45772','100','100','1000','1000',NULL,NULL)
-[2018-11-17 14:33:19] /mob/index.php?con=member_buy&fun=buy_step2 ( con=member_buy&fun=buy_step2 ) 
-ERR: Db Error: Column 'zhjf_points' cannot be null
-INSERT  INTO `shop_order_pay` (pay_sn,buyer_id,ltjf_points,ltjf_amount,ydjf_points,ydjf_amount,zhjf_points,zhjf_amount) VALUES ('790595780399168772','45772','100','100','1000','1000',NULL,NULL)
