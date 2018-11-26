@@ -1,10 +1,10 @@
-var SiteUrl = "https://shop99.yifensport.com/mall";
-var ApiUrl = "https://shop99.yifensport.com/mob";
-var SellerUrl = "https://shop99.yifensport.com/seller";
+var SiteUrl = "http://manpay.sicpay.com/mall";
+var ApiUrl = "http://manpay.sicpay.com/mob";
+var SellerUrl = "http://manpay.sicpay.com/seller";
 var pagesize = 10;
-var WapSiteUrl = "https://shop99.yifensport.com/wap";
-var IOSSiteUrl = "https://shop99.yifensport.com/";
-var AndroidSiteUrl = "https://shop99.yifensport.com/";
+var WapSiteUrl = "http://manpay.sicpay.com/wap";
+var IOSSiteUrl = "http://manpay.sicpay.com/";
+var AndroidSiteUrl = "http://manpay.sicpay.com/";
 
 // auto url detection
 (function() {

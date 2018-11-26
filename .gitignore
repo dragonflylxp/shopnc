@@ -1,5 +1,7 @@
-log
+*.log
 *.apk
+session
+log
 .htaccess
 .project
 

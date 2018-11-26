@@ -11,8 +11,8 @@
     'cti_sort' => '1',
     'cti_state_key' => 'open',
     'cti_state_text' => '开启',
-    'cti_icon_url' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/7day.gif',
-    'cti_icon_url_60' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/7day_60.gif',
+    'cti_icon_url' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/7day.gif',
+    'cti_icon_url_60' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/7day_60.gif',
     'cti_state_name' => '开启',
   ),
   2 => 
@@ -27,8 +27,8 @@
     'cti_sort' => '2',
     'cti_state_key' => 'open',
     'cti_state_text' => '开启',
-    'cti_icon_url' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/pz.gif',
-    'cti_icon_url_60' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/pz_60.gif',
+    'cti_icon_url' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/pz.gif',
+    'cti_icon_url_60' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/pz_60.gif',
     'cti_state_name' => '开启',
   ),
   3 => 
@@ -43,8 +43,8 @@
     'cti_sort' => '3',
     'cti_state_key' => 'open',
     'cti_state_text' => '开启',
-    'cti_icon_url' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/psbf.gif',
-    'cti_icon_url_60' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/psbf_60.gif',
+    'cti_icon_url' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/psbf.gif',
+    'cti_icon_url_60' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/psbf_60.gif',
     'cti_state_name' => '开启',
   ),
   4 => 
@@ -59,8 +59,8 @@
     'cti_sort' => '4',
     'cti_state_key' => 'open',
     'cti_state_text' => '开启',
-    'cti_icon_url' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/jswl.gif',
-    'cti_icon_url_60' => 'https://shop99.yifensport.com/data/upload/mall/contracticon/jswl_60.gif',
+    'cti_icon_url' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/jswl.gif',
+    'cti_icon_url_60' => 'http://manpay.sicpay.com/data/upload/mall/contracticon/jswl_60.gif',
     'cti_state_name' => '开启',
   ),
 );

@@ -15,10 +15,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849343852775378.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849383096194771.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849343852775378.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849383096194771.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849383096284687.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849383096284687.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -2566,10 +2566,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849344505821846.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849386427434184.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849344505821846.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849386427434184.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849386427492123.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849386427492123.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -3914,10 +3914,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849345975757419.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849387912371887.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849345975757419.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849387912371887.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849387912422255.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849387912422255.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -5514,10 +5514,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849346415545755.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849389240497918.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849346415545755.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849389240497918.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849389240540796.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849389240540796.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -7715,10 +7715,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849346837120218.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849391321812920.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849346837120218.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849391321812920.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849391321877848.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849391321877848.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -9207,10 +9207,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849347515759481.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849392722316549.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849347515759481.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849392722316549.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849392722363907.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849392722363907.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -10375,10 +10375,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849348133390475.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849400285934568.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849348133390475.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849400285934568.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849400285991819.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849400285991819.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -11867,10 +11867,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849348436546686.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849401365781256.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849348436546686.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849401365781256.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849401365834473.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849401365834473.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -13158,10 +13158,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849348664379344.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849404510419498.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849348664379344.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849404510419498.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849404510472921.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849404510472921.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -14884,10 +14884,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849352366294406.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849405508671552.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849352366294406.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849405508671552.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849405508723529.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849405508723529.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -16112,10 +16112,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849353182209090.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849409796241200.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849353182209090.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849409796241200.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849409796289293.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849409796289293.jpg',
     'cn_brands' => 
     array (
       0 => 
@@ -17508,10 +17508,10 @@
     'show_type' => '1',
     'cn_adv2_link' => '',
     'cn_alias' => '',
-    'cn_pic' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849353042725089.png',
-    'cn_adv1' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849412911666956.jpg',
+    'cn_pic' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849353042725089.png',
+    'cn_adv1' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849412911666956.jpg',
     'cn_adv1_link' => '',
-    'cn_adv2' => 'https://shop99.yifensport.com/data/upload/mall/goods_class/04849412911723098.jpg',
+    'cn_adv2' => 'http://manpay.sicpay.com/data/upload/mall/goods_class/04849412911723098.jpg',
     'cn_brands' => 
     array (
       0 => 

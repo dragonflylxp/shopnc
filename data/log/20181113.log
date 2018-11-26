@@ -1,25 +1,25 @@
-[2018-11-13 05:30:30] https://shop99.yifensport.com/mall/index.php?con=search&fun=index&keyword=%E7%83%9F%E8%8A%B1 ( con=search&fun=index ) 
+[2018-11-13 05:30:30] http://manpay.sicpay.com/mall/index.php?con=search&fun=index&keyword=%E7%83%9F%E8%8A%B1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%烟花%') OR (goods.goods_jingle LIKE '%烟花%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 08:01:42] https://shop99.yifensport.com/mall/index.php?con=search&fun=index&keyword=%E7%89%9B%E8%82%89%E5%B9%B2 ( con=search&fun=index ) 
+[2018-11-13 08:01:42] http://manpay.sicpay.com/mall/index.php?con=search&fun=index&keyword=%E7%89%9B%E8%82%89%E5%B9%B2 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%牛肉干%') OR (goods.goods_jingle LIKE '%牛肉干%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 10:28:34] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 10:28:34] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 10:44:35] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 10:44:35] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 10:44:59] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 10:44:59] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 10:45:43] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 10:45:43] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 11:18:05] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 11:18:05] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 11:18:57] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
+[2018-11-13 11:18:57] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E5%A3%B9%E5%88%86%E6%99%BA%E8%83%BD1 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%壹分智能1%') OR (goods.goods_jingle LIKE '%壹分智能1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
 [2018-11-13 12:12:13] /mall/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
@@ -55,15 +55,15 @@ INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover
 [2018-11-13 16:59:54] /mall/index.php?con=store_goods_add&fun=save_goods ( con=store_goods_add&fun=save_goods ) 
 ERR: Db Error: Column 'video_class_id' cannot be null
 INSERT  INTO `shop_video_album` (video_name,video_tag,video_class_id,video_cover,video_size,upload_time,store_id) VALUES ('','',NULL,NULL,'0','1542099594','249')
-[2018-11-13 17:03:13] https://shop99.yifensport.com/mall/?con=search&search_type=goods&keyword=%E5%AE%81%E6%B2%B3%E4%BA%94%E7%BB%B4 ( con=search&fun=index ) 
+[2018-11-13 17:03:13] http://manpay.sicpay.com/mall/?con=search&search_type=goods&keyword=%E5%AE%81%E6%B2%B3%E4%BA%94%E7%BB%B4 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%宁河五维%') OR (goods.goods_jingle LIKE '%宁河五维%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 18:12:57] https://shop99.yifensport.com/mall/?con=search&search_type=goods&keyword=%E5%AE%81%E6%B2%B3%E4%BA%94%E7%BB%B4 ( con=search&fun=index ) 
+[2018-11-13 18:12:57] http://manpay.sicpay.com/mall/?con=search&search_type=goods&keyword=%E5%AE%81%E6%B2%B3%E4%BA%94%E7%BB%B4 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%宁河五维%') OR (goods.goods_jingle LIKE '%宁河五维%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 18:14:36] https://shop99.yifensport.com/mall/?con=search&search_type=store&keyword=%E4%BB%93%E9%A2%891 ( con=search&fun=index ) 
+[2018-11-13 18:14:36] http://manpay.sicpay.com/mall/?con=search&search_type=store&keyword=%E4%BB%93%E9%A2%891 ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%仓颉1%') OR (goods.goods_jingle LIKE '%仓颉1%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  
-[2018-11-13 18:29:54] https://shop99.yifensport.com/mall/index.php?con=search&fun=index&keyword=%E5%9D%9A%E6%9E%9C ( con=search&fun=index ) 
+[2018-11-13 18:29:54] http://manpay.sicpay.com/mall/index.php?con=search&fun=index&keyword=%E5%9D%9A%E6%9E%9C ( con=search&fun=index ) 
 ERR: Db Error: Column 'is_own_shop' in order clause is ambiguous
 SELECT COUNT(*) AS nc_count FROM `shop_goods` AS `goods` LEFT JOIN `shop_goods_common` AS `goods_common` ON goods.goods_commonid = goods_common.goods_commonid WHERE ( (goods.goods_name LIKE '%坚果%') OR (goods.goods_jingle LIKE '%坚果%') ) AND ( goods.goods_state = '1' ) AND ( goods.goods_verify = '1' ) GROUP BY goods.goods_commonid ORDER BY is_own_shop desc,goods_id desc LIMIT 1  

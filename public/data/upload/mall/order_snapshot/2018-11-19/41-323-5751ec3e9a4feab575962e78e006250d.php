@@ -1,1 +1,1 @@
-<?php defined('Inshopec') or exit('Access Invalid!');?><div class="default"><img src="https://shop99.yifensport.com/data/upload/mall/store/goods/250/250_05956114628172572_1280.jpg" alt="image" /></div>
+<?php defined('Inshopec') or exit('Access Invalid!');?><div class="default"><img src="http://manpay.sicpay.com/data/upload/mall/store/goods/250/250_05956114628172572_1280.jpg" alt="image" /></div>
