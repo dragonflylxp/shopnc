@@ -671,7 +671,9 @@ function getHost(url) {
 }
 
 function hostconvert(url) {
-	if(!url.match(/^http?:\/\//)) url = SITEURL.replace(/(\/+)$/g, '') + '/' + url;
+	if(!url.match(/^http?:\/\//) && !url.match(/^https?:\/\//)) {
+            url = SITEURL.replace(/(\/+)$/g, '') + '/' + url;
+        }
 	var url_host = getHost(url);
 	var cur_host = getHost().toLowerCase();
 	if(url_host && cur_host != url_host) {
