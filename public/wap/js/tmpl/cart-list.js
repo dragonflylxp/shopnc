@@ -1,4 +1,17 @@
-$(function (){
+$(function(){
+   // 根据querystring是否带有唯一agencyId/merchantId发起联合注册或登录请求
+   var agencyId = getQueryString("agencyId"); 
+   var merchantId = getQueryString("merchantId"); 
+   if (agencyId != null && agencyId != "" && merchantId != null && merchantId != "") {
+       comlog(agencyId, merchantId, initPage);
+   }
+   else{
+       initPage();
+   }
+});
+
+
+function initPage(){
     template.helper('isEmpty', function(o) {
         for (var i in o) {
             return false;
@@ -321,7 +334,7 @@ $(function (){
     });
     
     
-});
+}
 
 function calculateTotalPrice() {
     var totalPrice = parseFloat("0.00");

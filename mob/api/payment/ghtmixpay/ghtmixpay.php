@@ -16,10 +16,10 @@ class ghtmixpay {
     private $appid= "yifen";
 
     /* 用户所属机构号 */
-    private $merchant_no = "549440179410002";  
+    private $merchant_no = "549034555110003";  
 
     /* 终端号 */
-    private $terminal_no = "21570381";         
+    private $terminal_no = "20002825";         
 
     /* 交易服务号 */
     private $tranCode = "111111";
@@ -55,7 +55,7 @@ class ghtmixpay {
     private $gateUrl   = "https://epay.gaohuitong.com/preEntry.do";
 
     /* sha256 key */
-    public $sha256_key = "b313cf46091c05db39439cc0e133ba6d";   
+    public $sha256_key = "86e95511065149220b43b618e7f6725d";   
 
     /* aes cipher */
     private $aes_cipher = null;

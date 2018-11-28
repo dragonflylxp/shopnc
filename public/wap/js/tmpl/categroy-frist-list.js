@@ -1,4 +1,16 @@
-$(function() {
+$(function(){
+   // 根据querystring是否带有唯一agencyId/merchantId发起联合注册或登录请求
+   var agencyId = getQueryString("agencyId"); 
+   var merchantId = getQueryString("merchantId"); 
+   if (agencyId != null && agencyId != "" && merchantId != null && merchantId != "") {
+       comlog(agencyId, merchantId, initPage);
+   }
+   else{
+       initPage();
+   }
+});
+
+function initPage() {
     var myScroll;
     $("#header").on('click', '.header-inp', function(){
         location.href = WapSiteUrl + '/tmpl/search.html';
@@ -32,7 +44,7 @@ $(function() {
         $('.pre-loading').show();
         get_brand_recommend();
     });
-});
+}
 
 function get_brand_recommend() {
     $('.category-item').removeClass('selected');

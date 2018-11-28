@@ -13,10 +13,10 @@ class MerchantIdVerify {
     private $version = "2.0.0"; 
 
     /* 用户所属机构号 */
-    private $merchant_no = "549440179410002";  
+    private $merchant_no = "549034555110003";  
 
     /* 交易服务号 */
-    private $tranCode = "100022";
+    private $tranCode = "20002825";
 
     /* 报文类型*/
     private $msgType= "01";
