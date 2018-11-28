@@ -30,13 +30,15 @@ class AESCrypt {
     }
 
 
-    public function encrypt($data)
+    public function encrypt($data, $key=null)
     {
-        return mcrypt_encrypt($this->cipher,$this->secret_key, self::pad($data), $this->mode);
+        $key = $key ? $key : $this->secret_key;
+        return mcrypt_encrypt($this->cipher,$key, self::pad($data), $this->mode);
     }
 
-    public function decrypt($data) {
-        return mcrypt_decrypt($this->cipher, $this->secret_key, self::pad($data), $this->mode);
+    public function decrypt($data, $key=null) {
+        $key = $key ? $key : $this->secret_key;
+        return mcrypt_decrypt($this->cipher, $key, self::pad($data), $this->mode);
     }
     
     private static function pad($data, $blocksize = 16) {

@@ -12,8 +12,8 @@
 
 class RSACrypt 
 {
-    private $pubKeyFile = null;// __DIR__."/../key/rsa_public_key.pem";
-    private $priKeyFile = null;//__DIR__."/../key/rsa_private_key.pem"; 
+    private $pubKeyFile = null;
+    private $priKeyFile = null; 
     private $pubKey = null; 
     private $priKey = null;
 
@@ -28,12 +28,14 @@ class RSACrypt
         if ($public_key_file) {
             $this->pubKeyFile = $public_key_file;
         }else{
-            $this->pubKeyFile = __DIR__."/../key/rsa_public_key.pem"; 
+            //$this->pubKeyFile = __DIR__."/../key/rsa_public_key.pem"; 
+            $this->pubKeyFile = BASE_CORE_PATH."/common/key/rsa_public_key.pem"; 
         }
         if ($private_key_file) {
             $this->priKeyFile = $private_key_file;
         }else{
-            $this->priKeyFile = __DIR__."/../key/rsa_private_key.pem";  
+            //$this->priKeyFile = __DIR__."/../key/rsa_private_key.pem";  
+            $this->priKeyFile = BASE_CORE_PATH."/common/key/rsa_private_key.pem";  
         }
         $this->_getPublicKey($this->pubKeyFile);
         $this->_getPrivateKey($this->priKeyFile);

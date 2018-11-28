@@ -6,8 +6,8 @@
 
 defined('Inshopec') or exit('Access Invalid!');
 
-require_once(__DIR__."/lib/rsa.php");
-require_once(__DIR__."/lib/aes.php");
+require_once(BASE_CORE_PATH."/common/lib/rsa.php");
+require_once(BASE_CORE_PATH."/common/lib/aes.php");
 
 class MerchantIdVerify {
     /* 版本号 */
