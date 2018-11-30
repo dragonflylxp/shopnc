@@ -111,7 +111,8 @@ function btnCheck(form) {
 function getSearchName() {
 	var keyword = decodeURIComponent(getQueryString('keyword'));
 	if (keyword == '') {
-	    if(getCookie('deft_key_value') == null) {
+            /*不读cookie，后台设置及时生效*/
+	    //if(getCookie('deft_key_value') == null) {
 	        $.getJSON(ApiUrl + '/index.php?con=index&fun=search_hot_info', function(result) {
 	        	var data = result.datas.hot_info;
 	        	if(typeof data.name != 'undefined') {
@@ -124,10 +125,10 @@ function getSearchName() {
 	            	addCookie('deft_key_value','',1);
 	        	}
 	        })
-	    } else {
+	    /*} else {
 	    	$('#keyword').attr('placeholder',getCookie('deft_key_name'));
 	    	$('#keyword').html(getCookie('deft_key_name'));
-	    }		
+	    }*/		
 	}
 }
 // 免费领代金券

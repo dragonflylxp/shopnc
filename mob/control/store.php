@@ -664,6 +664,11 @@ class storeControl extends mobileHomeControl
     if (!empty($_GET['area_info'])){
 			$condition['area_info'] = array('like','%'.$_GET['area_info'].'%');
 		}
+
+        if(!empty($_GET['store_state'])) {
+            $condition['store_state'] = $_GET['store_state'];
+        }
+
 	if (!is_null($store_list)) {
             $store_list = array_values($store_list);
             pagecmd('setEachNum',$this->page);

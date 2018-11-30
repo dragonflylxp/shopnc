@@ -27,7 +27,7 @@
         <?php if (!empty($output['goods_video'])) {?>
           <video loop controls autoplay class="content-video" src="<?php echo $output['goods_video'] ?>" width="360" height="360"></video>
         <?php } ?>
-        <img src="<?php echo cthumb($goods_info['goods_image'],'360',$goods_info['store_id']) ?>" width="360" height="360" nc-data-index="0" alt="" id="midimg" class="content-img" <?php if(!empty($output['goods_video'])){ ?> style="display:none;"  <?php }else{ ?> style="display:block;" <?php } ?> />
+        <img src="<?php echo $output['image_list'][0]['_mid']/*cthumb($output['goods_image'],'360',$output['store_id'])*/ ?>" width="360" height="360" nc-data-index="0" alt="" id="midimg" class="content-img" <?php if(!empty($output['goods_video'])){ ?> style="display:none;"  <?php }else{ ?> style="display:block;" <?php } ?> />
         
         <div style="display:none;" id="winSelector"></div>
       </div>

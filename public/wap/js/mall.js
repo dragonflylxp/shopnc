@@ -66,7 +66,7 @@ function get_list() {
 		param.keyword = keyword
 	} 
 
-	$.getJSON(ApiUrl + "/index.php?con=store&fun=store_list" + window.location.search.replace("?", "&"), param, function(e) {
+	$.getJSON(ApiUrl + "/index.php?con=store&fun=store_list&store_state=1" + window.location.search.replace("?", "&"), param, function(e) {
 		if (!e) {
 			e = [];
 			e.datas = [];

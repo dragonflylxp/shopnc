@@ -7702,7 +7702,7 @@
   308 => 
   array (
     'gc_id' => '308',
-    'gc_name' => '家用电器',
+    'gc_name' => '家用電器',
     'type_id' => '0',
     'type_name' => '',
     'gc_parent_id' => '0',
@@ -7962,7 +7962,7 @@
       309 => 
       array (
         'gc_id' => '309',
-        'gc_name' => '大家电',
+        'gc_name' => '家用電器',
         'type_id' => '0',
         'type_name' => '',
         'gc_parent_id' => '308',
@@ -8144,6 +8144,21 @@
           array (
             'gc_id' => '325',
             'gc_name' => '家电配件',
+            'type_id' => '0',
+            'type_name' => '',
+            'gc_parent_id' => '309',
+            'commis_rate' => '11.7',
+            'gc_sort' => '255',
+            'gc_virtual' => '0',
+            'gc_title' => '',
+            'gc_keywords' => '',
+            'gc_description' => '',
+            'show_type' => '1',
+          ),
+          1406 => 
+          array (
+            'gc_id' => '1406',
+            'gc_name' => '家用電器',
             'type_id' => '0',
             'type_name' => '',
             'gc_parent_id' => '309',
@@ -9194,7 +9209,7 @@
   470 => 
   array (
     'gc_id' => '470',
-    'gc_name' => '个护化妆',
+    'gc_name' => '護膚化妝',
     'type_id' => '16',
     'type_name' => '个护化妆',
     'gc_parent_id' => '0',
@@ -9376,7 +9391,7 @@
       3 => 
       array (
         'gc_id' => '486',
-        'gc_name' => '护肤套装',
+        'gc_name' => '護膚化妝',
         'type_id' => '16',
         'type_name' => '个护化妆',
         'gc_parent_id' => '471',
@@ -9454,7 +9469,7 @@
       471 => 
       array (
         'gc_id' => '471',
-        'gc_name' => '面部护理',
+        'gc_name' => '護膚化妝',
         'type_id' => '16',
         'type_name' => '个护化妆',
         'gc_parent_id' => '470',
@@ -9590,7 +9605,7 @@
           486 => 
           array (
             'gc_id' => '486',
-            'gc_name' => '护肤套装',
+            'gc_name' => '護膚化妝',
             'type_id' => '16',
             'type_name' => '个护化妆',
             'gc_parent_id' => '471',
@@ -16099,7 +16114,7 @@
   959 => 
   array (
     'gc_id' => '959',
-    'gc_name' => '母婴用品',
+    'gc_name' => '母嬰育兒',
     'type_id' => '14',
     'type_name' => '母婴用品',
     'gc_parent_id' => '0',
@@ -17490,6 +17505,39 @@
           ),
         ),
       ),
+      1402 => 
+      array (
+        'gc_id' => '1402',
+        'gc_name' => '母嬰育兒',
+        'type_id' => '14',
+        'type_name' => '',
+        'gc_parent_id' => '959',
+        'commis_rate' => '11.7',
+        'gc_sort' => '255',
+        'gc_virtual' => '0',
+        'gc_title' => '',
+        'gc_keywords' => '',
+        'gc_description' => '',
+        'show_type' => '1',
+        'class3' => 
+        array (
+          1403 => 
+          array (
+            'gc_id' => '1403',
+            'gc_name' => '母嬰育兒',
+            'type_id' => '14',
+            'type_name' => '',
+            'gc_parent_id' => '1402',
+            'commis_rate' => '11.7',
+            'gc_sort' => '255',
+            'gc_virtual' => '0',
+            'gc_title' => '',
+            'gc_keywords' => '',
+            'gc_description' => '',
+            'show_type' => '1',
+          ),
+        ),
+      ),
     ),
   ),
   1037 => 
@@ -17753,21 +17801,6 @@
             'commis_rate' => '11.7',
             'gc_sort' => '0',
             'gc_virtual' => '1',
-            'gc_title' => '',
-            'gc_keywords' => '',
-            'gc_description' => '',
-            'show_type' => '1',
-          ),
-          1402 => 
-          array (
-            'gc_id' => '1402',
-            'gc_name' => '体育健身',
-            'type_id' => '18',
-            'type_name' => '',
-            'gc_parent_id' => '1118',
-            'commis_rate' => '10.0',
-            'gc_sort' => '0',
-            'gc_virtual' => '0',
             'gc_title' => '',
             'gc_keywords' => '',
             'gc_description' => '',

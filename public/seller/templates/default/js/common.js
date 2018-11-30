@@ -303,8 +303,8 @@ function getSearchName() {
     var e = decodeURIComponent(getQueryString("keyword"));
 
     if (e == "") {
-
-        if (getCookie("deft_key_value") == null) {
+        /*不读cookie，后台设置及时生效*/
+        //if (getCookie("deft_key_value") == null) {
 
             $.getJSON(ApiUrl + "/index.php?con=index&fun=search_hot_info",
 
@@ -332,13 +332,13 @@ function getSearchName() {
 
             })
 
-        } else {
+        /*} else {
 
             $("#keyword").attr("placeholder", getCookie("deft_key_name"));
 
             $("#keyword").html(getCookie("deft_key_name"))
 
-        }
+        }*/
 
     }
 

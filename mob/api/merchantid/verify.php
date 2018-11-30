@@ -17,13 +17,13 @@ class MerchantIdVerify {
     private $merchant_no = "549034555110003";  
 
     /* 交易服务号 */
-    private $tranCode = "20002825";
+    private $tranCode = "100022";
 
     /* 报文类型*/
     private $msgType= "01";
 
     /* 接口 */
-    private $reqUrl = "https://epay.gaohuitong.com/person_interface/qryUser"; 
+    private $reqUrl = "https://devpay.sicpay.com/interfaceWeb/qryUser"; 
 
     /* aes cipher */
     public $aes_cipher = null;
@@ -39,7 +39,6 @@ class MerchantIdVerify {
 
 
     function do_verify($agencyid, $merchantid) {
-        return True;
         $post_data = $this->make_request($agencyid,$merchantid);
         $resp = curl_post($this->reqUrl, $post_data);
         return $this->verify_response($resp);
