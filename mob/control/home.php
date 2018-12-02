@@ -20,6 +20,8 @@ class homeControl extends mobileHomeControl {
     }
 
     public function infoOp() {
+        $now = time();
+
         //精品推荐
         $limit = 0;
         if (isset($_GET['recommend_limit'])) {
@@ -35,39 +37,40 @@ class homeControl extends mobileHomeControl {
             $recommend_goods_list[$k]['goods_image'] = self::parse_image_url($_info['goods_image']);
             $recommend_goods_list[$k]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
         }
+        $recommend_url= WAP_SITE_URL."/tmpl/product_list.html";
 
-        //拼团数据
-        $model_pintuan = Model('p_pintuan');
+        //团购数据
+        $model_groupbuy= Model('groupbuy');
         $condition = array();
-        if (isset($_GET['pintua_state'])) {
-            $condition['state'] = intval($_GET['pintuan_state']);
+        if (isset($_GET['groupbuy_state'])) {
+            $condition['state'] = intval($_GET['groupbuy_state']);
         }
         $limit = 0;
-        if (isset($_GET['pintuan_limit'])) {
-            $limit = intval($_GET['pintuan_limit']);
+        if (isset($_GET['groupbuy_limit'])) {
+            $limit = intval($_GET['groupbuy_limit']);
         }
-        $list = $model_pintuan->getGoodsList($condition, null, 'pintuan_goods_id desc', '*',$limit);
-        $pintuan_list = array();
+        $list = $model_groupbuy->getGroupbuyList($condition, null, 'goods_id desc', '*',$limit);
+        $groupbuy_list = array();
         $cnt = 0;
         foreach ($list as $k => $_info) {
             if ($now < $_info['start_time'] || $now >$_info['end_time']){
                 continue;
             }
-             $pintuan_list[$cnt]['pintuan_name'] = $_info['pintuan_name'];
-             $pintuan_list[$cnt]['pintuan_price'] = $_info['pintuan_price'];
-             $pintuan_list[$cnt]['goods_name'] = $_info['goods_name'];
-             $pintuan_list[$cnt]['goods_price'] = $_info['goods_price'];
-             $pintuan_list[$cnt]['goods_image'] = self::parse_image_url($_info['goods_image']);
-             $pintuan_list[$cnt]['min_num'] = $_info['min_num'];
-             $pintuan_list[$cnt]['start_time'] = $_info['start_time'];
-             $pintuan_list[$cnt]['end_time'] = $_info['end_time'];
-             $pintuan_list[$cnt]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
+             $groupbuy_list[$cnt]['groupbuy_name'] = $_info['groupbuy_name'];
+             $groupbuy_list[$cnt]['groupbuy_price'] = $_info['groupbuy_price'];
+             $groupbuy_list[$cnt]['goods_name'] = $_info['goods_name'];
+             $groupbuy_list[$cnt]['goods_price'] = $_info['goods_price'];
+             $groupbuy_list[$cnt]['goods_image'] = self::parse_image_url($_info['goods_image']);
+             $groupbuy_list[$cnt]['upper_limit'] = $_info['upper_limit'];
+             $groupbuy_list[$cnt]['start_time'] = $_info['start_time'];
+             $groupbuy_list[$cnt]['end_time'] = $_info['end_time'];
+             $groupbuy_list[$cnt]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
              $cnt = $cnt+1;
         }
-        $pintuan_url = WAP_SITE_URL."/tmpl/product_list.html?groupbuy=1";
+        $groupbuy_url = WAP_SITE_URL."/tmpl/product_list.html?groupbuy=1";
         
         //栏目跳转
-        output_data(array('recommend_url'=>'', 'recommend_goods_list'=> $recommend_goods_list, 'pintuan_url'=>$pintuan_url, 'pintuan_list'=> $pintuan_list));
+        output_data(array('recommend_url'=>$recommend_url, 'recommend_goods_list'=> $recommend_goods_list, 'groupbuy_url'=>$groupbuy_url, 'groupbuy_goods_list'=> $groupbuy_list));
     }
     
     private static function parse_image_url($image_file){

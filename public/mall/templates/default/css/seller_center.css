@@ -445,12 +445,14 @@ a:focus, a:active { text-decoration: none;}
 .ncsc-form-default dl dd p { clear: both;}
 
 /*511613932*/
+/*
 .ncsc-form-default dl dd ul{ width:100%;}
 .ncsc-form-default dl dd ul li{ width:23%; height:112PX; float:left; margin:3px 1%; display:inline-block;}
 .ncsc-form-default dl dd ul li img{ width:170px; height:108px; border:2px solid #FFF;}
 .ncsc-form-default dl dd ul li.select{ padding:0; border:0;}
 .ncsc-form-default dl dd ul li.select img{ border:2px solid #D000C2;}
 .ncsc-form-default dl dd ul li input{ display:none;}
+*/
 
 
 

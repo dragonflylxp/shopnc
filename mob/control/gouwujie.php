@@ -20,71 +20,34 @@ class gouwujieControl extends mobileHomeControl {
     }
 
     public function infoOp() {
-        $now = time();
-        //限时折扣
-        $model_xianshi = Model('p_xianshi_goods');
-        $condition = array();
-        if (isset($_GET['xianshi_state'])) {
-            $condition['state'] = intval($_GET['xianshi_state']);
+        $categroies_map = array(
+            "equipment" => 1406,
+            "makeup"    => 486,
+            "baby"      => 1403
+        );
+
+        $categroies = array();
+        foreach($categroies_map as $categroy => $gc_id){
+            $categroies[$categroy] = $this->get_categroy($gc_id);
         }
-        $limit = 0;
-        if (isset($_GET['xianshi_limit'])) {
-            $limit = intval($_GET['xianshi_limit']);
-        }
-        $list = $model_xianshi->getXianshiGoodsList($condition, null, '', '*', $limit);
-        $xianshi_list = array();
-        $cnt = 0;
-        foreach ($list as $k => $_info) {
-            if ($now < $_info['start_time'] || $now >$_info['end_time']){
-                continue;
-            }
-            $xianshi_list[$cnt]['xianshi_name'] = $_info['xianshi_name'];
-            $xianshi_list[$cnt]['xianshi_price'] = $_info['xianshi_price'];
-            $xianshi_list[$cnt]['goods_name'] = $_info['goods_name'];
-            $xianshi_list[$cnt]['goods_price'] = $_info['goods_price'];
-            $xianshi_list[$cnt]['goods_image'] = $_info['goods_image'];
-            $xianshi_list[$cnt]['goods_image'] = self::parse_image_url($_info['goods_image']);
-            $xianshi_list[$cnt]['start_time'] = $_info['start_time'];
-            $xianshi_list[$cnt]['end_time'] = $_info['end_time'];
-            $xianshi_list[$cnt]['lower_limit'] = $_info['lower_limit'];
-            $xianshi_list[$cnt]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
-            $cnt = $cnt+1;
-        }
-        
-        //拼团数据
-        $model_pintuan = Model('p_pintuan');
-        $condition = array();
-        if (isset($_GET['pintua_state'])) {
-            $condition['state'] = intval($_GET['pintuan_state']);
-        }
-        $limit = 0;
-        if (isset($_GET['pintuan_limit'])) {
-            $limit = intval($_GET['pintuan_limit']);
-        }
-        $list = $model_pintuan->getGoodsList($condition, null, 'pintuan_goods_id desc', '*',$limit);
-        $pintuan_list = array();
-        $cnt = 0;
-        foreach ($list as $k => $_info) {
-            if ($now < $_info['start_time'] || $now >$_info['end_time']){
-                continue;
-            }
-             $pintuan_list[$cnt]['pintuan_name'] = $_info['pintuan_name'];
-             $pintuan_list[$cnt]['pintuan_price'] = $_info['pintuan_price'];
-             $pintuan_list[$cnt]['goods_name'] = $_info['goods_name'];
-             $pintuan_list[$cnt]['goods_price'] = $_info['goods_price'];
-             $pintuan_list[$cnt]['goods_image'] = self::parse_image_url($_info['goods_image']);
-             $pintuan_list[$cnt]['min_num'] = $_info['min_num'];
-             $pintuan_list[$cnt]['start_time'] = $_info['start_time'];
-             $pintuan_list[$cnt]['end_time'] = $_info['end_time'];
-             $pintuan_list[$cnt]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
-             $cnt = $cnt+1;
-        }
-        
-        //栏目跳转
-        $xianshi_url = WAP_SITE_URL."/tmpl/product_list.html?xianshi=1";
-        $pintuan_url = WAP_SITE_URL."/tmpl/product_list.html?groupbuy=1";
-        output_data(array('xianshi_url'=>$xianshi_url, 'pintuan_url'=>$pintuan_url,'xianshi_list'=> $xianshi_list,'pintuan_list'=> $pintuan_list));
+        output_data($categroies);
     }
+
+    private function get_categroy($gc_id){
+        $categroy_url = WAP_SITE_URL."/tmpl/product_list.html?gc_id=".$gc_id;
+        $model_goods = Model('goods');
+        $condition = array();
+        $condition['goods.gc_id'] = $gc_id;
+        $list = $model_goods->getGoodsList($condition);
+        $categroy_list = array();
+        foreach ($list as $k => $_info) {
+             $categroy_list[$k]['goods_name'] = $_info['goods_name'];
+             $categroy_list[$k]['goods_price'] = $_info['goods_price'];
+             $categroy_list[$k]['goods_image'] = self::parse_image_url($_info['goods_image']);
+             $categroy_list[$k]['product_detail'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$_info['goods_id'];
+        }
+	return array("categroy_url"=>$categroy_url, "categroy_list"=>$categroy_list); 
+    } 
     
     private static function parse_image_url($image_file){
         $split = explode('_', $image_file);
