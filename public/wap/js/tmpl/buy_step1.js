@@ -279,9 +279,11 @@ $(function() {
                         var able_discount = max_discount <= current_total_price ? max_discount : current_total_price;
                         var able_integral = Math.floor(able_discount/result.datas.integral_list[k].sysBuyingRate); 
                         jfPrice[k] = able_integral*result.datas.integral_list[k].sysBuyingRate;
-                        current_total_price = current_total_price - jfPrice[k];
-                        jfOrder[k] = result.datas.integral_list[k].integralType+'|'+able_integral+'|'+jfPrice[k];
-                        var jfInfo = '已用<font color="red">'+able_integral+'</font>积分抵扣<font color="red">'+jfPrice[k]+'</font>元';
+                        current_total_price = current_total_price > jfPrice[k] ? current_total_price - jfPrice[k] : 0.00;
+                        if(jfPrice[k] > 0){
+                            jfOrder[k] = result.datas.integral_list[k].integralType+'|'+able_integral+'|'+jfPrice[k];
+                        }
+                        var jfInfo = '已用<font color="red">'+able_integral+'</font>积分抵扣<font color="red">'+jfPrice[k].toFixed(2)+'</font>元';
                         $('#jfInfo'+k).html(jfInfo);
                     } else {
                         current_total_price = current_total_price + jfPrice[k];
