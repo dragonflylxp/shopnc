@@ -5501,7 +5501,7 @@
   256 => 
   array (
     'gc_id' => '256',
-    'gc_name' => '数码办公',
+    'gc_name' => '數碼辦公',
     'type_id' => '12',
     'type_name' => '数码办公',
     'gc_parent_id' => '0',
@@ -7652,7 +7652,7 @@
       1034 => 
       array (
         'gc_id' => '1034',
-        'gc_name' => '手机通讯',
+        'gc_name' => '手機通訊',
         'type_id' => '12',
         'type_name' => '数码办公',
         'gc_parent_id' => '256',
@@ -7686,6 +7686,21 @@
             'gc_name' => '对讲机',
             'type_id' => '12',
             'type_name' => '数码办公',
+            'gc_parent_id' => '1034',
+            'commis_rate' => '11.7',
+            'gc_sort' => '255',
+            'gc_virtual' => '0',
+            'gc_title' => '',
+            'gc_keywords' => '',
+            'gc_description' => '',
+            'show_type' => '1',
+          ),
+          1407 => 
+          array (
+            'gc_id' => '1407',
+            'gc_name' => '手機通訊',
+            'type_id' => '12',
+            'type_name' => '',
             'gc_parent_id' => '1034',
             'commis_rate' => '11.7',
             'gc_sort' => '255',
