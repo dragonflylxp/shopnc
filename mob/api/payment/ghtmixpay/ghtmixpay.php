@@ -257,6 +257,8 @@ class ghtmixpay {
         }
 
         //H5收银台token
+        //wgTokenId入库,用于重复支付
+        $this->setOrderWgtokenId($param['order_sn'], $result['body']['wgTokenId']);
         return $result['body']['wgTokenId'];
     }
 
@@ -264,16 +266,20 @@ class ghtmixpay {
      * 高汇通收银台
     */
     public function submit($param){
-        //step1: C端预下单得到prePayTonkenId
-        $prePayTonkenId = $this->preorder($param);
+        //重复支付无需再发起预支付
+        $wgTokenId = $this->getOrderWgtokenId($param['order_sn']);
+        if(empty($wgTokenId)){
+            //step1: C端预下单得到prePayTonkenId
+            $prePayTonkenId = $this->preorder($param);
 
-        //step2: 混合支付(积分+现金)得到wgTokenId
-        $param['prePayTonkenId'] = $prePayTonkenId;
-        $wgTokenId= $this->mixpay($param);
-        if($wgTokenId == 'redirect'){
-            redirect($this->return_url.'?redirect=1&order_no='.$param['order_sn'].'&pay_no='.$prePayTonkenId);        
-            return;
-        }
+            //step2: 混合支付(积分+现金)得到wgTokenId
+            $param['prePayTonkenId'] = $prePayTonkenId;
+            $wgTokenId= $this->mixpay($param);
+            if($wgTokenId == 'redirect'){
+                redirect($this->return_url.'?redirect=1&order_no='.$param['order_sn'].'&pay_no='.$prePayTonkenId);        
+                return;
+            }
+        } 
 
         //step3: H5收银台
         $params = array();
@@ -426,6 +432,27 @@ transitional.dtd">
         $sign = strtolower(hash("sha256",$signPars));
         $tenpaySign = strtolower($params["sign"]);
         return $sign == $tenpaySign;
+    }
+
+    /**
+    *查询支付订单wgtokenId信息
+    */
+    private function getOrderWgtokenId($pay_sn) {
+        $model_order = Model("order");
+        $order_pay_info = $model_order->getOrderPayInfo(array('pay_sn'=>$pay_sn));
+        if(!empty($order_pay_info)){
+            return $order_pay_info['wgtokenId'];
+        }else{
+            return '';
+        }
+    }
+
+    /**
+    * wgtokenId入支付订单表
+    */
+    private function setOrderWgtokenId($pay_sn, $wgtokenId) {
+        $model_order = Model("order");
+        $model_order->editOrderPay(array('wgtokenId'=>$wgtokenId), array('pay_sn'=>$pay_sn));
     }
 }
 ?>
