@@ -28,13 +28,11 @@ class RSACrypt
         if ($public_key_file) {
             $this->pubKeyFile = $public_key_file;
         }else{
-            //$this->pubKeyFile = __DIR__."/../key/rsa_public_key.pem"; 
             $this->pubKeyFile = BASE_CORE_PATH."/common/key/rsa_public_key.pem"; 
         }
         if ($private_key_file) {
             $this->priKeyFile = $private_key_file;
         }else{
-            //$this->priKeyFile = __DIR__."/../key/rsa_private_key.pem";  
             $this->priKeyFile = BASE_CORE_PATH."/common/key/rsa_private_key.pem";  
         }
         $this->_getPublicKey($this->pubKeyFile);

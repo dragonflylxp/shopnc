@@ -109,7 +109,7 @@ class member_buyControl extends mobileMemberControl {
         $inc_file = BASE_PATH.DS.'api'.DS.'payment'.DS.'ghtmixpay'.DS.'ghtmixpay.php';
         if(is_file($inc_file)){
             require($inc_file);
-            $ghtmixpay = new ghtmixpay(); 
+            $ghtmixpay = new ghtmixpay($config_api); 
             $integral_list = $ghtmixpay->balance(array('user_no'=>$member_info['member_merchantid']));
 
             //top5

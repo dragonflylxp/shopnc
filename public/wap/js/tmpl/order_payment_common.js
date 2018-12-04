@@ -21,8 +21,12 @@ var password,rcb_pay,pd_pay,payment_code;
                  });
                  return false;
              }
+
+             // 默认支付方式，自动确认支付
+             /*
              // 从下到上动态显示隐藏内容
              $.animationUp({valve:'',scroll:''});
+             */
              
              // 需要支付金额
              $('#onlineTotal').html(result.datas.pay_info.pay_amount);
@@ -179,8 +183,21 @@ var password,rcb_pay,pd_pay,payment_code;
              $('#wxpay_jsapi').click(function(){
                  payment_code = 'wxpay_jsapi';
              });
-
-             $('#toPay').click(function(){
+             
+             // 默认支付方式，自动确认支付
+             // 立即支付
+             _toPay();
+             // 延迟1秒支付
+             /*
+             $('#toPay').attr("disabled", true); 
+             $('#toPay').attr("value", "正在跳转支付网关");
+             setTimeout(function() { 
+                 _toPay();
+             },1000) 
+             */
+                 
+             //$('#toPay').click(function(){
+             function _toPay(){
                  if (payment_code == '') {
                      $.sDialog({
                          skin:"red",
@@ -223,11 +240,12 @@ var password,rcb_pay,pd_pay,payment_code;
                  } else {
                 	 goToPayment(pay_sn,act == 'member_buy' ? 'pay_new' : 'vr_pay_new');
                  }
-             });
+             //});
+             }
          }
      });
  }
 
- function goToPayment(pay_sn,op) {
+function goToPayment(pay_sn,op) {
      location.href = ApiUrl+'/index.php?con=member_payment&fun='+op+'&key=' + key + '&pay_sn=' + pay_sn + '&password=' + password + '&rcb_pay=' + rcb_pay + '&pd_pay=' + pd_pay + '&payment_code=' + payment_code;
- }
+}

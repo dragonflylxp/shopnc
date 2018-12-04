@@ -6,24 +6,25 @@
 
 defined('Inshopec') or exit('Access Invalid!');
 
+require_once(BASE_CORE_PATH."/common/key/config.api.php");
 require_once(BASE_CORE_PATH."/common/lib/rsa.php");
 require_once(BASE_CORE_PATH."/common/lib/aes.php");
 
 class MerchantIdVerify {
     /* 版本号 */
-    private $version = "2.0.0"; 
+    private $version = ""; 
 
     /* 用户所属机构号 */
-    private $merchant_no = "549034555110003";  
+    private $merchant_no = "";  
 
     /* 交易服务号 */
-    private $tranCode = "100022";
+    private $tranCode = "";
 
     /* 报文类型*/
-    private $msgType= "01";
+    private $msgType= "";
 
     /* 接口 */
-    private $reqUrl = "https://devpay.sicpay.com/interfaceWeb/qryUser"; 
+    private $reqUrl = ""; 
 
     /* aes cipher */
     public $aes_cipher = null;
@@ -32,7 +33,12 @@ class MerchantIdVerify {
     public $rsa_cipher = null;
 
 
-    public function __construct(){
+    public function __construct($config_api){
+        $this->version     = $config_api['idverify']['version'];
+        $this->merchant_no = $config_api['idverify']['merchant_no'];
+        $this->tranCode    = $config_api['idverify']['tranCode'];
+        $this->msgType     = $config_api['idverify']['msgType'];
+        $this->reqUrl      = $config_api['idverify']['reqUrl'];
         $this->aes_cipher = new AESCrypt(); 
         $this->rsa_cipher = new RSACrypt();
     }

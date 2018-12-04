@@ -69,7 +69,7 @@ class loginControl extends mobileHomeControl {
 
         if(is_file($inc_file)) {
             require($inc_file);
-            $verify = new MerchantIdVerify();
+            $verify = new MerchantIdVerify($config_api);
             return $verify->do_verify($agencyid,$merchantid);
         }
         return false; 

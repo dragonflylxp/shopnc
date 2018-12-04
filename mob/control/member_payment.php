@@ -265,6 +265,7 @@ class member_paymentControl extends mobileMemberControl {
             exit('支付接口不存在');
         }
         require($inc_file);
+        $payment_api = new $this->payment_code();
         
         $param = $this->payment_config;
 
@@ -298,6 +299,7 @@ class member_paymentControl extends mobileMemberControl {
 
         // 高汇通混合支付参数
         if ($this->payment_code == 'ghtmixpay') {
+            $payment_api = new $this->payment_code($config_api);
             $param['user_no'] = $this->member_info['member_merchantid'];
             $param['agencyid'] = $this->member_info['member_agencyid'];
             $param['product_name'] = base64_encode('壹分商城商品');
@@ -323,7 +325,6 @@ class member_paymentControl extends mobileMemberControl {
         $param['order_sn'] = $order_pay_info['pay_sn'];
         $param['order_amount'] = $order_pay_info['api_pay_amount'];
         $param['order_type'] = ($order_pay_info['order_type'] == 'real_order' ? 'r' : 'v');
-        $payment_api = new $this->payment_code();
         $return = $payment_api->submit($param);
         echo $return;
         exit;

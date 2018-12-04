@@ -5,57 +5,58 @@
  */
 defined('Inshopec') or exit('Access Invalid!');
 
+require_once(BASE_CORE_PATH."/common/key/config.api.php");
 require_once(BASE_CORE_PATH."/common/lib/rsa.php");
 require_once(BASE_CORE_PATH."/common/lib/aes.php");
 
 class ghtmixpay {
     /* 版本号 */
-    private $version = "2.0.0";
+    private $version = "";
 
     /* 产品id */
-    private $appid= "yifen";
+    private $appid= "";
 
     /* 用户所属机构号 */
-    private $merchant_no = "549034555110003";  
+    private $merchant_no = "";  
 
     /* 终端号 */
-    private $terminal_no = "20002825";         
+    private $terminal_no = "";         
 
     /* 交易服务号 */
-    private $tranCode = "111111";
+    private $tranCode = "";
 
     /* 报文类型*/
-    private $msgType= "01";
+    private $msgType= "";
 
     /* 货币代码，人民币：CNY    */     
-    private $currency_type = 'CNY';
+    private $currency_type = '';
 
     /* 清算货币代码，人民币：CNY    */     
-    private $sett_currency_type = 'CNY';
+    private $sett_currency_type = '';
 
     /* 交易完成后页面即时通知跳转的URL */  
-    private $return_url = "";//MOBILE_SITE_URL.'/return_url.php';
+    private $return_url = "";
   
     /* 接收后台通知的URL */ 
-    private $notify_url = "";//MOBILE_SITE_URL.'/notify_url.php';
+    private $notify_url = "";
 
     /* 直连银行参数  */
     private $bank_code = '';
 
     /* 积分余额查询接口 */
-    private $balanceUrl  = "https://epay.gaohuitong.com/person_interface/appUserCustomer/queryIntegral";
+    private $balanceUrl  = "";
 
     /* C端预下单接口 */
-    private $preorderUrl = "https://epay.gaohuitong.com/person_interface/appUserCustomer/preYwOrder";
+    private $preorderUrl = "";
 
     /* 混合支付接口 */
-    private $mixpayUrl = "https://epay.gaohuitong.com/person_interface/appUserCustomer/admixPay";
+    private $mixpayUrl = "";
 
     /* H5收银台接口 */
-    private $gateUrl   = "https://epay.gaohuitong.com/preEntry.do";
+    private $gateUrl   = "";
 
     /* sha256 key */
-    public $sha256_key = "86e95511065149220b43b618e7f6725d";   
+    public $sha256_key = "";   
 
     /* aes cipher */
     private $aes_cipher = null;
@@ -63,11 +64,25 @@ class ghtmixpay {
     /* rsa cipher */
     private $rsa_cipher = null;
 
-    public function __construct(){
-        $this->aes_cipher = new AESCrypt();
-        $this->rsa_cipher = new RSACrypt();
+    public function __construct($config_api){
+        $this->version            = $config_api['ghtmixpay']['version'];
+        $this->appid              = $config_api['ghtmixpay']['appid'];
+        $this->merchant_no        = $config_api['ghtmixpay']['merchant_no'];
+        $this->terminal_no        = $config_api['ghtmixpay']['terminal_no'];
+        $this->tranCode           = $config_api['ghtmixpay']['tranCode'];
+        $this->msgType            = $config_api['ghtmixpay']['msgType'];
+        $this->currency_type      = $config_api['ghtmixpay']['currency_type'];
+        $this->sett_currency_type = $config_api['ghtmixpay']['sett_currency_type'];
+        $this->bank_code          = $config_api['ghtmixpay']['bank_code'];
+        $this->balanceUrl         = $config_api['ghtmixpay']['balanceUrl'];
+        $this->preorderUrl        = $config_api['ghtmixpay']['preorderUrl'];
+        $this->mixpayUrl          = $config_api['ghtmixpay']['mixpayUrl'];
+        $this->gateUrl            = $config_api['ghtmixpay']['gateUrl'];
+        $this->ha256_key          = $config_api['ghtmixpay']['sha256_key'];
         $this->return_url = MOBILE_SITE_URL.'/return_url.php';
         $this->notify_url = MOBILE_SITE_URL.'/notify_url.php';
+        $this->aes_cipher = new AESCrypt();
+        $this->rsa_cipher = new RSACrypt();
     }
 
     /**
