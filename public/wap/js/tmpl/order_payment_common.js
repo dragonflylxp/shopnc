@@ -1,7 +1,7 @@
-var key = getCookie('key');
 var password,rcb_pay,pd_pay,payment_code;
  // 现在支付方式
  function toPay(pay_sn,act,op) {
+     var key = getCookie('key');
      $.ajax({
          type:'post',
          url:ApiUrl+'/index.php?con='+act+'&fun='+op,
@@ -247,5 +247,6 @@ var password,rcb_pay,pd_pay,payment_code;
  }
 
 function goToPayment(pay_sn,op) {
+     var key = getCookie('key');
      location.href = ApiUrl+'/index.php?con=member_payment&fun='+op+'&key=' + key + '&pay_sn=' + pay_sn + '&password=' + password + '&rcb_pay=' + rcb_pay + '&pd_pay=' + pd_pay + '&payment_code=' + payment_code;
 }
