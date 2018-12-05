@@ -294,7 +294,7 @@ class member_paymentControl extends mobileMemberControl {
         // 高汇通支付配置不读mysql,读文件配置
         if ($this->payment_code == 'ghtpay') {
             $param = $ghtpay_config;
-            $param['product_name'] = base64_encode('中国消费金融商城商品');
+            $param['product_name'] = '中国消费金融商城商品';
         }
 
         // 高汇通混合支付参数
@@ -302,7 +302,7 @@ class member_paymentControl extends mobileMemberControl {
             $payment_api = new $this->payment_code($config_api);
             $param['user_no'] = $this->member_info['member_merchantid'];
             $param['agencyid'] = $this->member_info['member_agencyid'];
-            $param['product_name'] = base64_encode('中国消费金融商城商品');
+            $param['product_name'] = '中国消费金融商城商品';
             $param['jf_orders'] = array();
             $param['jf_amount'] = 0;
             if($order_pay_info['jforderstr']){
