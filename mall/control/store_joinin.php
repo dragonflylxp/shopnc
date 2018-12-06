@@ -146,6 +146,9 @@ class store_joininControl extends BaseHomeControl {
             } else {
                 $model_store_joinin->modify($param, array('member_id'=>$_SESSION['member_id']));
             }
+
+            $bank_list = $model_store_joinin->getBankList();
+            Tpl::output('bank_list', $bank_list);
         }
         Tpl::output('step', '2');
         Tpl::output('sub_step', 'step2');
@@ -189,6 +192,7 @@ class store_joininControl extends BaseHomeControl {
             $param = array();
             $param['bank_account_name'] = $_POST['bank_account_name'];
             $param['bank_account_number'] = $_POST['bank_account_number'];
+            $param['bank_no'] = $_POST['bank_no'];
             $param['bank_name'] = $_POST['bank_name'];
             $param['bank_code'] = $_POST['bank_code'];
             $param['bank_address'] = $_POST['bank_address'];
@@ -197,6 +201,7 @@ class store_joininControl extends BaseHomeControl {
                 $param['is_settlement_account'] = 1;
                 $param['settlement_bank_account_name'] = $_POST['bank_account_name'];
                 $param['settlement_bank_account_number'] = $_POST['bank_account_number'];
+                $param['settlement_bank_no'] = $_POST['bank_no'];
                 $param['settlement_bank_name'] = $_POST['bank_name'];
                 $param['settlement_bank_code'] = $_POST['bank_code'];
                 $param['settlement_bank_address'] = $_POST['bank_address'];
@@ -204,6 +209,7 @@ class store_joininControl extends BaseHomeControl {
                 $param['is_settlement_account'] = 2;
                 $param['settlement_bank_account_name'] = $_POST['settlement_bank_account_name'];
                 $param['settlement_bank_account_number'] = $_POST['settlement_bank_account_number'];
+                $param['settlement_bank_no'] = $_POST['settlement_bank_no'];
                 $param['settlement_bank_name'] = $_POST['settlement_bank_name'];
                 $param['settlement_bank_code'] = $_POST['settlement_bank_code'];
                 $param['settlement_bank_address'] = $_POST['settlement_bank_address'];
@@ -249,6 +255,11 @@ class store_joininControl extends BaseHomeControl {
         $store_class = $model_store->getStoreClassList(array(),'',false);
         Tpl::output('store_class', $store_class);
 
+        //经营类目
+        $gcno_list = $model_store_joinin->getGcnoList();
+        Tpl::output('gcno_list', $gcno_list);
+ 
+
         Tpl::output('step', '3');
         Tpl::output('sub_step', 'step3');
         Tpl::showpage('store_joinin_apply');
@@ -258,6 +269,7 @@ class store_joininControl extends BaseHomeControl {
     private function step3_save_valid($param) {
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
+            array("input"=>$param['bank_no'], "require"=>"true","请选择银行"),
             array("input"=>$param['bank_account_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"银行开户名不能为空且必须小于50个字"),
             array("input"=>$param['bank_account_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"40","message"=>"银行账号不能为空且必须小于40个字"),
             array("input"=>$param['bank_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"开户银行支行名称不能为空且必须小于50个字"),
@@ -266,6 +278,7 @@ class store_joininControl extends BaseHomeControl {
             array("input"=>$param['bank_licence_electronic'], "require"=>"true","开户银行许可证电子版不能为空"),
             array("input"=>$param['settlement_bank_account_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"银行开户名不能为空且必须小于50个字"),
             array("input"=>$param['settlement_bank_account_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"银行账号不能为空且必须小于20个字"),
+            array("input"=>$param['settlement_bank_no'], "require"=>"true","请选择银行"),
             array("input"=>$param['settlement_bank_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"开户银行支行名称不能为空且必须小于50个字"),
             array("input"=>$param['settlement_bank_code'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"支行联行号不能为空且必须小于20个字"),
             array("input"=>$param['settlement_bank_address'], "require"=>"true","开户行所在地不能为空"),
@@ -342,6 +355,7 @@ class store_joininControl extends BaseHomeControl {
         $param['authorization'] = $_POST['authorization1'];
         $param['other_qualifications'] = $_POST['other_qualifications1'];
         $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
+        $param['gc_no'] = $_POST['gc_no'];
 
         //取店铺等级信息
         $grade_list = rkcache('store_grade',true);
@@ -373,6 +387,7 @@ class store_joininControl extends BaseHomeControl {
         $obj_validate = new Validate();
         $obj_validate->validateparam = array(
             array("input"=>$param['store_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"店铺名称不能为空且必须小于50个字"),
+            array("input"=>$param['gc_no'], "require"=>"true","message"=>"经营类目不能为空"),
             array("input"=>$param['sg_id'], "require"=>"true","message"=>"店铺等级不能为空"),
             array("input"=>$param['sc_id'], "require"=>"true","message"=>"店铺分类不能为空"),
             array("input"=>$param['quality_report'], "require"=>"true","message"=>"质检报告扫描件或产品质量合格证明电子版不能为空"),
@@ -509,7 +524,5 @@ class store_joininControl extends BaseHomeControl {
         Tpl::output('pic_url',UPLOAD_SITE_URL.DS.ATTACH_PATH.DS.'store_joinin'.DS);
         Tpl::output('store_info', $rs);
     }
-
-
-
 }
+?>

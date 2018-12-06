@@ -6,28 +6,29 @@
 
 defined('Inshopec') or exit('Access Invalid!');
 
+require_once(BASE_CORE_PATH."/common/key/config.api.php");
 require_once(BASE_CORE_PATH."/common/lib/rsa.php");
 require_once(BASE_CORE_PATH."/common/lib/aes.php");
 
 class MerchantRegister{
     /* 版本号 */
-    private $version = "2.0.0"; 
+    private $version = ""; 
 
     /* 用户所属机构号 */
-    private $merchant_no = "549034555110003";  
+    private $merchant_no = "";  
 
     /* 交易服务号 */
-    private $basicInfotranCode = "100001";
-    private $bankInfotranCode  = "100002";
-    private $busiInfotranCode  = "100003";
+    private $basicInfotranCode = "";
+    private $bankInfotranCode  = "";
+    private $busiInfotranCode  = "";
 
     /* 报文类型*/
-    private $msgType= "01";
+    private $msgType= "";
 
     /* 接口 */
-    private $basicInfoUrl = "https://testpay.sicpay.com/interfaceWeb/basicInfo"; 
-    private $bankInfoUrl  = "https://testpay.sicpay.com/interfaceWeb/bankInfo"; 
-    private $busiInfoUrl  = "https://testpay.sicpay.com/interfaceWeb/busiInfo"; 
+    private $basicInfoUrl = ""; 
+    private $bankInfoUrl  = ""; 
+    private $busiInfoUrl  = ""; 
 
     /* aes cipher */
     public $aes_cipher = null;
@@ -36,7 +37,16 @@ class MerchantRegister{
     public $rsa_cipher = null;
 
 
-    public function __construct(){
+    public function __construct($config_api){
+        $this->version           = $config_api['register']['version'];
+        $this->merchant_no       = $config_api['register']['merchant_no'];
+        $this->basicInfotranCode = $config_api['register']['basicInfotranCode'];
+        $this->bankInfotranCode  = $config_api['register']['bankInfotranCode'];
+        $this->busiInfotranCode  = $config_api['register']['busiInfotranCode'];
+        $this->msgType           = $config_api['register']['msgType'];
+        $this->basicInfoUrl      = $config_api['register']['basicInfoUrl'];
+        $this->bankInfoUrl       = $config_api['register']['bankInfoUrl'];
+        $this->busiInfoUrl       = $config_api['register']['busiInfoUrl'];
         $this->aes_cipher = new AESCrypt(); 
         $this->rsa_cipher = new RSACrypt();
     }
@@ -151,6 +161,7 @@ class MerchantRegister{
      * 执行请求 
      */ 
     private function _make_request($xml, $reqUrl, $tranCode){
+        //var_dump($xml);
         $encryptData = $this->aes_cipher->encrypt($xml);
         $signData = $this->rsa_cipher->sign($xml);
         $encryptKey = $this->rsa_cipher->encrypt($this->aes_cipher->get_aes_key());
@@ -162,6 +173,7 @@ class MerchantRegister{
         $post_data['encryptKey'] = $encryptKey;
         $post_data['agencyId'] = $this->merchant_no;
         $post_data['tranCode'] = $tranCode;
+        //var_dump($post_data);
         $resp = curl_post($reqUrl, $post_data);
         return $resp; 
     }

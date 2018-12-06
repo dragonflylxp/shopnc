@@ -100,6 +100,19 @@
         </tr>
         <tr>
           <th><i>*</i>经营类目：</th>
+          <td><select name="gc_no" id="gc_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['gcno_list']) && is_array($output['gcno_list'])){ ?>
+              <?php foreach($output['gcno_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['gc_no'];?>"><?php echo $v['gc_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <span></span>
+        </td>
+        </tr>
+        <tr>
+          <th><i>*</i>经营类目：</th>
           <td><a href="javascript:;" id="btn_select_category" class="btn">+选择添加类目</a>
             <div id="gcategory" style="display:none;">
               <select id="gcategory_class1">
@@ -284,9 +297,11 @@ $(document).ready(function(){
     var m_sg_id =  "<?php echo $output['store_info']['sg_id']; ?>"; //
     var m_joinin_year = "<?php echo $output['store_info']['joinin_year']; ?>"; //开店时间
     var m_sc_id = "<?php echo $output['store_info']['sc_id']; ?>"; //店铺分类
+    var m_gc_no =  "<?php echo $output['store_info']['gc_no']; ?>"; 
     m_setval('sg_id',m_sg_id);
     m_setval('joinin_year',m_joinin_year);
     m_setval('sc_id',m_sc_id);
+    m_setval('gc_no',m_gc_no);
     select_store_class_count();
 
 //    授权书js

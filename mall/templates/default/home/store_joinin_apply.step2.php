@@ -33,6 +33,19 @@
       </thead>
       <tbody>
         <tr>
+          <th><i>*</i>银行：</th>
+          <td><select name="bank_no" id="bank_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+              <?php foreach($output['bank_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['bank_no'];?>"><?php echo $v['bank_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <span></span>
+         </td>
+        </tr>
+        <tr>
           <th class="w150"><i>*</i>银行开户名：</th>
           <td><input name="bank_account_name" type="text" class="w200" value="<?php echo $output['store_info']['bank_account_name']; ?>" />
             <span></span></td>
@@ -93,6 +106,19 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+             <th><i>*</i>银行：</th>
+             <td><select name="settlement_bank_no" id="settlement_bank_no">
+		  <option value="">请选择</option>
+		  <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+		  <?php foreach($output['bank_list'] as $k => $v){ ?>
+		  <option value="<?php echo $v['bank_no'];?>"><?php echo $v['bank_name'];?></option>
+		  <?php } ?>
+		  <?php } ?>
+		</select>
+		<span></span>
+	     </td>
+          </tr>
           <tr>
             <th class="w150"><i>*</i>银行开户名：</th>
             <td><input id="settlement_bank_account_name" name="settlement_bank_account_name" type="text" class="w200" value="<?php echo $output['store_info']['settlement_bank_account_name']; ?>"/>
@@ -170,6 +196,12 @@
   <div class="bottom"><a id="btn_apply_credentials_next" href="javascript:;" class="btn">下一步，提交店铺经营信息</a></div>
 </div>
 <script type="text/javascript">
+function m_setval($obj,$val){
+   if($val != "" && $val != null && $val != undefined){
+       $("#"+$obj).val($val);
+   }
+}
+
 $(document).ready(function(){
 	<?php foreach (array('tax_registration_certif_elc','bank_licence_electronic') as $input_id) { ?>
     $('input[name="<?php echo $input_id;?>"]').fileupload({
@@ -208,6 +240,12 @@ $(document).ready(function(){
         }
     });
 
+
+    var m_bank_no =  "<?php echo $output['store_info']['bank_no']; ?>"; 
+    var m_settlement_bank_no =  "<?php echo $output['store_info']['settlement_bank_no']; ?>"; 
+    m_setval('bank_no', m_bank_no);
+    m_setval('settlement_bank_no', m_settlement_bank_no);
+
     $("#bank_address").nc_region();
     $("#settlement_bank_address").nc_region();
 
@@ -215,6 +253,7 @@ $(document).ready(function(){
         if($(this).prop("checked")) {
             use_settlement_account = false;  
             $("#div_settlement").hide();
+            $("#settlement_bank_no").val("<?php echo $output['store_info']['settlement_bank_no']; ?>");
             $("#settlement_bank_account_name").val("<?php echo $output['store_info']['settlement_bank_account_name']; ?>");
             $("#settlement_bank_account_number").val("<?php echo $output['store_info']['settlement_bank_account_number']; ?>");
             $("#settlement_bank_name").val("<?php echo $output['store_info']['settlement_bank_name']; ?>");
@@ -231,6 +270,9 @@ $(document).ready(function(){
             element.nextAll('span').first().after(error);
         },
         rules : {
+            bank_no: {
+                required: true
+            },
             bank_account_name: {
                 required: true,
                 maxlength: 50 
@@ -252,6 +294,9 @@ $(document).ready(function(){
             },
             bank_licence_electronic1: {
                 required: true
+            },
+            settlement_bank_no: {
+                required: function() { return use_settlement_account; }
             },
             settlement_bank_account_name: {
                 required: function() { return use_settlement_account; },    
@@ -286,6 +331,9 @@ $(document).ready(function(){
 
         },
         messages : {
+            bank_no: {
+                required: '请选择银行'
+            },
             bank_account_name: {
                 required: '请填写银行开户名',
                 maxlength: jQuery.validator.format("最多{0}个字")
@@ -307,6 +355,9 @@ $(document).ready(function(){
             },
             bank_licence_electronic1: {
                 required: '请选择上传开户银行许可证电子版文件'
+            },
+            settlement_bank_no: {
+                required: '请选择银行'
             },
             settlement_bank_account_name: {
                 required: '请填写银行开户名',

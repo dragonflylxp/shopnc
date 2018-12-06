@@ -138,7 +138,11 @@
     </thead>
     <tbody>
       <tr>
-        <th class="w150">银行开户名：</th>
+        <th class="w150">银行：</th>
+        <td><?php $model_store_joinin = Model('store_joinin'); $bank = $model_store_joinin->getBankList($output['joinin_detail']['bank_no']);echo $bank['bank_name'];?></td>
+      </tr>
+      <tr>
+        <th>银行开户名：</th>
         <td><?php echo $output['joinin_detail']['bank_account_name'];?></td>
       </tr>
       <tr>
@@ -171,6 +175,10 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <th class="w150">银行：</th>
+        <td><?php $model_store_joinin = Model('store_joinin'); $bank = $model_store_joinin->getBankList($output['joinin_detail']['settlement_bank_no']);echo $bank['bank_name'];?></td>
+      </tr>
       <tr>
         <th class="w150">银行开户名：</th>
         <td><?php echo $output['joinin_detail']['settlement_bank_account_name'];?></td>
@@ -253,6 +261,10 @@
             <?php } else { ?>
             <?php echo $output['joinin_detail']['paying_amount'];?> 元
             <?php } ?></td>
+        </tr>
+        <tr>
+          <th>经营类目：</th>
+          <td><?php $model_store_joinin = Model('store_joinin'); $gc = $model_store_joinin->getGcnoList($output['joinin_detail']['gc_no']);echo $gc['gc_name'];?></td>
         </tr>
         <tr>
           <th>经营类目：</th>

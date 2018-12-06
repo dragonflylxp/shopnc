@@ -121,7 +121,7 @@ class storeControl extends SystemControl{
         foreach ($store_list as $value) {
             $param = array();
             $store_state = $this->getStoreState($value);
-            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li>";
+            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li><li><a href='index.php?con=store&fun=store_merchant_basicInfo&store_id=" . $value['store_id'] . "'>商户信息登记</a></li><li><a href='index.php?con=store&fun=store_merchant_busiInfo&store_id=" . $value['store_id'] . "'>开通支付业务</a></li>";
             if (str_cut($store_state, 6) == 'expire'  && cookie('remindRenewal'.$value['store_id']) == null) {
                 $operation .= "<li><a class='expire' href=". urlAdminShop('store', 'remind_renewal', array('store_id'=>$value['store_id'])). ">提醒商家续费</a></li>";
             }
@@ -379,6 +379,122 @@ class storeControl extends SystemControl{
             $result = 'close';
         }
         return $result;
+    }
+
+    /**
+     * 商户信息登记页面 
+     */
+    public function store_merchant_basicInfoOp() {
+        $store_id = intval($_GET['store_id']);
+        $store_array = Model('store')->getStoreInfoByID($store_id);
+        $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
+        Tpl::output('store_array', $store_array);
+        Tpl::output('joinin_detail', $joinin_detail);
+        Tpl::showpage('store.merchant.info');
+    }
+
+    /**
+     * 发起商户信息登记 
+     */
+    public function store_merchant_registerOp() {
+        if (chksubmit()) {
+            $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
+            if(is_file($inc_file)) {
+                require($inc_file);
+                $register = new MerchantRegister($config_api);
+		$basicInfoParams = array();
+                $basicInfoParams['merchantName'] = $_POST['company_name'];
+                $basicInfoParams['shortName'] = $_POST['company_name'];
+                $basicInfoParams['city'] = '5810';
+                $basicInfoParams['merchantAddress'] = $_POST['company_address_detail'];
+                $basicInfoParams['servicePhone'] = $_POST['company_phone'];
+                $basicInfoParams['orgCode'] = $_POST['organization_code'];
+                $basicInfoParams['merchantType'] = $_POST['merchant_type'];
+                $basicInfoParams['category'] = $_POST['gc_no'];
+                $basicInfoParams['corpmanName'] = $_POST['legal_person_name'];
+                $basicInfoParams['corpmanId'] = $_POST['legal_person_id']; 
+                $basicInfoParams['corpmanPhone'] = $_POST['contacts_phone'];
+                $basicInfoParams['corpmanMobile'] = $_POST['contacts_phone'];
+                $basicInfoParams['corpmanEmail'] = $_POST['contacts_email'];
+                $basicInfoParams['bankCode'] = $_POST['bank_no'];
+                $basicInfoParams['bankName'] = $_POST['bank_no_name'];
+                $basicInfoParams['bankaccountNo'] = $_POST['bank_account_number'];
+                $basicInfoParams['bankaccountName'] = $_POST['bank_account_name'];
+                $basicInfoParams['autoCus'] = $_POST['autocus'];
+                $basicInfoParams['remark'] = $_POST['remark'];
+
+                $result = $register->basicInfo($basicInfoParams);
+                if ($result['head'][respType] == 'S') {
+                    $merchantId = $result['body']['merchantId']; 
+                    $merchantName = $result['body']['merchantName']; 
+                    //merchantId入库
+                    $store_array = Model('store')->editStore(array("store_merchantno"=>$merchantId), array("store_id"=>$store_id));
+                      
+                    showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');
+                } else {
+                    showMessage(L('nc_common_op_fail'));
+                }
+            }
+        }
+    }
+
+    /**
+     * 开通支付业务页面 
+     */
+    public function store_merchant_busiInfoOp() {
+        $store_id = intval($_GET['store_id']);
+        $store_array = Model('store')->getStoreInfoByID($store_id);
+        $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
+        $busi_list = Model('store_joinin')->getBusiList();
+        Tpl::output('store_array', $store_array);
+        Tpl::output('joinin_detail', $joinin_detail);
+        Tpl::output('busi_list', $busi_list);
+        Tpl::showpage('store.merchant.pay');
+    }
+
+    /**
+     * 发起开通支付业务
+     */
+    public function store_merchant_payOp() {
+        if (chksubmit()) {
+            $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
+            if(is_file($inc_file)) {
+                require($inc_file);
+                $register = new MerchantRegister($config_api);
+		$basicInfoParams = array();
+                $basicInfoParams['merchantName'] = $_POST['company_name'];
+                $basicInfoParams['shortName'] = $_POST['company_name'];
+                $basicInfoParams['city'] = '5810';
+                $basicInfoParams['merchantAddress'] = $_POST['company_address_detail'];
+                $basicInfoParams['servicePhone'] = $_POST['company_phone'];
+                $basicInfoParams['orgCode'] = $_POST['organization_code'];
+                $basicInfoParams['merchantType'] = $_POST['merchant_type'];
+                $basicInfoParams['category'] = $_POST['gc_no'];
+                $basicInfoParams['corpmanName'] = $_POST['legal_person_name'];
+                $basicInfoParams['corpmanId'] = $_POST['legal_person_id']; 
+                $basicInfoParams['corpmanPhone'] = $_POST['contacts_phone'];
+                $basicInfoParams['corpmanMobile'] = $_POST['contacts_phone'];
+                $basicInfoParams['corpmanEmail'] = $_POST['contacts_email'];
+                $basicInfoParams['bankCode'] = $_POST['bank_no'];
+                $basicInfoParams['bankName'] = $_POST['bank_no_name'];
+                $basicInfoParams['bankaccountNo'] = $_POST['bank_account_number'];
+                $basicInfoParams['bankaccountName'] = $_POST['bank_account_name'];
+                $basicInfoParams['autoCus'] = $_POST['autocus'];
+                $basicInfoParams['remark'] = $_POST['remark'];
+
+                $result = $register->basicInfo($basicInfoParams);
+                if ($result['head'][respType] == 'S') {
+                    $merchantId = $result['body']['merchantId']; 
+                    $merchantName = $result['body']['merchantName']; 
+                    //merchantId入库
+                    $store_array = Model('store')->editStore(array("store_merchantno"=>$merchantId), array("store_id"=>$store_id));
+                      
+                    showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');
+                } else {
+                    showMessage(L('nc_common_op_fail'));
+                }
+            }
+        }
     }
 
     /**
