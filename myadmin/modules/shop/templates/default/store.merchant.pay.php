@@ -41,6 +41,18 @@
         </thead>
         <tbody>
           <tr>
+            <th>操作类型：</th>
+            <td colspan="20">
+              <select name="handleType" id="handleType">
+              <option value="">请选择</option>
+              <option value="0" selected>新增</option>
+              <option value="1">修改</option>
+              <option value="2">关闭业务</option>
+              <option value="3">重新开通</option>
+            </select>
+            </td>
+          </tr>
+          <tr>
             <th>商户id：</th>
             <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_id" value="<?php echo $output["store_array"]["store_merchantno"];?>"></td>
           </tr>
@@ -58,26 +70,45 @@
             <td colspan="20">
               <select name="cycleValue" id="cycleValue">
               <option value="">请选择</option>
-              <option value="1">T+1</option>
+              <option value="1" selected>T+1</option>
               <option value="2">D+0</option>
             </select>
             </td>
           </tr>
         </tbody>
       </table>
-      <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
+      <table  border="0" cellpadding="0" cellspacing="0" class="store-joinin">
         <thead>
           <tr>
             <th colspan="20">费率列表</th>
           </tr>
         </thead>
         <tbody>
+            <tr>
+                <th>业务类型</th>
+                <th>费率等级</th>
+                <th>费率类型</th>
+                <th>费率</th>
+            </tr>
             <?php if(!empty($output['busi_list']) && is_array($output['busi_list'])){ ?>
             <?php foreach($output['busi_list'] as $k => $v){ ?>
-            <tr>
-              <th><?php echo $v['busi_name']?>：</th>
-              <td colspan="20">
-              </td>
+            <tr id="">
+                <td><input type="checkbox" value=<?php echo $v['busi_no']?>><?php echo $v['busi_name']?></input></td>
+                <td>
+                  <select name="feeType" id="feeType">
+                  <option value="">请选择</option>
+                  <option value="0" selected>普通类型</option>
+                  <option value="1">卡登记类型</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="futureRateType" id="futureRateType">
+                  <option value="">请选择</option>
+                  <option value="1" selected>百分比</option>
+                  <option value="2">单笔</option>
+                  </select>
+                </td>
+                <td><input type="text" class="input-txt" name="futureRate" value=""></td>
             </tr>
             <?php } ?>
             <?php } ?>
@@ -102,12 +133,12 @@ $(function(){
     $('#joinin_form').validate({
         rules : {
              merchant_id: {
-                 equalTo: '' 
+                 required: true 
               }
         },
         messages : {
             merchant_id: {
-                equalTo: '<i class="fa fa-exclamation-circle"></i>商户未入驻，请先入驻'
+                required: '<i class="fa fa-exclamation-circle"></i>商户未入驻，请先入驻'
             }
         }
     });

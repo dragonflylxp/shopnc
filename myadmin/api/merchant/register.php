@@ -92,6 +92,8 @@ class MerchantRegister{
         $xml .= '<body>';
         $xml .= '<merchantId>'.$params['merchantId'].'</merchantId>';
         $xml .= '<handleType>'.$params['handleType'].'</handleType>';
+        $xml .= '<mobileNo>'.$params['mobileNo'].'</mobileNo>';
+        $xml .= '<mobileNo2>'.$params['mobileNo2'].'</mobileNo2>';
         $xml .= '<bankCode>'.$params['bankCode'].'</bankCode>';
         $xml .= '<bankaccProp>'.$params['bankaccProp'].'</bankaccProp>';
         $xml .= '<name>'.$params['name'].'</name>';
