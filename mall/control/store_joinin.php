@@ -147,7 +147,7 @@ class store_joininControl extends BaseHomeControl {
                 $model_store_joinin->modify($param, array('member_id'=>$_SESSION['member_id']));
             }
 
-            $bank_list = $model_store_joinin->getBankList();
+            $bank_list = Model('merchant_bank')->getList(array(), $page='100');
             Tpl::output('bank_list', $bank_list);
         }
         Tpl::output('step', '2');
@@ -256,7 +256,7 @@ class store_joininControl extends BaseHomeControl {
         Tpl::output('store_class', $store_class);
 
         //经营类目
-        $gcno_list = $model_store_joinin->getGcnoList();
+        $gcno_list = Model('merchant_category')->getList();
         Tpl::output('gcno_list', $gcno_list);
  
 

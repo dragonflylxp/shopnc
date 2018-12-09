@@ -38,7 +38,7 @@
               <option value="">请选择</option>
               <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
               <?php foreach($output['bank_list'] as $k => $v){ ?>
-              <option value="<?php echo $v['bank_no'];?>"><?php echo $v['bank_name'];?></option>
+              <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
               <?php } ?>
               <?php } ?>
             </select>
@@ -112,7 +112,7 @@
 		  <option value="">请选择</option>
 		  <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
 		  <?php foreach($output['bank_list'] as $k => $v){ ?>
-		  <option value="<?php echo $v['bank_no'];?>"><?php echo $v['bank_name'];?></option>
+		  <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
 		  <?php } ?>
 		  <?php } ?>
 		</select>

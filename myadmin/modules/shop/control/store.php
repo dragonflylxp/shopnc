@@ -445,7 +445,7 @@ class storeControl extends SystemControl{
         $store_id = intval($_GET['store_id']);
         $store_array = Model('store')->getStoreInfoByID($store_id);
         $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
-        $bank_list = Model('store_joinin')->getBankList();
+        $bank_list = Model('merchant_bank')->getList(array(), $page='100');
         Tpl::output('store_array', $store_array);
         Tpl::output('joinin_detail', $joinin_detail);
         Tpl::output('bank_list', $bank_list);
@@ -492,7 +492,7 @@ class storeControl extends SystemControl{
         $store_id = intval($_GET['store_id']);
         $store_array = Model('store')->getStoreInfoByID($store_id);
         $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
-        $busi_list = Model('store_joinin')->getBusiList();
+        $busi_list = Model('merchant_busi')->getList();
         Tpl::output('store_array', $store_array);
         Tpl::output('joinin_detail', $joinin_detail);
         Tpl::output('busi_list', $busi_list);

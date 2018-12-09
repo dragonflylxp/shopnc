@@ -58,6 +58,12 @@
             <p class="emphasis">此账号为日后登录并管理商家中心时使用，注册后不可修改，请牢记。</p></td>
         </tr>
         <tr>
+          <th><i>*</i>商家地址：</th>
+          <td><input id="area_address" name="area_address" type="hidden" value="<?php echo $output['store_info']['area_address']; ?>"/>
+          <input type="hidden" value="" name="area_no" id="area_no">
+            <span></span></td>
+        </tr>
+        <tr>
           <th class="w150"><i>*</i>店铺名称：</th>
           <td><input name="store_name" type="text" value="<?php echo $output['store_info']['store_name']; ?>" class="w200"/>
             <span></span>
@@ -104,7 +110,7 @@
               <option value="">请选择</option>
               <?php if(!empty($output['gcno_list']) && is_array($output['gcno_list'])){ ?>
               <?php foreach($output['gcno_list'] as $k => $v){ ?>
-              <option value="<?php echo $v['gc_no'];?>"><?php echo $v['gc_name'];?></option>
+              <option value="<?php echo $v['category_code'];?>"><?php echo $v['category_name'];?></option>
               <?php } ?>
               <?php } ?>
             </select>
@@ -303,6 +309,9 @@ $(document).ready(function(){
     m_setval('sc_id',m_sc_id);
     m_setval('gc_no',m_gc_no);
     select_store_class_count();
+
+    //商户地址
+    $('#area_address').nc_region();
 
 //    授权书js
     <?php foreach (array('quality_report','trade_mark_license','authorization','other_qualifications') as $input_id) { ?>

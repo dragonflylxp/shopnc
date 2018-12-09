@@ -93,7 +93,7 @@
             <?php if(!empty($output['busi_list']) && is_array($output['busi_list'])){ ?>
             <?php foreach($output['busi_list'] as $k => $v){ ?>
             <tr id="">
-                <td><input type="checkbox" value=<?php echo $v['busi_no']?>><?php echo $v['busi_name']?></input></td>
+                <td><input type="checkbox" value=<?php echo $v['busi_code']?>><?php echo $v['busi_name']?></input></td>
                 <td>
                   <select name="feeType" id="feeType">
                   <option value="">请选择</option>

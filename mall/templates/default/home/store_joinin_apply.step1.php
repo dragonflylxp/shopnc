@@ -548,7 +548,7 @@ $(document).ready(function(){
 
     $('#btn_apply_company_next').on('click', function() {
         if($('#form_company_info').valid()) {
-        	$('#province_id').val($("#company_address").fetch('area_id_1'));
+            $('#province_id').val($("#company_address").fetch('area_id_1'));
             $('#form_company_info').submit();
         }
     });
