@@ -79,7 +79,7 @@ class MerchantRegister{
         $xml .= '</body>';
         $xml .= '</merchant>';
 	$resp = $this->_make_request($xml, $this->basicInfoUrl, $this->basicInfotranCode);
-        return $this->parse_response($resp);
+        return $this->_parse_response($resp);
         
 
     }
@@ -106,7 +106,7 @@ class MerchantRegister{
         $xml .= '</body>';
         $xml .= '</merchant>';
 	$resp = $this->_make_request($xml, $this->bankInfoUrl, $this->bankInfotranCode);
-        return $this->parse_response($resp);
+        return $this->_parse_response($resp);
     }
 
     /*
@@ -121,19 +121,19 @@ class MerchantRegister{
 	foreach($params['busiList'] as $busiCode => $ratelist){
             $xml .= '<busiList>';
             $xml .= '<busiCode>'.$busiCode.'</busiCode>';
-            foreach($ratelist as $k => $rate)
-                $xml .= '<rateList>';
+            //foreach($ratelist as $k => $rate)
+                //$xml .= '<rateList>';
                 $xml .= '<futureRateType>'.$rate['futureRateType'].'</futureRateType>';
                 $xml .= '<futureRateValue>'.$rate['futureRateValue'].'</futureRateValue>';
                 //$xml .= '<attachRateType>'.$rate['attachRateType'].'</attachRateType>';
                 //$xml .= '<attachRateValue>'.$rate['attachRateValue'].'</attachRateValue>';
-                $xml .= '</rateList>';
+            //    $xml .= '</rateList>';
             $xml .= '</busiList>';
 	}
         $xml .= '</body>';
         $xml .= '</merchant>';
 	$resp = $this->_make_request($xml, $this->busiInfoUrl, $this->busiInfotranCode);
-        return $this->parse_response($resp);
+        return $this->_parse_response($resp);
     }
 
     /*
@@ -163,7 +163,6 @@ class MerchantRegister{
      * 执行请求 
      */ 
     private function _make_request($xml, $reqUrl, $tranCode){
-        //var_dump($xml);
         $encryptData = $this->aes_cipher->encrypt($xml);
         $signData = $this->rsa_cipher->sign($xml);
         $encryptKey = $this->rsa_cipher->encrypt($this->aes_cipher->get_aes_key());
@@ -175,7 +174,6 @@ class MerchantRegister{
         $post_data['encryptKey'] = $encryptKey;
         $post_data['agencyId'] = $this->merchant_no;
         $post_data['tranCode'] = $tranCode;
-        //var_dump($post_data);
         $resp = curl_post($reqUrl, $post_data);
         return $resp; 
     }
@@ -206,6 +204,7 @@ class MerchantRegister{
     }
 
     private function _prepare_response($resp){
+        var_dump($resp);
         if(!is_array($resp)){
             $rs = explode('&',$resp);
             $rs = str_replace( array('encryptData=', 'encryptKey=', 'signData=', 'tranCode='), array('encryptData:','encryptKey:','signData:', 'tranCode:'), $rs);
