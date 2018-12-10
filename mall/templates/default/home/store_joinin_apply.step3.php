@@ -60,7 +60,7 @@
         <tr>
           <th><i>*</i>商家地址：</th>
           <td><input id="area_address" name="area_address" type="hidden" value="<?php echo $output['store_info']['area_address']; ?>"/>
-          <input type="hidden" value="" name="area_no" id="area_no">
+          <input type="hidden" value="" name="area_ids" id="area_ids">
             <span></span></td>
         </tr>
         <tr>
@@ -311,7 +311,8 @@ $(document).ready(function(){
     select_store_class_count();
 
     //商户地址
-    $('#area_address').nc_region();
+    $('#area_address').nc_merchant_region();
+    //m_setval('area_ids', $('#area_address').fetch('area_ids'));
 
 //    授权书js
     <?php foreach (array('quality_report','trade_mark_license','authorization','other_qualifications') as $input_id) { ?>

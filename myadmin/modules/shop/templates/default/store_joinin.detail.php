@@ -139,7 +139,7 @@
     <tbody>
       <tr>
         <th class="w150">银行：</th>
-        <td><?php $model_store_joinin = Model('store_joinin'); $bank = $model_store_joinin->getBankList($output['joinin_detail']['bank_no']);echo $bank['bank_name'];?></td>
+        <td><?php $banks = Model('merchant_bank')->getList(array("bank_code"=>$output['joinin_detail']['bank_no']));echo $banks[0]['bank_name'];?></td>
       </tr>
       <tr>
         <th>银行开户名：</th>
@@ -177,7 +177,7 @@
     <tbody>
       <tr>
         <th class="w150">银行：</th>
-        <td><?php $model_store_joinin = Model('store_joinin'); $bank = $model_store_joinin->getBankList($output['joinin_detail']['settlement_bank_no']);echo $bank['bank_name'];?></td>
+        <td><?php $banks = Model('merchant_bank')->getList(array("bank_code"=>$output['joinin_detail']['settlement_bank_no']));echo $banks[0]['bank_name'];?></td>
       </tr>
       <tr>
         <th class="w150">银行开户名：</th>
@@ -264,7 +264,7 @@
         </tr>
         <tr>
           <th>经营类目：</th>
-          <td><?php $model_store_joinin = Model('store_joinin'); $gc = $model_store_joinin->getGcnoList($output['joinin_detail']['gc_no']);echo $gc['gc_name'];?></td>
+          <td><?php $categories= Model('merchant_category')->getList(array("category_code"=>$output['joinin_detail']['gc_no']));echo $categories[0]['category_name'];?></td>
         </tr>
         <tr>
           <th>经营类目：</th>

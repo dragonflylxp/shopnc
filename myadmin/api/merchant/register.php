@@ -121,13 +121,14 @@ class MerchantRegister{
 	foreach($params['busiList'] as $busiCode => $ratelist){
             $xml .= '<busiList>';
             $xml .= '<busiCode>'.$busiCode.'</busiCode>';
-            //foreach($ratelist as $k => $rate)
+            foreach($ratelist as $k => $rate){
                 //$xml .= '<rateList>';
                 $xml .= '<futureRateType>'.$rate['futureRateType'].'</futureRateType>';
                 $xml .= '<futureRateValue>'.$rate['futureRateValue'].'</futureRateValue>';
                 //$xml .= '<attachRateType>'.$rate['attachRateType'].'</attachRateType>';
                 //$xml .= '<attachRateValue>'.$rate['attachRateValue'].'</attachRateValue>';
             //    $xml .= '</rateList>';
+            }
             $xml .= '</busiList>';
 	}
         $xml .= '</body>';
@@ -204,7 +205,6 @@ class MerchantRegister{
     }
 
     private function _prepare_response($resp){
-        var_dump($resp);
         if(!is_array($resp)){
             $rs = explode('&',$resp);
             $rs = str_replace( array('encryptData=', 'encryptKey=', 'signData=', 'tranCode='), array('encryptData:','encryptKey:','signData:', 'tranCode:'), $rs);

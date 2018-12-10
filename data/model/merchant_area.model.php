@@ -55,10 +55,9 @@ class merchant_areaModel extends Model{
         } 
 
         //组织树形结构
-        $ret = array();
-        $ret[0] = $prov;                 //国家node
+        $ret = array("0"=>$prov);              //国家node
         $idx = 1;
-        foreach($ret[0] as $i=>$p){
+        foreach($ret["0"] as $i=>$p){
             $tmp = array();
             $cnt = 0;
             foreach($city as $j=>$c){
@@ -66,12 +65,13 @@ class merchant_areaModel extends Model{
                     $tmp[$cnt++] = $c;
                 }
             }
-            array_unshift($ret[0][$i], $idx);
-            $ret[$idx++] = $tmp;         //省份node
+            array_unshift($ret["0"][$i], $idx);
+            $ret[strval($idx)] = $tmp;         //省份node
+            $idx++;
         } 
 
         for($i=1; $i<=$idx_prov; $i++){
-            foreach($ret[$i] as $j=>$c){
+            foreach($ret[strval($i)] as $j=>$c){
                 $tmp = array();
                 $cnt = 0;
                 foreach($area as $k=>$a){
@@ -79,19 +79,24 @@ class merchant_areaModel extends Model{
                         $tmp[$cnt++] = $a;
                     }
                 }
-                array_unshift($ret[$i][$j], $idx);
-                $ret[$idx++] = $tmp;     //城市node
+                if(empty($tmp)){
+                    array_unshift($ret[strval($i)][$j], $c[1]);
+                    continue;
+                }
+                array_unshift($ret[strval($i)][$j], $idx);
+                $ret[strval($idx)] = $tmp;     //城市node
+                $idx++;
+            }
+        }
+      
+        for($i=$idx_prov+1; $i<$idx; $i++){
+            foreach($ret[strval($i)] as $j=>$a){
+                array_unshift($ret[strval($i)][$j], $a[1]);
             }
         }
 
-
-        
-
-        
-
-
-
-        return $result;
+        $ret['a'] = array();
+        return $ret;
     }
 }
 ?>

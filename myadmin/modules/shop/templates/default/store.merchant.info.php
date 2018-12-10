@@ -104,7 +104,7 @@
           <tr>
             <th class="w150">银行：</th>
             <td>
-               <input readonly="readonly" type="text" class="txt w300" name="bank_no_name" value="<?php $model_store_joinin = Model('store_joinin'); $bank = $model_store_joinin->getBankList($output['joinin_detail']['bank_no']); echo $bank['bank_name'];?>">
+               <input readonly="readonly" type="text" class="txt w300" name="bank_no_name" value="<?php $banks = Model('merchant_bank')->getList(array('bank_code'=>$output['joinin_detail']['bank_no'])); echo $banks[0]['bank_name'];?>">
                <input type="hidden" class="txt w300" name="bank_no" value="<?php echo $output['joinin_detail']['bank_no'];?>">
             </td>
           </tr>
@@ -143,12 +143,19 @@
           </tr>
           <tr>
             <th>商户类型：</th>
-            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_type" value="00(公司商户)"></td>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_type_name" value="公司商户"></td>
+                <input type="hidden" class="txt w300" name="merchant_type" value="00">
+          </tr>
+          <tr>
+            <th>商户城市：</th>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_city" value="<?php $areas = Model('merchant_area')->getList(array("area_code"=>$output['joinin_detail']['area_no'])); echo $areas[0]["area_name"];?>">
+                <input type="hidden" class="txt w300" name="area_no" value="<?php echo $output['joinin_detail']['area_no'];?>">
+           </td>
           </tr>
           <tr>
             <th>经营类目：</th>
             <td colspan="20">
-                <input readonly="readonly" type="text" class="txt w300" name="gc_category" value="<?php $model_store_joinin = Model('store_joinin'); $gc = $model_store_joinin->getGcnoList($output['joinin_detail']['gc_no']); echo $gc['gc_name'];?>">
+                <input readonly="readonly" type="text" class="txt w300" name="gc_category" value="<?php $categories = Model('merchant_category')->getList(array("category_code"=>$output['joinin_detail']['gc_no'])); echo $categories[0]['category_name'];?>">
                 <input type="hidden" class="txt w300" name="gc_no" value="<?php echo $output['joinin_detail']['gc_no'];?>">
            </td>
           </tr>

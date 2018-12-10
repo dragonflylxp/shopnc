@@ -886,6 +886,144 @@ function weixin_login(){
 	}
 })(jQuery);
 
+(function($) {
+	$.fn.nc_merchant_region = function(options) {
+		var $region = $(this);
+		var settings = $.extend({}, {
+			area_id: 0,
+			region_span_class: "_region_value",
+			src: "cache",
+			show_deep: 0,
+			btn_style_html: "",
+			tip_type: ""
+		}, options);
+		settings.islast = false;
+		settings.selected_deep = 0;
+		settings.last_text = "";
+		this.each(function() {
+			var $inputArea = $(this);
+			if ($inputArea.val() === "") {
+				initArea($inputArea)
+			} else {
+				var $region_span = $('<span id="_area_span" class="' + settings.region_span_class + '">' + $inputArea.val() + "</span>");
+				var $region_btn = $('<input type="button" class="input-btn" ' + settings.btn_style_html + ' value="编辑" />');
+				$inputArea.after($region_span);
+				$region_span.after($region_btn);
+				$region_btn.on("click", function() {
+					$region_span.remove();
+					$region_btn.remove();
+					initArea($inputArea)
+				});
+				settings.islast = true
+			}
+			this.settings = settings;
+			if ($inputArea.val() && /^\d+$/.test($inputArea.val())) {
+				$.getJSON(SITEURL + "/index.php?con=index&fun=json_area_show&area_id=" + $inputArea.val() + "&callback=?", function(data) {
+					$("#_area_span").html(data.text == null ? "无" : data.text)
+				})
+			}
+		});
+
+		function initArea($inputArea) {
+			settings.$area = $("<select></select>");
+			$inputArea.before(settings.$area);
+			loadAreaArray(function() {
+				loadArea(settings.$area, settings.area_id)
+			})
+		}
+		function loadArea($area, area_id) {
+			if ($area && nc_a[area_id].length > 0) {
+				var areas = [];
+				areas = nc_a[area_id];
+				if (settings.tip_type && settings.last_text != "") {
+					$area.append("<option value=''>" + settings.last_text + "(*)</option>")
+				} else {
+					$area.append("<option value=''>-请选择-</option>")
+				}
+				for (i = 0; i < areas.length; i++) {
+					$area.append("<option value='" + areas[i][0] + "'>" + areas[i][1] + "</option>")
+				}
+				settings.islast = false
+			}
+			$area.on("change", function() {
+				var region_value = "",
+					area_ids = [],
+					selected_deep = 1;
+				$(this).nextAll("select").remove();
+				$region.parent().find("select").each(function() {
+					if ($(this).find("option:selected").val() != "") {
+						region_value += $(this).find("option:selected").text() + " ";
+						area_ids.push($(this).find("option:selected").val())
+					}
+				});
+				settings.selected_deep = area_ids.length;
+				settings.area_ids = area_ids.join(" ");
+				$region.val(region_value);
+				settings.area_id_1 = area_ids[0] ? area_ids[0] : "";
+				settings.area_id_2 = area_ids[1] ? area_ids[1] : "";
+				settings.area_id_3 = area_ids[2] ? area_ids[2] : "";
+				settings.area_id_4 = area_ids[3] ? area_ids[3] : "";
+				settings.last_text = $region.prevAll("select").find("option:selected").last().text();
+				var area_id = settings.area_id = $(this).val();
+				if ($('#_area_1').length > 0) $("#_area_1").val(settings.area_id_1);
+				if ($('#_area_2').length > 0) $("#_area_2").val(settings.area_id_2);
+				if ($('#_area_3').length > 0) $("#_area_3").val(settings.area_id_3);
+				if ($('#_area_4').length > 0) $("#_area_4").val(settings.area_id_4);
+				if ($('#_area').length > 0) $("#_area").val(settings.area_id);
+				if ($('#_areas').length > 0) $("#_areas").val(settings.area_ids);
+				if (settings.show_deep > 0 && $region.prevAll("select").size() == settings.show_deep) {
+					settings.islast = true;
+					if (typeof settings.last_click == 'function') {
+						settings.last_click(area_id);
+					}
+					return
+				}
+				if (area_id > 0) {
+					if (nc_a[area_id] && nc_a[area_id].length > 0) {
+						var $newArea = $("<select></select>");
+						$(this).after($newArea);
+						loadArea($newArea, area_id);
+						settings.islast = false
+					} else {
+						settings.islast = true;
+						if (typeof settings.last_click == 'function') {
+							settings.last_click(area_id);
+						}
+					}
+				} else {
+					settings.islast = false
+				}
+				if ($('#islast').length > 0) $("#islast").val("");
+			})
+		}
+		function loadAreaArray(callback) {
+			if (typeof nc_a === "undefined") {
+				$.getJSON(SITEURL + "/index.php?con=index&fun=json_merchant_area&src=" + settings.src + "&callback=?", function(data) {
+					nc_a = data;
+					callback()
+				})
+			} else {
+				callback()
+			}
+		}
+		if (typeof jQuery.validator != 'undefined') {
+			jQuery.validator.addMethod("checklast", function(value, element) {
+				return $(element).fetch('islast');
+			}, "请将地区选择完整");
+		}
+	};
+	$.fn.fetch = function(k) {
+		var p;
+		this.each(function() {
+			if (this.settings) {
+				p = eval("this.settings." + k);
+				return false
+			}
+		});
+		return p
+	}
+})(jQuery);
+
 /* 加入购物车 */
 function addcart(goods_id,quantity,callbackfunc) {
     if (!quantity) return false;

@@ -91,9 +91,9 @@
             <td colspan="20">
               <select name="bankaccountType" id="bankaccountType">
               <option value="">请选择</option>
-              <option value="1" selected>借记卡</option>
+              <option value="1" >借记卡</option>
               <option value="2" >贷记卡</option>
-              <option value="3" >存折</option>
+              <option value="3" selected>存折</option>
               </select>
             </td>
           </tr>

@@ -256,7 +256,7 @@ class store_joininControl extends BaseHomeControl {
         Tpl::output('store_class', $store_class);
 
         //经营类目
-        $gcno_list = Model('merchant_category')->getList();
+        $gcno_list = Model('merchant_category')->getList(array(), $page='100');
         Tpl::output('gcno_list', $gcno_list);
  
 
@@ -356,6 +356,10 @@ class store_joininControl extends BaseHomeControl {
         $param['other_qualifications'] = $_POST['other_qualifications1'];
         $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
         $param['gc_no'] = $_POST['gc_no'];
+        $param['area_address'] = $_POST['area_address'];
+        $area_address = explode(' ', $param['area_address']);
+        $city = Model('merchant_area')->getList(array('area_name'=>$area_address[1]));
+        $param['area_no'] = $city[0]['area_code'];
 
         //取店铺等级信息
         $grade_list = rkcache('store_grade',true);

@@ -113,6 +113,23 @@
             <p class="notic"></p>
           </dd>
         </dl>
+        <dl>
+          <dt class="tit">
+            <label for="grade_id"> 经营类目 </label>
+          </dt>
+          <dd class="opt">
+             <select name="gc_no" id="gc_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['gcno_list']) && is_array($output['gcno_list'])){ ?>
+              <?php foreach($output['gcno_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['category_code'];?>"><?php echo $v['category_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <span class="err"></span>
+            <p class="notic"></p>
+        </dd>
+        </dl>
         <!--511613932-->
         <dl class="row">
          <dt class="tit">
@@ -303,6 +320,19 @@
           </tr>
         </thead>
         <tbody>
+        <tr>
+          <th><i>*</i>银行：</th>
+          <td><select name="bank_no" id="bank_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+              <?php foreach($output['bank_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+            <span></span>
+         </td>
+        </tr>
           <tr>
             <th class="w150">银行开户名：</th>
             <td><input type="text" class="txt w300" name="bank_account_name" value="<?php echo $output['joinin_detail']['bank_account_name'];?>"></td>
@@ -338,6 +368,19 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+             <th><i>*</i>银行：</th>
+             <td><select name="settlement_bank_no" id="settlement_bank_no">
+                  <option value="">请选择</option>
+                  <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+                  <?php foreach($output['bank_list'] as $k => $v){ ?>
+                  <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
+                  <?php } ?>
+                  <?php } ?>
+                </select>
+                <span></span>
+             </td>
+          </tr>
           <tr>
             <th class="w150">银行开户名：</th>
             <td><input type="text" class="txt w300" name="settlement_bank_account_name" value="<?php echo $output['joinin_detail']['settlement_bank_account_name'];?>"></td>
@@ -391,6 +434,13 @@
 <script type="text/javascript" src="<?php echo ADMIN_RESOURCE_URL;?>/js/jquery.nyroModal.js"></script>
 
 <script type="text/javascript">
+function m_setval($obj,$val){
+   if($val != "" && $val != null && $val != undefined){
+       $("#"+$obj).val($val); 
+   }      
+}   
+
+
 var SHOP_SITE_URL = '<?php echo SHOP_SITE_URL;?>';
 $(function(){
     $("#store_region").nc_region();
@@ -403,6 +453,13 @@ $(function(){
     $('#business_licence_end').datepicker();
     $('a[nctype="nyroModal"]').nyroModal();
     $('input[name=store_state][value=<?php echo $output['store_array']['store_state'];?>]').trigger('click');
+
+    var m_bank_no =  "<?php echo $output['joinin_detail']['bank_no']; ?>";
+    var m_settlement_bank_no =  "<?php echo $output['joinin_detail']['settlement_bank_no']; ?>"; 
+    var m_gc_no =  "<?php echo $output['joinin_detail']['gc_no']; ?>"; 
+    m_setval('bank_no', m_bank_no);
+    m_setval('settlement_bank_no', m_settlement_bank_no);
+    m_setval('gc_no', m_gc_no);
 
     //按钮先执行验证再提交表单
     $("#submitBtn").click(function(){

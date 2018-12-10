@@ -403,9 +403,9 @@ class storeControl extends SystemControl{
                 require($inc_file);
                 $register = new MerchantRegister($config_api);
 		$basicInfoParams = array();
-                $basicInfoParams['merchantName'] = $_POST['company_name'];
-                $basicInfoParams['shortName'] = $_POST['company_name'];
-                $basicInfoParams['city'] = '5810';
+                $basicInfoParams['merchantName'] = $_POST['legal_person_name'];
+                $basicInfoParams['shortName'] = $_POST['legal_person_name'];
+                $basicInfoParams['city'] = $_POST['area_no'];
                 $basicInfoParams['merchantAddress'] = $_POST['company_address_detail'];
                 $basicInfoParams['servicePhone'] = $_POST['company_phone'];
                 $basicInfoParams['orgCode'] = $_POST['organization_code'];
@@ -425,14 +425,13 @@ class storeControl extends SystemControl{
 
                 $result = $register->basicInfo($basicInfoParams);
                 if ($result['head'][respType] == 'S') {
-                    $merchantId = $result['body']['merchantId']; 
-                    $merchantName = $result['body']['merchantName']; 
                     //merchantId入库
-                    $store_array = Model('store')->editStore(array("store_merchantno"=>$merchantId), array("store_id"=>$store_id));
+                    $merchantId = $result['body']['merchantId']; 
+                    $store_array = Model('store')->editStore(array("store_merchantno"=>$merchantId), array("store_id"=>$_POST['store_id']));
                       
                     showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');
                 } else {
-                    showMessage(L('nc_common_op_fail'));
+                    showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
                 }
             }
         }
@@ -475,11 +474,11 @@ class storeControl extends SystemControl{
                 $bankInfoParams['certNo'] = $_POST['certNo'];
                 $bankInfoParams['bankbranchNo'] = $_POST['bankbranchNo'];
                 $bankInfoParams['defaultAcc'] = $_POST['defaultAcc'];
-                //$result = $register->busiInfo($bankInfoParams);
-                if (true){//$result['head'][respType] == 'S') {
+                $result = $register->bankInfo($bankInfoParams);
+                if ($result['head'][respType] == 'S') {
                     showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');
                 } else {
-                    showMessage(L('nc_common_op_fail'));
+                    showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
                 }
             }
         }
@@ -503,8 +502,6 @@ class storeControl extends SystemControl{
      * 发起开通支付业务
      */
     public function store_merchant_payOp() {
-        var_dump($_POST);
-        return;
         if (chksubmit()) {
             $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
             if(is_file($inc_file)) {
@@ -514,11 +511,26 @@ class storeControl extends SystemControl{
                 $busiInfoParams['merchantId'] = $_POST['merchant_id'];
                 $busiInfoParams['handleType'] = $_POST['handleType'];
                 $busiInfoParams['cycleValue'] = $_POST['cycleValue'];
+                $busiListStr = $_POST['busiList'];
+                $busiListArray = explode("#", $busiListStr);
+                $busiList = array();
+                foreach($busiListArray as $k => $busiListStr){
+                    $busis = explode('@', $busiListStr);
+                    $busiType = $busis[0];
+                    $ratelist = explode('|', $busis[1]);
+                    foreach($ratelist as $i => $rate){
+                        $busi = explode('/', $rate);
+                        $busiList[$busiType][$i] = array(/*"feeType"=>$busi[0],*/
+                                                         "futureRateType"=>$busi[0], 
+                                                         "futureRateValue"=>$busi[1]);
+                    }
+                }
+                $busiInfoParams['busiList'] = $busiList;
                 $result = $register->busiInfo($busiInfoParams);
                 if ($result['head'][respType] == 'S') {
                     showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');
                 } else {
-                    showMessage(L('nc_common_op_fail'));
+                    showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
                 }
             }
         }
@@ -630,6 +642,12 @@ class storeControl extends SystemControl{
 
         $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
         Tpl::output('joinin_detail', $joinin_detail);
+ 
+        $bank_list = Model('merchant_bank')->getList(array(), $page='100');
+        Tpl::output('bank_list', $bank_list);
+
+        $gcno_list = Model('merchant_category')->getList(array(), $page='100');
+        Tpl::output('gcno_list', $gcno_list);
         Tpl::showpage('store.edit');
     }
 
@@ -723,6 +741,10 @@ class storeControl extends SystemControl{
             if ($_FILES['tax_registration_certif_elc']['name'] != '') {
                 $param['tax_registration_certif_elc'] = $this->upload_image('tax_registration_certif_elc');
             }
+
+            $param['gc_no'] = $_POST['gc_no'];
+            $param['bank_no'] = $_POST['bank_no'];
+            $param['settlement_bank_no'] = $_POST['settlement_bank_no'];
             $result = Model('store_joinin')->editStoreJoinin(array('member_id' => $member_id), $param);
             if ($result) {
                 showMessage(L('nc_common_op_succ'), 'index.php?con=store&fun=store');

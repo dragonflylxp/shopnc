@@ -71,6 +71,12 @@ class indexControl extends BaseHomeControl{
         echo $_GET['callback'].'('.json_encode(Model('area')->getAreaArrayForJson($_GET['src'])).')';
     }
 
+    public function json_merchant_areaOp()
+    {
+        $_GET['src'] = $_GET['src'] != 'db' ? 'cache' : 'db';
+        echo $_GET['callback'].'('.json_encode(Model('merchant_area')->getTreeList()).')';
+    }
+
     /**
      * 根据ID返回所有父级地区名称
      */
