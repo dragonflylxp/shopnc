@@ -38,6 +38,8 @@ class goodsControl extends mobileHomeControl{
         $condition['is_book'] = 0;
         if(!empty($_GET['gc_id']) && intval($_GET['gc_id']) > 0) {
             $condition['goods.gc_id'] = $_GET['gc_id'];
+        } elseif(!empty($_GET['gc_id_2']) && intval($_GET['gc_id_2']) > 0){
+            $condition['goods.gc_id_2'] = $_GET['gc_id_2'];
         } elseif (!empty($_GET['keyword'])) {
             $condition['goods.goods_name|goods.goods_jingle'] = array('like', '%' . $_GET['keyword'] . '%');
             if ($_COOKIE['hisSearch'] == '') {

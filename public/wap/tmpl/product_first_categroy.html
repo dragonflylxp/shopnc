@@ -67,7 +67,7 @@
 <script type="text/html" id="category-two">
 	<dl class="categroy-child-list">
 		<% for(var i=0; i<class_list.length; i++) { var col = i % 10;%>
-			<dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?gc_id=<%= class_list[i].gc_id %>"><i class="col<%= col %>"></i><%= class_list[i].gc_name %><i class="arrow-r"></i></a></dt>
+			<dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?gc_id_2=<%= class_list[i].gc_id %>"><i class="col<%= col %>"></i><%= class_list[i].gc_name %><i class="arrow-r"></i></a></dt>
 			<% for(var j=0; j<class_list[i].child.length; j++) { %>
 				<dd><a href="<%= WapSiteUrl %>/tmpl/product_list.html?gc_id=<%= class_list[i].child[j].gc_id %>"><%= class_list[i].child[j].gc_name %></a></dd>
 			<% } %>

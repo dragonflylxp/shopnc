@@ -4,6 +4,7 @@ var hasmore = true;
 var footer = false;
 var keyword = decodeURIComponent(getQueryString('keyword'));
 var gc_id = getQueryString('gc_id');
+var gc_id_2 = getQueryString('gc_id_2');
 var b_id = getQueryString('b_id');
 var key = getQueryString('key');
 var order = getQueryString('order');
@@ -115,6 +116,8 @@ function get_list() {
     param.curpage = curpage;
     if (gc_id != '') {
         param.gc_id = gc_id;
+    } else if (gc_id_2 != '') {
+        param.gc_id_2 = gc_id_2;
     } else if (keyword != '') {
         param.keyword = keyword;
     } else if (b_id != '') {
@@ -184,6 +187,8 @@ function search_adv() {
     		queryString += '&area_id=' + $('#area_id').val();
             if (gc_id != '') {
                 queryString += '&gc_id=' + gc_id;
+            } else if (gc_id_2 != ''){
+                queryString += '&gc_id_2=' + gc_id_2;
             }
     		if ($('#price_from').val() != '') {
     			queryString += '&price_from=' + $('#price_from').val();

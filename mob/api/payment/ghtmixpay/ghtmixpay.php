@@ -288,6 +288,7 @@ class ghtmixpay {
         $params["merchant_no"] = $this->merchant_no;
         $params["child_merchant_no"] = $param['store_merchantno'];
         $params["terminal_no"] = $this->terminal_no;
+        $params["access_type"] = '6';
         $params["token_id"] = $wgTokenId;
         $sign = $this->buildRequestSign($params);
         $params['sign'] = $sign; 
