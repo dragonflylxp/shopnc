@@ -30,8 +30,12 @@ $config_api['register']['merchant_no']       = '549034554110002';
 $config_api['register']['basicInfotranCode'] = '100001';
 $config_api['register']['bankInfotranCode']  = '100002';
 $config_api['register']['busiInfotranCode']  = '100003';
+$config_api['register']['qryCardtranCode']   = '100006';
+$config_api['register']['qryBusitranCode']   = '100007';
 $config_api['register']['msgType']           = '01';
 $config_api['register']['basicInfoUrl']      = 'https://testpay.sicpay.com/interfaceWeb/basicInfo';
 $config_api['register']['bankInfoUrl']       = 'https://testpay.sicpay.com/interfaceWeb/bankInfo';
 $config_api['register']['busiInfoUrl']       = 'https://testpay.sicpay.com/interfaceWeb/busiInfo';
+$config_api['register']['qryCardUrl']        = 'https://testpay.sicpay.com/interfaceWeb/qryCardInfo';
+$config_api['register']['qryBusiUrl']        = 'https://testpay.sicpay.com/interfaceWeb/qryBusi';
 

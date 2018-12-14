@@ -110,12 +110,8 @@
             <td colspan="20"><input type="text" class="txt w300" name="name" value=""></td>
           </tr>
           <tr>
-            <th>持卡人手机号1：</th>
+            <th>持卡人手机号：</th>
             <td colspan="20"><input type="text" class="txt w300" name="mobileNo" value=""></td>
-          </tr>
-          <tr>
-            <th>持卡人手机号2：</th>
-            <td colspan="20"><input type="text" class="txt w300" name="mobileNo2" value=""></td>
           </tr>
           <tr>
             <th>办卡证件类型：</th>

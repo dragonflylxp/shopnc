@@ -21,6 +21,8 @@ class MerchantRegister{
     private $basicInfotranCode = "";
     private $bankInfotranCode  = "";
     private $busiInfotranCode  = "";
+    private $qryCardtranCode   = "";
+    private $qryBusitranCode   = "";
 
     /* 报文类型*/
     private $msgType= "";
@@ -29,6 +31,8 @@ class MerchantRegister{
     private $basicInfoUrl = ""; 
     private $bankInfoUrl  = ""; 
     private $busiInfoUrl  = ""; 
+    private $qryCardUrl   = ""; 
+    private $qryBusiUrl   = ""; 
 
     /* aes cipher */
     public $aes_cipher = null;
@@ -43,10 +47,14 @@ class MerchantRegister{
         $this->basicInfotranCode = $config_api['register']['basicInfotranCode'];
         $this->bankInfotranCode  = $config_api['register']['bankInfotranCode'];
         $this->busiInfotranCode  = $config_api['register']['busiInfotranCode'];
+        $this->qryCardtranCode   = $config_api['register']['qryCardtranCode'];
+        $this->qryBusitranCode   = $config_api['register']['qryBusitranCode'];
         $this->msgType           = $config_api['register']['msgType'];
         $this->basicInfoUrl      = $config_api['register']['basicInfoUrl'];
         $this->bankInfoUrl       = $config_api['register']['bankInfoUrl'];
         $this->busiInfoUrl       = $config_api['register']['busiInfoUrl'];
+        $this->qryCardUrl        = $config_api['register']['qryCardUrl'];
+        $this->qryBusiUrl        = $config_api['register']['qryBusiUrl'];
         $this->aes_cipher = new AESCrypt(); 
         $this->rsa_cipher = new RSACrypt();
     }
@@ -134,6 +142,38 @@ class MerchantRegister{
         $xml .= '</body>';
         $xml .= '</merchant>';
 	$resp = $this->_make_request($xml, $this->busiInfoUrl, $this->busiInfotranCode);
+        return $this->_parse_response($resp);
+    }
+
+    /*
+     * 商户银行卡信息查询 
+     */ 
+    public function qryCard($params){
+	$xml = $this->_common_header($this->qryCardtranCode);
+        $xml .= '<body>';
+        $xml .= '<merchantId>'.$params['merchantId'].'</merchantId>';
+        if(!empty($params['bankaccountNo'])){
+            $xml .= '<bankaccountNo>'.$params['bankaccountNo'].'</bankaccountNo>';
+        }
+        $xml .= '</body>';
+        $xml .= '</merchant>';
+	$resp = $this->_make_request($xml, $this->qryCardUrl, $this->qryCardtranCode);
+        return $this->_parse_response($resp);
+    }
+
+    /*
+     * 业务信息查询 
+     */ 
+    public function qryBusi($params){
+	$xml = $this->_common_header($this->qryBusitranCode);
+        $xml .= '<body>';
+        $xml .= '<merchantId>'.$params['merchantId'].'</merchantId>';
+        if(!empty($params['busiCode'])){
+            $xml .= '<busiCode>'.$params['busiCode'].'</busiCode>';
+        }
+        $xml .= '</body>';
+        $xml .= '</merchant>';
+	$resp = $this->_make_request($xml, $this->qryBusiUrl, $this->qryBusitranCode);
         return $this->_parse_response($resp);
     }
 

@@ -121,7 +121,7 @@ class storeControl extends SystemControl{
         foreach ($store_list as $value) {
             $param = array();
             $store_state = $this->getStoreState($value);
-            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li><li><a href='index.php?con=store&fun=store_merchant_basicInfo&store_id=" . $value['store_id'] . "'>商户信息登记</a></li><li><a href='index.php?con=store&fun=store_merchant_bankInfo&store_id=" . $value['store_id'] . "'>绑定银行账户</a></li><li><a href='index.php?con=store&fun=store_merchant_busiInfo&store_id=" . $value['store_id'] . "'>开通支付业务</a></li>";
+            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li><li><a href='index.php?con=store&fun=store_merchant_basicInfo&store_id=" . $value['store_id'] . "'>商户信息登记</a></li><li><a href='index.php?con=store&fun=store_merchant_bankInfo&store_id=" . $value['store_id'] . "&merchant_id=".$value['store_merchantno']."'>绑定银行账户</a></li><li><a href='index.php?con=store&fun=store_merchant_busiInfo&store_id=" . $value['store_id'] . "&merchant_id=".$value['store_merchantno']."'>开通支付业务</a></li>";
             if (str_cut($store_state, 6) == 'expire'  && cookie('remindRenewal'.$value['store_id']) == null) {
                 $operation .= "<li><a class='expire' href=". urlAdminShop('store', 'remind_renewal', array('store_id'=>$value['store_id'])). ">提醒商家续费</a></li>";
             }
@@ -445,6 +445,19 @@ class storeControl extends SystemControl{
         $store_array = Model('store')->getStoreInfoByID($store_id);
         $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
         $bank_list = Model('merchant_bank')->getList(array(), $page='100');
+
+        //查询已添加的银行卡
+        $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
+        if(is_file($inc_file)) {
+            require($inc_file);
+            $register = new MerchantRegister($config_api);
+            $qryCardParams = array();
+            $qryCardParams['merchantId'] = $_GET['store_merchantno'];
+            $result = $register->qryCard($qryCardParams);
+            if ($result['head'][respType] == 'S') {
+                var_dump($result['body']);
+            }
+        }
         Tpl::output('store_array', $store_array);
         Tpl::output('joinin_detail', $joinin_detail);
         Tpl::output('bank_list', $bank_list);
@@ -464,7 +477,7 @@ class storeControl extends SystemControl{
                 $bankInfoParams['merchantId'] = $_POST['merchant_id'];
                 $bankInfoParams['handleType'] = $_POST['handleType'];
                 $bankInfoParams['mobileNo'] = $_POST['mobileNo'];
-                $bankInfoParams['mobileNo2'] = $_POST['mobileNo2'];
+                $bankInfoParams['mobileNo2'] = $_POST['mobileNo'];
                 $bankInfoParams['bankCode'] = $_POST['bankCode'];
                 $bankInfoParams['bankaccProp'] = $_POST['bankaccProp'];
                 $bankInfoParams['name'] = $_POST['name'];
@@ -492,6 +505,19 @@ class storeControl extends SystemControl{
         $store_array = Model('store')->getStoreInfoByID($store_id);
         $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
         $busi_list = Model('merchant_busi')->getList();
+
+        //查询已开通的业务
+        $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
+        if(is_file($inc_file)) {
+            require($inc_file);
+            $register = new MerchantRegister($config_api);
+            $qryBusiParams = array();
+            $qryBusiParams['merchantId'] = $_GET['store_merchantno'];
+            $result = $register->qryBusi($qryBusiParams);
+            if ($result['head'][respType] == 'S') {
+                var_dump($result['body']);
+            }
+        }
         Tpl::output('store_array', $store_array);
         Tpl::output('joinin_detail', $joinin_detail);
         Tpl::output('busi_list', $busi_list);
