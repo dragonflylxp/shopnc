@@ -222,7 +222,7 @@
 <script>
     $(function () {
         jQuery.validator.addMethod("letters_name", function (value, element) {
-            return this.optional(element) || (/^[A-Za-z0-9\u4e00-\u9fa5_-]+$/i.test(value) && !/^\d+$/.test(value));
+            return this.optional(element) || (/^[A-Za-z0-9\u0800-\u4e00\u4e00-\u9fa5_-]+$/i.test(value) && !/^\d+$/.test(value));
         }, "Letters only please");
         jQuery.validator.addMethod('referral_code',function(value,element){
             return this.optional(element) || /^[A-Z0-9]{6}$/.test(value);
