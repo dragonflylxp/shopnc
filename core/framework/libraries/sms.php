@@ -73,9 +73,11 @@ class Sms {
     	$set_sms_type=C('sms.smsNumber');
     	if($set_sms_type == 1){
     		return $this->_sendDy($mobile,$content,$data);
-    	}else{
+    	}else if($set_sms_type == 2){
     		return $this->_sendEmay($mobile,$content);
-    	}
+    	}else if($set_sms_type == 3){
+    		return $this->_sendUe($mobile,$content);
+        }
         
     }
     /**
@@ -207,5 +209,22 @@ class Sms {
 //             print_R($statusCode);
 //             echo "处理状态码:".$statusCode;
         }
+    }
+
+    /**
+     * 优易短信发送接口
+     * @param unknown $mobile 手机号
+     * @param unknown $content 短信内容
+     */
+    private function _sendUe($mobile,$content) {
+        require_once BASE_DATA_PATH.'/api/uehyt/Client.php';
+        $gwUrl = C('uesms.gwUrl');
+        $userid = C('uesms.userid');
+        $account = C('uesms.account');
+        $password = C('uesms.password');
+        $extno = C('uesms.extno');
+        $client = new Client($gwUrl, $userid, $account, $password, $extno);
+        $resp = $client->sendSMS(array($mobile), $content);
+        return $resp['returnsms']['status'] == 'Success' && $resp['returnsms']['message'] == 'ok';
     }
 }

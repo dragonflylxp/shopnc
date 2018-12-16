@@ -81,7 +81,7 @@ $config['sys_log'] = false;
 // $config['live']['AccessKeySecret'] = '';
 
 
-$config['sms']['smsNumber'] = 1;//1为阿里大鱼 2为亿美
+$config['sms']['smsNumber'] = 3;//1为阿里大鱼 2为亿美 3为优易
 //阿里大鱼短信接口
 $config['dysms']['accessKeyId'] = 'LTAIEWPBWFgYBFgC';
 $config['dysms']['accessKeySecret'] = 'yIPOnYmzcIRj87MPieltdhJ22Y5kYn';
@@ -103,6 +103,14 @@ $config['dysms']['verify'] = 'SMS_120115131';
 $config['dysms']['binding'] = 'SMS_120130110';
 //短信签名
 $config['dysms']['signature'] = '微慎';
+
+//优易短信接口
+$config['uesms']['gwUrl'] = 'http://www.uehyt.com/sms.aspx?action=send';
+$config['uesms']['userid'] = '1289';
+$config['uesms']['account'] = 'yunlifangtz';
+$config['uesms']['password'] = 'yunlifangtz';
+$config['uesms']['extno'] = '';
+
 //主播佣金 511613932  赠送积分*佣金
 $config['store_zb_yongjin'] = "0.8";
 return $config;
