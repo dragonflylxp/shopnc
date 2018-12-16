@@ -37,6 +37,34 @@
       <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
         <thead>
           <tr>
+            <th colspan="20">已开通的平台业务</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>业务类型</th>
+            <th>费率类型</th>
+            <th>费率</th>
+            <th>结算周期</th>
+          </tr>
+          <?php $busiCodeMap = array(); foreach($output['busi_list'] as $k=>$v){$busiCodeMap[$v['busi_code']]=$v['busi_name'];}?>
+          <?php $futureRateTypeMap = array('1'=>'百分比','2'=>'单笔');?>
+          <?php $cycleValueMap = array('1'=>'T+1','2'=>'D+0');?>
+          <?php if(!empty($output['busiList']) && is_array($output['busiList'])){ ?>
+          <?php foreach($output['busiList'] as $k => $v){ ?>
+          <tr>
+            <td><?php echo $busiCodeMap[$v['busiCode']];?></td>
+            <td><?php echo $futureRateTypeMap[$v['futureRateType']];?></td>
+            <td><?php echo $v['futureRateValue'];?></td>
+            <td><?php echo $cycleValueMap[$v['cycleValue']];?></td>
+          </tr>
+          <?php } ?>
+          <?php } ?>
+        </tbody>
+      </table-->
+      <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
+        <thead>
+          <tr>
             <th colspan="20">商户信息</th>
           </tr>
         </thead>
