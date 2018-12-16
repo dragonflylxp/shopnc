@@ -225,6 +225,6 @@ class Sms {
         $extno = C('uesms.extno');
         $client = new Client($gwUrl, $userid, $account, $password, $extno);
         $resp = $client->sendSMS(array($mobile), $content);
-        return $resp['returnsms']['status'] == 'Success' && $resp['returnsms']['message'] == 'ok';
+        return $resp['returnstatus'] == 'Success' && $resp['message'] == 'ok';
     }
 }
