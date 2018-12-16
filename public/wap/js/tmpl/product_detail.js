@@ -221,6 +221,7 @@ function initPage () {
                     //图片轮播
                     picSwipe();
                     //商品视频
+                    /*
                     if (data.video_path) {
                         var player = new prismplayer({
                             id: "J_prismPlayer", // 容器id
@@ -231,6 +232,7 @@ function initPage () {
                             skinLayout: false
                         });
                     }
+                    */
                     //商品描述
                     $(".pddcp-arrow").click(function () {
                         $(this).parents(".pddcp-one-wp").toggleClass("current");
