@@ -422,6 +422,13 @@ class storeControl extends SystemControl{
                 $basicInfoParams['bankaccountName'] = $_POST['bank_account_name'];
                 $basicInfoParams['autoCus'] = $_POST['autocus'];
                 $basicInfoParams['remark'] = $_POST['remark'];
+                /*
+                  设置结算银行卡信息
+                */
+                $basicInfoParams['settingSettCard'] = '1';
+                $basicInfoParams['bankaccPro'] = '1';
+                $basicInfoParams['certCode'] = '1';
+                $basicInfoParams['bankaccountType'] = $_POST['bank_account_type'];
 
                 $result = $register->basicInfo($basicInfoParams);
                 if ($result['head'][respType] == 'S') {
@@ -765,6 +772,7 @@ class storeControl extends SystemControl{
             $param['bank_name'] = $_POST['bank_name'];
             $param['bank_code'] = $_POST['bank_code'];
             $param['bank_address'] = $_POST['bank_address'];
+            $param['bank_account_type'] = $_POST['bank_account_type'];
             if ($_FILES['bank_licence_electronic']['name'] != '') {
                 $param['bank_licence_electronic'] = $this->upload_image('bank_licence_electronic');
             }
@@ -773,6 +781,7 @@ class storeControl extends SystemControl{
             $param['settlement_bank_name'] = $_POST['settlement_bank_name'];
             $param['settlement_bank_code'] = $_POST['settlement_bank_code'];
             $param['settlement_bank_address'] = $_POST['settlement_bank_address'];
+            $param['settlement_bank_account_type'] = $_POST['settlement_bank_account_type'];
             $param['tax_registration_certificate'] = $_POST['tax_registration_certificate'];
             $param['taxpayer_id'] = $_POST['taxpayer_id'];
             if ($_FILES['tax_registration_certif_elc']['name'] != '') {

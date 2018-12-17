@@ -42,7 +42,7 @@
         <tbody>
           <tr>
             <th class="w150">公司名称：</th>
-            <td colspan="20"><input readonly="readonly" type="text" class="input-txt" name="company_name" value="<?php echo $output['joinin_detail']['company_name'];?>"></td>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" class="input-txt" name="company_name" value="<?php echo $output['joinin_detail']['company_name'];?>"></td>
           </tr>
           <tr>
             <th>公司所在地：</th>
@@ -97,36 +97,40 @@
       <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
         <thead>
           <tr>
-            <th colspan="20">开户银行信息：</th>
+            <th colspan="20">开户银行信息(<font color="red">结算</font>)：</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th class="w150">银行：</th>
             <td>
-               <input readonly="readonly" type="text" class="txt w300" name="bank_no_name" value="<?php $banks = Model('merchant_bank')->getList(array('bank_code'=>$output['joinin_detail']['bank_no'])); echo $banks[0]['bank_name'];?>">
-               <input type="hidden" class="txt w300" name="bank_no" value="<?php echo $output['joinin_detail']['bank_no'];?>">
+               <input readonly="readonly" type="text" class="txt w300" name="bank_no_name" value="<?php $banks = Model('merchant_bank')->getList(array('bank_code'=>$output['joinin_detail']['settlement_bank_no'])); echo $banks[0]['bank_name'];?>">
+               <input type="hidden" class="txt w300" name="bank_no" value="<?php echo $output['joinin_detail']['settlement_bank_no'];?>">
             </td>
           </tr>
           <tr>
             <th>银行开户名：</th>
-            <td><input readonly="readonly" type="text" class="txt w300" name="bank_account_name" value="<?php echo $output['joinin_detail']['bank_account_name'];?>"></td>
+            <td><input readonly="readonly" type="text" class="txt w300" name="bank_account_name" value="<?php echo $output['joinin_detail']['settlement_bank_account_name'];?>"></td>
           </tr>
           <tr>
             <th>公司银行账号：</th>
-            <td><input readonly="readonly" type="text" class="txt w300" name="bank_account_number" value="<?php echo $output['joinin_detail']['bank_account_number'];?>"></td>
+            <td><input readonly="readonly" type="text" class="txt w300" name="bank_account_number" value="<?php echo $output['joinin_detail']['settlement_bank_account_number'];?>"></td>
           </tr>
           <tr>
             <th>开户银行支行名称：</th>
-            <td><input readonly="readonly" type="text" class="txt w300" name="bank_name" value="<?php echo $output['joinin_detail']['bank_name'];?>"></td>
+            <td><input readonly="readonly" type="text" class="txt w300" name="bank_name" value="<?php echo $output['joinin_detail']['settlement_bank_name'];?>"></td>
           </tr>
           <tr>
             <th>支行联行号：</th>
-            <td><input readonly="readonly" type="text" class="txt w300" name="bank_code" value="<?php echo $output['joinin_detail']['bank_code'];?>"></td>
+            <td><input readonly="readonly" type="text" class="txt w300" name="bank_code" value="<?php echo $output['joinin_detail']['settlement_bank_code'];?>"></td>
           </tr>
           <tr>
             <th>开户银行所在地：</th>
-            <td colspan="20"><input readonly="readonly" type="text" name="bank_address" id="bank_address" value="<?php echo $output['joinin_detail']['bank_address'];?>"></td>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="bank_address" id="bank_address" value="<?php echo $output['joinin_detail']['settlement_bank_address'];?>"></td>
+          </tr>
+          <tr>
+            <th>银行卡类型：</th>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="bank_account_type" id="bank_account_type" value="<?php echo $output['joinin_detail']['settlement_bank_account_type'];?>"></td>
           </tr>
         </tbody>
       </table>

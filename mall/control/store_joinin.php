@@ -196,6 +196,7 @@ class store_joininControl extends BaseHomeControl {
             $param['bank_name'] = $_POST['bank_name'];
             $param['bank_code'] = $_POST['bank_code'];
             $param['bank_address'] = $_POST['bank_address'];
+            $param['bank_account_type'] = $_POST['bank_account_type'];
             $param['bank_licence_electronic'] = $_POST['bank_licence_electronic1'];
             if(!empty($_POST['is_settlement_account'])) {
                 $param['is_settlement_account'] = 1;
@@ -205,6 +206,7 @@ class store_joininControl extends BaseHomeControl {
                 $param['settlement_bank_name'] = $_POST['bank_name'];
                 $param['settlement_bank_code'] = $_POST['bank_code'];
                 $param['settlement_bank_address'] = $_POST['bank_address'];
+                $param['settlement_bank_account_type'] = $_POST['bank_account_type'];
             } else {
                 $param['is_settlement_account'] = 2;
                 $param['settlement_bank_account_name'] = $_POST['settlement_bank_account_name'];
@@ -213,6 +215,7 @@ class store_joininControl extends BaseHomeControl {
                 $param['settlement_bank_name'] = $_POST['settlement_bank_name'];
                 $param['settlement_bank_code'] = $_POST['settlement_bank_code'];
                 $param['settlement_bank_address'] = $_POST['settlement_bank_address'];
+                $param['settlement_bank_account_type'] = $_POST['settlement_bank_account_type'];
 
             }
 

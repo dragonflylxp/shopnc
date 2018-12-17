@@ -353,6 +353,18 @@
             <th>开户银行所在地：</th>
             <td colspan="20"><input type="hidden" name="bank_address" id="bank_address" value="<?php echo $output['joinin_detail']['bank_address'];?>"></td>
           </tr>
+        <tr>
+          <th><i>*</i>银行卡类型：</th>
+            <td>
+              <select name="bank_account_type" id="bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+             <span></span>
+            </td>
+        </tr>
           <tr>
             <th>开户银行许可证<br/>
               电子版：</th>
@@ -401,6 +413,18 @@
             <th>开户银行所在地：</th>
             <td><input type="hidden" name="settlement_bank_address" id="settlement_bank_address" value="<?php echo $output['joinin_detail']['settlement_bank_address'];?>"></td>
           </tr>
+        <tr>
+          <th><i>*</i>银行卡类型：</th>
+            <td>
+              <select name="settlement_bank_account_type" id="settlement_bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+             <span></span>
+            </td>
+        </tr>
         </tbody>
       </table>
       <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
@@ -457,9 +481,13 @@ $(function(){
     var m_bank_no =  "<?php echo $output['joinin_detail']['bank_no']; ?>";
     var m_settlement_bank_no =  "<?php echo $output['joinin_detail']['settlement_bank_no']; ?>"; 
     var m_gc_no =  "<?php echo $output['joinin_detail']['gc_no']; ?>"; 
+    var m_bank_account_type =  "<?php echo $output['joinin_detail']['bank_account_type']; ?>";
+    var m_settlement_bank_account_type=  "<?php echo $output['joinin_detail']['settlement_bank_account_type']; ?>"; 
     m_setval('bank_no', m_bank_no);
     m_setval('settlement_bank_no', m_settlement_bank_no);
     m_setval('gc_no', m_gc_no);
+    m_setval('bank_account_type', m_bank_account_type);
+    m_setval('settlement_bank_account_type', m_settlement_bank_account_type);
 
     //按钮先执行验证再提交表单
     $("#submitBtn").click(function(){

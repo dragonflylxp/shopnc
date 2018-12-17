@@ -84,6 +84,14 @@ class MerchantRegister{
         $xml .= '<bankaccountName>'.$params['bankaccountName'].'</bankaccountName>';
         $xml .= '<autoCus>'.$params['autoCus'].'</autoCus>';
         $xml .= '<remark>'.$params['remark'].'</remark>';
+        /*
+         * 设置结算银行卡信息
+         */
+        $xml .= '<settingSettCard>'.$params['settingSettCard'].'</settingSettCard>';
+        $xml .= '<bankaccPro>'.$params['bankaccPro'].'</bankaccPro>';
+        $xml .= '<certCode>'.$params['certCode'].'</certCode>';
+        $xml .= '<bankaccountType>'.$params['bankaccountType'].'</bankaccountType>';
+
         $xml .= '</body>';
         $xml .= '</merchant>';
 	$resp = $this->_make_request($xml, $this->basicInfoUrl, $this->basicInfotranCode);

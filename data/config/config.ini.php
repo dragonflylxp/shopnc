@@ -106,9 +106,9 @@ $config['dysms']['signature'] = '微慎';
 
 //优易短信接口
 $config['uesms']['gwUrl'] = 'http://www.uehyt.com/sms.aspx?action=send';
-$config['uesms']['userid'] = '1289';
-$config['uesms']['account'] = 'yunlifangtz';
-$config['uesms']['password'] = 'yunlifangtz';
+$config['uesms']['userid'] = '1288';
+$config['uesms']['account'] = 'yifentiyutz';
+$config['uesms']['password'] = 'yifentiyutz';
 $config['uesms']['extno'] = '';
 
 //主播佣金 511613932  赠送积分*佣金

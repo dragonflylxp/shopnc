@@ -71,6 +71,18 @@
             <span></span></td>
         </tr>
         <tr>
+          <th><i>*</i>银行卡类型：</th>
+            <td>
+              <select name="bank_account_type" id="bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+             <span></span>
+            </td>
+        </tr>
+        <tr>
           <th><i>*</i>开户银行许可证电子版：</th>
           <td><input name="bank_licence_electronic" type="file"  class="w60"/>
               <?php
@@ -144,6 +156,18 @@
             <td><input id="settlement_bank_address" name="settlement_bank_address" value="<?php echo $output['store_info']['settlement_bank_address']; ?>"  type="hidden" />
               <span></span></td>
           </tr>
+        <tr>
+          <th><i>*</i>银行卡类型：</th>
+            <td>
+              <select name="settlement_bank_account_type" id="settlement_bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+             <span></span>
+            </td>
+        </tr>
         </tbody>
         <tfoot>
           <tr>
@@ -246,6 +270,11 @@ $(document).ready(function(){
     m_setval('bank_no', m_bank_no);
     m_setval('settlement_bank_no', m_settlement_bank_no);
 
+    var m_bank_account_type =  "<?php echo $output['store_info']['bank_account_type']; ?>"; 
+    var m_settlement_bank_account_type=  "<?php echo $output['store_info']['settlement_bank_account_type']; ?>"; 
+    m_setval('bank_account_type', m_bank_account_type);
+    m_setval('settlement_bank_account_type', m_settlement_bank_account_type);
+
     $("#bank_address").nc_region();
     $("#settlement_bank_address").nc_region();
 
@@ -254,6 +283,7 @@ $(document).ready(function(){
             use_settlement_account = false;  
             $("#div_settlement").hide();
             $("#settlement_bank_no").val("<?php echo $output['store_info']['settlement_bank_no']; ?>");
+            $("#settlement_bank_account_type").val("<?php echo $output['store_info']['settlement_bank_account_type']; ?>");
             $("#settlement_bank_account_name").val("<?php echo $output['store_info']['settlement_bank_account_name']; ?>");
             $("#settlement_bank_account_number").val("<?php echo $output['store_info']['settlement_bank_account_number']; ?>");
             $("#settlement_bank_name").val("<?php echo $output['store_info']['settlement_bank_name']; ?>");
@@ -271,6 +301,9 @@ $(document).ready(function(){
         },
         rules : {
             bank_no: {
+                required: true
+            },
+            bank_account_type: {
                 required: true
             },
             bank_account_name: {
@@ -296,6 +329,9 @@ $(document).ready(function(){
                 required: true
             },
             settlement_bank_no: {
+                required: function() { return use_settlement_account; }
+            },
+            settlement_bank_account_type: {
                 required: function() { return use_settlement_account; }
             },
             settlement_bank_account_name: {
@@ -334,6 +370,9 @@ $(document).ready(function(){
             bank_no: {
                 required: '请选择银行'
             },
+            bank_account_type: {
+                required: '请选择银行卡类型'
+            },
             bank_account_name: {
                 required: '请填写银行开户名',
                 maxlength: jQuery.validator.format("最多{0}个字")
@@ -358,6 +397,9 @@ $(document).ready(function(){
             },
             settlement_bank_no: {
                 required: '请选择银行'
+            },
+            settlement_bank_account_type: {
+                required: '请选择银行卡类型'
             },
             settlement_bank_account_name: {
                 required: '请填写银行开户名',

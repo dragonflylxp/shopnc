@@ -138,7 +138,7 @@
     </thead>
     <tbody>
       <tr>
-        <th class="w150">银行：</th>
+        <th>银行：</th>
         <td><?php $banks = Model('merchant_bank')->getList(array("bank_code"=>$output['joinin_detail']['bank_no']));echo $banks[0]['bank_name'];?></td>
       </tr>
       <tr>
@@ -159,12 +159,16 @@
       </tr>
       <tr>
         <th>开户银行所在地：</th>
-        <td colspan="20"><?php echo $output['joinin_detail']['bank_address'];?></td>
+        <td><?php echo $output['joinin_detail']['bank_address'];?></td>
+      </tr>
+      <tr>
+        <th>银行卡类型：</th>
+        <td><?php if($output['joinin_detail']['bank_account_type'] == '1'){echo "借记卡";} else if($output['joinin_detail']['bank_account_type'] == '2'){echo "贷记卡";} else if($output['joinin_detail']['bank_account_type'] == '3'){echo "存折";} else{echo "";}?></td>
       </tr>
       <tr>
         <th>开户银行许可证<br/>
           电子版：</th>
-        <td colspan="20"><a nctype="nyroModal"  href="<?php echo getStoreJoininImageUrl($output['joinin_detail']['bank_licence_electronic']);?>"> <img src="<?php echo getStoreJoininImageUrl($output['joinin_detail']['bank_licence_electronic']);?>" alt="" /> </a></td>
+        <td><a nctype="nyroModal"  href="<?php echo getStoreJoininImageUrl($output['joinin_detail']['bank_licence_electronic']);?>"> <img src="<?php echo getStoreJoininImageUrl($output['joinin_detail']['bank_licence_electronic']);?>" alt="" /> </a></td>
       </tr>
     </tbody>
   </table>
@@ -176,11 +180,11 @@
     </thead>
     <tbody>
       <tr>
-        <th class="w150">银行：</th>
+        <th>银行：</th>
         <td><?php $banks = Model('merchant_bank')->getList(array("bank_code"=>$output['joinin_detail']['settlement_bank_no']));echo $banks[0]['bank_name'];?></td>
       </tr>
       <tr>
-        <th class="w150">银行开户名：</th>
+        <th>银行开户名：</th>
         <td><?php echo $output['joinin_detail']['settlement_bank_account_name'];?></td>
       </tr>
       <tr>
@@ -198,6 +202,10 @@
       <tr>
         <th>开户银行所在地：</th>
         <td><?php echo $output['joinin_detail']['settlement_bank_address'];?></td>
+      </tr>
+      <tr>
+        <th>银行卡类型：</th>
+        <td><?php if($output['joinin_detail']['settlement_bank_account_type'] == '1'){echo "借记卡";} else if($output['joinin_detail']['settlement_bank_account_type'] == '2'){echo "贷记卡";} else if($output['joinin_detail']['settlement_bank_account_type'] == '3'){echo "存折";} else{echo "";}?></td>
       </tr>
     </tbody>
   </table>
