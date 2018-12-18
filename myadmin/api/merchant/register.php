@@ -88,7 +88,7 @@ class MerchantRegister{
          * 设置结算银行卡信息
          */
         $xml .= '<settingSettCard>'.$params['settingSettCard'].'</settingSettCard>';
-        $xml .= '<bankaccPro>'.$params['bankaccPro'].'</bankaccPro>';
+        $xml .= '<bankaccProp>'.$params['bankaccProp'].'</bankaccProp>';
         $xml .= '<certCode>'.$params['certCode'].'</certCode>';
         $xml .= '<bankaccountType>'.$params['bankaccountType'].'</bankaccountType>';
 

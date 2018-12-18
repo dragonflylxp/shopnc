@@ -403,7 +403,7 @@ class storeControl extends SystemControl{
                 require($inc_file);
                 $register = new MerchantRegister($config_api);
 		$basicInfoParams = array();
-                $basicInfoParams['merchantName'] = $_POST['legal_person_name'];
+                $basicInfoParams['merchantName'] = $_POST['company_name'];
                 $basicInfoParams['shortName'] = $_POST['legal_person_name'];
                 $basicInfoParams['city'] = $_POST['area_no'];
                 $basicInfoParams['merchantAddress'] = $_POST['company_address_detail'];
@@ -426,7 +426,7 @@ class storeControl extends SystemControl{
                   设置结算银行卡信息
                 */
                 $basicInfoParams['settingSettCard'] = '1';
-                $basicInfoParams['bankaccPro'] = '1';
+                $basicInfoParams['bankaccProp'] = '1';
                 $basicInfoParams['certCode'] = '1';
                 $basicInfoParams['bankaccountType'] = $_POST['bank_account_type'];
 
@@ -589,6 +589,9 @@ class storeControl extends SystemControl{
         $model_store = Model('store');
         //保存
         if (chksubmit()){
+            $param['gc_no'] = $_POST['gc_no'];
+            Model('store_joinin')->editStoreJoinin(array('member_id' => $_POST['member_id']), $param);
+
             //取店铺等级的审核
             $model_grade = Model('store_grade');
             $grade_array = $model_grade->getOneGrade(intval($_POST['grade_id']));
@@ -788,7 +791,6 @@ class storeControl extends SystemControl{
                 $param['tax_registration_certif_elc'] = $this->upload_image('tax_registration_certif_elc');
             }
 
-            $param['gc_no'] = $_POST['gc_no'];
             $param['bank_no'] = $_POST['bank_no'];
             $param['settlement_bank_no'] = $_POST['settlement_bank_no'];
             $result = Model('store_joinin')->editStoreJoinin(array('member_id' => $member_id), $param);

@@ -25,6 +25,7 @@
     <form id="store_form" method="post">
       <input type="hidden" name="form_submit" value="ok" />
       <input type="hidden" name="store_id" value="<?php echo $output['store_array']['store_id'];?>" />
+      <input type="hidden" name="member_id" value="<?php echo $output['joinin_detail']['member_id'];?>" />
       <div class="ncap-form-default">
         <dl class="row">
           <dt class="tit">
