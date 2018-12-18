@@ -130,7 +130,10 @@
           </tr>
           <tr>
             <th>银行卡类型：</th>
-            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="bank_account_type" id="bank_account_type" value="<?php echo $output['joinin_detail']['settlement_bank_account_type'];?>"></td>
+            <td colspan="20">
+               <input readonly="readonly" type="text" class="txt w300" name="bank_account_type_name" value="<?php if($output['joinin_detail']['settlement_bank_account_type'] == '1'){echo "借记卡";} else if($output['joinin_detail']['settlement_bank_account_type'] == '2'){echo "贷记卡";} else if($output['joinin_detail']['settlement_bank_account_type'] == '3'){echo "存折";} else{echo "";}?>">
+               <input type="hidden" class="txt w300" name="bank_account_type" value="<?php echo $output['joinin_detail']['settlement_bank_account_type'];?>">
+            </td>
           </tr>
         </tbody>
       </table>
