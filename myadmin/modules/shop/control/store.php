@@ -121,7 +121,7 @@ class storeControl extends SystemControl{
         foreach ($store_list as $value) {
             $param = array();
             $store_state = $this->getStoreState($value);
-            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li><li><a href='index.php?con=store&fun=store_merchant_basicInfo&store_id=" . $value['store_id'] . "'>商户信息登记</a></li><li><a href='index.php?con=store&fun=store_merchant_bankInfo&store_id=" . $value['store_id'] . "'>绑定银行账户</a></li><li><a href='index.php?con=store&fun=store_merchant_busiInfo&store_id=" . $value['store_id'] . "'>开通支付业务</a></li>";
+            $operation = "<a class='btn green' href='index.php?con=store&fun=store_joinin_detail&member_id=".$value['member_id']."'><i class='fa fa-list-alt'></i>查看</a><span class='btn'><em><i class='fa fa-cog'></i>" . L('nc_set') . " <i class='arrow'></i></em><ul><li><a href='index.php?con=store&fun=store_edit&store_id=" . $value['store_id'] . "'>编辑店铺信息</a></li><li><a href='index.php?con=store&fun=store_bind_class&store_id=" . $value['store_id'] . "'>修改经营类目</a></li><li><a href='index.php?con=store&fun=store_merchant_basicInfo&store_id=" . $value['store_id'] . "'>商户信息登记</a></li><li><a href='index.php?con=store&fun=store_merchant_imageInfo&store_id=" . $value['store_id'] . "'>上传证件照片</a></li><li><a href='index.php?con=store&fun=store_merchant_bankInfo&store_id=" . $value['store_id'] . "'>绑定银行账户</a></li><li><a href='index.php?con=store&fun=store_merchant_busiInfo&store_id=" . $value['store_id'] . "'>开通支付业务</a></li>";
             if (str_cut($store_state, 6) == 'expire'  && cookie('remindRenewal'.$value['store_id']) == null) {
                 $operation .= "<li><a class='expire' href=". urlAdminShop('store', 'remind_renewal', array('store_id'=>$value['store_id'])). ">提醒商家续费</a></li>";
             }
@@ -440,6 +440,51 @@ class storeControl extends SystemControl{
                 } else {
                     showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
                 }
+            }
+        }
+    }
+
+    /**
+     * 上传证件照片页面 
+     */
+    public function store_merchant_imageInfoOp() {
+        $store_id = intval($_GET['store_id']);
+        $store_array = Model('store')->getStoreInfoByID($store_id);
+        $joinin_detail = Model('store_joinin')->getOne(array('member_id'=>$store_array['member_id']));
+        Tpl::output('store_array', $store_array);
+        Tpl::output('joinin_detail', $joinin_detail);
+        Tpl::showpage('store.merchant.image');
+    }
+
+    /**
+     * 上传证件照片 
+     */
+    public function store_merchant_imageOp() {
+        $inc_file = BASE_PATH.DS.'api'.DS.'merchant'.DS.'register.php'; 
+        if(is_file($inc_file)) {
+            require($inc_file);
+            $register = new MerchantRegister($config_api);
+	    $img_mapper = array('01'=>'img_bank_card_front',
+                                '02'=>'img_id_card_front',
+                                '03'=>'img_id_card_back',
+                                '04'=>'img_idcard_in_hand',
+                                '05'=>'img_business_licence',
+                                '06'=>'img_company_register');
+	    $addImageParams = array();
+            $addImageParams['merchantId'] = $_POST['merchant_id'];
+            $addImageParams['picType'] = $_POST['pic_type'];
+            $img_file = $_POST[$img_mapper[$_POST['pic_type']]."1"];
+            $img_path = BASE_UPLOAD_PATH.'/mall/store_joinin/'.$img_file;
+            //$img_data = fread(fopen($img_path, 'r'), filesize($img_path));
+            $addImageParams['imgFile'] = $img_path; 
+            $result = $register->addImage($addImageParams);
+            if ($result['head'][respType] == 'S') {
+                //图片入库
+                $param = array($img_mapper[$_POST['pic_type']]=>$img_file);
+                Model('store_joinin')->editStoreJoinin(array('member_id' => $_POST['member_id']), $param);
+                showMessage(L('nc_common_op_succ'));
+            } else {
+                //showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
             }
         }
     }

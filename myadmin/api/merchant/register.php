@@ -23,6 +23,7 @@ class MerchantRegister{
     private $busiInfotranCode  = "";
     private $qryCardtranCode   = "";
     private $qryBusitranCode   = "";
+    private $addImagetranCode  = "";
 
     /* 报文类型*/
     private $msgType= "";
@@ -33,6 +34,7 @@ class MerchantRegister{
     private $busiInfoUrl  = ""; 
     private $qryCardUrl   = ""; 
     private $qryBusiUrl   = ""; 
+    private $addImageUrl  = ""; 
 
     /* aes cipher */
     public $aes_cipher = null;
@@ -49,12 +51,14 @@ class MerchantRegister{
         $this->busiInfotranCode  = $config_api['register']['busiInfotranCode'];
         $this->qryCardtranCode   = $config_api['register']['qryCardtranCode'];
         $this->qryBusitranCode   = $config_api['register']['qryBusitranCode'];
+        $this->addImagetranCode  = $config_api['register']['addImagetranCode'];
         $this->msgType           = $config_api['register']['msgType'];
         $this->basicInfoUrl      = $config_api['register']['basicInfoUrl'];
         $this->bankInfoUrl       = $config_api['register']['bankInfoUrl'];
         $this->busiInfoUrl       = $config_api['register']['busiInfoUrl'];
         $this->qryCardUrl        = $config_api['register']['qryCardUrl'];
         $this->qryBusiUrl        = $config_api['register']['qryBusiUrl'];
+        $this->addImageUrl       = $config_api['register']['addImageUrl'];
         $this->aes_cipher = new AESCrypt(); 
         $this->rsa_cipher = new RSACrypt();
     }
@@ -186,6 +190,20 @@ class MerchantRegister{
     }
 
     /*
+     * 新增图片信息 
+     */ 
+    public function addImage($params){
+	$xml = $this->_common_header($this->addImagetranCode);
+        $xml .= '<body>';
+        $xml .= '<merchantId>'.$params['merchantId'].'</merchantId>';
+        $xml .= '<picType>'.$params['picType'].'</picType>';
+        $xml .= '</body>';
+        $xml .= '</merchant>';
+	$resp = $this->_make_request($xml, $this->addImageUrl, $this->addImagetranCode, $streamFile=$params['imgFile']);
+        return $this->_parse_response($resp);
+    }
+
+    /*
      * 公共报文头 
      */ 
     private function _common_header($tranCode){
@@ -211,7 +229,7 @@ class MerchantRegister{
     /*
      * 执行请求 
      */ 
-    private function _make_request($xml, $reqUrl, $tranCode){
+    private function _make_request($xml, $reqUrl, $tranCode, $streamFile=null){
         $encryptData = $this->aes_cipher->encrypt($xml);
         $signData = $this->rsa_cipher->sign($xml);
         $encryptKey = $this->rsa_cipher->encrypt($this->aes_cipher->get_aes_key());
@@ -223,6 +241,10 @@ class MerchantRegister{
         $post_data['encryptKey'] = $encryptKey;
         $post_data['agencyId'] = $this->merchant_no;
         $post_data['tranCode'] = $tranCode;
+        if(isset($streamFile)){
+            $ext = explode('.',$streamFile)[1];
+            $post_data['file'] = curl_file_create($streamFile, "image/".$ext, "img_file");
+        }
         $resp = curl_post($reqUrl, $post_data);
         return $resp; 
     }

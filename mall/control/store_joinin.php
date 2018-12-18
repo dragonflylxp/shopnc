@@ -463,7 +463,6 @@ class store_joininControl extends BaseHomeControl {
     }
 
     public function ajax_upload_imageOp() {
-
         $pic_name = '';
         $upload = new UploadFile();
         $file = current($_FILES);
