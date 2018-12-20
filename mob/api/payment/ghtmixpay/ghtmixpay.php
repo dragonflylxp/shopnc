@@ -58,6 +58,9 @@ class ghtmixpay {
     /* sha256 key */
     public $sha256_key = "";   
 
+    /* 分账类型 */
+    public $split_type = "";   
+
     /* aes cipher */
     private $aes_cipher = null;
 
@@ -78,7 +81,8 @@ class ghtmixpay {
         $this->preorderUrl        = $config_api['ghtmixpay']['preorderUrl'];
         $this->mixpayUrl          = $config_api['ghtmixpay']['mixpayUrl'];
         $this->gateUrl            = $config_api['ghtmixpay']['gateUrl'];
-        $this->ha256_key          = $config_api['ghtmixpay']['sha256_key'];
+        $this->sha256_key         = $config_api['ghtmixpay']['sha256_key'];
+        $this->split_type         = $config_api['ghtmixpay']['split_type'];
         $this->return_url = MOBILE_SITE_URL.'/return_url.php';
         $this->notify_url = MOBILE_SITE_URL.'/notify_url.php';
         $this->aes_cipher = new AESCrypt();
@@ -203,6 +207,23 @@ class ghtmixpay {
         $xml .= '<appOrderNo>'.$param['order_sn'].'</appOrderNo>';
         $xml .= '<amount>'.$total_amount.'</amount>';   //积分+现金金额
         $xml .= '<userNo>'.$param['user_no'].'</userNo>';
+
+        /*
+         * 设置分账信息
+         */
+        if(count($param['merchant_list']) > 0){
+            $xml .= '<splitType>'.$this->split_type.'</splitType>';
+            $split = '';
+            foreach($param['merchant_list'] as $merchant_no=>$value){
+                $split .= '<merchant_list>';
+                $split .= '<merchant_no>'.$merchant_no.'</merchant_no>';
+                $split .= '<value>'.ncPriceFormat($value).'</value>';
+                $split .= '</merchant_list>';
+            }
+            $xml .= '<split><![CDATA['.$split.']]></split>';
+        }
+
+
         $xml .= '</body>';
         $xml .= '</merchant>';
         $post = $this->encrypt_request($xml);

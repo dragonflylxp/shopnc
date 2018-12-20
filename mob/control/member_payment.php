@@ -316,6 +316,21 @@ class member_paymentControl extends mobileMemberControl {
                     $param['jf_amount'] = $param['jf_amount'] + floatval($jfinfo[2]);
                 }
             }
+            
+            //分账信息
+            $merchant_list = array();
+            foreach($order_pay_info["order_list"] as $order_info){
+                if ($order_info['order_state'] == ORDER_STATE_NEW) {
+                    $pay_amount += $order_info['order_amount'] - $order_info['pd_amount'] - $order_info['rcb_amount'];
+                    $merchant_no = $order_info["store_merchantno"];
+                    if(!array_key_exists($merchant_no, $merchant_list)){
+                        $merchant_list[$merchant_no] = $pay_amount; 
+                    }else{
+                        $merchant_list[$merchant_no] += $pay_amount; 
+                    }
+                }
+            }
+            $param['merchant_list'] = $merchant_list;
            
             //根据订单第一件商品，确定子商户号与子商户名
             $param['store_name'] = $order_pay_info["order_list"][0]["store_name"];
