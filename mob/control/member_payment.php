@@ -321,7 +321,7 @@ class member_paymentControl extends mobileMemberControl {
             $merchant_list = array();
             foreach($order_pay_info["order_list"] as $order_info){
                 if ($order_info['order_state'] == ORDER_STATE_NEW) {
-                    $pay_amount += $order_info['order_amount'] - $order_info['pd_amount'] - $order_info['rcb_amount'];
+                    $pay_amount = $order_info['order_amount'] - $order_info['pd_amount'] - $order_info['rcb_amount'];
                     $merchant_no = $order_info["store_merchantno"];
                     if(!array_key_exists($merchant_no, $merchant_list)){
                         $merchant_list[$merchant_no] = $pay_amount; 

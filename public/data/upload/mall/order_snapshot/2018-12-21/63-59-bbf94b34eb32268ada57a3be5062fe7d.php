@@ -1,0 +1,1 @@
+<?php defined('Inshopec') or exit('Access Invalid!');?><div class="default"><img src="http://manpay.sicpay.com/data/upload/mall/store/goods/253/253_05979433070792133_1280.jpg" alt="image" /></div>

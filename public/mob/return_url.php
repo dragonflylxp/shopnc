@@ -32,7 +32,7 @@ require(BASE_PATH.'/framework/function/function.php');
 
 //shopec\Core::runApplication();
 require(BASE_PATH.'/control/payment.php');
-$_GET['payment_code'] = 'ghtpay';
+$_GET['payment_code'] = 'ghtmixpay';
 $main = new paymentControl();
 $main->returnOp();
 

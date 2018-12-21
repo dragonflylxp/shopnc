@@ -163,7 +163,11 @@ class paymentControl extends mobileHomeControl{
             require($inc_file);
         }
 
-        $payment_api = new $this->payment_code();
+        if ($this->payment_code == 'ghtmixpay'){
+            $payment_api = new $this->payment_code($config_api);
+        }else{
+            $payment_api = new $this->payment_code();
+        }
 
         return $payment_api;
     }

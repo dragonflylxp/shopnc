@@ -6,7 +6,10 @@
   'is_use' => '1',
   'ap_width' => '206',
   'ap_height' => '300',
-  'adv_num' => '1',
+  'adv_num' => '2',
   'click_num' => '0',
-  'default_content' => '05307093015792571.png',
+  'default_content' => '05986448059644396.jpg',
+  'adv_list' => 
+  array (
+  ),
 );

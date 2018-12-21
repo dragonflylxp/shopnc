@@ -184,7 +184,7 @@ class ghtmixpay {
     */
     public function preorder($param){
         date_default_timezone_set('UTC');
-        $req_date = date("YmdHis");
+        $req_date = date("YmdHis").'01';
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<merchant>';
         $xml .= '<head>';
@@ -207,22 +207,22 @@ class ghtmixpay {
         $xml .= '<appOrderNo>'.$param['order_sn'].'</appOrderNo>';
         $xml .= '<amount>'.$total_amount.'</amount>';   //积分+现金金额
         $xml .= '<userNo>'.$param['user_no'].'</userNo>';
-
+        
         /*
          * 设置分账信息
          */
-        if(count($param['merchant_list']) > 0){
+        if(count($param['merchant_list']) > 1){
             $xml .= '<splitType>'.$this->split_type.'</splitType>';
-            $split = '';
+            $split = '<split>';
             foreach($param['merchant_list'] as $merchant_no=>$value){
                 $split .= '<merchant_list>';
                 $split .= '<merchant_no>'.$merchant_no.'</merchant_no>';
                 $split .= '<value>'.ncPriceFormat($value).'</value>';
                 $split .= '</merchant_list>';
             }
+            $split .= '</split>';
             $xml .= '<split><![CDATA['.$split.']]></split>';
         }
-
 
         $xml .= '</body>';
         $xml .= '</merchant>';
@@ -242,7 +242,7 @@ class ghtmixpay {
     */
     public function mixpay($param){
         date_default_timezone_set('UTC');
-        $req_date = date("YmdHis");
+        $req_date = date("YmdHis").'02';
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<merchant>';
         $xml .= '<head>';
