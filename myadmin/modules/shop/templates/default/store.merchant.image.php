@@ -254,6 +254,112 @@
             <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn_company_register">上传</a></div>
           </td>
         </tr>
+        </form>
+        <form id="form_company_auth" enctype="application/x-www-form-urlencoded " method="post" action="index.php?con=store&fun=store_merchant_image">
+        <tr>
+          <th>授权书：</th>
+          <td>
+              <input name="pic_type" value="07" type="hidden"/>
+              <input name="member_id" value="<?php echo $output["store_array"]["member_id"];?>" type="hidden"/>
+              <input name="merchant_id" value="<?php echo $output["store_array"]["store_merchantno"];?>" type="hidden"/>
+              <input name="img_company_auth" type="file"  multiple class="w60"/>
+
+              <div class="img_box">
+                  <?php
+                  $img_str = $output['joinin_detail']['img_company_auth'];
+                  if(!empty($img_str)){
+                      $htm = '';
+                      $img_arr = explode("|",$img_str);
+                      foreach($img_arr as $val){
+                          if(!empty($val)){
+                              $htm .= '<span class="img_span">';
+                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img data-field="img_company_auth" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
+                              $htm .='</span>';
+                          }
+                      }
+                      echo $htm;
+                  }
+                  ?>
+              </div>
+              <span class="block">请确保图片清晰(支持格式：jpg/jpeg/gif/png', 单张大小不超过<?php echo intval(C('image_max_filesize'))/1024;?>M)</span>
+              <input name="img_company_auth1" value="<?php echo $output['joinin_detail']['img_company_auth']; ?>" type="hidden"/><span></span>
+          </td>
+          <td>
+            <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn_company_auth">上传</a></div>
+          </td>
+        </tr>
+        </form>
+        <form id="form_shop_one" enctype="application/x-www-form-urlencoded " method="post" action="index.php?con=store&fun=store_merchant_image">
+        <tr>
+          <th>门店照片1：</th>
+          <td>
+              <input name="pic_type" value="08" type="hidden"/>
+              <input name="member_id" value="<?php echo $output["store_array"]["member_id"];?>" type="hidden"/>
+              <input name="merchant_id" value="<?php echo $output["store_array"]["store_merchantno"];?>" type="hidden"/>
+              <input name="img_shop_one" type="file"  multiple class="w60"/>
+
+              <div class="img_box">
+                  <?php
+                  $img_str = $output['joinin_detail']['img_shop_one'];
+                  if(!empty($img_str)){
+                      $htm = '';
+                      $img_arr = explode("|",$img_str);
+                      foreach($img_arr as $val){
+                          if(!empty($val)){
+                              $htm .= '<span class="img_span">';
+                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img data-field="img_shop_one" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
+                              $htm .='</span>';
+                          }
+                      }
+                      echo $htm;
+                  }
+                  ?>
+              </div>
+              <span class="block">请确保图片清晰(支持格式：jpg/jpeg/gif/png', 单张大小不超过<?php echo intval(C('image_max_filesize'))/1024;?>M)</span>
+              <input name="img_shop_one1" value="<?php echo $output['joinin_detail']['img_shop_one']; ?>" type="hidden"/><span></span>
+          </td>
+          <td>
+            <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn_shop_one">上传</a></div>
+          </td>
+        </tr>
+        </form>
+        <form id="form_shop_two" enctype="application/x-www-form-urlencoded " method="post" action="index.php?con=store&fun=store_merchant_image">
+        <tr>
+          <th>门店照片2：</th>
+          <td>
+              <input name="pic_type" value="09" type="hidden"/>
+              <input name="member_id" value="<?php echo $output["store_array"]["member_id"];?>" type="hidden"/>
+              <input name="merchant_id" value="<?php echo $output["store_array"]["store_merchantno"];?>" type="hidden"/>
+              <input name="img_shop_two" type="file"  multiple class="w60"/>
+
+              <div class="img_box">
+                  <?php
+                  $img_str = $output['joinin_detail']['img_shop_two'];
+                  if(!empty($img_str)){
+                      $htm = '';
+                      $img_arr = explode("|",$img_str);
+                      foreach($img_arr as $val){
+                          if(!empty($val)){
+                              $htm .= '<span class="img_span">';
+                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img data-field="img_shop_two" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
+                              $htm .='</span>';
+                          }
+                      }
+                      echo $htm;
+                  }
+                  ?>
+              </div>
+              <span class="block">请确保图片清晰(支持格式：jpg/jpeg/gif/png', 单张大小不超过<?php echo intval(C('image_max_filesize'))/1024;?>M)</span>
+              <input name="img_shop_two2" value="<?php echo $output['joinin_detail']['img_shop_two']; ?>" type="hidden"/><span></span>
+          </td>
+          <td>
+            <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn_shop_two">上传</a></div>
+          </td>
+        </tr>
+        </form>
       </tbody>
     </table>
     <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn">提交</a></div>
@@ -266,7 +372,7 @@ var SHOP_SITE_URL = '<?php echo SHOP_SITE_URL;?>';
 
 $(function(){
     //证件图片上传
-    <?php foreach (array('img_id_card_front','img_id_card_back','img_bank_card_front','img_idcard_in_hand','img_business_card','img_company_register') as $input_id) { ?>
+    <?php foreach (array('img_id_card_front','img_id_card_back','img_bank_card_front','img_idcard_in_hand','img_business_card','img_company_register', 'img_company_auth', 'img_shop_one', 'img_shop_two') as $input_id) { ?>
     $('input[name="<?php echo $input_id;?>"]').fileupload({
         dataType: 'json',
         url: '<?php echo urlShop('store_joinin', 'ajax_upload_image');?>',
@@ -311,7 +417,16 @@ $(function(){
         $("#form_business_licence").submit();
     });
     $("#submitBtn_company_register").click(function(){
-        $("#form_business_licence").submit();
+        $("#form_company_register").submit();
+    });
+    $("#submitBtn_company_auth").click(function(){
+        $("#form_company_auth").submit();
+    });
+    $("#submitBtn_shop_one").click(function(){
+        $("#form_shop_one").submit();
+    });
+    $("#submitBtn_shop_two").click(function(){
+        $("#form_shop_two").submit();
     });
 });
 </script>

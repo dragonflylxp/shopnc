@@ -1,6 +1,18 @@
 <?php defined('Inshopec') or exit('Access Invalid!'); return array (
   0 => 
   array (
+    'nav_id' => '23',
+    'nav_type' => '0',
+    'nav_title' => '1元加价换新品',
+    'nav_url' => 'http://www.baidu.com',
+    'nav_location' => '1',
+    'nav_new_open' => '1',
+    'nav_sort' => '7',
+    'item_id' => '0',
+    'is_nav_add' => '1',
+  ),
+  1 => 
+  array (
     'nav_id' => '9',
     'nav_type' => '0',
     'nav_title' => '招聘英才',
@@ -11,7 +23,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  1 => 
+  2 => 
   array (
     'nav_id' => '8',
     'nav_type' => '0',
@@ -23,7 +35,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  2 => 
+  3 => 
   array (
     'nav_id' => '7',
     'nav_type' => '0',
@@ -35,7 +47,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  3 => 
+  4 => 
   array (
     'nav_id' => '6',
     'nav_type' => '0',
@@ -47,7 +59,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  4 => 
+  5 => 
   array (
     'nav_id' => '13',
     'nav_type' => '0',
@@ -59,7 +71,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  5 => 
+  6 => 
   array (
     'nav_id' => '18',
     'nav_type' => '0',
@@ -71,7 +83,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  6 => 
+  7 => 
   array (
     'nav_id' => '19',
     'nav_type' => '0',
@@ -83,7 +95,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  7 => 
+  8 => 
   array (
     'nav_id' => '20',
     'nav_type' => '0',
@@ -95,7 +107,7 @@
     'item_id' => '0',
     'is_nav_add' => '1',
   ),
-  8 => 
+  9 => 
   array (
     'nav_id' => '21',
     'nav_type' => '0',

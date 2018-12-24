@@ -469,13 +469,15 @@ class storeControl extends SystemControl{
                                 '03'=>'img_id_card_back',
                                 '04'=>'img_idcard_in_hand',
                                 '05'=>'img_business_licence',
-                                '06'=>'img_company_register');
+                                '06'=>'img_company_register',
+                                '07'=>'img_company_auth',
+                                '08'=>'img_shop_one',
+                                '09'=>'img_shop_two');
 	    $addImageParams = array();
             $addImageParams['merchantId'] = $_POST['merchant_id'];
             $addImageParams['picType'] = $_POST['pic_type'];
             $img_file = $_POST[$img_mapper[$_POST['pic_type']]."1"];
             $img_path = BASE_UPLOAD_PATH.'/mall/store_joinin/'.$img_file;
-            //$img_data = fread(fopen($img_path, 'r'), filesize($img_path));
             $addImageParams['imgFile'] = $img_path; 
             $result = $register->addImage($addImageParams);
             if ($result['head'][respType] == 'S') {
@@ -484,7 +486,7 @@ class storeControl extends SystemControl{
                 Model('store_joinin')->editStoreJoinin(array('member_id' => $_POST['member_id']), $param);
                 showMessage(L('nc_common_op_succ'));
             } else {
-                //showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
+                showMessage(L('nc_common_op_fail').":".$result['head']["respMsg"]);
             }
         }
     }
