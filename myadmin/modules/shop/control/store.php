@@ -1612,6 +1612,27 @@ class storeControl extends SystemControl{
         }
     }
 
+    /**
+     * 上传图片 
+     */
+    public function ajax_upload_imageOp() {
+        $pic_name = '';
+        $upload = new UploadFile();
+        $file = current($_FILES);
+        $uploaddir = ATTACH_PATH.DS.'store_joinin'.DS;
+        $upload->set('max_size',C('image_max_filesize'));
+        $upload->set('default_dir',$uploaddir);
+        $upload->set('allow_type',array('jpg','jpeg','gif','png'));
+        if (!empty($file['tmp_name'])){
+            $result = $upload->upfile(key($_FILES));
+            if ($result){
+                echo json_encode(array('state'=>true,'pic_name'=>$upload->file_name,'pic_url'=>UPLOAD_SITE_URL.DS.ATTACH_PATH.DS.'store_joinin'.DS.$upload->file_name));
+            } else {
+                echo json_encode(array('state'=>false,'message'=>$upload->error));
+            }
+        }
+    }
+
     /********************************** 查询区域id 龚波添加功能 20161121 start**********************************************/
     /*
      * @deep 层级，1省，2市，3区域

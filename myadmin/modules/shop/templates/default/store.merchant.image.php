@@ -98,7 +98,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_id_card_front" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -133,7 +133,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_id_card_back" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -168,7 +168,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_idcard_in_hand" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -203,7 +203,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_business_licence" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -238,7 +238,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_company_register" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -273,7 +273,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_company_auth" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -308,7 +308,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_shop_one" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -343,7 +343,7 @@
                       foreach($img_arr as $val){
                           if(!empty($val)){
                               $htm .= '<span class="img_span">';
-                              $htm .='<img height="60" class="per_img" src="'.$output['pic_url'].$val.'" />';
+                              $htm .='<img height="60" class="per_img" src="'.UPLOAD_SITE_URL.'/mall/store_joinin/'.$val.'" />';
                               $htm .='<img data-field="img_shop_two" class="delate_small" src="'.SHOP_TEMPLATES_URL.'/images/shop/delate_small.jpg" alt=""/>';
                               $htm .='</span>';
                           }
@@ -370,12 +370,13 @@
 <script type="text/javascript">
 var SHOP_SITE_URL = '<?php echo SHOP_SITE_URL;?>';
 
-$(function(){
+$(document).ready(function(){
+//$(function(){
     //证件图片上传
     <?php foreach (array('img_id_card_front','img_id_card_back','img_bank_card_front','img_idcard_in_hand','img_business_card','img_company_register', 'img_company_auth', 'img_shop_one', 'img_shop_two') as $input_id) { ?>
     $('input[name="<?php echo $input_id;?>"]').fileupload({
         dataType: 'json',
-        url: '<?php echo urlShop('store_joinin', 'ajax_upload_image');?>',
+        url: 'index.php?con=store&fun=ajax_upload_image',//'<?php echo urlShop('store_joinin', 'ajax_upload_image');?>',
         formData: '',
         sequentialUploads: true,  // 连续上传配置
         add: function (e,data) {
