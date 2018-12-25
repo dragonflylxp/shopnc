@@ -580,6 +580,8 @@ class storeControl extends SystemControl{
                 if(intval($listNum) == 1){
                     $busiList = array($busiList);
                 }
+                # 过滤已关闭的业务
+                $busiList = array_filter($busiList, function($var){return $var['status']==1;});
             }
         }
         Tpl::output('busiList', $busiList);
