@@ -353,7 +353,7 @@
                   ?>
               </div>
               <span class="block">请确保图片清晰(支持格式：jpg/jpeg/gif/png', 单张大小不超过<?php echo intval(C('image_max_filesize'))/1024;?>M)</span>
-              <input name="img_shop_two2" value="<?php echo $output['joinin_detail']['img_shop_two']; ?>" type="hidden"/><span></span>
+              <input name="img_shop_two1" value="<?php echo $output['joinin_detail']['img_shop_two']; ?>" type="hidden"/><span></span>
           </td>
           <td>
             <div class="bot"><a href="JavaScript:void(0);" class="ncap-btn-big ncap-btn-green" id="submitBtn_shop_two">上传</a></div>
@@ -373,7 +373,7 @@ var SHOP_SITE_URL = '<?php echo SHOP_SITE_URL;?>';
 $(document).ready(function(){
 //$(function(){
     //证件图片上传
-    <?php foreach (array('img_id_card_front','img_id_card_back','img_bank_card_front','img_idcard_in_hand','img_business_card','img_company_register', 'img_company_auth', 'img_shop_one', 'img_shop_two') as $input_id) { ?>
+    <?php foreach (array('img_id_card_front','img_id_card_back','img_bank_card_front','img_idcard_in_hand','img_business_licence','img_company_register', 'img_company_auth', 'img_shop_one', 'img_shop_two') as $input_id) { ?>
     $('input[name="<?php echo $input_id;?>"]').fileupload({
         dataType: 'json',
         url: 'index.php?con=store&fun=ajax_upload_image',//'<?php echo urlShop('store_joinin', 'ajax_upload_image');?>',
