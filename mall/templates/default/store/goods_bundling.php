@@ -119,7 +119,7 @@
           <?php foreach ($output['gcombo_list'] as $key => $value) {?>
           <?php foreach ($value['goods'] as $combo) {?>
           <li <?php if ($j == 0) {?>class="combo-goods-first"<?php $j++;}?> data-id="<?php echo $key;?>">
-            <div class="goods-thumb"><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $combo['goods_id']));?>" target="block"><img src="<?php echo thumb($combo, 240);?>" title="<?php echo $combo['goods_name'];?>" alt="<?php echo $combo['goods_name'];?>" onload="javascript:DrawImage(this,100,100);" /></a></div>
+            <div class="goods-thumb"><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $combo['goods_id']));?>" target="block"><img src="<?php echo thumb($combo, 240);?>" title="<?php echo $combo['goods_name'];?>" alt="<?php echo $combo['goods_name'];?>"  /></a></div>
             <dl>
               <dt title="<?php echo $combo['goods_name'];?>"><a href="<?php echo urlShop('goods', 'index', array('goods_id' => $combo['goods_id']));?>" target="block"><?php echo $combo['goods_name'];?></a></dt>
               <dd class="goods-price"><?php echo $lang['currency'].ncPriceFormat($combo['goods_promotion_price']);?></dd>

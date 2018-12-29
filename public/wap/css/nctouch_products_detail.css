@@ -326,3 +326,78 @@ button{width:100%;text-align:center;border-radius:3px;}
 .product-eval-list .again-eval { height: 0.9rem; margin-top: 0.2rem; font-size: 0.55rem; line-height: 0.9rem; color: #555;}
 
 .product-eval-list .eval-explain { font-size: 0.6rem; color: #0094DE; line-height: 0.8rem; padding: 0.5rem 0;}
+
+.ncs-goods-title-nav { margin-top: 0;}
+.ncs-goods-title-nav ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; background-color: #FFF; border: solid #E6E6E6 1px;}
+.ncs-goods-title-nav ul li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block;}
+.ncs-goods-title-nav ul li { *display: inline/*IE6,7*/;}
+.ncs-goods-title-nav ul li a { font: normal 14px/20px "Microsoft Yahei"; text-decoration:none; color:#777; background-color: #FFF; display: block; padding: 8px 35px 7px 35px; border-style: solid; border-color: #E6E6E6; border-width: 0 1px 0 0;}
+.ncs-goods-title-nav ul li.current { margin: -1px 0 -1px -1px;}
+.ncs-goods-title-nav ul li.current a { color: #333; background-color: #FFF; padding: 8px 35px 6px 35px; border-style: solid; border-color: #0094DE #DDD transparent #DDD; border-width: 3px 1px 0 1px ;}
+.ncs-goods-info-content { padding-bottom: 23px;}
+.ncs-goods-info-content .top { padding: 9px; margin-bottom: 20px; border: solid #E6E6E6; border-width: 0 1px 1px;}
+
+/*优惠套餐销售*/
+.ncs-bundling-tab { display: block; height: 20px; padding: 10px 0; margin-left: 20px; overflow: hidden;}
+.ncs-bundling-tab span { border-left: solid 1px #E6E6E6; margin-left: -1px;}
+.ncs-bundling-tab span a { line-height: 20px; padding: 0 15px; }
+.ncs-bundling-tab span.selected a { font-weight: 600; color: #0094DE;}
+.ncs-bundling-container { background: #FFF; height: 230px;}
+.ncs-bundling-container ul.ncs-bundling-list { font-size: 0; *word-spacing:-1px/*IE6、7*/; display: block; width: 980px; height: 230; float: left; margin: 0; overflow: hidden;}
+.ncs-bundling-container ul li { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 156px; padding: 20px 20px 0 20px; margin: 0; *zoom: 1; position: relative; z-index: 1;}
+.ncs-bundling-container .goods-thumb { background-color: #FFF; width: 120px; height: 120px; margin: 0 auto;}
+.ncs-bundling-container .goods-thumb a { line-height: 0; background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 120px; height: 120px; overflow: hidden;}
+.ncs-bundling-container .goods-thumb img { max-width: 120px; max-height: 120px; margin-top:expression(120-this.height/2); *margin-top:expression(60-this.height/2);}
+.ncs-bundling-container dl { display:block; padding: 0; margin: 4px 0 0 0;}
+.ncs-bundling-container dl dt { line-height: 18px; width: 100%; height: 36px; overflow:hidden;}
+.ncs-bundling-container dl dt a { color: #555;}
+.ncs-bundling-container dl dd { line-height: 16px; color: #999; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.ncs-bundling-container dl dd .o-price { text-decoration: line-through;}
+.ncs-bundling-container dl dd .b-price { font-weight: 600; color: #0094DE;}
+.ncs-bundling-container .plus { background: url(../images/2014_ncs_public_img.png) no-repeat 0 -130px; display: block; width: 19px; height: 19px; position: absolute; z-index: 1; top: 70px; left: -19px;}
+.ncs-bundling-price { color: #777; background-color: #FAFAFA; display: block; width: 177px; height: 220px; float: right; padding: 50px 15px 0 15px; margin-top: -40px; border-left: solid 1px #E6E6E6;}
+.ncs-bundling-price ul {}
+.ncs-bundling-price ul li { line-height: 28px; color: #777; white-space: nowrap; text-overflow: ellipsis; width: 100%; padding: 0!important; overflow: hidden;}
+.ncs-bundling-price ul li strong { color: #005EA6; font-weight: 600;}
+.ncs-bundling-price ul li em { font-family: Arial;}
+.ncs-bundling-price ul li .bundling-price { font-weight: 600; color: #D00;}
+.ncs-bundling-price ul li .bundling-save { color: #468C00;}
+
+/*推荐组合*/
+.ncs-combo-box { height: 220px;}
+.ncs-combo-box .default-goods { width: 100px; padding: 40px 19px 0 20px; float: left; position: relative; z-index: 1;}
+.ncs-combo-box .default-goods .goods-thumb { display: block; width: 3.225rem; height: 3.225rem; border: solid 0.05rem #EEE;}
+.ncs-combo-box .default-goods .goods-thumb a { line-height: 0; background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 140px; height: 70px; overflow: hidden;}
+.ncs-combo-box .default-goods .goods-thumb img { display: block; width: 100%; height: 100%;}
+.ncs-combo-box .default-goods dt { display: block; overflow: hidden; width:3.225rem; height: 1.2rem; font-size: 0.5rem; line-height: 0.6rem; color: #777; margin-bottom: 0.2rem;}
+.ncs-combo-box .default-goods .goods-price { font-size: 0.55rem; font-weight: 600; color: #D00;}
+.ncs-combo-box .default-goods .plus { background: url(../images/2014_ncs_public_img.png) no-repeat 0 -130px; display: block; width: 19px; height: 19px; position: absolute; z-index: 1; top: 100px; right: 10px;}
+
+.ncs-combo-box .ncs-combo-tab { display: block; height: 20px; font-size:0.8rem;padding: 10px 0; margin-left: 20px; overflow: hidden;}
+.ncs-combo-box .ncs-combo-tab span { border-left: solid 1px #E6E6E6; margin-left: -1px;}
+.ncs-combo-box .ncs-combo-tab span a { line-height: 20px; padding: 0 15px; }
+.ncs-combo-box .ncs-combo-tab span.selected a { font-weight: 200; color: #0094DE;}
+.ncs-combo-box .combo-goods { width: 220; float: left;}
+.ncs-combo-box .combo-goods-box { width: 218; height: 200px; padding: 10px 0; margin: 0; border: solid #E6E6E6; border-width: 1px 0 0 1px; position: relative; z-index: 1;}
+.ncs-combo-box .combo-goods-list { width: 184; height: 200px; margin: 0 0px; overflow: hidden; position: relative; z-index: 1;}
+.ncs-combo-box .combo-goods-list ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; white-space: nowrap; overflow: hidden; position: absolute; z-index: 1; top: 0; left: 0;}
+.ncs-combo-box .combo-goods-list li { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 130px; padding: 10px 0 10px 18px; margin-right: 27px; border: solid 1px transparent; *zoom: 1; position: relative; z-index: 1;}
+.ncs-combo-box .combo-goods-list li:hover { border: solid 1px #D00;}
+.ncs-combo-box .combo-goods-list li .goods-thumb { background-color: #FFF; width: 80px; height: 80px; margin: 0 auto;}
+.ncs-combo-box .combo-goods-list li .goods-thumb a { line-height: 0; background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 80px; height: 80px; overflow: hidden;}
+.ncs-combo-box .combo-goods-list li .goods-thumb img { max-width: 80px; max-height: 80px; margin-top:expression(80-this.height/2); *margin-top:expression(40-this.height/2);}
+.ncs-combo-box .combo-goods-list li dl { margin-top: 10px;}
+.ncs-combo-box .combo-goods-list li dt { line-height: 16px; white-space: normal; height: 48px; overflow: hidden;}
+.ncs-combo-box .combo-goods-list li dt a { color: #777;}
+.ncs-combo-box .combo-goods-list li dd.goods-price { font-weight: 600; color: #D00; margin-top: 5px;}
+.ncs-combo-box .combo-goods-list li dd.rp { color: #999; text-decoration: line-through;}
+.ncs-combo-box .combo-goods-list li .checkbox { position: absolute; z-index: 1; top: 5px; right: 5px;}
+.ncs-combo-box .combo-goods-list li .plus { background: url(../images/2014_ncs_public_img.png) no-repeat 0 -130px; display: block; width: 19px; height: 19px; position: absolute; z-index: 1; top: 45px; left: -20px;}
+.ncs-combo-box .combo-goods-box .F-prev { background-color: #FFF; width: 46px; height: 229px; border-right: solid 1px #E6E6E6; position: absolute; z-index: 2; top: 0; left: 0;}
+.ncs-combo-box .combo-goods-box .F-next { background-color: #FFF; width: 46px; height: 229px; border-left: solid 1px #E6E6E6; position: absolute; z-index: 2; top: 0; right: 0;}
+
+.ncs-combo-box .combo-goods-box .F-prev i { background: url(../images/2014_ncs_public_img.png) no-repeat -12px 0; display: block; width: 10px; margin: 105px 0 0 17px; height: 20px; cursor: pointer;  opacity: 0.5;}
+.ncs-combo-box .combo-goods-box .F-next i { background: url(../images/2014_ncs_public_img.png) no-repeat -22px 0; display: block; width: 10px; margin: 105px 0 0 17px; height: 20px; cursor: pointer;  opacity: 0.5;}
+.ncs-combo-box .combo-goods-box .F-prev:hover i,
+.ncs-combo-box .combo-goods-box .F-next:hover i { opacity: 1;}
+.ncs-combo-box .combo-goods-box .no-slider i { opacity: 0.1 !important; cursor: no-drop !important;}

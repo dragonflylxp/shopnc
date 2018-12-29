@@ -402,7 +402,25 @@ class goodsControl extends mobileHomeControl{
         $seo_param['key'] = $goods_detail['goods_info']['goods_keywords'];
         $seo_param['description'] = $goods_detail['goods_info']['goods_description'];
         $goods_detail['goods_seo'] =  Model('seo')->type('product')->param($seo_param)->showwap();
-        
+
+        /*
+         * 组合销售
+         */
+        // 优惠套装
+        $array = Model('p_bundling')->getBundlingCacheByGoodsId($goods_id);
+        $goods_detail['bundling_array'] = unserialize($array['bundling_array']);
+        $goods_detail['b_goods_array'] = unserialize($array['b_goods_array']);
+        // 推荐组合 
+        if (!empty($goods_detail['goods_info']) && $model_goods->checkIsGeneral($goods_detail['goods_info'])) {
+            $array = Model('p_combo_goods')->getComboGoodsCacheByGoodsId($goods_id);
+            $goods_detail['gcombo_list'] = unserialize($array['gcombo_list']);
+            foreach($goods_detail['gcombo_list'] as $i=>$gcombo){
+                foreach($gcombo['goods'] as $j=>$goods){
+                    $goods_detail['gcombo_list'][$i]['goods'][$j]['goods_image_url'] = cthumb($goods['goods_image'], 240); 
+                    $goods_detail['gcombo_list'][$i]['goods'][$j]['goods_url'] = WAP_SITE_URL."/tmpl/product_detail.html?goods_id=".$goods['goods_id'];
+                }
+            }
+        }
         output_data($goods_detail);
     }
 

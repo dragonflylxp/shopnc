@@ -1457,6 +1457,11 @@ class goodsModel extends Model{
         $result['spec_image'] = $spec_image;
         $result['image_list'] = $image_list;
         $result['goods_image'] = $goods_image;
+        if(!empty($image_more)){
+            $result['goods_image_small'] = thumb($image_more[0], 240);
+        }else{
+            $result['goods_image_small'] = '';
+        }
         $result['video_path'] = $video_path;
         $result['goods_image_mobile'] = $goods_image_mobile;
         $result['mansong_info'] = $mansong_info;

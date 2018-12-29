@@ -234,6 +234,80 @@
 		</div>
 		<div class="item-more"></div>
 	</div>
+
+        <!--S 组合销售 -->
+	<% if (!isEmpty(bundling_array) || !isEmpty(b_goods_array) || !isEmpty(gcombo_list)) { var current=false%>
+	<div class="goods-detail-item">
+         <div class="ncs-goods-title-nav" nctype="gbc_nav">
+           <ul>      
+	     <% if (!isEmpty(bundling_array) && !isEmpty(b_goods_array)) { %>
+             <li class="current"><a href="javascript:void(0);">优惠套装</a></li>
+             <% current = true;} %>
+	     <% if (!isEmpty(gcombo_list)) { %>
+             <li <% if (!current) { %> class="current" <% } %> ><a href="javascript:void(0);">推荐组合</a></li>
+             <% } %>
+           </ul>     
+         </div>
+         <div class="ncs-goods-info-content" nctype="gbc_content">
+           <!-- 优惠套装: 样式待补充 -->
+	   <% if (!isEmpty(bundling_array) && !isEmpty(b_goods_array)) { %>
+           <div class="ncs-bundling-box">
+             <div class="ncs-bundling-tab">
+               <% var i=0;for(var k in bundling_array){ var val=bundling_array[k]; %>
+                 <span <% if (i == 0) { %>class="selected"<% } %> data-id="<%=val['id']%>"><a href="javascript:void(0);"><%=val['name']%></a></span>
+               <% i++;} %>
+             </div>
+           </div>
+           <% } %>
+
+           <!-- 推荐组合 -->
+	   <% if (!isEmpty(gcombo_list)) { %>
+           <div <% if(current) {%>style="display:none;"<%}%> class="ncs-combo-box">
+             <div class="default-goods">
+               <div class="goods-thumb"><a href="<%=goods_info['goods_url']%>" target="block"><img src="<%=goods_image_small%>" title="<%=goods_info['goods_name']%>" alt="<%=goods_info['goods_name']%>" /></a>
+               </div>
+               <dl>
+                 <dt title="<%=goods_info['goods_name']%>"><%=goods_info['goods_name']%></dt>
+                 <dd class="goods-price"><%=goods_info['goods_promotion_price']%></dd>
+               </dl>
+               <span class="plus"></span>
+             </div>
+             <div class="combo-goods">
+               <div class="ncs-combo-tab"> <span class="selected"><a href="javascript:;" data-id="all">全部</a></span>
+                 <% for(var k in  gcombo_list) {%>
+                 <span><a href="javascript:;" data-id="<%=k%>"><%=gcombo_list[k]['name']%></a></span>
+                 <%}%>
+               </div>
+               <div class="combo-goods-box" nctype="combo_list">
+	         <% if (!isEmpty(gcombo_list)) { var j=0;%>
+                   <div class="combo-goods-list">
+                     <ul class="F-center">
+                       <% for(var k in gcombo_list) {%>
+                         <% for(var i in gcombo_list[k]['goods']) {%> 
+                           <li <% if (j == 0) {%>class="combo-goods-first"<% j++;}%> data-id="<%=k%>">
+                            <div class="goods-thumb"><a href="<%=gcombo_list[k]['goods'][i]['goods_url']%>" target="block"><img src="<%=gcombo_list[k]['goods'][i]['goods_image_url']%>" title="<%=gcombo_list[k]['goods'][i]['goods_name']%>" alt="<%=gcombo_list[k]['goods'][i]['goods_name']%>"/></a></div> 
+                            <dl>
+                              <dt title="<%=gcombo_list[k]['goods'][i]['goods_name']%>"><a href="<%=gcombo_list[k]['goods'][i]['goods_url']%>" target="block"><%=gcombo_list[k]['goods'][i]['goods_name']%></a></dt>
+                              <dd class="goods-price"><%=gcombo_list[k]['goods'][i]['goods_promotion_price']%></dd>
+                              <dd class="rp">参考价<%=gcombo_list[k]['goods'][i]['goods_marketprice']%></dd>
+                            </dl>
+                            <input type="checkbox" class="checkbox" nctype="comb"  name="<%=gcombo_list[k]['goods'][i]['goods_id']%>" data-param="{price:<%=gcombo_list[k]['goods'][i]['goods_promotion_price']%>,marketprice:<%=gcombo_list[k]['goods'][i]['goods_marketprice']%>}">
+                            <span class="plus"></span>
+                           </li>
+                         <%}%>
+                       <%}%>
+                     </ul>                       
+                   </div>
+                 <%}%>
+               </div>
+             </div>
+           </div>
+           <% } %>
+         </div>
+        </div>
+        <% } %>
+        <!--E 组合销售 -->
+
 	<div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
 	
 	
@@ -335,6 +409,7 @@
 	<% } %>
 </div>
 </script> 
+</script>
 <script type="text/html" id="product_detail_sepc">
 <div class="nctouch-bottom-mask-bg"></div>
 <div class="nctouch-bottom-mask-block">
