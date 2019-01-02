@@ -56,11 +56,21 @@
       </dl>
       <dl class="row">
         <dt class="tit">
-          <label for="store_province_id">所在地区</label>
+          <label for="store_province_id">公司地址</label>
         </dt>
         <dd class="opt">
           <input type="hidden" name="store_region" id="store_region" value="<?php echo $output['store_array']['area_info']; ?>" />
           <input type="hidden" value="<?php echo $output['store_array']['province_id']; ?>" name="store_province_id" id="store_province_id">
+          <span class="err"></span>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label for="area_address">商户地址</label>
+        </dt>
+        <dd class="opt">
+          <input type="hidden" name="area_address" id="area_address" value="<?php echo $output['joinin_detail']['area_address']; ?>" />
+          <input type="hidden" value="<?php echo $output['joinin_detail']['area_no']; ?>" name="area_no" id="area_no">
           <span class="err"></span>
         </dd>
       </dl>
@@ -469,6 +479,7 @@ function m_setval($obj,$val){
 var SHOP_SITE_URL = '<?php echo SHOP_SITE_URL;?>';
 $(function(){
     $("#store_region").nc_region();
+    $("#area_address").nc_merchant_region();
     $("#company_address").nc_region();
     $("#business_licence_address").nc_region();
     $("#bank_address").nc_region();
@@ -484,11 +495,15 @@ $(function(){
     var m_gc_no =  "<?php echo $output['joinin_detail']['gc_no']; ?>"; 
     var m_bank_account_type =  "<?php echo $output['joinin_detail']['bank_account_type']; ?>";
     var m_settlement_bank_account_type=  "<?php echo $output['joinin_detail']['settlement_bank_account_type']; ?>"; 
+    var m_area_address =  "<?php echo $output['joinin_detail']['area_address']; ?>";
+    var m_area_no =  "<?php echo $output['joinin_detail']['area_no']; ?>";
     m_setval('bank_no', m_bank_no);
     m_setval('settlement_bank_no', m_settlement_bank_no);
     m_setval('gc_no', m_gc_no);
     m_setval('bank_account_type', m_bank_account_type);
     m_setval('settlement_bank_account_type', m_settlement_bank_account_type);
+    m_setval('area_address', m_area_address);
+    m_setval('area_no', m_area_no);
 
     //按钮先执行验证再提交表单
     $("#submitBtn").click(function(){

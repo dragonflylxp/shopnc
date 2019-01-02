@@ -639,6 +639,10 @@ class storeControl extends SystemControl{
         //保存
         if (chksubmit()){
             $param['gc_no'] = $_POST['gc_no'];
+            $param['area_address'] = $_POST['area_address'];
+            $area_address = explode(' ', $param['area_address']);
+            $city = Model('merchant_area')->getList(array('area_name'=>$area_address[1]));
+            $param['area_no'] = $city[0]['area_code'];
             Model('store_joinin')->editStoreJoinin(array('member_id' => $_POST['member_id']), $param);
 
             //取店铺等级的审核
