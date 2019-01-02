@@ -1393,7 +1393,6 @@ class buyLogic {
 
         //保存数据
         $this->_order_data['pay_sn'] = $pay_sn;
-        $this->_order_data['jf_sn'] = $jf_sn;
         $this->_order_data['order_list'] = $order_list;
         $this->_order_data['notice_list'] = $notice_list;
         $this->_order_data['ifgroupbuy'] = $ifgroupbuy;
