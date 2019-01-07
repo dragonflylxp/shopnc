@@ -1,0 +1,45 @@
+version: "3"
+services:
+    yifen:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: yifen 
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          -  /root/src/shopnc:/var/www/shopnc
+          -  /root/log/shopnc:/var/log/shopnc
+          -  /root/etc/apache2:/etc/apache2
+        environment: 
+          - TZ=Asia/Shanghai
+          - LANG=C.UTF-8
+        links:
+          - mysql 
+        #command: service apache2 restart
+        #stdin_open: true
+        #tty: true
+
+    nginx:  
+        image: nginx
+        container_name: nginx 
+        volumes:
+          -  /root/etc/nginx:/etc/nginx
+        ports:
+          - 8090:8090
+        links:
+          - yifen
+    mysql:
+        image: mariadb 
+        container_name: mysql
+        ports:
+          - 3306:3306
+        volumes:
+          -  /root/etc/mysql:/etc/mysql
+          -  /root/data/mysql:/var/lib/mysql
+          -  /root/log/mysql:/var/log/mysql
+        environment: 
+          - TZ=Asia/Shanghai
+          - LANG=C.UTF-8
+          - MYSQL_ROOT_PASSWORD=123456
