@@ -86,6 +86,8 @@ class MerchantRegister{
         $xml .= '<bankName>'.$params['bankName'].'</bankName>';
         $xml .= '<bankaccountNo>'.$params['bankaccountNo'].'</bankaccountNo>';
         $xml .= '<bankaccountName>'.$params['bankaccountName'].'</bankaccountName>';
+        $xml .= '<licenseNo>'.$params['licenseNo'].'</licenseNo>';
+        $xml .= '<taxRegisterNo>'.$params['taxRegisterNo'].'</taxRegisterNo>';
         $xml .= '<autoCus>'.$params['autoCus'].'</autoCus>';
         $xml .= '<remark>'.$params['remark'].'</remark>';
         /*

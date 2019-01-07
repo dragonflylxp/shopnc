@@ -171,6 +171,23 @@
       <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
         <thead>
           <tr>
+            <th colspan="20">对公信息</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>营业执照号：</th>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="business_licence_number" value="<?php echo $output["joinin_detail"]["business_licence_number"];?>"></td>
+          </tr>
+          <tr>
+            <th>税务登记证号码：</th>
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="tax_registration_certificate" value="<?php echo $output["joinin_detail"]["tax_registration_certificate"];?>"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
+        <thead>
+          <tr>
             <th colspan="20">辅助信息</th>
           </tr>
         </thead>

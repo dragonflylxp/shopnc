@@ -420,6 +420,8 @@ class storeControl extends SystemControl{
                 $basicInfoParams['bankName'] = $_POST['bank_no_name'];
                 $basicInfoParams['bankaccountNo'] = $_POST['bank_account_number'];
                 $basicInfoParams['bankaccountName'] = $_POST['bank_account_name'];
+                $basicInfoParams['licenseNo'] = $_POST['business_licence_number'];
+                $basicInfoParams['taxRegisterNo'] = $_POST['tax_registration_certificate'];
                 $basicInfoParams['autoCus'] = $_POST['autocus'];
                 $basicInfoParams['remark'] = $_POST['remark'];
                 /*
