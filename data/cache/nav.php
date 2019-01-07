@@ -1,14 +1,14 @@
 <?php defined('Inshopec') or exit('Access Invalid!'); return array (
   0 => 
   array (
-    'nav_id' => '23',
-    'nav_type' => '0',
-    'nav_title' => '1元加价换新品',
-    'nav_url' => 'http://www.baidu.com',
+    'nav_id' => '24',
+    'nav_type' => '3',
+    'nav_title' => '商城促销',
+    'nav_url' => NULL,
     'nav_location' => '1',
     'nav_new_open' => '1',
-    'nav_sort' => '7',
-    'item_id' => '0',
+    'nav_sort' => '1',
+    'item_id' => '1',
     'is_nav_add' => '1',
   ),
   1 => 

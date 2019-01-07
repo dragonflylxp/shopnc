@@ -1,0 +1,5 @@
+*/5 * * * * /usr/bin/php /var/www/shopnc/crontab/index.php minutes >/dev/null 2>&1
+* */1 * * * /usr/bin/php /var/www/shopnc/crontab/index.php hour >/dev/null 2>&1
+0 3 1 * * /usr/bin/php /var/www/shopnc/crontab/index.php month >/dev/null 2>&1
+0 2 * * * /usr/bin/php /var/www/shopnc/crontab/index.php date >/dev/null 2>&1
+
