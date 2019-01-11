@@ -205,11 +205,12 @@ class seller_chatControl extends mobileSellerControl {
         output_data($data);
     }
     /**
-     * 消息记录总数
+     * 未读消息记录总数
      */
     public function get_msg_countOp() {
         $model_chat = Model('web_chat');
-        $where['t_id'] = $_SESSION['store_id'];
+        $where['t_id'] = $this->seller_info['member_id'];
+        $where['r_state'] = '2';
         $MsgCount = $model_chat->getChatMsgCount($where);
         output_data($MsgCount);
     }

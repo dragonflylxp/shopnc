@@ -338,7 +338,7 @@ class member_chatControl extends mobileMemberControl {
 
 	/**
 
-     * 消息记录总数
+     * 未读消息记录总数
 
      */
 
@@ -346,9 +346,9 @@ class member_chatControl extends mobileMemberControl {
 
         $model_chat = Model('web_chat');
 
-		$where['f_id'] = $this->member_info['member_id'];
+	$where['f_id'] = $this->member_info['member_id'];
 
-        
+        $where['r_state'] = '2';
 
         $MsgCount = $model_chat->getChatMsgCount($where);
 
