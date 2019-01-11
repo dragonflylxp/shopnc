@@ -265,10 +265,9 @@ $(function() {
                     $('#jfVessel').show();
                     var jfInfo = Math.floor(result.datas.integral_list[k].balance)+'积分可抵扣'+Math.floor(result.datas.integral_list[k].balance*result.datas.integral_list[k].sysBuyingRate)+'元';
 
-                    // 暴风积分渠道额度判断
-                    if(result.datas.integral_list[k].integralName == '暴风积分'){
-                       var month_balance = result.datas.integral_list[k].month_balance;
-                       if (month_balance <= 0){
+                    // baofeng渠道额度判断
+                    if(result.datas.integral_list[k].integralType == 'baofeng'){
+                       if (result.datas.integral_list[k].channelBalance <= 0){
                            jfInfo = '渠道当月额度不足,不可抵扣';
                            $("#useJF"+k).attr("disabled",true);
                        }else{
@@ -276,7 +275,7 @@ $(function() {
                             * 2.订单金额小于100元, 可全额抵扣
                             */
                            var a = Math.floor(result.datas.integral_list[k].balance*result.datas.integral_list[k].sysBuyingRate)
-                           var b = Math.floor(result.datas.integral_list[k].month_balance*result.datas.integral_list[k].sysBuyingRate)
+                           var b = Math.floor(result.datas.integral_list[k].channelBalance*result.datas.integral_list[k].sysBuyingRate)
                            if (current_total_price >= 100){
                                var c = Math.floor(current_total_price * 0.3);
                                var d = (a<b?a:b)<c?(a<b?a:b):c;
@@ -284,6 +283,8 @@ $(function() {
                                var c = Math.floor(current_total_price);
                                var d = (a<b?a:b)<c?(a<b?a:b):c;
                            }
+                           var able_integral = Math.floor(d/result.datas.integral_list[k].sysBuyingRate); 
+                           d = able_integral*result.datas.integral_list[k].sysBuyingRate;
                            jfInfo = Math.floor(result.datas.integral_list[k].balance)+'积分最多抵扣'+d+'元';
                        }
                     }
@@ -299,13 +300,13 @@ $(function() {
                     if ($(this).prop('checked')) {
                         //动态计算抵扣金额，确保比current_total_price小
                         var able_integral = 0;
-                        // 暴风积分渠道额度判断
-                        if(result.datas.integral_list[k].integralName == '暴风积分'){
+                        // baofeng渠道额度判断
+                        if(result.datas.integral_list[k].integralType == 'baofeng'){
                             /* 1.订单金额超过100元，最多抵扣30%订单金额
                              * 2.订单金额小于100元, 可全额抵扣
                              */
                             var a = Math.floor(result.datas.integral_list[k].balance*result.datas.integral_list[k].sysBuyingRate)
-                            var b = Math.floor(result.datas.integral_list[k].month_balance*result.datas.integral_list[k].sysBuyingRate)
+                            var b = Math.floor(result.datas.integral_list[k].channelBalance*result.datas.integral_list[k].sysBuyingRate)
                             if (current_total_price >= 100){
                                 var c = Math.floor(current_total_price * 0.3);
                                 var d = (a<b?a:b)<c?(a<b?a:b):c;
@@ -324,18 +325,18 @@ $(function() {
                         if(jfPrice[k] > 0){
                             jfOrder[k] = result.datas.integral_list[k].integralType+'|'+able_integral+'|'+jfPrice[k];
                         }
-                        var jfInfo = '已用<font color="red">'+able_integral+'</font>积分抵扣<font color="red">'+jfPrice[k].toFixed(2)+'</font>元';
+                        var jfInfo = '已用<font color="red">'+able_integral+'</font>积分抵扣<font color="red">'+jfPrice[k]+'</font>元';
                         $('#jfInfo'+k).html(jfInfo);
                     } else {
                         current_total_price = current_total_price + jfPrice[k];
                         var jfInfo = '';
-                        // 暴风积分渠道额度判断
-                        if(result.datas.integral_list[k].integralName == '暴风积分'){
+                        // baofeng渠道额度判断
+                        if(result.datas.integral_list[k].integralType == 'baofeng'){
                             /* 1.订单金额超过100元，最多抵扣30%订单金额
                              * 2.订单金额小于100元, 可全额抵扣
                              */
                             var a = Math.floor(result.datas.integral_list[k].balance*result.datas.integral_list[k].sysBuyingRate)
-                            var b = Math.floor(result.datas.integral_list[k].month_balance*result.datas.integral_list[k].sysBuyingRate)
+                            var b = Math.floor(result.datas.integral_list[k].channelBalance*result.datas.integral_list[k].sysBuyingRate)
                             if (current_total_price >= 100){
                                 var c = Math.floor(current_total_price * 0.3);
                                 var d = (a<b?a:b)<c?(a<b?a:b):c;
@@ -343,6 +344,8 @@ $(function() {
                                 var c = Math.floor(current_total_price);
                                 var d = (a<b?a:b)<c?(a<b?a:b):c;
                             }
+                            var able_integral = Math.floor(d/result.datas.integral_list[k].sysBuyingRate); 
+                            d = able_integral*result.datas.integral_list[k].sysBuyingRate;
                             jfInfo = Math.floor(result.datas.integral_list[k].balance)+'积分最多抵扣'+d+'元';
                         } else {
                             jfInfo = Math.floor(result.datas.integral_list[k].balance)+'积分可抵扣'+Math.floor(result.datas.integral_list[k].balance*result.datas.integral_list[k].sysBuyingRate)+'元';

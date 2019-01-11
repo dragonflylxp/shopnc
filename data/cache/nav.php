@@ -88,7 +88,7 @@
     'nav_id' => '19',
     'nav_type' => '0',
     'nav_title' => '资讯',
-    'nav_url' => 'http://www.jiule99.com/cms/',
+    'nav_url' => 'http://manpay.sicpay.com/news/index.php?con=article&amp;fun=article_list&amp;class_id=&amp;type=modern',
     'nav_location' => '1',
     'nav_new_open' => '1',
     'nav_sort' => '255',
