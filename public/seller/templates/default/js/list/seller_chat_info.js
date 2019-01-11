@@ -77,7 +77,7 @@ $(function() {
 
         t.type = "text/javascript";
 
-        t.src = nodeSiteUrl + "/resource/socket.io.js";
+        t.src = nodeSiteUrl + "/socket.io/socket.io.js";
 
         document.body.appendChild(t);
 
@@ -89,7 +89,7 @@ $(function() {
 
             setTimeout(function() {
 
-                if (typeof io === "object") {
+                if (typeof io === "function") {
 
                     s()
 
