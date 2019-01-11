@@ -12,7 +12,7 @@
 define('APP_ID','chat');
 define('BASE_PATH',str_replace('\\','/',dirname(__FILE__)));
 
-require __DIR__ . '/../shopec.php';
+require __DIR__ . '/../../shopec.php';
 
 //@include(BASE_PATH.'/config/config.ini.php');
 
