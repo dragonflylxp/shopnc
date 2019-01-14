@@ -78,7 +78,7 @@
 
                 _bindEvent();
 
-                _close()
+                _close();
 
             }
 
@@ -103,6 +103,16 @@
                     async: false,
 
                     success: function(e) {
+                        if (e == null){
+                            layer.open({
+
+                                content: '请完善店铺经营类目信息!',
+
+                                time:1.5
+
+                            });
+                            return false 
+                        }
 
                         if (e.datas.class_list.length == 0) {
 
@@ -220,7 +230,7 @@
 
                 function() {
 
-                    if ($(this).parent().index() >= $("#areaSelected").find("#filtrate_ul").find(".selected").index()) {
+                    if ($(this).parent().index() != $("#areaSelected").find("#filtrate_ul").find(".selected").index()) {
 
                         return false
 
@@ -233,7 +243,7 @@
                     ASDEEP = $(this).parent().index();
 
                     ASINFO = "";
-
+                
                     for (var e = 0; e < $("#areaSelected").find("#filtrate_ul").find("a").length; e++) {
 
                         if (e < ASDEEP) {
@@ -272,8 +282,15 @@
 
                     }
 
-                    _getAreaList()
+                    if (ASDEEP > 0){
 
+                        _getAreaList()
+
+                    }else{
+
+                        ASDEEP = 1
+
+                    }
                 })
 
             }

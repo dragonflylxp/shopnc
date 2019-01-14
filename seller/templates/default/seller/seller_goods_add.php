@@ -244,7 +244,7 @@ ul.select_ul li{
         <div class="tit"><i></i><p>添&nbsp;加</p></div>
         <div class="nctouch-upload">
           <a href="javascript:void(0);">
-            <span><input hidefocus="true" size="1" class="input-file list_1 " name="file" type="file" onchange="upload(this)" capture="camera" list="1"></span>
+            <span><input hidefocus="true" size="1" class="input-file list_1 " name="file" type="file" onchange="upload(this)" multiple="multiple" list="1"></span>
             
             <p><i class="icon-upload"></i></p>
             </a>
@@ -252,7 +252,7 @@ ul.select_ul li{
         </div>
          <div class="nctouch-upload">
           <a href="javascript:void(0);">
-            <span><input hidefocus="true" size="1" class="input-file list_2" name="file" type="file" onchange="upload(this)" capture="camera" list="2" ></span>
+            <span><input hidefocus="true" size="1" class="input-file list_2" name="file" type="file" onchange="upload(this)" multiple="multiple" list="2" ></span>
           
             <p><i class="icon-upload"></i></p>
             </a>
@@ -260,7 +260,7 @@ ul.select_ul li{
         </div>
          <div class="nctouch-upload">
           <a href="javascript:void(0);">
-            <span><input hidefocus="true" size="1" class="input-file list_3" name="file" type="file"  onchange="upload(this)" capture="camera" list="3"></span>
+            <span><input hidefocus="true" size="1" class="input-file list_3" name="file" type="file"  onchange="upload(this)" multiple="multiple" list="3"></span>
            
             <p><i class="icon-upload"></i></p>
             </a>
@@ -268,7 +268,7 @@ ul.select_ul li{
         </div>
          <div class="nctouch-upload">
           <a href="javascript:void(0);">
-            <span><input hidefocus="true" size="1" class="input-file list_4" name="file" type="file" onchange="upload(this)" capture="camera" list="4"></span>
+            <span><input hidefocus="true" size="1" class="input-file list_4" name="file" type="file" onchange="upload(this)" multiple="multiple" list="4"></span>
             
             <p><i class="icon-upload"></i></p>
             </a>
@@ -276,7 +276,7 @@ ul.select_ul li{
         </div>
          <div class="nctouch-upload">
           <a href="javascript:void(0);">
-            <span><input hidefocus="true" size="1" class="input-file list_5" name="file" type="file" onchange="upload(this)" capture="camera" list="5"></span>
+            <span><input hidefocus="true" size="1" class="input-file list_5" name="file" type="file" onchange="upload(this)" multiple="multiple" list="5"></span>
            
             <p><i class="icon-upload"></i></p>
             </a>
