@@ -407,7 +407,7 @@ class storeControl extends SystemControl{
                 $basicInfoParams['shortName'] = $_POST['legal_person_name'];
                 $basicInfoParams['city'] = $_POST['area_no'];
                 $basicInfoParams['merchantAddress'] = $_POST['company_address_detail'];
-                $basicInfoParams['servicePhone'] = $_POST['company_phone'];
+                $basicInfoParams['servicePhone'] = $_POST['contacts_phone'];
                 $basicInfoParams['orgCode'] = $_POST['organization_code'];
                 $basicInfoParams['merchantType'] = $_POST['merchant_type'];
                 $basicInfoParams['category'] = $_POST['gc_no'];

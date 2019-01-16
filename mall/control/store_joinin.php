@@ -135,6 +135,7 @@ class store_joininControl extends BaseHomeControl {
             $param['organization_code'] = $_POST['organization_code'];
             $param['organization_code_electronic'] = $_POST['organization_code_electronic1'];
             $param['general_taxpayer'] = $_POST['general_taxpayer1'];
+            $param['merchant_type'] = '00';  //PC端商家入驻只能是公司商户
 
             $this->step2_save_valid($param);
 

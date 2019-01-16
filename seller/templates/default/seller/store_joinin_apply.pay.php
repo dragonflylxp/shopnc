@@ -106,11 +106,58 @@
 
 
 
+<div class="nctouch-home-block mt5">
+
+  <div class="tit-bar"><i style="background:#EC5464;"></i>公司法人信息</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>法人姓名</dt>
+
+        <dd>
+           <?php echo $output['joinin_detail']['legal_person_name'];?>
+
+        </dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>法人身份证</dt>
+
+        <dd>
+           <?php echo $output['joinin_detail']['id_nmuber'];?>
+
+        </dd>
+
+    </dl>
+
+  </div>
+
+</div>
+
 
 
 <div class="nctouch-home-block mt5">
 
   <div class="tit-bar"><i style="background:#EC5464;"></i>营业执照信息（副本）</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>营业执照号</dt>
+
+        <dd>
+           <?php echo $output['joinin_detail']['business_licence_number'];?>
+
+        </dd>
+
+    </dl>
+
+  </div>
 
   <div class="evaluation-upload-block">
 
@@ -143,6 +190,21 @@
 <div class="nctouch-home-block mt5">
 
   <div class="tit-bar"><i style="background:#EC5464;"></i>组织机构代码证</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>组织机构代码</dt>
+
+        <dd>
+           <?php echo $output['joinin_detail']['organization_code'];?>
+
+        </dd>
+
+    </dl>
+
+  </div>
 
   <div class="evaluation-upload-block">
 
@@ -180,6 +242,14 @@
 
     <dl class="border_bottom">
 
+        <dt>银行</dt>
+
+        <dd><?php $banks = Model('merchant_bank')->getList(array("bank_code"=>$output['joinin_detail']['bank_no']));echo $banks[0]['bank_name'];?></dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
         <dt>银行开户名</dt>
 
         <dd><?php echo $output['joinin_detail']['settlement_bank_account_name'];?></dd>
@@ -198,6 +268,14 @@
 
     </dl>
 
+    <dl class="border_bottom">
+
+        <dt>银行卡类型</dt>
+
+        <dd><?php if($output['joinin_detail']['bank_account_type'] == '1'){echo "借记卡";} else if($output['joinin_detail']['bank_account_type'] == '2'){echo "贷记卡";} else if($output['joinin_detail']['bank_account_type'] == '3'){echo "存折";} else{echo "";}?></dd>
+
+    </dl>
+
 
 
   </div>
@@ -208,7 +286,23 @@
 
 <div class="nctouch-home-block mt5">
 
+
   <div class="tit-bar"><i style="background:#EC5464;"></i>税务登记证</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>税务登记证号</dt>
+
+        <dd>
+           <?php echo $output['joinin_detail']['tax_registration_certificate'];?>
+
+        </dd>
+
+    </dl>
+
+  </div>
 
   <div class="evaluation-upload-block">
 
@@ -240,9 +334,17 @@
 
     <dl class="border_bottom">
 
-        <dt>卖家账号</dt>
+        <dt>商家账号</dt>
 
         <dd><?php echo $output['joinin_detail']['seller_name'];?></dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
+        <dt>商家地址</dt>
+
+        <dd><?php echo $output['joinin_detail']['area_address'];?></dd>
 
     </dl>
 
@@ -282,6 +384,17 @@
 
           <?php echo $output['joinin_detail']['sc_name'];?>（开店保证金：<?php echo $output['joinin_detail']['sc_bail'];?> 元）
 
+        </dd>
+
+    </dl>
+
+   <dl class="border_bottom">
+
+        <dt>经营类目</dt>
+
+        <dd>
+
+         <?php $categories= Model('merchant_category')->getList(array("category_code"=>$output['joinin_detail']['gc_no']));echo $categories[0]['category_name'];?>
         </dd>
 
     </dl>

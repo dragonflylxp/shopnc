@@ -5,3 +5,4 @@ log
 .htaccess
 .project
 *.swp
+upload/

@@ -46,7 +46,7 @@
 
 <div class="nctouch-home-block">
 
-  <div class="tit-bar"><i style="background:#EC5464;"></i>店铺及联系人信息</div>
+  <div class="tit-bar"><i style="background:#EC5464;"></i>公司及联系人信息</div>
 
   <div class="input_box">
 
@@ -128,7 +128,56 @@
 
 <div class="nctouch-home-block mt5">
 
+  <div class="tit-bar"><i style="background:#EC5464;"></i>公司法人信息</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>法人姓名</dt>
+
+        <dd>
+
+          <input id="legal_person_name" name="legal_person_name" value="" type="text">
+
+        </dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>法人身份证号</dt>
+
+        <dd>
+
+          <input id="legal_person_id" name="legal_person_id" value="" type="text">
+
+        </dd>
+
+    </dl>
+
+  </div>
+</div>
+
+<div class="nctouch-home-block mt5">
+
   <div class="tit-bar"><i style="background:#EC5464;"></i>营业执照信息（副本）</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>营业执照号</dt>
+
+        <dd>
+
+          <input id="business_licence_number" name="business_licence_number" value="" type="text">
+
+        </dd>
+
+    </dl>
+
+  </div>
 
   <div class="evaluation-upload-block">
 
@@ -159,6 +208,22 @@
 <div class="nctouch-home-block mt5">
 
   <div class="tit-bar"><i style="background:#EC5464;"></i>组织机构代码证</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>组织机构代码</dt>
+
+        <dd>
+
+          <input id="organization_code" name="organization_code" value="" type="text">
+
+        </dd>
+
+    </dl>
+
+  </div>
 
   <div class="evaluation-upload-block">
 
@@ -194,6 +259,21 @@
 
     <dl class="border_bottom">
 
+        <dt><i>*</i>银行</dt>
+        <dd><select name="bank_no" id="bank_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+              <?php foreach($output['bank_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+        </dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
         <dt><i>*</i>银行开户名</dt>
 
         <dd><input id="bank_account_name" name="bank_account_name" value="" type="text"></dd>
@@ -202,7 +282,7 @@
 
      <dl class="border_bottom">
 
-        <dt><i>*</i>公司银行账号</dt>
+        <dt><i>*</i>银行账号</dt>
 
         <dd>
 
@@ -212,7 +292,19 @@
 
     </dl>
 
+    <dl class="border_bottom">
 
+        <dt><i>*</i>银行卡类型</dt>
+        <dd>
+              <select name="bank_account_type" id="bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+        </dd>
+
+    </dl>
 
   </div>
 
@@ -223,6 +315,19 @@
 <div class="nctouch-home-block mt5">
 
   <div class="tit-bar"><i style="background:#EC5464;"></i>税务登记证</div>
+
+  <div class="input_box">
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>税务登记证号</dt>
+
+        <dd><input id="tax_registration_certificate" name="tax_registration_certificate" value="" type="text"></dd>
+
+    </dl>
+
+  </div>
+
 
   <div class="evaluation-upload-block">
 
@@ -358,13 +463,27 @@
 
        'contacts_email':$("#contacts_email").val(),
 
+       'legal_person_name':$("#legal_person_name").val(),
+
+       'legal_person_id':$("#legal_person_id").val(),
+
+       'business_licence_number':$("#business_licence_number").val(),
+
        'business_licence_number_elc':$("input[name='business_licence_number_elc']").val(),
 
+       'organization_code':$("#organization_code").val(),
+
        'organization_code_electronic':$("input[name='organization_code_electronic']").val(),
+
+       'bank_no':$("#bank_no").val(),
 
        'bank_account_name':$("#bank_account_name").val(),
 
        'bank_account_number':$("#bank_account_number").val(),
+
+       'bank_account_type':$("#bank_account_type").val(),
+
+       'tax_registration_certificate':$("#tax_registration_certificate").val(),
 
        'tax_registration_certif_elc':$("input[name='tax_registration_certif_elc']").val()
 
@@ -393,10 +512,32 @@
           layer.open({content:'联系人不得为空!'});
 
        }
+        if(data['legal_person_name']==''){
+
+          layer.open({content:'法人姓名不得为空!'});
+
+       }
+        if(data['legal_person_id']==''){
+
+          layer.open({content:'法人身份证不得为空!'});
+
+       }
+
+        if(data['business_licence_number']==''){
+
+          layer.open({content:'营业执照号不得为空!'});
+
+       }
 
         if(data['business_licence_number_elc']==''){
 
           layer.open({content:'请上传营业执照信息副本!'});
+
+       }
+
+        if(data['organization_code']==''){
+
+          layer.open({content:'组织结构代码不得为空!'});
 
        }
 
@@ -428,6 +569,12 @@
 
        }
 
+        if(data['bank_no']==''){
+
+          layer.open({content:'银行不得为空!'});
+
+       }
+
         if(data['bank_account_name']==''){
 
           layer.open({content:'银行开户名不得为空!'});
@@ -440,6 +587,17 @@
 
        }
 
+        if(data['bank_account_type']==''){
+
+          layer.open({content:'银行类型不得为空!'});
+
+       }
+
+        if(data['tax_registration_certificate']==''){
+
+          layer.open({content:'税务登记证号不得为空!'});
+
+       }
     
 
        $.ajax({

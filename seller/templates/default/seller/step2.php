@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo MOBILE_TEMPLATES_URL;?>/css/rzxy.css">
 
+<link rel="stylesheet" type="text/css" href="<?php echo MOBILE_TEMPLATES_URL;?>/css/nctouch_common.css">
+
 <style type="text/css">
 
 .btnselect{
@@ -92,6 +94,15 @@ border: none;
 
     </dl>
 
+    <dl class="border_bottom">
+
+        <dt><i>*</i>商家地址</dt>
+        <dd>
+          <input id="area_address" name="area_address" type="text" value="<?php echo $output['store_info']['area_address']; ?>"/>
+        </dd>
+
+    </dl>
+
      <dl class="border_bottom">
 
         <dt><i>*</i>店铺名称</dt>
@@ -178,6 +189,24 @@ border: none;
 
 
 
+        </dd>
+
+    </dl>
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>经营类目</dt>
+
+        <dd>
+            <select name="gc_no" id="gc_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['gcno_list']) && is_array($output['gcno_list'])){ ?>
+              <?php foreach($output['gcno_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['category_code'];?>"><?php echo $v['category_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select> 
+              
         </dd>
 
     </dl>
@@ -298,9 +327,33 @@ border: none;
 
 
 
-<script>
+<script type="text/javascript">
 
   $(function(){
+        //初始化变量
+       
+
+        //商户地址
+        $("#area_address").on("click",
+    
+        function() {
+            $.areaSelectedMerchant({
+    
+                success: function(a) {
+    
+                    $("#area_address").val(a.area_info).attr({
+    
+                        "data-areaid": a.area_id,
+    
+                        "data-areaid2": a.area_id_2 == 0 ? a.area_id_1: a.area_id_2
+    
+                    })
+    
+                }
+    
+            })
+    
+        })
 
         $(".stroe_one .btnselect").click(function(){
 
@@ -426,7 +479,11 @@ border: none;
 
        'seller_name':$("#seller_name").val(),
 
+       'area_address':$("#area_address").val(),
+
        'store_name':$("#store_name").val(),
+
+       'gc_no':$("#gc_no").val(),
 
        'joinin_year':$(".stroe_time").find('span.current').attr('value'),
 
@@ -448,9 +505,21 @@ border: none;
 
        }
 
+        if(data['area_address']==''){
+
+          layer.open({content:'商家地址不得为空!'});
+
+       }
+
         if(data['store_name']==''){
 
           layer.open({content:'店铺名称不得为空!'});
+
+       }
+
+        if(data['gc_no']==''){
+
+          layer.open({content:'经营类目不得为空!'});
 
        }
 

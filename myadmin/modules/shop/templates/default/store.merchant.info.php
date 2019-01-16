@@ -150,8 +150,8 @@
           </tr>
           <tr>
             <th>商户类型：</th>
-            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_type_name" value="公司商户"></td>
-                <input type="hidden" class="txt w300" name="merchant_type" value="00">
+            <td colspan="20"><input readonly="readonly" type="text" class="txt w300" name="merchant_type_name" value="<?php if($output["joinin_detail"]["merchant_type"]=='00'){echo "公司商户";} else {echo "个体商户";}?>"></td>
+                <input type="hidden" class="txt w300" name="merchant_type" value="<?php echo $output["joinin_detail"]["merchant_type"];?>">
           </tr>
           <tr>
             <th>商户城市：</th>

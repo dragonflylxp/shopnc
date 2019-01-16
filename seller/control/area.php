@@ -70,6 +70,28 @@ class areaControl extends mobileHomeControl{
 
     }
 
+    public function area_list_merchantOp() {
+
+        $model_area = Model('merchant_area');
+
+        $condition = array();
+
+        if(!empty($_GET['area_id'])) {
+
+            $condition['area_parent_code'] = $_GET['area_id'];
+
+        } else {
+
+            $condition['area_parent_code'] = 'CHN';
+
+        }
+
+        $area_list = $model_area->getAreaList($condition, 'area_code,area_name');
+
+        output_data(array('area_list' => $area_list));
+
+    }
+
 
 
 }

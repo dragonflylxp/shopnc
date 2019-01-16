@@ -196,6 +196,8 @@ class store_joininControl extends mobileHomeControl {
 
     public function step1Op() {
 
+        $bank_list = Model('merchant_bank')->getList(array(), $page='100');
+        Tpl::output('bank_list', $bank_list);
         Tpl::showpage('step1');
 
         exit;
@@ -236,18 +238,41 @@ class store_joininControl extends mobileHomeControl {
 
             $param['contacts_email'] = $_POST['contacts_email'];
 
+            $param['legal_person_name'] = $_POST['legal_person_name'];
+
+            $param['id_number'] = $_POST['legal_person_id'];
+
+            $param['business_licence_number'] = $_POST['business_licence_number'];
+
             $param['business_licence_number_elc'] = $_POST['business_licence_number_elc'];
+
+            $param['organization_code'] = $_POST['organization_code'];
 
             $param['organization_code_electronic'] = $_POST['organization_code_electronic'];
 
-            $param['is_settlement_account'] = 2;
+            $param['bank_no'] = $_POST['bank_no'];
+
+            $param['bank_account_name'] = $_POST['bank_account_name'];
+
+            $param['bank_account_number'] = $_POST['bank_account_number'];
+
+            $param['bank_account_type'] = $_POST['bank_account_type'];
+
+            $param['is_settlement_account'] = 1;
+
+            $param['settlement_bank_no'] = $_POST['bank_account_name'];
 
             $param['settlement_bank_account_name'] = $_POST['bank_account_name'];
 
             $param['settlement_bank_account_number'] = $_POST['bank_account_number'];
 
+            $param['settlement_bank_account_type'] = $_POST['bank_account_type'];
+
+            $param['tax_registration_certificate'] = $_POST['tax_registration_certificate'];
+
             $param['tax_registration_certif_elc'] = $_POST['tax_registration_certif_elc'];
 
+            $param['merchant_type'] = '00'; //公司商户
           
 
             $this->step2_save_valid($param);
@@ -270,7 +295,7 @@ class store_joininControl extends mobileHomeControl {
 
                 $model_store_joinin->modify($param, array('member_id'=>$_SESSION['member_id']));
 
-                 output_data(array('url'=>urlMobile('store_joinin')));
+                 output_data(array('url'=>urlMobile('store_joinin', 'step2')));
 
             }
 
@@ -290,6 +315,10 @@ class store_joininControl extends mobileHomeControl {
 
         Tpl::output('gc_list',$gc_list);
 
+        //经营类目
+        $gcno_list = Model('merchant_category')->getList(array(), $page='100');
+  
+        Tpl::output('gcno_list', $gcno_list);
 
 
         //店铺等级
@@ -494,6 +523,11 @@ class store_joininControl extends mobileHomeControl {
 
         $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
 
+        $param['gc_no'] = $_POST['gc_no'];
+        $param['area_address'] = $_POST['area_address'];
+        $area_address = explode(' ', $param['area_address']);
+        $city = Model('merchant_area')->getList(array('area_name'=>$area_address[1]));
+        $param['area_no'] = $city[0]['area_code'];
         
 
         //取店铺等级信息

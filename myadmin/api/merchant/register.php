@@ -74,7 +74,6 @@ class MerchantRegister{
         $xml .= '<city>'.$params['city'].'</city>';
         $xml .= '<merchantAddress>'.$params['merchantAddress'].'</merchantAddress>';
         $xml .= '<servicePhone>'.$params['servicePhone'].'</servicePhone>';
-        $xml .= '<orgCode>'.$params['orgCode'].'</orgCode>';
         $xml .= '<merchantType>'.$params['merchantType'].'</merchantType>';
         $xml .= '<category>'.$params['category'].'</category>';
         $xml .= '<corpmanName>'.$params['corpmanName'].'</corpmanName>';
@@ -86,10 +85,16 @@ class MerchantRegister{
         $xml .= '<bankName>'.$params['bankName'].'</bankName>';
         $xml .= '<bankaccountNo>'.$params['bankaccountNo'].'</bankaccountNo>';
         $xml .= '<bankaccountName>'.$params['bankaccountName'].'</bankaccountName>';
-        $xml .= '<licenseNo>'.$params['licenseNo'].'</licenseNo>';
-        $xml .= '<taxRegisterNo>'.$params['taxRegisterNo'].'</taxRegisterNo>';
         $xml .= '<autoCus>'.$params['autoCus'].'</autoCus>';
         $xml .= '<remark>'.$params['remark'].'</remark>';
+
+        //公司商户
+        if($params['merchantType'] == '00'){
+            $xml .= '<orgCode>'.$params['orgCode'].'</orgCode>';
+            $xml .= '<licenseNo>'.$params['licenseNo'].'</licenseNo>';
+            $xml .= '<taxRegisterNo>'.$params['taxRegisterNo'].'</taxRegisterNo>';
+        }
+
         /*
          * 设置结算银行卡信息
          */

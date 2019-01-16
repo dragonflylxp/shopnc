@@ -163,6 +163,9 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
 
     public function step0Op() {
+        $bank_list = Model('merchant_bank')->getList(array(), $page='100');
+
+        Tpl::output('bank_list', $bank_list);
 
         $model_document = Model('document');
 
@@ -200,6 +203,10 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
         Tpl::output('gc_list',$gc_list);
 
+        //经营类目
+        $gcno_list = Model('merchant_category')->getList(array(), $page='100');
+  
+        Tpl::output('gcno_list', $gcno_list);
 
 
         //店铺等级
@@ -290,20 +297,36 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
             $param['contacts_email'] = $_POST['contacts_email'];
 
-            $param['business_licence_number'] = $_POST['business_licence_number'];
+            $param['legal_person_name'] = $_POST['legal_person_name'];
 
-            $param['business_sphere'] = $_POST['business_sphere'];
+            $param['id_number'] = $_POST['legal_person_id'];
+
+            $param['business_licence_number'] = $_POST['legal_person_id'];
 
             $param['business_licence_number_elc'] =$_POST['business_licence_number_electronic'];
 
-            $param['settlement_bank_account_name'] = $_POST['settlement_bank_account_name'];
+            $param['bank_no'] = $_POST['bank_no'];
 
-            $param['settlement_bank_account_number']= $_POST['settlement_bank_account_number'];
+            $param['bank_account_name'] = $_POST['bank_account_name'];
 
+            $param['bank_account_number'] = $_POST['bank_account_number'];
+
+            $param['bank_account_type'] = $_POST['bank_account_type'];
+
+            $param['is_settlement_account'] = 1;
+
+            $param['settlement_bank_no'] = $_POST['bank_account_name'];
+
+            $param['settlement_bank_account_name'] = $_POST['bank_account_name'];
+
+            $param['settlement_bank_account_number'] = $_POST['bank_account_number'];
+
+            $param['settlement_bank_account_type'] = $_POST['bank_account_type'];
+
+            $param['merchant_type'] = '01'; //个体商户
 
 
             $this->step2_save_valid($param);
-
 
 
             $model_store_joinin = Model('store_joinin');
@@ -322,7 +345,7 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
                 $model_store_joinin->modify($param, array('member_id'=>$_SESSION['member_id']));
 
-                 output_data(array('url'=>urlMobile('store_joinin_c2c')));
+                output_data(array('url'=>urlMobile('store_joinin_c2c')));
 
             }
 
@@ -350,15 +373,15 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
             array("input"=>$param['contacts_email'], "require"=>"true","validator"=>"email","message"=>"电子邮箱不能为空"),
 
-            array("input"=>$param['business_licence_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"身份证号不能为空且必须小于20个字"),
+            array("input"=>$param['id_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"身份证号不能为空且必须小于20个字"),
 
-            array("input"=>$param['business_sphere'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"500","message"=>"姓名不能为空且必须小于50个字"),
+            array("input"=>$param['legal_person_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"500","message"=>"姓名不能为空且必须小于50个字"),
 
             array("input"=>$param['business_licence_number_elc'], "require"=>"true","message"=>"身份证扫描件不能为空"),
 
-            array("input"=>$param['settlement_bank_account_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"支付宝不能为空且必须小于50个字"),
+            array("input"=>$param['settlement_bank_account_name'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"50","message"=>"银行开户名不能为空且必须小于50个字"),
 
-            array("input"=>$param['settlement_bank_account_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"支付宝账号不能为空且必须小于20个字"),
+            array("input"=>$param['settlement_bank_account_number'], "require"=>"true","validator"=>"Length","min"=>"1","max"=>"20","message"=>"银行账号不能为空且必须小于20个字"),
 
 
 
@@ -470,6 +493,11 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
         $param['store_class_commis_rates'] = implode(',', $store_class_commis_rates);
 
+        $param['gc_no'] = $_POST['gc_no'];
+        $param['area_address'] = $_POST['area_address'];
+        $area_address = explode(' ', $param['area_address']);
+        $city = Model('merchant_area')->getList(array('area_name'=>$area_address[1]));
+        $param['area_no'] = $city[0]['area_code'];
         
 
         //取店铺等级信息

@@ -352,16 +352,89 @@ class mobileSellerControl extends mobileControl{
 
         parent::__construct();
 
-
-
         if(!C('site_status')) halt(C('closed_reason'));
 
         Tpl::setDir('seller');
 
         Tpl::setLayout('seller_layout');
 
+        // 若用户已经登录且店铺申请审核通过，则自动登录seller
+        $model_mb_user_token = Model('mb_user_token');
+        $key1 = $_SESSION['key'];
+        $key2 = $_COOKIE["key"]?$_COOKIE["key"]:$_GET['key'];
+        if(!empty($key1)) {
+            $key = $key2; //已cookie为准
+        }else{
+            $key =  $key2;
+        }
+        $mb_user_token_info = $model_mb_user_token->getMbUserTokenInfoByToken($key);
+        if(!empty($mb_user_token_info)){
+            $model_member = Model('member');
+            $member_info = $model_member->getMemberInfo(array('member_id'=>$mb_user_token_info['member_id']));
+            //存储session
+            $_SESSION['is_login'] = '1';
+            $_SESSION['member_id'] = $member_info['member_id'];
+            $_SESSION['member_name'] = $member_info['member_name'];
+            $_SESSION['member_email'] = $member_info['member_email'];
+            $_SESSION['is_buy'] = $member_info['is_buy'];
+            $_SESSION['avatar'] = $member_info['member_avatar'];
+
+            $model_seller = Model('seller');
+            $seller_info = $model_seller->getSellerInfo(array('member_id' => $mb_user_token_info['member_id']));
+            if(!empty($seller_info)){
+                $model_store = Model('store');
+                $store_info = $model_store->getStoreInfoByID($seller_info['store_id']);
+                $model_seller_group = Model('seller_group');
+                $seller_group_info = $model_seller_group->getSellerGroupInfo(array('group_id' => $seller_info['seller_group_id']));
+        
+                $_SESSION['grade_id'] = $store_info['grade_id'];
+                $_SESSION['seller_id'] = $seller_info['seller_id'];
+                $_SESSION['seller_name'] = $seller_info['seller_name'];
+                $_SESSION['seller_is_admin'] = intval($seller_info['is_admin']);
+                $_SESSION['store_id'] = intval($seller_info['store_id']);
+                $_SESSION['store_name'] = $store_info['store_name'];
+                $_SESSION['store_avatar'] = $store_info['store_avatar'];
+                $_SESSION['is_own_shop'] = (bool) $store_info['is_own_shop'];
+                $_SESSION['bind_all_gc'] = (bool) $store_info['bind_all_gc'];
+                $_SESSION['seller_limits'] = explode(',', $seller_group_info['limits']);
+                $_SESSION['seller_group_id'] = $seller_info['seller_group_id'];
+                $_SESSION['seller_gc_limits'] = $seller_group_info['gc_limits'];
+                if($seller_info['is_admin']) {
+                    $_SESSION['seller_group_name'] = '管理员';
+                    $_SESSION['seller_smt_limits'] = false;
+                } else {
+                    $_SESSION['seller_group_name'] = $seller_group_info['group_name'];
+                    $_SESSION['seller_smt_limits'] = explode(',', $seller_group_info['smt_limits']);
+                }
+        
+                if(!$seller_info['last_login_time']) {
+                    $seller_info['last_login_time'] = TIMESTAMP;
+                }
+        
+                $_SESSION['seller_last_login_time'] = date('Y-m-d H:i', $seller_info['last_login_time']);
+                setNcCookie('auto_login', '', -3600);
+        
+        
+                //更新卖家登陆时间
+                $model_seller->editSeller(array('last_login_time' => TIMESTAMP), array('seller_id' => $seller_info['seller_id']));
+        
+                //生成登录令牌
+                $token = $this->_get_token($seller_info['seller_id'], $seller_info['seller_name'], $mb_user_token_info['client_type']);
+                if($token) {
+                     $_SESSION['sellerkey']  = $token;
+                } else {
+                     $_SESSION['sellerkey']  = '';
+                } 
+            } else {
+                $_SESSION['sellerkey']  = '';
+            }
+        } else {
+            $_SESSION['sellerkey']  = '';
+        }
+        
+
         $model_mb_seller_token = Model('mb_seller_token');
-       $key1 = $_SESSION['sellerkey'];
+        $key1 = $_SESSION['sellerkey'];
 
         if(!empty($key1)) {
 
@@ -373,10 +446,7 @@ class mobileSellerControl extends mobileControl{
             
             showMessage('请登录',urlMobile('seller_login'),'html','error');
 
-
-
         }
-
 
 
         $mb_seller_token_info = $model_mb_seller_token->getSellerTokenInfoByToken($key);
@@ -385,11 +455,7 @@ class mobileSellerControl extends mobileControl{
 
             showMessage('请登录',urlMobile('seller_login'),'html','error');
 
-
-
         }
-
-
 
         $model_seller = Model('seller');
 
@@ -474,6 +540,62 @@ class mobileSellerControl extends mobileControl{
         $model_seller_log = Model('seller_log');
 
         $model_seller_log->addSellerLog($seller_info);
+
+    }
+
+    /**
+
+     * 登录生成token
+
+     */
+
+    private function _get_token($seller_id, $seller_name, $client) {
+
+        $model_mb_seller_token = Model('mb_seller_token');
+
+
+
+        //重新登录后以前的令牌失效
+
+        $condition = array();
+
+        $condition['seller_id'] = $seller_id;
+
+        $model_mb_seller_token->delSellerToken($condition);
+
+
+
+        //生成新的token
+
+        $mb_seller_token_info = array();
+
+        $token = md5($seller_name. strval(TIMESTAMP) . strval(rand(0,999999)));
+
+        $mb_seller_token_info['seller_id'] = $seller_id;
+
+        $mb_seller_token_info['seller_name'] = $seller_name;
+
+        $mb_seller_token_info['token'] = $token;
+
+        $mb_seller_token_info['login_time'] = TIMESTAMP;
+
+        $mb_seller_token_info['client_type'] = $client;
+
+
+
+        $result = $model_mb_seller_token->addSellerToken($mb_seller_token_info);
+
+
+
+        if($result) {
+
+            return $token;
+
+        } else {
+
+            return null;
+
+        }
 
     }
 

@@ -130,7 +130,7 @@
 
         <dt><i>*</i>姓名</dt>
 
-        <dd><input id="business_sphere" name="business_sphere" value="" type="text"></dd>
+        <dd><input id="legal_person_name" name="legal_person_name" value="" type="text"></dd>
 
     </dl>
 
@@ -138,7 +138,7 @@
 
         <dt><i>*</i>身份证号</dt>
 
-        <dd><input id="business_licence_number" name="business_licence_number" value="" type="text"></dd>
+        <dd><input id="legal_person_id" name="legal_person_id" value="" type="text"></dd>
 
     </dl>
 
@@ -190,33 +190,58 @@
 
 <div class="nctouch-home-block mt5">
 
-  <div class="tit-bar"><i style="background:#EC5464;"></i>结算（支付宝）账号信息</div>
+  <div class="tit-bar"><i style="background:#EC5464;"></i>结算账号信息</div>
 
   <div class="input_box">
 
     <dl class="border_bottom">
 
-        <dt><i>*</i>支付宝姓名</dt>
+        <dt><i>*</i>银行</dt>
+        <dd><select name="bank_no" id="bank_no">
+              <option value="">请选择</option>
+              <?php if(!empty($output['bank_list']) && is_array($output['bank_list'])){ ?>
+              <?php foreach($output['bank_list'] as $k => $v){ ?>
+              <option value="<?php echo $v['bank_code'];?>"><?php echo $v['bank_name'];?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+        </dd>
 
-        <dd><input id="settlement_bank_account_name" name="settlement_bank_account_name" value="" type="text"></dd>
+    </dl>
+
+    <dl class="border_bottom">
+
+        <dt><i>*</i>银行开户名</dt>
+
+        <dd><input id="bank_account_name" name="bank_account_name" value="" type="text"></dd>
 
     </dl>
 
      <dl class="border_bottom">
 
-        <dt><i>*</i>支付宝账号</dt>
+        <dt><i>*</i>银行账号</dt>
 
         <dd>
 
-          <input id="settlement_bank_account_number" name="settlement_bank_account_number" type="text" value=""/>
-
-  
+         <input id="bank_account_number" name="bank_account_number" value="" type="text">
 
         </dd>
 
     </dl>
 
+    <dl class="border_bottom">
 
+        <dt><i>*</i>银行卡类型</dt>
+        <dd>
+              <select name="bank_account_type" id="bank_account_type">
+              <option value="">请选择</option>
+              <option value="1" >借记卡</option>
+              <option value="2" >贷记卡</option>
+              <option value="3" >存折</option>
+              </select>
+        </dd>
+
+    </dl>
 
   </div>
 
@@ -336,18 +361,20 @@
 
        'contacts_email':$("#contacts_email").val(),
 
-       'business_sphere':$("#business_sphere").val(),
+       'legal_person_name':$("#legal_person_name").val(),
 
-       'business_licence_number':$("#business_licence_number").val(),
+       'legal_person_id':$("#legal_person_id").val(),
 
        'business_licence_number_electronic':$("input[name='business_licence_number_electronic']").val(),
 
-       'settlement_bank_account_name':$("#settlement_bank_account_name").val(),
+       'bank_no':$("#bank_no").val(),
 
-       'settlement_bank_account_number':$("#settlement_bank_account_number").val(),
+       'bank_account_name':$("#bank_account_name").val(),
 
+       'bank_account_number':$("#bank_account_number").val(),
+
+       'bank_account_type':$("#bank_account_type").val()
      
-
       };
 
        if(data['company_name']==''){
@@ -380,15 +407,25 @@
 
        }
 
-       if(data['settlement_bank_account_name']==''){
+       if(data['bank_no']==''){
 
-          layer.open({content:'支付宝姓名不得为空!'});
+          layer.open({content:'银行不得为空!'});
+
+       }
+       if(data['bank_account_name']==''){
+
+          layer.open({content:'银行开户名不得为空!'});
 
        }
 
-       if(data['settlement_bank_account_number']==''){
+       if(data['bank_account_number']==''){
 
-          layer.open({content:'支付宝账号不得为空!'});
+          layer.open({content:'银行账号不得为空!'});
+
+       }
+       if(data['bank_account_type']==''){
+
+          layer.open({content:'银行类型不得为空!'});
 
        }
 
@@ -400,9 +437,14 @@
 
        }
 
+        if(data['legal_person_name']==''){
+
+          layer.open({content:'身份证姓名不得为空!'});
+
+       }
 
 
-        if(data['business_licence_number']==''){
+        if(data['legal_person_id']==''){
 
           layer.open({content:'身份证号码不得为空!'});
 

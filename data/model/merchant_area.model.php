@@ -98,5 +98,14 @@ class merchant_areaModel extends Model{
         $ret['a'] = array();
         return $ret;
     }
+
+    /**
+     * 获取地址列表
+     *
+     * @return mixed
+     */
+    public function getAreaList($condition = array(), $fields = '*', $group = '', $page = null) {
+        return $this->where($condition)->field($fields)->page($page)->limit(false)->group($group)->select();
+    }
 }
 ?>

@@ -741,6 +741,304 @@ $(function() {
 
         },
 
+        areaSelectedMerchant: function(options) {
+
+            var defaults = {
+
+                success: function(e) {}
+
+            };
+
+            var options = $.extend({},
+
+            defaults, options);
+
+            var ASID = 'CHN';
+
+            var ASID_1 = 0;
+
+            var ASID_2 = 0;
+
+            var ASID_3 = 0;
+
+            var ASNAME = "";
+
+            var ASINFO = "";
+
+            var ASDEEP = 1;
+
+            var ASINIT = true;
+
+            var ASDEEP_array = Array(0,0,0);
+ 
+            function _init() {
+
+                if ($("#areaSelectedMerchant").length > 0) {
+
+                    $("#areaSelectedMerchant").remove()
+
+                }
+
+                var e = '<div id="areaSelectedMerchant">' + '<div class="nctouch-full-mask left">' + '<div class="nctouch-full-mask-bg"></div>' + '<div class="nctouch-full-mask-block">' + '<div class="header">' + '<div class="header-wrap">' + '<div class="header-l"><a href="javascript:void(0);"><i class="back"></i></a></div>' + '<div class="header-title">' + "<h1>选择地区</h1>" + "</div>" + '<div class="header-r"><a href="javascript:void(0);"><i class="close"></i></a></div>' + "</div>" + "</div>" + '<div class="nctouch-main-layout">' + '<div class="nctouch-single-nav">' + '<ul id="filtrate_ul" class="area">' + '<li class="selected"><a href="javascript:void(0);">一级地区</a></li>' + '<li><a href="javascript:void(0);" >二级地区</a></li>' + '<li><a href="javascript:void(0);" >三级地区</a></li>' + "</ul>" + "</div>" + '<div class="nctouch-main-layout-a"><ul class="nctouch-default-list"></ul></div>' + "</div>" + "</div>" + "</div>" + "</div>";
+
+                $("body").append(e);
+
+                _getAreaList();
+
+                _bindEvent();
+
+                _close()
+
+            }
+
+            function _getAreaList() {
+
+                $.ajax({
+
+                    type: "get",
+
+                    url: ApiUrl + "/index.php?con=area&fun=area_list_merchant",
+
+                    data: {
+
+                        area_id: ASID
+
+                    },
+
+                    dataType: "json",
+
+                    async: false,
+
+                    success: function(e) {
+
+                        if (e.datas.area_list.length == 0) {
+
+                            _finish();
+
+                            return false
+
+                        }
+
+                        if (ASINIT) {
+
+                            ASINIT = false
+
+                        } else {
+
+                            ASDEEP++
+
+                        }
+
+                        $("#areaSelectedMerchant").find("#filtrate_ul").find("li").eq(ASDEEP - 1).addClass("selected").siblings().removeClass("selected");
+
+                        checkLogin(e.login);
+
+                        var t = e.datas;
+
+                        var a = "";
+
+                        for (var n = 0; n < t.area_list.length; n++) {
+
+                            a += '<li><a href="javascript:void(0);" data-id="' + t.area_list[n].area_code + '" data-name="' + t.area_list[n].area_name + '"><h4>' + t.area_list[n].area_name + '</h4><span class="arrow-r"></span> </a></li>'
+
+                        }
+
+                        $("#areaSelectedMerchant").find(".nctouch-default-list").html(a);
+
+                        
+
+                            if (typeof IScroll == "undefined") {
+
+                                $.ajax({
+
+                                    url: ApiUrl + "/templates/default/js/iscroll.js",
+
+                                    dataType: "script",
+
+                                    async: false
+
+                                })
+
+                            }
+
+                            myScrollArea = new IScroll("#areaSelectedMerchant .nctouch-main-layout-a", {
+
+                                mouseWheel: true,
+
+                                click: true
+
+                            })
+
+                        
+
+                    }
+
+                });
+
+                return false
+
+            }
+
+            function _bindEvent() {
+
+                $("#areaSelectedMerchant").find(".nctouch-default-list").off("click", "li > a");
+
+                $("#areaSelectedMerchant").find(".nctouch-default-list").on("click", "li > a",
+
+                function() {
+
+                    if(ASDEEP_array[ASDEEP-1] == 1) return false;
+                    
+                    ASID = $(this).attr("data-id");
+
+                    eval("ASID_" + ASDEEP + "=$(this).attr('data-id')");
+
+                    ASNAME = $(this).attr("data-name");
+
+                    ASINFO += ASDEEP==3 ? ASNAME : ASNAME + " ";
+
+                    ASDEEP_array[ASDEEP-1] = 1;
+
+                    var _li = $("#areaSelectedMerchant").find("#filtrate_ul").find("li").eq(ASDEEP);
+
+                    _li.prev().find("a").attr({
+
+                        "data-id": ASID,
+
+                        "data-name": ASNAME
+
+                    }).html(ASNAME);
+
+                    if (ASDEEP == 3) {
+
+                        _finish();
+
+                        return false
+
+                    }
+
+                    _getAreaList()
+
+                });
+
+                $("#areaSelectedMerchant").find("#filtrate_ul").off("click", "li > a");
+
+                $("#areaSelectedMerchant").find("#filtrate_ul").on("click", "li > a",
+
+                function() {
+
+                    if ($(this).parent().index() >= $("#areaSelectedMerchant").find("#filtrate_ul").find(".selected").index()) {
+
+                        return false
+
+                    }
+
+                    ASID = $(this).parent().prev().find("a").attr("data-id");
+
+                    ASNAME = $(this).parent().prev().find("a").attr("data-name");
+
+                    ASDEEP = $(this).parent().index();
+
+                    ASINFO = "";
+
+                    for (var e = 0; e < $("#areaSelectedMerchant").find("#filtrate_ul").find("a").length; e++) {
+
+                        if (e < ASDEEP) {
+
+                            ASINFO += $("#areaSelectedMerchant").find("#filtrate_ul").find("a").eq(e).attr("data-name") + " "
+
+                        } else {
+
+                            var t = "";
+
+                            switch (e) {
+
+                            case 0:
+
+                                t = "一级地区";
+
+                                break;
+
+                            case 1:
+
+                                t = "二级地区";
+
+                                break;
+
+                            case 2:
+
+                                t = "三级地区";
+
+                                break
+
+                            }
+
+                            $("#areaSelectedMerchant").find("#filtrate_ul").find("a").eq(e).html(t)
+
+                        }
+
+                    }
+
+                    _getAreaList()
+
+                })
+
+            }
+
+            function _finish() {
+
+                var e = {
+
+                    area_id: ASID,
+
+                    area_id_1: ASID_1,
+
+                    area_id_2: ASID_2,
+
+                    area_id_3: ASID_3,
+
+                    area_name: ASNAME,
+
+                    area_info: ASINFO
+
+                };
+
+                options.success.call("success", e);
+
+                if (!ASINIT) {
+
+                    $("#areaSelectedMerchant").find(".nctouch-full-mask").addClass("right").removeClass("left")
+
+                }
+
+                return false
+
+            }
+
+            function _close() {
+
+                $("#areaSelectedMerchant").find(".header-l").off("click", "a");
+
+                $("#areaSelectedMerchant").find(".header-l").on("click", "a",
+
+                function() {
+
+                    $("#areaSelectedMerchant").find(".nctouch-full-mask").addClass("right").removeClass("left")
+
+                });
+
+                return false
+
+            }
+
+            return this.each(function() {
+
+                return _init()
+
+            })()
+
+        },
+
         areaSelected: function(options) {
 
             var defaults = {
@@ -768,6 +1066,8 @@ $(function() {
             var ASDEEP = 1;
 
             var ASINIT = true;
+
+            var ASDEEP_array = Array(0,0,0);
 
             function _init() {
 
@@ -885,13 +1185,17 @@ $(function() {
 
                 function() {
 
+                    if(ASDEEP_array[ASDEEP-1] == 1) return false;
+
                     ASID = $(this).attr("data-id");
 
                     eval("ASID_" + ASDEEP + "=$(this).attr('data-id')");
 
                     ASNAME = $(this).attr("data-name");
 
-                    ASINFO += ASNAME + " ";
+                    ASINFO += ASDEEP==3 ? ASNAME : ASNAME + " ";
+
+                    ASDEEP_array[ASDEEP-1] = 1;
 
                     var _li = $("#areaSelected").find("#filtrate_ul").find("li").eq(ASDEEP);
 
