@@ -315,7 +315,7 @@ class store_joinin_c2cControl extends mobileHomeControl {
 
             $param['is_settlement_account'] = 1;
 
-            $param['settlement_bank_no'] = $_POST['bank_account_name'];
+            $param['settlement_bank_no'] = $_POST['bank_no'];
 
             $param['settlement_bank_account_name'] = $_POST['bank_account_name'];
 
