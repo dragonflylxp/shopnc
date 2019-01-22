@@ -68,9 +68,16 @@ class homeControl extends mobileHomeControl {
              $cnt = $cnt+1;
         }
         $groupbuy_url = WAP_SITE_URL."/tmpl/product_list.html?groupbuy=1";
+
+        //分类列表
+        $categroies = array(
+            'sports'=> WAP_SITE_URL."/tmpl/product_list.html?gc_id=1409",
+            'makeup'=> WAP_SITE_URL."/tmpl/product_list.html?gc_id=1410",
+            'furniture'=> WAP_SITE_URL."/tmpl/product_list.html?gc_id=1406",
+            'equipment'=> WAP_SITE_URL."/tmpl/product_list.html?gc_id=1407"
+        );
         
-        //栏目跳转
-        output_data(array('recommend_url'=>$recommend_url, 'recommend_goods_list'=> $recommend_goods_list, 'groupbuy_url'=>$groupbuy_url, 'groupbuy_goods_list'=> $groupbuy_list));
+        output_data(array('recommend_url'=>$recommend_url, 'recommend_goods_list'=> $recommend_goods_list, 'groupbuy_url'=>$groupbuy_url, 'groupbuy_goods_list'=> $groupbuy_list, 'categroies'=>$categroies));
     }
     
     private static function parse_image_url($image_file){

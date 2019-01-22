@@ -40,7 +40,7 @@ class discoverControl extends mobileHomeControl {
         if (isset($_GET['xianshi_limit'])) {
             $limit = intval($_GET['xianshi_limit']);
         }
-        $list = $model_xianshi->getXianshiGoodsList($condition, null, '', '*', $limit);
+        $list = $model_xianshi->getXianshiGoodsList($condition, null, 'xianshi_goods_id desc', '*', $limit);
         $xianshi_list = array();
         $cnt = 0;
         foreach ($list as $k => $_info) {

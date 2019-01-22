@@ -45,6 +45,7 @@ $(function(){
 	}
 	//点击删除地址
 	function delAddress(address_id){
+                var key = getCookie('key');
 		$.ajax({
 			type:'post',
 			url:ApiUrl+"/index.php?con=member_address&fun=address_del",
