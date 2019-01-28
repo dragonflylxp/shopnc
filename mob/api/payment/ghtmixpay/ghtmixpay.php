@@ -273,7 +273,7 @@ class ghtmixpay {
         $xml .= '<settCurrencyType>'.$this->sett_currency_type.'</settCurrencyType>';
         $xml .= '<productName>'.$param['product_name'].'</productName>';
         $xml .= '<returnUrl>'.$this->return_url.'</returnUrl>';
-        $xml .= '<notifyUrl>'.$this->return_url.'</notifyUrl>';
+        $xml .= '<notifyUrl>'.$this->notify_url.'</notifyUrl>';
         $xml .= '</body>';
         $xml .= '</merchant>';
         $post = $this->encrypt_request($xml);
