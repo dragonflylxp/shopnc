@@ -52,8 +52,11 @@ class MerchantIdVerify {
 
     function make_request($agencyid,$merchantid){
         //请求时间(也作为请求唯一id)
-        date_default_timezone_set('UTC');
         $req_date = date("YmdHis");
+
+        //请求id
+        list($msec, $sec) = explode(' ', microtime());
+        $req_msgid = intval((floatval($msec) + floatval($sec)) * 1000);
         
         // xml报文
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -63,7 +66,7 @@ class MerchantIdVerify {
         $xml .= '<agencyId>'.$this->merchant_no.'</agencyId>';
         $xml .= '<msgType>'.$this->msgType.'</msgType>';
         $xml .= '<tranCode>'.$this->tranCode.'</tranCode>';
-        $xml .= '<reqMsgId>'.$req_date.'</reqMsgId>';
+        $xml .= '<reqMsgId>'.$req_msgid.'</reqMsgId>';
         $xml .= '<reqDate>'.$req_date.'</reqDate>';
         $xml .= '</head>';
         $xml .= '<body>';

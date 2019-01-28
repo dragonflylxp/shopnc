@@ -248,5 +248,6 @@ var password,rcb_pay,pd_pay,payment_code;
 
 function goToPayment(pay_sn,op) {
      var key = getCookie('key');
-     location.href = ApiUrl+'/index.php?con=member_payment&fun='+op+'&key=' + key + '&pay_sn=' + pay_sn + '&password=' + password + '&rcb_pay=' + rcb_pay + '&pd_pay=' + pd_pay + '&payment_code=' + payment_code;
+     var cart_ids = getCookie('cart_ids');
+     location.href = ApiUrl+'/index.php?con=member_payment&fun='+op+'&key=' + key + '&pay_sn=' + pay_sn + '&password=' + password + '&rcb_pay=' + rcb_pay + '&pd_pay=' + pd_pay + '&payment_code=' + payment_code + '&cart_ids=' + cart_ids;
 }

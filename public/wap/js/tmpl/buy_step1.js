@@ -117,12 +117,16 @@ $(function() {
             success:function(result){
                 checkLogin(result.login);
                 if (result.datas.error) {
-                    $.sDialog({
-                        skin:"red",
-                        content:result.datas.error,
-                        okBtn:false,
-                        cancelBtn:false
-                    });
+                    if(result.datas.error == '提交数据错误'){
+                        window.location.href = WapSiteUrl + '/tmpl/cart_list.html';
+                    }else{
+                        $.sDialog({
+                            skin:"red",
+                            content:result.datas.error,
+                            okBtn:false,
+                            cancelBtn:false
+                        });
+                    }
                     return false;
                 }
                 // 商品数据
@@ -626,7 +630,8 @@ $(function() {
                 if (result.datas.payment_code == 'offline') {
                     window.location.href = WapSiteUrl + '/tmpl/member/order_list.html';
                 } else {
-                    //delCookie('cart_count');  //调起支付后再删除购物车
+                    delCookie('cart_count');  //调起支付后再删除购物车
+                    addCookie('cart_ids', cart_id);  //缓存已发起支付的商品
                     toPay(result.datas.pay_sn,'member_buy','pay');
                 }
             }

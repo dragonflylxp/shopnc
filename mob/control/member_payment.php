@@ -126,8 +126,30 @@ class member_paymentControl extends mobileMemberControl {
      *
      */
     private function _del_cart() {
-       Logic('queue')->delCart(array('buyer_id'=>$this->member_info['member_id'],'cart_ids'=>array()));
+       $cart_items = $this->_parseItems(explode(',', $_GET['cart_ids']));
+       $cart_ids = array_keys($cart_items);
+       $cart_id_str = implode(',',$cart_ids);
+       if (preg_match('/^[\d,]+$/',$cart_id_str)) {
+           Logic('queue')->delCart(array('buyer_id'=>$this->member_info['member_id'],'cart_ids'=>$cart_ids));
+       } else {
+           Logic('queue')->delCart(array('buyer_id'=>$this->member_info['member_id'],'cart_ids'=>array()));
+       }
        @setNcCookie('cart_goods_num','',-3600);
+    }
+
+    private function _parseItems($cart_id) {
+        //存放所购商品ID和数量组成的键值对
+        $buy_items = array();
+        if (is_array($cart_id)) {
+            foreach ($cart_id as $value) {
+                if (preg_match_all('/^(\d{1,10})\|(\d{1,6})$/', $value, $match)) {
+                    if (intval($match[2][0]) > 0) {
+                        $buy_items[$match[1][0]] = $match[2][0];
+                    }
+                }
+            }
+        }
+        return $buy_items;
     }
     
 

@@ -134,8 +134,11 @@ class ghtmixpay {
      * 高汇通积分余额查询
     */
     public function balance($param){
-        date_default_timezone_set('UTC');
         $req_date = date("YmdHis");
+        //请求id
+        list($msec, $sec) = explode(' ', microtime());
+        $req_msgid = intval((floatval($msec) + floatval($sec)) * 1000);
+
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<merchant>';
         $xml .= '<head>';
@@ -143,7 +146,7 @@ class ghtmixpay {
         $xml .= '<agencyId>'.$this->merchant_no.'</agencyId>';
         $xml .= '<msgType>'.$this->msgType.'</msgType>';
         $xml .= '<tranCode>'.$this->tranCode.'</tranCode>';
-        $xml .= '<reqMsgId>'.$req_date.'</reqMsgId>';
+        $xml .= '<reqMsgId>'.$req_msgid.'</reqMsgId>';
         $xml .= '<reqDate>'.$req_date.'</reqDate>';
         $xml .= '</head>';
         $xml .= '<body>';
@@ -183,8 +186,11 @@ class ghtmixpay {
      * 高汇通C端预下单
     */
     public function preorder($param){
-        date_default_timezone_set('UTC');
-        $req_date = date("YmdHis").'01';
+        $req_date = date("YmdHis");
+        //请求id
+        list($msec, $sec) = explode(' ', microtime());
+        $req_msgid = intval((floatval($msec) + floatval($sec)) * 1000);
+
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<merchant>';
         $xml .= '<head>';
@@ -192,7 +198,7 @@ class ghtmixpay {
         $xml .= '<agencyId>'.$this->merchant_no.'</agencyId>';
         $xml .= '<msgType>'.$this->msgType.'</msgType>';
         $xml .= '<tranCode>'.$this->tranCode.'</tranCode>';
-        $xml .= '<reqMsgId>'.$req_date.'</reqMsgId>';
+        $xml .= '<reqMsgId>'.$req_msgid.'</reqMsgId>';
         $xml .= '<reqDate>'.$req_date.'</reqDate>';
         $xml .= '</head>';
 
@@ -208,7 +214,7 @@ class ghtmixpay {
         $xml .= '<amount>'.$total_amount.'</amount>';   //积分+现金金额
         $xml .= '<userNo>'.$param['user_no'].'</userNo>';
         $xml .= '<returnUrl>'.$this->return_url.'</returnUrl>';
-        $xml .= '<notifyUrl>'.$this->return_url.'</notifyUrl>';
+        $xml .= '<notifyUrl>'.$this->notify_url.'</notifyUrl>';
         
         /*
          * 设置分账信息
@@ -243,8 +249,11 @@ class ghtmixpay {
      * 高汇通混合支付
     */
     public function mixpay($param){
-        date_default_timezone_set('UTC');
-        $req_date = date("YmdHis").'02';
+        $req_date = date("YmdHis");
+        //请求id
+        list($msec, $sec) = explode(' ', microtime());
+        $req_msgid = intval((floatval($msec) + floatval($sec)) * 1000);
+
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<merchant>';
         $xml .= '<head>';
@@ -252,7 +261,7 @@ class ghtmixpay {
         $xml .= '<agencyId>'.$this->merchant_no.'</agencyId>';
         $xml .= '<msgType>'.$this->msgType.'</msgType>';
         $xml .= '<tranCode>'.$this->tranCode.'</tranCode>';
-        $xml .= '<reqMsgId>'.$req_date.'</reqMsgId>';
+        $xml .= '<reqMsgId>'.$req_msgid.'</reqMsgId>';
         $xml .= '<reqDate>'.$req_date.'</reqDate>';
         $xml .= '</head>';
         $xml .= '<body>';
