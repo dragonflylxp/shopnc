@@ -1,0 +1,43 @@
+version: "3"
+services:
+    nginx:
+        image: nginx
+        container_name: ngx
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          -  /root/etc/nginx:/etc/nginx
+          -  /root/log/nginx:/var/log/nginx
+          -  /root/www/html:/var/www/html
+        depends_on:
+          - php
+          - mysql
+        links:
+          -  php
+    php:
+        image: php:7.2-fpm
+        container_name: php
+        ports:
+          - 9000:9000
+        volumes:
+          -  /root/etc/php/etc:/usr/local/etc
+          -  /root/log/php:/usr/local/var/log/
+          -  /root/www/html:/var/www/html
+        #tty: true
+        command: php-fpm -F -R -y /usr/local/etc/php-fpm.conf
+        links:
+          - mysql
+    mysql:
+        image: mariadb
+        container_name: mysql
+        ports:
+          - 3306:3306
+        volumes:
+          -  /root/etc/mysql:/etc/mysql
+          -  /root/data/mysql:/var/lib/mysql
+          -  /root/log/mysql:/var/log/mysql
+        environment:
+          - TZ=Asia/Shanghai
+          - LANG=C.UTF-8
+          - MYSQL_ROOT_PASSWORD=123456         
